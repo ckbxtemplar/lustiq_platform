@@ -82,7 +82,9 @@ export function LatestInvoicesSkeleton() {
   );
 }
 
-export default function DashboardSkeleton() {
+export function Kaki() { return (<div>kaki</div>) }
+
+export function DashboardSkeleton() {
   return (
     <>
       <div
