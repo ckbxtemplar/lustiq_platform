@@ -1,4 +1,3 @@
-// import { sql } from '@vercel/postgres';
 import mysql from 'mysql2/promise';
 import { RowDataPacket } from 'mysql2';
 import {
@@ -8,18 +7,29 @@ import {
   InvoicesTable,
   LatestInvoiceRaw,
   Revenue,
+	User
 } from './definitions';
 import { formatCurrency } from './utils';
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'viktor',
-  password: '1st3nMegbassza01',
-  database: 'nextjs_course',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
+
+export async function getUser(email: string): Promise<User | undefined> {
+	try {
+		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT * FROM users WHERE email='${email}'`);
+		return user[0];
+	} catch (error) {
+		console.error('Failed to fetch user:', error);
+		throw new Error('Failed to fetch user.');
+	}
+}
 
 export async function fetchRevenue() {
   try {
@@ -145,22 +155,38 @@ export async function fetchInvoicesPages(query: string) {
   }
 }
 
-/*
+export async function fetchCustomers() {
+  try {
+    const data = await pool.query<(CustomerField & RowDataPacket)[]>(`
+      SELECT
+        id,
+        name
+      FROM customers
+      ORDER BY name ASC
+    `).then(([rows]) => rows);
+
+    const customers = data;
+    return customers;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all customers.');
+  }
+}
+
 export async function fetchInvoiceById(id: string) {
   try {
-    const data = await sql<InvoiceForm>`
+    const data = await pool.query<(InvoiceForm & RowDataPacket)[]>(`
       SELECT
         invoices.id,
         invoices.customer_id,
         invoices.amount,
         invoices.status
       FROM invoices
-      WHERE invoices.id = ${id};
-    `;
+      WHERE invoices.id = '${id}';
+    `).then(([rows]) => rows);
 
-    const invoice = data.rows.map((invoice) => ({
+    const invoice = data.map((invoice) => ({
       ...invoice,
-      // Convert amount from cents to dollars
       amount: invoice.amount / 100,
     }));
 
@@ -171,24 +197,7 @@ export async function fetchInvoiceById(id: string) {
   }
 }
 
-export async function fetchCustomers() {
-  try {
-    const data = await sql<CustomerField>`
-      SELECT
-        id,
-        name
-      FROM customers
-      ORDER BY name ASC
-    `;
-
-    const customers = data.rows;
-    return customers;
-  } catch (err) {
-    console.error('Database Error:', err);
-    throw new Error('Failed to fetch all customers.');
-  }
-}
-
+/*
 export async function fetchFilteredCustomers(query: string) {
   try {
     const data = await sql<CustomersTableType>`
