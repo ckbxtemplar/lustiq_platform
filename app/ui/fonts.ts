@@ -1,3 +1,3 @@
-import { Inter, Lusitana } from 'next/font/google';
-export const inter = Inter({ subsets: ['latin'] });
-export const lusitana = Lusitana({  weight: ['400', '700'],  subsets: ['latin']});
+import { Roboto, Barlow } from 'next/font/google';
+export const roboto = Roboto({ weight: ['400', '700'], subsets: ['latin'] });
+export const barlow = Barlow({  weight: ['400', '700'],  subsets: ['latin']});

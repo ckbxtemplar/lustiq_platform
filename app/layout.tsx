@@ -1,6 +1,8 @@
 import '@/app/ui/global.css';
-import { inter } from '@/app/ui/fonts';
+import '@/app/ui/assets/css/assets.css';
+import { roboto } from '@/app/ui/fonts';
 import { Metadata } from 'next';
+import ScriptLoader from '@/app/ui/assets/js/ScriptLoader';
  
 export const metadata: Metadata = {
   title: {
@@ -18,8 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-	  <head><title>Next.js</title></head>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <head>
+        <title>Next.js</title>
+
+				<ScriptLoader />
+
+      </head>
+    	<body className={`${roboto.className} antialiased`}>{children}</body>
     </html>
   );
 }
