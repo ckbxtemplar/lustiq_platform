@@ -9,17 +9,22 @@ export const metadata: Metadata = {
  
 export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-        <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
-          <div className="w-32 text-white md:w-36">
-            <AcmeLogo />
-          </div>
-        </div>
-        <Suspense>
-          <LoginForm />
-        </Suspense>
-      </div>
-    </main>
+		<main className="page_content">
+			<section className="register_section section_space_lg">
+				<div className="container">
+					<div className="row justify-content-center">
+						<div className="col col-lg-5">
+							<h1 className="register_heading text-center">Account Login</h1>
+							<p className="register_heading_description text-center">
+								Please enter your User/Email & Password
+							</p>
+							<Suspense>
+								<LoginForm />
+							</Suspense>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
   );
 }
