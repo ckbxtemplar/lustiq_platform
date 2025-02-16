@@ -1,5 +1,4 @@
-import AcmeLogo from '@/app/ui/acme-logo';
-import LoginForm from '@/app/ui/login-form';
+import RegistForm from '@/app/ui/regist-form';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
  
@@ -14,12 +13,12 @@ export default function RegistPage() {
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col col-lg-5">
-							<h1 className="register_heading text-center">Account Login</h1>
+							<h1 className="register_heading text-center">Create Account</h1>
 							<p className="register_heading_description text-center">
 								Please enter your User/Email & Password
 							</p>
 							<Suspense>
-								<LoginForm />
+								<RegistForm />
 							</Suspense>
 						</div>
 					</div>

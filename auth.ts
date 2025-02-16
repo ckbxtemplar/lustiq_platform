@@ -18,8 +18,7 @@ export const { auth, signIn, signOut } = NextAuth({
           const { email, password } = parsedCredentials.data;
           const user = await getUser(email);
           if (!user) return null;
-					const hashedPassword = await bcrypt.hash(password,10);		// kézzel hash, mert az adatbázisban plain			
-          const passwordsMatch = await bcrypt.compare(user.password, hashedPassword);
+          const passwordsMatch = await bcrypt.compare(password, user.password);
 
           if (passwordsMatch) return user;
         }

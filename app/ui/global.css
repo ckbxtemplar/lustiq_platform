@@ -70,3 +70,12 @@ input[type='number']::-webkit-outer-spin-button {
 .size-4 { width: calc(var(--spacing) * 4); height: calc(var(--spacing) * 4); }
 .size-5 { width: calc(var(--spacing) * 5); height: calc(var(--spacing) * 5); }
 /* Ezt is tovább bővítheted */
+
+/* ALERT customize */
+.alert{
+	box-shadow: 4px 4px 20px rgba(31, 29, 13, 0.12), 4px 4px 0 rgba(31, 29, 13, 0.87);
+	-webkit-box-shadow: 4px 4px 20px rgba(31, 29, 13, 0.12), 4px 4px 0 rgba(31, 29, 13, 0.87);
+	-moz-box-shadow: 4px 4px 20px rgba(31, 29, 13, 0.12), 4px 4px 0 rgba(31, 29, 13, 0.87);	
+  border-radius: 8px !important;
+  border-width: 2px !important;
+}

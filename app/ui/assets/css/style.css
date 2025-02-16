@@ -145,6 +145,7 @@ a {
   text-decoration: none;
   -webkit-transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+	font-weight: bold;
 }
 a:active, a:focus, a:hover, a:visited {
   outline: 0;

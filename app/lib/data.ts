@@ -23,11 +23,74 @@ const pool = mysql.createPool({
 
 export async function getUser(email: string): Promise<User | undefined> {
 	try {
-		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT * FROM users WHERE email='${email}'`);
+		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT * FROM users WHERE email='${email}' AND status = 1`);
 		return user[0];
 	} catch (error) {
 		console.error('Failed to fetch user:', error);
 		throw new Error('Failed to fetch user.');
+	}
+}
+
+export async function updateUser(id: string, updates: Record<string, any>): Promise<boolean> {
+	try {
+		if (Object.keys(updates).length === 0) {
+			throw new Error('No fields provided to update.');
+		}
+
+		const fields = Object.keys(updates).map(key => `${key} = ?`).join(', ');
+		const values = Object.values(updates);
+
+		const [result] = await pool.query<(User & RowDataPacket)[]>(`
+			UPDATE users SET ${fields} WHERE id = ?;
+		`, [...values, id]);
+
+		if ((result as any).affectedRows === 0) {
+			console.warn(`No user updated with id: ${id}`);
+			return false;
+		}
+		return true;
+
+	} catch (error) {
+		console.error('Failed to update user:', error);
+		throw new Error('Failed to update user.');
+	}
+}
+
+type CreateUserResponse = {
+  success: number;
+  message: string;
+	userid?: string;
+};
+export async function createUser(email: string, password:string): Promise<CreateUserResponse> {
+	try {
+		await pool.query<(User & RowDataPacket)[]>(`INSERT INTO users (email, password) VALUES (?, ?);`, [email, password]);
+		console.log("email: ",email);
+		console.log("password: ",password);
+	} catch (error: any) {
+		if (error.code === 'ER_DUP_ENTRY') { // MySQL egyedi kulcs megszorítási hiba
+			console.error(`Email már regisztrálva: ${email}`);
+			return {success:0,message:'The given email address is already registered.'}; // Vagy egy saját hibaüzenetet adhatsz vissza
+		}
+
+		console.error('Failed to regist user:', error);
+		return {success:0,message:'Something went wrong while creating the account.'};
+	}
+	try {	
+		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT id FROM users WHERE email='${email}'`);		
+		console.log('user id :',user[0].id);
+		return {success:1, message:'Siker', userid: user[0].id.toString()};
+	} catch (error: any) {
+		return {success:0,message:'Something went wrong while creating the account.'};
+	}
+}
+
+export async function checkUserToken(id: string, token: string): Promise<boolean> {
+	try {
+		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT id FROM users WHERE id=? AND token=? LIMIT 1;`, [id, token]);
+		return user.length > 0;
+	} catch (error) {
+		console.error('Failed to check user token:', error);
+		return false;
 	}
 }
 
