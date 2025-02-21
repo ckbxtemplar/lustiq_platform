@@ -61,11 +61,20 @@ type CreateUserResponse = {
   message: string;
 	userid?: string;
 };
-export async function createUser(email: string, password:string): Promise<CreateUserResponse> {
+export async function createUser(email: string, password:string, token?: string): Promise<CreateUserResponse> {
 	try {
-		await pool.query<(User & RowDataPacket)[]>(`INSERT INTO users (email, password) VALUES (?, ?);`, [email, password]);
-		console.log("email: ",email);
-		console.log("password: ",password);
+		// Ezek kellenek
+		const fields = ["email", "password"];
+		const values = [email, password];
+
+		if (token) {
+			fields.push("token");
+			values.push(token);
+		}
+
+		const query = `INSERT INTO users (${fields.join(", ")}) VALUES (${fields.map(() => "?").join(", ")});`;
+
+		await pool.query<(User & RowDataPacket)[]>(query, values);
 	} catch (error: any) {
 		if (error.code === 'ER_DUP_ENTRY') { // MySQL egyedi kulcs megszorítási hiba
 			console.error(`Email már regisztrálva: ${email}`);
@@ -94,6 +103,8 @@ export async function checkUserToken(id: string, token: string): Promise<boolean
 	}
 }
 
+
+
 export async function fetchRevenue() {
   try {
     const [rows] = await pool.query<(Revenue & RowDataPacket)[]>('SELECT * FROM revenue');
@@ -121,6 +132,27 @@ export async function fetchLatestInvoices() {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch the latest invoices.');
   }
+}
+
+export async function fetchArticlesCount()
+{
+	try {
+		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/articles`, {
+			headers: {
+					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
+			}
+		});
+
+		if (!res.ok) {
+				throw new Error(`HTTP error! Status: ${res.status}`);
+		}
+
+		const data = await res.json();
+		return data.meta?.pagination?.total || 0; // Ha nincs adat, akkor 0-t ad vissza
+	} catch (error) {
+			console.error("Hiba történt a cikkek lekérése közben:", error);
+			return 0;
+	}
 }
 
 export async function fetchCardData() {
@@ -293,4 +325,5 @@ export async function fetchFilteredCustomers(query: string) {
     throw new Error('Failed to fetch customer table.');
   }
 }
+
 			*/

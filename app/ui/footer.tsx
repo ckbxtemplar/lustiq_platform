@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
+
   return (
-		<footer className="site_footer">
+		<footer className="site_footer">		
 		<div className="footer_widget_area">
 			<div className="container">
 				<div className="row">

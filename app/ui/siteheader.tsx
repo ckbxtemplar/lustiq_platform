@@ -3,12 +3,14 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import SiteHeaderUser from './siteheaderuser';
 
-export default function SiteHeader() {
+export default function SiteHeader({ session }: { session: any }) {
 	const pathname = usePathname();
 	const headerClass = pathname === "/" ? "site_header_2" : "site_header_1";
 
-  return (
+
+  return (		
 		<header className={`site_header ${headerClass}`}>
 		<div className="container">
 			<div className="row align-items-center">
@@ -98,31 +100,9 @@ export default function SiteHeader() {
 						</div>
 					</nav>
 				</div>
-				<div className="col col-lg-3 col-5">
-					<ul className="header_btns_group unordered_list_end">
-						<li>
-							<button className="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
-								<i className="far fa-bars"></i>
-							</button>
-						</li>
-						<li>
-							<Link className="btn border_dark" href="/login">
-								<span>
-									<small>Login</small>
-									<small>Login</small>
-								</span>
-							</Link>
-						</li>
-						<li>
-							<Link className="btn btn_dark" href="/regist">
-								<span>
-									<small>Sign Up</small>
-									<small>Sign Up</small>
-								</span>
-							</Link>
-						</li>
-					</ul>
-				</div>
+			
+				<SiteHeaderUser session={session}/>
+
 			</div>
 		</div>
 	</header>

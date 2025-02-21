@@ -1,11 +1,10 @@
 'use server';
 
-import { signIn } from '@/auth';
+import { signIn, signOut } from '@/auth';
 import { createUser,getUser, updateUser, checkUserToken } from '@/app/lib/data';
 import { sendMail } from '@/app/lib/sendmail';
 import { AuthError } from 'next-auth';
 import { z } from 'zod';
-import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import bcrypt from 'bcrypt';
  
@@ -16,7 +15,7 @@ export async function authenticate(
   formData: FormData,
 ) {
   try {
-    await signIn('credentials', formData);
+    await signIn('credentials', formData);	
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
@@ -28,6 +27,10 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function userSignOut() {
+  await signOut({ redirectTo: "/" });
 }
 
 /* USER - Regist */
@@ -77,9 +80,10 @@ export async function registUser(prevState: RegistUserState, formData: FormData)
   }
 
 	const hashedPassword = await bcrypt.hash(password,10);	
+	const token = generateToken();
 
 	// Sql 
-	const user = await createUser(email,hashedPassword);
+	const user = await createUser(email,hashedPassword,token);
 	if (!user || user.success === 0){
 		 return {
       errors: { userCreate: [user.message]  },
@@ -217,7 +221,7 @@ export async function changePassword(prevState: changePasswordState, formData: F
 
 	const hashedPassword = await bcrypt.hash(password,10);	
 
-	const user = await updateUser( userId ,{password:hashedPassword});
+	const user = await updateUser( userId ,{password:hashedPassword, token:null});
 	if (!user){
 		 return {
       errors: { userUpdate: [ 'Failed to edit user' ]  },

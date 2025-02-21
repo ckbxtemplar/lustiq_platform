@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { getUser } from '@/app/lib/data';
 import bcrypt from 'bcrypt';
 
-export const { auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
@@ -28,4 +28,7 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+  session: {
+    strategy: 'jwt'
+  }
 });

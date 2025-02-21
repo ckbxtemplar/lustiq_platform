@@ -17,7 +17,7 @@ export default function LoginForm() {
 
   return (
 <form action={formAction}>
-	{msg && <div className="alert alert-success d-flex align-items-center gap-1 mt-1" role="alert" aria-live="polite" aria-atomic="true">{msg}</div>}
+	{msg && <div className="alert alert-success d-flex" role="alert" aria-live="polite" aria-atomic="true">{msg}</div>}
 	<div className="register_form signup_login_form">
 		<div className="form_item">
 			<input 
@@ -41,8 +41,8 @@ export default function LoginForm() {
 		<div className="remenber_forget row mb-3 align-items-center justify-content-between">
 			<div className="col col-6">
 				<div className="checkbox_item mb-0">
-					<input id="checkbox_remenber" type="checkbox"/>
-					<label htmlFor="checkbox_remenber">Remenber me</label>
+					<input id="checkbox_remenber" type="checkbox" name="remember" value="true"/>
+					<label htmlFor="checkbox_remenber">Remember me</label>
 				</div>
 			</div>
 			<div className="col col-6">

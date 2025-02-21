@@ -14,7 +14,7 @@ export default function RegistActivate() {
 
 		const updateStatus = async () => {
 			try {
-				const response = await fetch('/api/user/activate', {
+				const response = await fetch('/api/auth/activate', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ id: uid, status: 1 })
