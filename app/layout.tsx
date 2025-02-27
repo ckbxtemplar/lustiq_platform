@@ -10,11 +10,11 @@ import { auth } from '@/auth';
  
 export const metadata: Metadata = {
   title: {
-    template: '%s | Acme Dashboard',
-    default: 'Acme Dashboard',
+    template: '%s | Lustiq Platform',
+    default: 'Lustiq Platform',
   },
-  description: 'The official Next.js Learn Dashboard built with App Router.',
-  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+  description: 'Lustiq platform',
+  metadataBase: new URL('https://platform.lustiq.hu'),
 };
 
 export default async function RootLayout({

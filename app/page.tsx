@@ -6,7 +6,7 @@ import Testimonials from '@/app/ui/main/testimonials';
 import CallToAction from '@/app/ui/main/calltoaction';
 import Brands from '@/app/ui/main/brands';
 import Blog from '@/app/ui/main/blog';
-import Newsletter from '@/app/ui/main/newsletter';
+import NewsletterSection from '@/app/ui/newsletter-section';
  
 export default function Page() {
   return (
@@ -19,7 +19,7 @@ export default function Page() {
 			<CallToAction />
 			<Brands />
 			<Blog />
-			<Newsletter />			
+			<NewsletterSection />			
     </main>
   );
 }

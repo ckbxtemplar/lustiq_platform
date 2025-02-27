@@ -35,6 +35,8 @@ input[type='number']::-webkit-outer-spin-button {
 /* Egyedi magasság változók */
 .h-\[var\(--custom-property\)\] { height: var(--custom-property); }
 
+.w-100px{width: 100px;}
+
 /* Méret (Width + Height együtt) */
 .size-auto { width: auto; height: auto; }
 .size-px { width: 1px; height: 1px; }

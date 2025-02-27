@@ -2,6 +2,90 @@
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
 
+export function GridListSkeleton(){
+	return (<>
+      <div className="filter_topbar">
+				<p className="filter_result placeholder-glow"><span className="placeholder w-100px"></span></p>
+        <ul className="filter_buttons_list unordered_list">
+          <li className="d-none">
+            <button type="button" className="offCanvas_open_btn">
+              <i className="fas fa-filter"></i>
+              <span className="placeholder col-3"></span>
+            </button>
+          </li>
+          <li>
+            <div className="form_item m-0">
+              <select name="sorting" defaultValue={"sorting"}>
+                <option className="placeholder col-6"></option>
+                <option className="placeholder col-8"></option>
+                <option className="placeholder col-8"></option>
+              </select>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div className="row">
+				<GridItemSkeleton/>
+				<GridItemSkeleton/>
+				<GridItemSkeleton/>
+      </div>
+	</>);
+}
+
+function GridItemSkeleton(){
+	return (    
+		<div className="col col-lg-4">
+			<div className="course_card">
+				{/* Image Skeleton */}
+				<div className="item_image placeholder-glow">
+					<div
+						className="placeholder w-100"
+						style={{ height: "150px", backgroundColor: "#e0e0e0" }}
+					></div>
+				</div>
+
+				<div className="item_content">
+					{/* Category & Price Skeleton */}
+					<div className="d-flex align-items-center justify-content-between mb-3">
+						<ul className="item_category_list unordered_list placeholder-glow">
+							<li>
+								<span className="placeholder col-4"></span>
+							</li>
+						</ul>
+						<div className="item_price placeholder-glow">
+							<span className="placeholder col-3"></span>
+							<del className="placeholder col-2"></del>
+						</div>
+					</div>
+
+					{/* Meta Info Skeleton */}
+					<ul className="meta_info_list unordered_list placeholder-glow">
+						<li>
+							<span className="placeholder col-5"></span>
+						</li>
+						<li>
+							<span className="placeholder col-4"></span>
+						</li>
+						<li>
+							<span className="placeholder col-6"></span>
+						</li>
+					</ul>
+
+					{/* Title Skeleton */}
+					<h3 className="item_title placeholder-glow">
+						<span className="placeholder col-8"></span>
+					</h3>
+
+					{/* Button Skeleton */}
+					<a className="btn_unfill disabled placeholder col-6">
+						<span className="placeholder col-4"></span>
+					</a>
+				</div>
+			</div>
+		</div>		
+	);
+}
+
 export function CardSkeleton() {
   return (
     <div

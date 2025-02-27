@@ -25,37 +25,13 @@ export default function SiteHeader({ session }: { session: any }) {
 					<nav className="main_menu navbar navbar-expand-lg">
 						<div className="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
 							<ul className="main_menu_list unordered_list_center">
-								<li className="dropdown active">
-									<Link className="nav-link" href="#" id="home_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</Link>
-									<ul className="dropdown-menu" aria-labelledby="home_submenu">
-										<li><Link href="index.html">Home V.1</Link></li>
-										<li className="active"><Link href="index_2.html">Home V.2</Link></li>
-									</ul>
+								<li className={pathname === '/' ? 'active' : ''}>
+									<Link className="nav-link" href="/" id="home_submenu" role="button">Home</Link>
 								</li>
-								<li className="dropdown">
-									<Link className="nav-link" href="#" id="service_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<li className={pathname === '/courses' ? 'active' : ''}>
+									<Link className="nav-link" href="/courses" id="service_submenu" role="button">
 										Courses
 									</Link>
-									<ul className="dropdown-menu" aria-labelledby="service_submenu">
-										<li className="dropdown">
-											<Link className="nav-link" href="#" id="courses_layout_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-												Courses Layout
-											</Link>
-											<ul className="dropdown-menu" aria-labelledby="courses_layout_submenu">
-												<li><Link href="course.html">Courses Grid</Link></li>
-												<li><Link href="course_list.html">Courses List</Link></li>
-											</ul>
-										</li>
-										<li className="dropdown">
-											<Link className="nav-link" href="#" id="courses_details_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-												Courses Details
-											</Link>
-											<ul className="dropdown-menu" aria-labelledby="courses_details_submenu">
-												<li><Link href="course_details.html">Course Details V.1</Link></li>
-												<li><Link href="course_details_2.html">Course Details V.2</Link></li>
-											</ul>
-										</li>
-									</ul>
 								</li>
 								<li className="dropdown">
 									<Link className="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">

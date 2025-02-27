@@ -21,6 +21,9 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
+
+/* USER */
+
 export async function getUser(email: string): Promise<User | undefined> {
 	try {
 		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT * FROM users WHERE email='${email}' AND status = 1`);
@@ -63,7 +66,6 @@ type CreateUserResponse = {
 };
 export async function createUser(email: string, password:string, token?: string): Promise<CreateUserResponse> {
 	try {
-		// Ezek kellenek
 		const fields = ["email", "password"];
 		const values = [email, password];
 
@@ -103,8 +105,119 @@ export async function checkUserToken(id: string, token: string): Promise<boolean
 	}
 }
 
+type SubscribeUserResponse = {
+  success: number;
+};
+
+export async function subscribeUser(email: string): Promise<SubscribeUserResponse> {
+  try {
+    const [rows] = await pool.query<RowDataPacket[]>(`SELECT email FROM subscribers WHERE email = ?`, [email]);
+
+    if (rows.length > 0) {
+      return { success: 1 }; // Már feliratkozott
+    }
+
+    await pool.query(`INSERT INTO subscribers (email) VALUES (?)`, [email]);
+
+    return { success: 2 }; // Sikeres feliratkozás
+  } catch (error: any) {
+    console.error("Hiba történt a hírlevél feliratkozás során:", error);
+    return { success: 0 }; // Hiba történt
+  }
+}
 
 
+
+/* CMS */
+
+export async function fetchCourses()
+{
+	try {
+		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/articles`, {
+			headers: {
+					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
+			}
+		});
+
+		if (!res.ok) {
+				throw new Error(`HTTP error! Status: ${res.status}`);
+		}
+
+		const data = await res.json();
+		return data || null;
+	} catch (error) {
+			console.error("Hiba történt a cikkek lekérése közben:", error);
+			return 0;
+	}
+}
+
+export async function fetchCourse(slug: string)
+{
+	try {
+		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/articles?filters[slug][$eq]=${slug}&populate[0]=blocks`, {
+			headers: {
+					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
+			}
+		});
+
+		if (!res.ok) {
+				throw new Error(`HTTP error! Status: ${res.status}`);
+		}
+		const data = await res.json();
+		return data || null;
+	} catch (error) {
+			console.error("Hiba történt a cikk lekérése közben:", error);
+			return 0;
+	}
+}
+
+
+/* MORE */
+
+export async function fetchCustomers() {
+  try {
+    const data = await pool.query<(CustomerField & RowDataPacket)[]>(`
+      SELECT
+        id,
+        name
+      FROM customers
+      ORDER BY name ASC
+    `).then(([rows]) => rows);
+
+    const customers = data;
+    return customers;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all customers.');
+  }
+}
+
+export async function fetchInvoiceById(id: string) {
+  try {
+    const data = await pool.query<(InvoiceForm & RowDataPacket)[]>(`
+      SELECT
+        invoices.id,
+        invoices.customer_id,
+        invoices.amount,
+        invoices.status
+      FROM invoices
+      WHERE invoices.id = '${id}';
+    `).then(([rows]) => rows);
+
+    const invoice = data.map((invoice) => ({
+      ...invoice,
+      amount: invoice.amount / 100,
+    }));
+
+    return invoice[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch invoice.');
+  }
+}
+
+
+/*
 export async function fetchRevenue() {
   try {
     const [rows] = await pool.query<(Revenue & RowDataPacket)[]>('SELECT * FROM revenue');
@@ -132,27 +245,6 @@ export async function fetchLatestInvoices() {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch the latest invoices.');
   }
-}
-
-export async function fetchArticlesCount()
-{
-	try {
-		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/articles`, {
-			headers: {
-					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
-			}
-		});
-
-		if (!res.ok) {
-				throw new Error(`HTTP error! Status: ${res.status}`);
-		}
-
-		const data = await res.json();
-		return data.meta?.pagination?.total || 0; // Ha nincs adat, akkor 0-t ad vissza
-	} catch (error) {
-			console.error("Hiba történt a cikkek lekérése közben:", error);
-			return 0;
-	}
 }
 
 export async function fetchCardData() {
@@ -250,49 +342,6 @@ export async function fetchInvoicesPages(query: string) {
   }
 }
 
-export async function fetchCustomers() {
-  try {
-    const data = await pool.query<(CustomerField & RowDataPacket)[]>(`
-      SELECT
-        id,
-        name
-      FROM customers
-      ORDER BY name ASC
-    `).then(([rows]) => rows);
-
-    const customers = data;
-    return customers;
-  } catch (err) {
-    console.error('Database Error:', err);
-    throw new Error('Failed to fetch all customers.');
-  }
-}
-
-export async function fetchInvoiceById(id: string) {
-  try {
-    const data = await pool.query<(InvoiceForm & RowDataPacket)[]>(`
-      SELECT
-        invoices.id,
-        invoices.customer_id,
-        invoices.amount,
-        invoices.status
-      FROM invoices
-      WHERE invoices.id = '${id}';
-    `).then(([rows]) => rows);
-
-    const invoice = data.map((invoice) => ({
-      ...invoice,
-      amount: invoice.amount / 100,
-    }));
-
-    return invoice[0];
-  } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch invoice.');
-  }
-}
-
-/*
 export async function fetchFilteredCustomers(query: string) {
   try {
     const data = await sql<CustomersTableType>`

@@ -22,7 +22,7 @@ const ScriptLoader: React.FC = () => {
       <Script src="/assets/js/counterup.min.js"/>
       <Script src="/assets/js/countdown.js"/>
       <Script src="/assets/js/vanilla-calendar.min.js"/>  
-      <Script src="/assets/js/main.js"/>
+      <Script src="/assets/js/main.js" strategy='lazyOnload'/>
 			</>			
   );
 };

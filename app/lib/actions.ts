@@ -1,11 +1,88 @@
 'use server';
 
-import { getUser } from '@/app/lib/data';
+import { subscribeUser } from '@/app/lib/data';
 import { sendMail } from '@/app/lib/sendmail';
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
  
+/* Newsletter forms START */
+const NewsletterSubscribeSchema = z.object({
+	email: z.string().email({ message: 'Please enter a valid email address.' }),
+});
+
+export type NewsletterSubscribeState = {
+	state: number | null;
+  errors?: {
+    email?: string[];
+		alreadySubscribed?: string[];		
+  };
+  message?: string | null;
+};
+
+const NewsletterSubscribeData = NewsletterSubscribeSchema.pick({ email: true });
+
+export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, formData: FormData): Promise<NewsletterSubscribeState> {
+
+	const validatedFields = NewsletterSubscribeData.safeParse({
+    email: formData.get('email')
+  });  
+
+  if (!validatedFields.success) {
+    return {
+			state: 0,	
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing or invalid fields. Failed to create user.',
+    };
+  }
+	const { email } = validatedFields.data;
+
+	// Sql 
+	const subscribe = await subscribeUser(email);
+	if (!subscribe || subscribe.success === 0)	// hiba
+	{ 
+			return {		
+				state: 0,		
+				errors: { alreadySubscribed: ['already subscribed to the newsletter']  },
+				message: 'Already subscribed to the newsletter',
+			}
+	}
+	else if (subscribe.success === 1) // már feliratkozott
+	{ 
+		return {
+			state: subscribe.success,
+			errors: { alreadySubscribed: ['already subscribed to the newsletter']  },
+			message: 'Already subscribed to the newsletter',
+		}
+	}
+	else if (subscribe.success === 2) // siker
+	{ 
+		const response = sendMail({
+			email: 'hello@lustiq.eu',
+			sendTo: email,
+			subject: 'Subscribed | Lustiq Platform',
+			html: {
+				template: 'user_activate',
+				params:{
+				}
+			}
+		});
+
+		return {
+			state: subscribe.success,
+			message: 'Subscribe was successful',
+		}
+
+	}
+
+	return {
+		state: 0,
+		message: 'Unknown error',
+	}	
+}
+
+
+
 /* Invoice forms START */
 
 const InvoiceFormSchema = z.object({

@@ -1,4 +1,4 @@
-import { fetchArticlesCount } from '@/app/lib/data';
+// import { fetchArticles } from '@/app/lib/data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export default async function Page() {
 	// 	});
 	// }, []);	
 
-	const count = await fetchArticlesCount();
-	console.log("darabszam:"+count)
+	// const count = await fetchArticles();
+	// console.log("darabszam:"+count)
 
   return (
 		<main className="page_content">
