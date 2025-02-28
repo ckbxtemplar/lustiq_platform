@@ -1,5 +1,5 @@
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function CoursesLayout({ children }: { children: React.ReactNode }) {
   return (
-      <>{children}</>
+		<div style={{paddingTop: '152px'}}>{children}</div>
   );
 }

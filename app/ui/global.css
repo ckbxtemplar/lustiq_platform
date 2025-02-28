@@ -79,3 +79,95 @@ input[type='number']::-webkit-outer-spin-button {
   border-radius: 8px !important;
   border-width: 2px !important;
 }
+
+.nav-link:focus{ color: inherit !important}
+
+/* DASHBOARD */
+.dashboard_wrapper{padding-top: 152px;}
+
+/* SIDEBAR */
+.sidebar {
+	background-color: #ffd32b; 
+	padding-top: 152px;	
+	width: 250px;
+	transition: width 0.3s;
+	height:100rem;
+	box-shadow: 0 0 20px -10px black;
+}
+.sidebar.collapsed {
+	width: 70px;
+	box-shadow: 0 0 30px -20px #000
+}
+.sidebar .toggle-btn {
+	align-self: flex-end;
+}
+
+.sidebar .custom-menu {
+	display: inline-block;
+	position: absolute;
+	top: 20px;
+	right: 0;
+	margin-right: -20px;
+	-webkit-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;	
+}
+
+.sidebar .custom-menu .custom-btn {
+	background: transparent;
+	border-color: transparent;	
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	position: relative;
+}
+
+.sidebar .custom-menu .custom-btn i {
+	margin-right: -40px;
+	font-size: 14px;		
+}
+
+.sidebar .custom-menu .custom-btn:after {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: '';
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	background: #ffd32b;
+	border-radius: 10px;
+	box-shadow: 10px -10px 30px -22px black;	
+}
+
+/* CHACKBOX , RADIO BUTTON tailwind overdrive */
+.checkbox_item input:before{display: none !important;}
+[type="checkbox"]:hover, [type="radio"]:hover{ background-color: #ffd32b !important;}
+[type="checkbox"]:checked, [type="radio"]:checked{ background-color: #ffd32b !important; background-image:none !important}
+[type="checkbox"]:focus, [type="radio"]:focus{box-shadow: none !important;}
+
+/* DROPDOWN MENU kiegészítése button -ra */
+.main_menu_list .dropdown-menu > li > a:before{display: none;}
+.main_menu_list .dropdown-menu > li > button {
+	display: block;
+	line-height: 1;
+	font-size: 16px;
+	font-weight: 500;
+	color: #29281e;
+	position: relative;
+	white-space: nowrap;
+	transition: all .4scubic-bezier(.25, 1, .5, 1);
+	padding: 14px 30px 12px 32px;
+}
+.main_menu_list .dropdown-menu > li:hover > button, 
+.main_menu_list .dropdown-menu > li.active >  button{
+	background-color: #f7ff62;
+}
+@media screen and (width <= 991px) {
+	.main_menu_list.user_menu .dropdown-menu {
+			position: absolute !important;
+	}
+}

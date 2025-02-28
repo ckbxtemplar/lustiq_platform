@@ -7,6 +7,8 @@ import BackToTop from '@/app/ui/backtotop';
 import SiteHeader from '@/app/ui/siteheader';
 import Footer from '@/app/ui/footer';
 import { auth } from '@/auth';
+import SideNav from '@/app/ui/dashboard/sidenav';
+
  
 export const metadata: Metadata = {
   title: {
@@ -31,10 +33,17 @@ export default async function RootLayout({
 
       </head>
     	<body className={`${roboto.className} antialiased`}>
-				<div className="page_wrapper">
+				<div>
 						<BackToTop/>
 						<SiteHeader session={session}/>
-						{children}
+						<div className='d-flex'>
+							<div className="flex-shrink-0">
+								<SideNav/>
+							</div>
+							<div className="flex-fill">	
+								{children}
+							</div>
+						</div>						
 						<Footer/>
 				</div>
 				<ScriptLoader />

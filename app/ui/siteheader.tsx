@@ -23,8 +23,8 @@ export default function SiteHeader({ session }: { session: any }) {
 				</div>
 				<div className="col col-lg-6 col-2">
 					<nav className="main_menu navbar navbar-expand-lg">
-						<div className="main_menu_inner collapse navbar-collapse justify-content-center" id="main_menu_dropdown">
-							<ul className="main_menu_list unordered_list_center">
+						<div className="main_menu_inner collapse navbar-collapse justify-content-start" id="main_menu_dropdown">
+							<ul className="main_menu_list unordered_list_center">							
 								<li className={pathname === '/' ? 'active' : ''}>
 									<Link className="nav-link" href="/" id="home_submenu" role="button">Home</Link>
 								</li>
@@ -76,9 +76,9 @@ export default function SiteHeader({ session }: { session: any }) {
 						</div>
 					</nav>
 				</div>
-			
-				<SiteHeaderUser session={session}/>
-
+				<div className="col col-lg-3 col-5">
+					<SiteHeaderUser session={session}/>
+				</div>
 			</div>
 		</div>
 	</header>

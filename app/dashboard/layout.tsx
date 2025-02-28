@@ -1,7 +1,3 @@
-import SideNav from '@/app/ui/dashboard/sidenav';
- 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-		<>{children}</>
-  );
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+  return (<div style={{paddingTop: '152px'}}>{children}</div>);
 }
