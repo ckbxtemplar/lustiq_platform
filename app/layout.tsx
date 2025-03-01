@@ -30,20 +30,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-
       </head>
     	<body className={`${roboto.className} antialiased`}>
-				<div>
+				<div className='page-wrapper'>
 						<BackToTop/>
 						<SiteHeader session={session}/>
-						<div className='d-flex'>
-							<div className="flex-shrink-0">
-								<SideNav/>
-							</div>
-							<div className="flex-fill">	
-								{children}
-							</div>
-						</div>						
+						{children}
 						<Footer/>
 				</div>
 				<ScriptLoader />

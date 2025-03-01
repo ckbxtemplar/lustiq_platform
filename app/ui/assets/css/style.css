@@ -3398,18 +3398,13 @@ blockquote p {
 /* 4.3 - Breadcrumb - Start
 ================================================== */
 .page_banner .content_wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 520px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 70px 115px;
-  background-size: 571px;
-  background-repeat: no-repeat;
-  background-color: #F6F6F6;
-  background-position: right bottom;
+    align-items: center;
+    padding: 70px 115px;
+    background-size: auto 90%;
+    background-repeat: no-repeat;
+    background-color: #f6f6f6;
+    background-position: 100% 100%;
+    border-radius: 8px;
 }
 .page_banner .container {
   max-width: 1430px;

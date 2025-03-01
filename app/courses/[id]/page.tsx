@@ -7,6 +7,7 @@ import { Suspense } from 'react';
 import { GridListSkeleton } from '@/app/ui/skeletons';
 import GridList from '@/app/ui/courses/grid-list';
 import { notFound } from "next/navigation";
+import Breadcrumb from '@/app/ui/breadcrumb';
 
 export const metadata: Metadata = {
   title: 'Course',
@@ -34,11 +35,7 @@ export default async function CouresView(props: { params: Promise<{ id: string }
 				<div className="content_wrapper">
 					<div className="row align-items-center">
 						<div className="col col-lg-7">
-							<ul className="breadcrumb_nav unordered_list">
-								<li><Link href="index.html">Home</Link></li>
-								<li><Link href="course.html">Course</Link></li>
-								<li>{data.title}</li>
-							</ul>
+							<Breadcrumb/>
 							<h1 className="page_title">
 								Introduction to User Experience Design
 							</h1>

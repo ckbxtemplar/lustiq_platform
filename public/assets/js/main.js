@@ -209,4 +209,29 @@
   // Common Carousels - End
   // --------------------------------------------------
 
+	$(document).ready(function () {
+		function fixFollowTop() {
+			const offset = 20; // Mennyire legyen a tetejétől
+			if ($(window).scrollTop() > offset) {
+				$(".followTop").css({
+					position: "fixed",
+					top: "0px",
+					width: $(".sidebar").outerWidth(), // Megőrzi az eredeti szélességet
+				});
+			} else {
+				$(".followTop").css({
+					position: "relative",
+					top: "auto",
+					width: "100%",
+				});
+			}
+		}
+	
+		// Eseményfigyelő a görgetéshez
+		$(window).on("scroll", fixFollowTop);
+	
+		// Ha az oldal betöltésekor már lentebb van, akkor is futtassa
+		fixFollowTop();
+	});
+
 })(jQuery);

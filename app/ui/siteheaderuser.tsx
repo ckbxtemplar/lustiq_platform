@@ -11,7 +11,7 @@ export default function SiteHeaderUser({ session }: { session: any }) {
 					<i className="far fa-bars"></i>
 				</button>
 			</li>				
-			{session?.user ? (
+			{session?.user? (
 				<li>
 					<ul className="main_menu_list user_menu unordered_list_end">
 						<li className="dropdown">
@@ -21,10 +21,14 @@ export default function SiteHeaderUser({ session }: { session: any }) {
 								</button>
 							</Link>
 							<ul className="dropdown-menu" aria-labelledby="pages_usermenu">
-								<li><Link href="/dashboard"><i className="fas fa-chalkboard-teacher me-2"></i>Dashboard</Link></li>
+								<li>
+									<Link href="/dashboard">
+										<span className="icon-container me-2 text-center"><i className="fas fa-chalkboard-teacher me-2"></i></span>Dashboard
+									</Link>
+								</li>
 								<li>
 									<button onClick={userSignOut} className="dropdown-item">
-									<i className="fas fa-sign-out-alt me-2"></i> Sign Out
+									<span className="icon-container me-2 text-center"><i className="fas fa-sign-out-alt me-2"></i></span>Sign Out
                 	</button>
 								</li>
 							</ul>

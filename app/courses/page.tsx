@@ -1,6 +1,6 @@
 import { fetchCourses } from '@/app/lib/data';
 import { Metadata } from 'next';
-import GridBanner from '@/app/ui/courses/grid-banner';
+import Banner from '@/app/ui/dashboard/banner';
 import GridList from '@/app/ui/courses/grid-list';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import { Suspense } from 'react';
@@ -15,7 +15,7 @@ export default function Courses() {
   return (
 		<main className="page_content">
 
-		<GridBanner/>
+		<Banner title={'Courses'} description={'Egestas sed tempus urna et pharetra. Leo integer malesuada nunc vel.'} search={true}/>
 
 		<section className="courses_archive_section section_space_md">
 			<div className="container">
