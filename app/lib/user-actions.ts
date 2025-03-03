@@ -1,36 +1,70 @@
 'use server';
 
-import { signIn, signOut } from '@/auth';
+import { signIn, signOut, auth } from '@/auth';
 import { createUser,getUser, updateUser, checkUserToken } from '@/app/lib/data';
 import { sendMail } from '@/app/lib/sendmail';
 import { AuthError } from 'next-auth';
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
 import bcrypt from 'bcrypt';
+import { revalidatePath } from "next/cache";
+import { writeFile } from "fs/promises";
+import path from "path";
+import sharp from "sharp";
  
 /* USER - Login */
+export type AuthenticateState = {
+  success: boolean; 
+  callbackUrl: string | undefined;
+  errorMessage: string | undefined;
+};
 
 export async function authenticate(
-  prevState: string | undefined,
+  prevState: AuthenticateState,
   formData: FormData,
-) {
+): Promise<AuthenticateState> {
   try {
-    await signIn('credentials', formData);	
+    const result = await signIn('credentials', formData );
+
+    return {
+      success: false,      
+      callbackUrl: undefined,
+			errorMessage: 'Invalid credentials.'
+    };
+
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
-          return 'Invalid credentials.';
+					return {
+						success: false,						
+						callbackUrl: undefined,
+						errorMessage: 'Invalid credentials.',						
+					};										
         default:
-          return 'Something went wrong.';
+					return {
+						success: false,						
+						callbackUrl: undefined,
+						errorMessage: 'Something went wrong.',						
+					};						
       }
     }
-    throw error;
+    
+		const redirectTo = formData.get('redirectTo');
+    const callbackUrl = typeof redirectTo === 'string' ? redirectTo : '/dashboard';
+
+		return { // NEXT_REDIRECT errorral tér vissza ha sikeres az auth
+			success: true,						
+			callbackUrl: callbackUrl,
+			errorMessage: undefined						
+		};		
   }
 }
 
 export async function userSignOut() {
-  await signOut({ redirectTo: "/" });
+  await signOut({redirect: false});
+	revalidatePath("/");
+	return true;
 }
 
 /* USER - Regist */
@@ -230,6 +264,125 @@ export async function changePassword(prevState: changePasswordState, formData: F
 	}
 
   redirect(`/login?m=password_changed_successfully`);
+}
+
+/*LANGUAGE SELECT */
+
+const LanguageFormSchema = z.object({
+	lang: z.string().min(2, { message: 'Please select a language.' }),
+});
+
+export type languageSelectState = {
+  errors?: {
+		lang?: string[];
+  };
+  message: string | null;
+};
+
+const language = LanguageFormSchema.pick({ lang: true });
+
+export async function languageSelect(prevState: languageSelectState, formData: FormData): Promise<languageSelectState> {
+	const lang = formData.get('lang');
+  
+	const validatedFields = language.safeParse({
+    lang: formData.get('lang'),
+  });  
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing or invalid language property.',
+    };
+  }
+
+	return {
+		message: 'Ok'
+	};	
+
+	// const response = await fetch('/api/upload-avatar', {
+	// 	method: 'POST',
+	// 	body: formData,
+	// });
+
+	// if (!response.ok) {
+	// 	return 'Failed to upload avatar.';
+	// }
+
+	// return 'Avatar uploaded successfully.';
+}
+
+/* USER UPLOAD AVATAR */
+
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
+const ALLOWED_FILE_TYPES = ["image/jpeg", "image/png"];
+
+const UploadAvatarFormSchema = z.object({
+  image: z
+    .any()
+    .refine((file) => file instanceof File, "File is required.")
+    .refine((file) => ALLOWED_FILE_TYPES.includes(file.type), "Invalid file type. Only JPEG and PNG are allowed.")
+    .refine((file) => file.size <= MAX_FILE_SIZE, `File size must be less than ${MAX_FILE_SIZE / 1024 / 1024}MB.`),
+});
+
+export type uploadAvatarState = {
+	success: boolean | null;
+  errors?: {
+		image?: string[];
+  };
+  message: string | null;
+};
+
+const uavatar = UploadAvatarFormSchema.pick({ image: true });
+
+export async function uploadAvatar(prevState: uploadAvatarState, formData: FormData): Promise<uploadAvatarState> {
+	  
+	const validatedFields = uavatar.safeParse({
+    image: formData.get('image'),
+  });  
+
+  if (!validatedFields.success) {
+    return {
+			success: false,
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing or invalid image. Failed to update avatar.',
+    };
+  }
+	
+	const image = formData.get('image') as File;
+
+	// Fájlnév és mentési útvonal
+	const session = await auth();
+	const filename = `${session?.user?.id?.slice(0, 8)}-resized-${Date.now()}.jpg`;
+	const uploadDir = path.join(process.cwd(), "public/customers/avatars");
+	const filepath = path.join(uploadDir, filename);
+
+	// Fájl átméretezése a Sharp segítségével
+	const buffer = await image.arrayBuffer();
+	const resizedBuffer = await sharp(Buffer.from(buffer))
+		.resize(300, 300)
+		.jpeg({ quality: 80 })
+		.toBuffer();
+
+	// Mentés a szerverre
+	await writeFile(filepath, resizedBuffer);
+
+	return { 
+		success: true, 
+		message: 'Avatar uploaded successfully.' 
+	};	
+
+	console.log(image);
+
+	// const response = await fetch('/api/upload-avatar', {
+	// 	method: 'POST',
+	// 	body: formData,
+	// });
+
+	// if (!response.ok) {
+	// 	return 'Failed to upload avatar.';
+	// }
+
+	// return 'Avatar uploaded successfully.';
 }
 
 /* MORE */

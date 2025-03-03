@@ -20,7 +20,7 @@ export default function GridBanner({page, title, description, search }: BannerPr
 		<div className="container">
 			<div className="content_wrapper" style={{backgroundImage: `url('/assets/images/banner/page_banner_image.png')`}}>
 				<div className="row align-items-center">
-					<div className="col col-lg-6">
+					<div className="col col-md-6">
 
 						<Breadcrumb/>
 

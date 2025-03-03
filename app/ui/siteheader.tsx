@@ -7,7 +7,7 @@ import SiteHeaderUser from './siteheaderuser';
 import SiteHeaderMenu from './siteheadermenu';
 
 
-export default function SiteHeader({ session }: { session: any }) {
+export default function SiteHeader() {
 	const pathname = usePathname();
 	const headerClass = pathname === "/" ? "site_header_2" : "site_header_1";
 	const isDashboard = pathname.startsWith('/dashboard');
@@ -25,10 +25,10 @@ export default function SiteHeader({ session }: { session: any }) {
 					</div>
 				</div>
 				<div className="col col-lg-6 col-2">
-					<SiteHeaderMenu session={session} pathname={pathname} isDashboard={isDashboard}/>
+					<SiteHeaderMenu pathname={pathname} isDashboard={isDashboard}/>
 				</div>
 				<div className="col col-lg-3 col-5">
-					<SiteHeaderUser session={session} />
+					<SiteHeaderUser />
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function SiteHeaderMenuDashboard({ session, pathname }: { session: any; pathname: string }) {
+export default function SiteHeaderMenuDashboard({ pathname }: { pathname: string }) {
 
   return (
 		<div className="main_menu_inner collapse navbar-collapse justify-content-start" id="main_menu_dropdown">

@@ -12,8 +12,10 @@ import Link from 'next/link';
 export default function LoginForm() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
-  const [errorMessage, formAction, isPending] = useActionState( authenticate, undefined );
+  const [state, formAction, isPending] = useActionState( authenticate, { success: false, errorMessage: undefined, callbackUrl: undefined } );
 	const msg = searchParams.get('m') || false;
+
+	if (state.success) window.location.href	= callbackUrl;
 
   return (
 <form action={formAction}>
@@ -65,10 +67,10 @@ export default function LoginForm() {
 			aria-live="polite"
 			aria-atomic="true"
 		>
-			{errorMessage && (
+			{state.errorMessage && (
 				<div className="alert alert-warning d-flex align-items-center gap-1 mt-1" role="alert" aria-live="polite" aria-atomic="true">
 					<ExclamationCircleIcon className="h-5 w-5" />
-					<p className="m-0">{errorMessage}</p>
+					<p className="m-0">{state.errorMessage}</p>
 				</div>
 			)}
 			</div>	

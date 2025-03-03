@@ -1,8 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
 import { userSignOut } from "@/app/lib/user-actions";
+import { useSession } from "next-auth/react";
 
-export default function SiteHeaderUser({ session }: { session: any }) {
+export default function SiteHeaderUser() {
+	const { data: session, status } = useSession();
+  const router = useRouter();	
+  
+	const handleSignOut = async () => {
+    const success = await userSignOut();
+    if (success) window.location.href = '/';
+  };
+	
+	console.log('HEADER USER');
+	console.log(session?.user);
 
   return (
 		<ul className="header_btns_group unordered_list_end">
@@ -17,7 +29,17 @@ export default function SiteHeaderUser({ session }: { session: any }) {
 						<li className="dropdown">
 							<Link className="nav-link" href="#" id="pages_usermenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<button>
-									<i className="fas fa-user-circle fa-2x me-2"></i>  
+								{session?.user?.image ? (
+									<Image
+										src={`/customers/avatars/${session.user.image}`}
+										alt="User Avatar"
+										width={40}
+										height={40}
+										className="rounded-circle"
+									/>
+								) : (
+									<i className="fas fa-user-circle fa-2x me-2"></i>
+								)}
 								</button>
 							</Link>
 							<ul className="dropdown-menu" aria-labelledby="pages_usermenu">
@@ -27,8 +49,8 @@ export default function SiteHeaderUser({ session }: { session: any }) {
 									</Link>
 								</li>
 								<li>
-									<button onClick={userSignOut} className="dropdown-item">
-									<span className="icon-container me-2 text-center"><i className="fas fa-sign-out-alt me-2"></i></span>Sign Out
+									<button onClick={handleSignOut} className="dropdown-item">
+										<span className="icon-container me-2 text-center"><i className="fas fa-sign-out-alt me-2"></i></span>Sign Out
                 	</button>
 								</li>
 							</ul>

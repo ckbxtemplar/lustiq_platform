@@ -1,4 +1,4 @@
-import RegistForm from '@/app/ui/regist-form';
+import {PersonalDataForm, BillingAddressForm} from '@/app/ui/dashboard/profile-forms';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -43,7 +43,7 @@ export default function ProfilePage() {
 											</p>
 										</div>																									
 										<Suspense>
-											<RegistForm />
+											<PersonalDataForm />
 										</Suspense>
 										</div>
 								</div>	
@@ -67,7 +67,7 @@ export default function ProfilePage() {
 											</p>
 										</div>																
 										<Suspense>
-											<RegistForm />
+											<BillingAddressForm />
 										</Suspense>
 										</div>
 								</div>	
