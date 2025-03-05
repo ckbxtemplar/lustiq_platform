@@ -14,7 +14,7 @@ export default function SiteHeaderMenuDashboard({ pathname }: { pathname: string
 				<li className={pathname === '/dashboard/courses' ? 'active' : ''}>
 					<Link className="nav-link" href="/dashboard/courses" id="service_submenu" role="button">
 						<span className="icon-container text-center"><i className="far fa-heart fa-1x text-yellow"></i></span>					
-						Our Courses
+						My Courses
 					</Link>
 				</li>
 				<li className={pathname === '/dashboard/profile' ? 'active' : ''}>

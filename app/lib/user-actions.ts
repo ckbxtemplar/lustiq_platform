@@ -1,7 +1,7 @@
 'use server';
 
 import { signIn, signOut, auth } from '@/auth';
-import { createUser,getUser, updateUser, checkUserToken } from '@/app/lib/data';
+import { createUser,getUser, updateUser, checkUserToken, createBillingAddress, fetchBillingAddress } from '@/app/lib/data';
 import { sendMail } from '@/app/lib/sendmail';
 import { AuthError } from 'next-auth';
 import { z } from 'zod';
@@ -266,49 +266,56 @@ export async function changePassword(prevState: changePasswordState, formData: F
   redirect(`/login?m=password_changed_successfully`);
 }
 
-/*LANGUAGE SELECT */
+/*PERSONAL DATAS */
 
-const LanguageFormSchema = z.object({
-	lang: z.string().min(2, { message: 'Please select a language.' }),
+const PersonalFormSchema = z.object({
+	name: z.string().min(3, { message: 'Username must be at least 3 characters long.' }),
+	language: z.string().min(2, { message: 'Please select a language.' }),
 });
 
-export type languageSelectState = {
+export type personalState = {
+	success: boolean | null;
   errors?: {
-		lang?: string[];
+		name?: string[] | null;
+		language?: string[] | null;
   };
-  message: string | null;
+  message?: string | null;
+	fields?: object | null;
 };
 
-const language = LanguageFormSchema.pick({ lang: true });
+const personalData = PersonalFormSchema.pick({ name:true, language: true });
 
-export async function languageSelect(prevState: languageSelectState, formData: FormData): Promise<languageSelectState> {
-	const lang = formData.get('lang');
+export async function personal(prevState: personalState, formData: FormData): Promise<personalState> {
+	const name = formData.get('username');
+	const language = formData.get('lang');
   
-	const validatedFields = language.safeParse({
-    lang: formData.get('lang'),
+	const validatedFields = personalData.safeParse({
+		name: formData.get('username'),
+    language: formData.get('lang'),
   });  
 
   if (!validatedFields.success) {
     return {
+			success: false,
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing or invalid language property.',
+      message: 'Missing or invalid properties.',
     };
   }
 
+	const d = {name:name, language:language};
+	const session = await auth();
+	const userUpdate = await updateUser(session?.user?.id!, d );
+	if (userUpdate)
+		return {
+			success: true,
+			fields: d,
+			message: 'The data was successfully updated.'
+		};	
+	
 	return {
-		message: 'Ok'
-	};	
-
-	// const response = await fetch('/api/upload-avatar', {
-	// 	method: 'POST',
-	// 	body: formData,
-	// });
-
-	// if (!response.ok) {
-	// 	return 'Failed to upload avatar.';
-	// }
-
-	// return 'Avatar uploaded successfully.';
+		success: false,
+		message: 'Something went wrong',
+	};
 }
 
 /* USER UPLOAD AVATAR */
@@ -329,7 +336,8 @@ export type uploadAvatarState = {
   errors?: {
 		image?: string[];
   };
-  message: string | null;
+  message?: string | null;
+	filename?: string | null;
 };
 
 const uavatar = UploadAvatarFormSchema.pick({ image: true });
@@ -364,25 +372,109 @@ export async function uploadAvatar(prevState: uploadAvatarState, formData: FormD
 		.toBuffer();
 
 	// Mentés a szerverre
-	await writeFile(filepath, resizedBuffer);
+	const wf = await writeFile(filepath, resizedBuffer);
+	const userUpdate = await updateUser(session?.user?.id!, {avatar:filename} );
+	if (userUpdate)
+		return { 
+			success: true, 
+			message: 'Avatar uploaded successfully.',
+			filename: filename
+		};	
+		
 
 	return { 
-		success: true, 
-		message: 'Avatar uploaded successfully.' 
+		success: false,
+		errors: {image: ['Database error']}  
 	};	
+}
 
-	console.log(image);
+/* BILLING ADDRESS */
 
-	// const response = await fetch('/api/upload-avatar', {
-	// 	method: 'POST',
-	// 	body: formData,
-	// });
+const BillingAddressFormSchema = z.object({
+	name: z.string().min(2, { message: 'Name must be at least 2 characters long.' }),
+	zipcode: z.string().min(3, { message: 'Zipcode must be at least 3 characters long.' }),
+	city: z.string().min(2, { message: 'City must be at least 2 characters long.' }),
+	address: z.string().min(4, { message: 'Address must be at least 4 characters long.' }),
+  tax: z.union([
+    z.string().min(5, { message: 'Tax number must be at least 5 characters long.' }),
+    z.literal(""), // Engedélyezi az üres stringet is
+  ]),
+});
 
-	// if (!response.ok) {
-	// 	return 'Failed to upload avatar.';
-	// }
+export type billingAddressState = {
+	success: boolean | null;
+  errors?: {
+		name?: string[] | null;
+		zipcode?: string[] | null;
+		city?: string[] | null;
+		address?: string[] | null;
+		tax?: string[] | null;
+  };
+  message?: string | null;
+	formData?: Object;
+};
 
-	// return 'Avatar uploaded successfully.';
+const baddress = BillingAddressFormSchema;
+
+export async function billingAddress(prevState: billingAddressState, formData: FormData): Promise<billingAddressState> {
+	  
+  const formObject = {
+    name: formData.get('name') as string,
+    zipcode: formData.get('zipcode') as string,
+    city: formData.get('city') as string,
+    address: formData.get('address') as string,
+    tax: formData.get('tax') as string,
+  };
+
+	const validatedFields = baddress.safeParse(formObject);
+
+  if (!validatedFields.success) {
+    return {
+			success: false,
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing or invalid data. Failed to update billing address.',
+			formData: formObject
+    };
+  }
+
+
+	const session = await auth();
+	const user_id = session?.user?.id;
+	if (!user_id) {
+		return { 
+			success: false,
+			message: "User not authenticated.",
+			formData: formObject
+		};
+	}
+  const formDataWithUserId = { ...formObject, user_id };
+	const result = await createBillingAddress(formDataWithUserId);
+	if (result.success && result.id_user_billing_address)
+		return { 
+			success: true,
+			message: "The billing information was modified successfully.",
+			formData: formObject
+		};	
+
+	return { 
+		success: false,
+		message: "Something went wrong.",
+		formData: formObject  
+	};	
+}
+
+export async function getBillingAddress()
+{
+	const session = await auth();
+	const user_id = session?.user?.id;	
+	if (!user_id) {
+		return false;
+	}	
+	const result = await fetchBillingAddress(user_id);
+	
+	if (result.success) return result.data;
+	
+	return false;
 }
 
 /* MORE */

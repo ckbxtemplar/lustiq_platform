@@ -12,9 +12,6 @@ export default function SiteHeaderUser() {
     const success = await userSignOut();
     if (success) window.location.href = '/';
   };
-	
-	console.log('HEADER USER');
-	console.log(session?.user);
 
   return (
 		<ul className="header_btns_group unordered_list_end">
@@ -35,7 +32,7 @@ export default function SiteHeaderUser() {
 										alt="User Avatar"
 										width={40}
 										height={40}
-										className="rounded-circle"
+										className="rounded-circle  me-2"
 									/>
 								) : (
 									<i className="fas fa-user-circle fa-2x me-2"></i>

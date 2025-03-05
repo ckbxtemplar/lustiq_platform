@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 import { useState, useEffect, useRef, useActionState } from "react";
 import { Button } from '../button';
 import {useDropzone} from 'react-dropzone'
-import { uploadAvatar, uploadAvatarState, languageSelect, languageSelectState  } from '@/app/lib/user-actions';
+import { uploadAvatar, uploadAvatarState, personal, personalState, billingAddress, billingAddressState, getBillingAddress  } from '@/app/lib/user-actions';
 import { useSession } from "next-auth/react";
 
 function ImageDropZone(props: {required: boolean, name: string}) 
@@ -77,18 +77,18 @@ function ImageDropZone(props: {required: boolean, name: string})
 export function PersonalDataForm() {
 	const { data: session, update } = useSession();
 
-	const initialStateLanguage: languageSelectState = { 
-		errors: { }, message: null 
+	const initialStatePersonal: personalState = { 
+		success:null, errors: { }, message: null 
 	};
 	const initialStateAvatar: uploadAvatarState = { 
 		success: null, errors: { }, message: null 
 	};	
-	const [stateLanguage, formActionLanguage, isPendingLanguage] = useActionState(languageSelect, initialStateLanguage);	
+	const [statePersonal, formActionPersonal, isPendingPersonal] = useActionState(personal, initialStatePersonal);	
 	const [stateAvatar, formActionAvatar, isPendingAvatar] = useActionState(uploadAvatar, initialStateAvatar);	
 	const [selected, setSelected] =  useState("GB");
 
 	useEffect(() => {  
-    if (stateLanguage.message === "Ok" && session?.user) {
+    if (statePersonal.message === "Ok" && session?.user) {
         const newName = "Béla";
 
         update({
@@ -96,41 +96,43 @@ export function PersonalDataForm() {
                 ...session.user,
                 name: newName,
             }
-        }).then(() => console.log("3: Session updated!"));
+        }).then(() => console.log("Session updated! Personal datas"));
     }
-}, [stateLanguage.message]);
+	}, [statePersonal.message]);
+
+	useEffect(() => {  
+    if (stateAvatar.success === true && session?.user && stateAvatar.filename) {
+        const newImage = stateAvatar.filename;
+        update({
+            user: {
+                ...session.user,
+                image: newImage,
+            }
+        }).then(() => console.log("Session updated! image"));
+    }
+	}, [stateAvatar.filename]);	
 
 	return <>
-		<form action={formActionLanguage}>
+		<form action={formActionPersonal}>
 			<div className="register_form py-5">
 				<div className="row">
 					<div className="col-12 form_item">
 						<p>E-mail cím:</p>
 						<input type="email" id="email" disabled value={session?.user?.email || ""}/>
-						{/* {state.errors?.email && (
-							<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
-								{state.errors?.email &&
-									state.errors.email.map((error: string) => (
-										<p className="m-0 text-sm text-red-500" key={error}>
-											{error}
-										</p>
-									))}
-							</div>	
-						)}	 */}
 					</div>					
 					<div className="col-12 form_item">
 						<p>Megszólítás:</p>
 						<input type="text" id="username" name="username" placeholder="Username" defaultValue={session?.user?.name || ""}/>
-						{/* {state.errors?.email && (
+						{statePersonal.errors?.name && (
 							<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
-								{state.errors?.email &&
-									state.errors.email.map((error: string) => (
+								{statePersonal.errors?.name &&
+									statePersonal.errors.name.map((error: string) => (
 										<p className="m-0 text-sm text-red-500" key={error}>
 											{error}
 										</p>
 									))}
 							</div>	
-						)}	 */}
+						)}	
 					</div>						
 					<div className="col-12 form-item">
 						<p>Nyelv választása:</p>						
@@ -142,23 +144,23 @@ export function PersonalDataForm() {
 							customLabels={{ GB: "English", HU: "Magyar" }}
 							placeholder="Select Language" 
 							searchPlaceholder="Select your language" />
+							{statePersonal.errors?.language && (
+								<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
+									{statePersonal.errors?.language &&
+										statePersonal.errors.language.map((error: string) => (
+											<p className="m-0 text-sm text-red-500" key={error}>
+												{error}
+											</p>
+										))}
+								</div>	
+							)}
+						<input type="hidden" name="lang" value={selected} />															
 					</div>
-					<input type="hidden" name="lang" value={selected} />
 					<div className="col-12 mt-3">
-					{/* {state.errors?.email && (
-						<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
-							{state.errors?.email &&
-								state.errors.email.map((error: string) => (
-									<p className="m-0 text-sm text-red-500" key={error}>
-										{error}
-									</p>
-								))}
-						</div>	
-					)}	 */}			
 
-						{ stateLanguage.message && (	<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">{stateLanguage.message}</div> )}
-										
-					</div>
+					{ statePersonal.success && statePersonal.message && (	<div className="alert alert-success d-flex align-items-center gap-1 mt-3 py-1" role="alert" aria-live="polite" aria-atomic="true">{statePersonal.message}</div> )}
+								
+					</div>					
 					<div className="col-12 text-end mt-3">
 						<Button type="submit" className="btn btn_dark btn_small">
 							<span>
@@ -190,7 +192,7 @@ export function PersonalDataForm() {
 						</div>	
 					)}		
 
-					{ stateAvatar.message && (	<div className="alert alert-warning d-flex align-items-center gap-1 mt-3 py-1" role="alert" aria-live="polite" aria-atomic="true">{stateAvatar.message}</div> )}
+					{ stateAvatar.success && stateAvatar.message && (	<div className="alert alert-success d-flex align-items-center gap-1 mt-3 py-1" role="alert" aria-live="polite" aria-atomic="true">{stateAvatar.message}</div> )}
 								
 					</div>
 					<div className="col-12 text-end mt-3">
@@ -205,11 +207,165 @@ export function PersonalDataForm() {
 			</div>
 		</form>
 	</>
-
+}
+interface BillingAddress {
+  name: string;
+  zipcode: string;
+  city: string;
+  address: string;
+  tax: string;
 }
 
 export function BillingAddressForm() {
-	const [selected, setSelected] = useState(null);
+	
+	const [formData, setFormData] = useState<BillingAddress>({ name: "", zipcode: "", city: "", address: "", tax: "" });
 
-	return "....";
+	useEffect(() => {
+		const fetchData = async () => {
+			const fetchedData = await getBillingAddress(); // Megvárjuk az aszinkron hívást
+	
+			if (fetchedData) {
+				setFormData(fetchedData);
+			}
+		};
+	
+		fetchData(); // Az adatok betöltése
+	}, []);
+
+	const initialStateBillingAddress: billingAddressState = { 
+		success: null, errors: { }, message: null 
+	};	
+	const [stateBillingAddress, formActionBillingAddress, isPendingBillingAddress] = useActionState(billingAddress, initialStateBillingAddress);	
+	useEffect(() => {  
+		if (stateBillingAddress.formData) {
+			setFormData(stateBillingAddress.formData  as BillingAddress);
+		}
+	}, [stateBillingAddress.formData]);	
+
+	return 	<form action={formActionBillingAddress}>
+	<div className="register_form py-5">
+		<div className="row">			
+			<div className="col-12 form_item">
+				<p>Számlázási név:</p>
+				<input 
+					type="text" 
+					id="name" 
+					name="name" 
+					placeholder="Számlázási név"
+					value={formData.name} 
+					onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+				/>
+				{stateBillingAddress.errors?.name && (
+					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
+						{stateBillingAddress.errors?.name &&
+							stateBillingAddress.errors.name.map((error: string) => (
+								<p className="m-0 text-sm text-red-500" key={error}>
+									{error}
+								</p>
+							))}
+					</div>	
+				)}	
+			</div>						
+			<div className="col-12 form_item mb-0">
+				<p>Szálázási cím:</p>
+			</div>			
+			<div className="col-12 col-md-4 form_item">
+				<input 
+					type="text" 
+					id="zipcode" 
+					name="zipcode" 
+					placeholder="Irányítószám" 
+					defaultValue={formData.zipcode}
+					onChange={(e) => setFormData({ ...formData, zipcode: e.target.value })}
+				/>
+				{stateBillingAddress.errors?.zipcode && (
+					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
+						{stateBillingAddress.errors?.zipcode &&
+							stateBillingAddress.errors.zipcode.map((error: string) => (
+								<p className="m-0 text-sm text-red-500" key={error}>
+									{error}
+								</p>
+							))}
+					</div>	
+				)}		
+			</div>
+			<div className="col-12 col-md-8 form_item">
+				<input 
+					type="text" 
+					id="city" 
+					name="city" 
+					placeholder="Település"  
+					value={formData.city}
+					onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+				/>
+				{stateBillingAddress.errors?.city && (
+					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
+						{stateBillingAddress.errors?.city &&
+							stateBillingAddress.errors.city.map((error: string) => (
+								<p className="m-0 text-sm text-red-500" key={error}>
+									{error}
+								</p>
+							))}
+					</div>	
+				)}		
+			</div>			
+			<div className="col-12 form_item">
+				<input 
+					type="text" 
+					id="address" 
+					name="address" 
+					placeholder="Cím"  
+					defaultValue={formData.address}
+					onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+				/>
+				{stateBillingAddress.errors?.address && (
+					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
+						{stateBillingAddress.errors?.address &&
+							stateBillingAddress.errors.address.map((error: string) => (
+								<p className="m-0 text-sm text-red-500" key={error}>
+									{error}
+								</p>
+							))}
+					</div>	
+				)}		
+			</div>				
+			<div className="col-12 form_item mb-0">
+				<p>Adószám (opcionális, cégeknél kötelező):</p>
+			</div>				
+			<div className="col-12 form_item">
+				<input 
+					type="text" 
+					id="tax" 
+					name="tax" 
+					placeholder="Adószám"  
+					defaultValue={formData.tax}
+					onChange={(e) => setFormData({ ...formData, tax: e.target.value })}
+				/>
+				{stateBillingAddress.errors?.tax && (
+					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
+						{stateBillingAddress.errors?.tax &&
+							stateBillingAddress.errors.tax.map((error: string) => (
+								<p className="m-0 text-sm text-red-500" key={error}>
+									{error}
+								</p>
+							))}
+					</div>	
+				)}		
+			</div>					
+			<div className="col-12 mt-3">
+
+			{ stateBillingAddress.success && stateBillingAddress.message && (	<div className="alert alert-success d-flex align-items-center gap-1 mt-3 py-1" role="alert" aria-live="polite" aria-atomic="true">{stateBillingAddress.message}</div> )}
+						
+			</div>					
+			<div className="col-12 text-end mt-3">
+				<Button type="submit" className="btn btn_dark btn_small">
+					<span>
+						<small>Save</small>
+						<small>Save</small>
+					</span>
+				</Button>	
+			</div>	
+		</div>
+	</div>
+</form>;
 }

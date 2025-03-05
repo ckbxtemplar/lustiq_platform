@@ -7,7 +7,10 @@ import Banner from '@/app/ui/dashboard/banner';
 export const metadata: Metadata = {
   title: 'Profile',
 };
-export default function ProfilePage() {
+export default async function ProfilePage() {
+
+	// await new Promise(resolve => setTimeout(resolve, 2000));
+
 	return <div>
 					<div className='shape_wrapper'>
 						<div className="deco_item shape_img_1 wow fadeInLeft" data-wow-delay=".2s">
@@ -25,7 +28,7 @@ export default function ProfilePage() {
 					</div>						
 					<main className={'page_content'}>
 						<Banner page={'dashboard_profile'} title={"Profile settings"} description={"Libero id faucibus nisl tincidunt eget nullam non nisi. Faucibus turpis in eu mi bibendum neque egestas"} search={false} />
-						<section className="section_space_md" id="section_personal_data">
+						<section className="my-5" id="section_personal_data">
 							<div className="container">
 								<div className="row justify-content-center">
 									<div className="col col-lg-6">	
@@ -49,7 +52,7 @@ export default function ProfilePage() {
 								</div>	
 							</div>
 						</section>
-						<section className="section_space_md" id="section_billing_address">								
+						<section className="my-5" id="section_billing_address">								
 							<div className="container">								
 								<div className="row justify-content-center">
 									<div className="col col-lg-6 mt-3">				

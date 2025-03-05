@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import { RowDataPacket } from 'mysql2';
+import { QueryResult, RowDataPacket } from 'mysql2';
 import {
   CustomerField,
   CustomersTableType,
@@ -88,7 +88,6 @@ export async function createUser(email: string, password:string, token?: string)
 	}
 	try {	
 		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT id FROM users WHERE email='${email}'`);		
-		console.log('user id :',user[0].id);
 		return {success:1, message:'Siker', userid: user[0].id.toString()};
 	} catch (error: any) {
 		return {success:0,message:'Something went wrong while creating the account.'};
@@ -126,7 +125,90 @@ export async function subscribeUser(email: string): Promise<SubscribeUserRespons
   }
 }
 
+interface BillingAddressData {
+  name: string;
+  zipcode: string;
+  city: string;
+  address: string;
+  tax: string;
+  user_id: string;
+}
+interface CreateBillingAddressResponse {
+  success: boolean;
+  id_user_billing_address?: string; // Opcionális, ha sikertelen a művelet
+}
 
+export async function createBillingAddress(data: BillingAddressData): Promise<CreateBillingAddressResponse> {
+  const { name, zipcode, city, address, tax, user_id } = data;
+
+  try {
+    // Ellenőrizzük, hogy létezik-e már a rekord a user_id alapján.
+    const [existingRecord]:any = await pool.query(`SELECT id FROM user_billing_addresses WHERE user_id = ?`, [user_id]);
+
+    if (existingRecord && existingRecord.length > 0) {
+      // Ha létezik rekord, akkor UPDATE-eljük azt.
+      const updateQuery = `
+        UPDATE user_billing_addresses 
+        SET name = ?, zipcode = ?, city = ?, address = ?, tax = ?
+        WHERE user_id = ?
+      `;
+      
+      await pool.query(updateQuery, [name, zipcode, city, address, tax, user_id]);
+
+      return {
+        success: true,
+        id_user_billing_address: existingRecord[0].id, // Visszaadjuk az ID-t, ami frissült
+      };
+    } else {
+      const insertQuery = `
+        INSERT INTO user_billing_addresses (name, zipcode, city, address, tax, user_id)
+        VALUES (?, ?, ?, ?, ?, ?)
+      `;
+      
+      const [result] = await pool.query(insertQuery, [name, zipcode, city, address, tax, user_id]);
+      const selectQuery = `SELECT id FROM user_billing_addresses WHERE user_id = ?`;
+      const [newRecord]: any = await pool.query(selectQuery, [user_id]);
+
+      return {
+        success: true,
+        id_user_billing_address: newRecord[0].id, // Az új rekord UUID-ját adjuk vissza
+      };
+    }
+  } catch (error: any) {
+    console.error("Hiba történt a mentés során:", error);
+    return {
+      success: false,
+    };
+  }
+}
+
+interface FetchBillingAddressResponse {
+  success: boolean;
+  data?: BillingAddressData; // Opcionális, ha sikertelen a művelet
+}
+
+export async function fetchBillingAddress(id_user: string): Promise<FetchBillingAddressResponse> {
+	try {
+		const [billing_data] = await pool.query<(RowDataPacket)[]>(`SELECT * FROM user_billing_addresses WHERE user_id='${id_user}'`);
+    if (billing_data.length === 0) {
+      return { success: false };
+    }
+
+    const billingAddress: BillingAddressData = {
+      name: billing_data[0].name,
+      zipcode: billing_data[0].zipcode,
+      city: billing_data[0].city,
+      address: billing_data[0].address,
+      tax: billing_data[0].tax,
+      user_id: billing_data[0].user_id,
+    };
+
+    return { success: true, data: billingAddress };
+	} catch (error) {
+		console.error('Failed to fetch billing address:', error);
+		throw new Error('Failed to fetch billing address.');
+	}
+}
 
 /* CMS */
 
