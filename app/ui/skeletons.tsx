@@ -2,6 +2,52 @@
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
 
+export function DashboardProfileSkeleton(){
+	return (<>
+	<main className="page_content">
+	<section className="page_banner py-5 bg-light">
+			<div className="container">
+					<div className="content_wrapper placeholder-glow">
+							<div className="row align-items-center">
+									<div className="col-md-6">
+											<p className="placeholder col-6"></p>
+											<h1 className="placeholder col-8"></h1>
+											<p className="placeholder col-10"></p>
+											<ul className="list-inline">
+													<li className="placeholder col-3"></li>
+													<li className="placeholder col-3"></li>
+											</ul>
+									</div>
+							</div>
+					</div>
+			</div>
+	</section>
+	<section className="my-5" id="section_personal_data">
+			<div className="container">
+					<div className="row justify-content-center">
+							<div className="col-lg-6">
+									<div className="iconbox_item placeholder-glow">
+											<h3 className="placeholder col-6"></h3>
+											<p className="placeholder col-10"></p>
+									</div>
+										<div className="register_form py-5">
+												<div className="row">
+														<div className="col-12">
+																<p className="placeholder col-4"></p>
+																<input type="text" className="form-control placeholder-wave" disabled/>
+														</div>
+														<div className="col-12 mt-3">
+																<button type="button" className="btn btn-dark disabled placeholder col-4"></button>
+														</div>
+												</div>
+										</div>
+							</div>
+					</div>
+			</div>
+	</section>
+</main></>);
+}
+
 export function GridListSkeleton(){
 	return (<>
       <div className="filter_topbar">

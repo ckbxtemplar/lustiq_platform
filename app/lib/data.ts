@@ -215,7 +215,7 @@ export async function fetchBillingAddress(id_user: string): Promise<FetchBilling
 export async function fetchCourses()
 {
 	try {
-		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/articles`, {
+		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/courses?populate=cover`, {
 			headers: {
 					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
 			}
@@ -236,7 +236,7 @@ export async function fetchCourses()
 export async function fetchCourse(slug: string)
 {
 	try {
-		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/articles?filters[slug][$eq]=${slug}&populate[0]=blocks`, {
+		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/courses?filters[slug][$eq]=${slug}&populate=*`, {
 			headers: {
 					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
 			}

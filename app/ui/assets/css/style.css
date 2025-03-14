@@ -3684,7 +3684,8 @@ blockquote p {
 .event_details_section .sidebar .course_info_card,
 .course_details_section .sidebar .course_info_card {
   z-index: 1;
-  margin-top: -420px;
+  /* margin-top: -420px; */
+	top:170px;
   position: relative;
 }
 

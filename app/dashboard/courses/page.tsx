@@ -14,13 +14,13 @@ export default function Courses() {
   return (
 		<main className="page_content">
 
-		<Banner title={'Courses'} description={'Egestas sed tempus urna et pharetra. Leo integer malesuada nunc vel.'} search={true}/>
+		<Banner title={'Courses'} description={'Egestas sed tempus urna et pharetra. Leo integer malesuada nunc vel.'} search={false}/>
 
 		<section className="courses_archive_section section_space_md">
 			<div className="container">
 
 				<Suspense fallback={<GridListSkeleton />}>
-					<GridList dashboard={false}/>
+					<GridList dashboard={true}/>
 				</Suspense>
 			
 				<div className="pagination_wrap d-none">

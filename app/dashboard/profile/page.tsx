@@ -9,8 +9,6 @@ export const metadata: Metadata = {
 };
 export default async function ProfilePage() {
 
-	// await new Promise(resolve => setTimeout(resolve, 2000));
-
 	return <div>
 					<div className='shape_wrapper'>
 						<div className="deco_item shape_img_1 wow fadeInLeft" data-wow-delay=".2s">

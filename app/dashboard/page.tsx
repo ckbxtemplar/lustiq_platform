@@ -1,17 +1,511 @@
 import { Metadata } from 'next';
+import {
+  Button,
+  ButtonGroup,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  ProgressBar,
+} from 'react-bootstrap'
+import UserChart from '@/app/ui/dashboard/components/UserChart';
+import IncomeChart from '@/app/ui/dashboard/components/IncomeChart';
+import ConversionChart from '@/app/ui/dashboard/components/ConversionChart';
+import SessionChart from '@/app/ui/dashboard/components/SessionChart';
 
 export const metadata: Metadata = {
   title: 'Lustiq Platform - Dashboard',
 };
 
 export default function Page() {
+	const dict = {
+		"login": {
+			"title": "Login",
+			"description": "Sign in to your account",
+			"form": {
+				"username": "Username",
+				"password": "Password",
+				"submit": "Login"
+			},
+			"forgot_password": "Forgot password?",
+			"signup": {
+				"title": "Sign up",
+				"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua."
+			},
+			"message": {
+				"auth_failed": "Invalid username or password"
+			}
+		},
+		"pagination": {
+			"summary": "Showing {{from}} to {{to}} of {{total}} results",
+			"rows_per_page": "Rows per page"
+		},
+		"signup": {
+			"title": "Register",
+			"description": "Create your account",
+			"register_now": "Register Now!",
+			"form": {
+				"username": "Username",
+				"email": "Email",
+				"password": "Password",
+				"confirm_password": "Confirm Password",
+				"submit": "Create Account"
+			}
+		},
+		"action": {
+			"info": "Info",
+			"edit": "Edit",
+			"delete": "Delete",
+			"submit": "Submit",
+			"submitting": "Submitting...",
+			"reset": "Reset"
+		},
+		"theme": {
+			"light": "Light",
+			"dark": "Dark",
+			"auto": "Auto"
+		},
+		"dashboard": {
+			"featured": {
+				"user": "Users",
+				"income": "Income",
+				"conversion_rate": "Conversion Rate",
+				"sessions": "Sessions",
+				"action": {
+					"action1": "Action",
+					"action2": "Another action",
+					"action3": "Something else"
+				}
+			},
+			"traffic": {
+				"title": "Traffic",
+				"duration": "January - July 2021",
+				"option": {
+					"day": "Day",
+					"month": "Month",
+					"year": "Year"
+				},
+				"chart": {
+					"xlabel1": "January",
+					"xlabel2": "February",
+					"xlabel3": "March",
+					"xlabel4": "April",
+					"xlabel5": "May",
+					"xlabel6": "June",
+					"xlabel7": "July"
+				},
+				"users": "Users",
+				"views": "Views",
+				"category1": "Visits",
+				"category2": "Unique",
+				"category3": "Page views",
+				"category4": "New users",
+				"category5": "Bounce rate"
+			},
+			"social": {
+				"facebook": {
+					"label1": "Friends",
+					"label2": "Feeds"
+				},
+				"twitter": {
+					"label1": "Followers",
+					"label2": "Tweets"
+				},
+				"instagram": {
+					"label1": "Contacts",
+					"label2": "Feeds"
+				}
+			},
+			"sales": {
+				"title": "Traffic & Sales",
+				"stats": {
+					"stat1": "New Clients",
+					"stat2": "Recurring Clients",
+					"stat3": "Page Views",
+					"stat4": "Organic"
+				},
+				"monday": "Monday",
+				"tuesday": "Tuesday",
+				"wednesday": "Wednesday",
+				"thursday": "Thursday",
+				"friday": "Friday",
+				"saturday": "Saturday",
+				"sunday": "Sunday",
+				"male": "Male",
+				"female": "Female",
+				"organic": "Organic Search",
+				"facebook": "Facebook",
+				"twitter": "Twitter",
+				"linkedin": "LinkedIn"
+			},
+			"listing": {
+				"headers": {
+					"header1": "User",
+					"header2": "Usage",
+					"header3": "Payment Method",
+					"header4": "Activity"
+				},
+				"user_status": {
+					"new": "New",
+					"recurring": "Recurring"
+				},
+				"registered": "Registered",
+				"last_login": "Last login",
+				"usage_duration": "Jun 11, 2020 - Jul 10, 2020",
+				"registered_at": "Jan 1, 2020",
+				"items": {
+					"item1": {
+						"name": "Yiorgos Avraamu",
+						"login_at": "10 sec ago"
+					},
+					"item2": {
+						"name": "Avram Tarasios",
+						"login_at": "5 minutes ago"
+					},
+					"item3": {
+						"name": "Quintin Ed",
+						"login_at": "1 hour ago"
+					},
+					"item4": {
+						"name": "Enéas Kwadwo",
+						"login_at": "Last month"
+					},
+					"item5": {
+						"name": "Agapetus Tadeáš",
+						"login_at": "Last week"
+					},
+					"item6": {
+						"name": "Friderik Dávid",
+						"login_at": "Yesterday"
+					}
+				}
+			}
+		},
+		"pokemons": {
+			"title": "Pokémon",
+			"add_new": "Add new",
+			"attribute": {
+				"name": "Name",
+				"type": "Type",
+				"egg_group": "Egg Group",
+				"hp": "Hp",
+				"attack": "Atk",
+				"defense": "Def",
+				"sp_attack": "SpA",
+				"sp_defense": "SpD",
+				"speed": "Spd",
+				"total": "Total"
+			}
+		},
+		"featured_nav": {
+			"dashboard": "Dashboard",
+			"users": "Users",
+			"settings": "Settings"
+		},
+		"notification": {
+			"message": "You have {{total}} notifications",
+			"items": {
+				"new_user": "New user registered",
+				"deleted_user": "User deleted",
+				"sales_report": "Sales report is ready",
+				"new_client": "New client",
+				"server_overloaded": "Server overloaded"
+			},
+			"server": {
+				"title": "server",
+				"processes": "Processes",
+				"cores": "Cores",
+				"items": {
+					"cpu": "CPU usage",
+					"memory": "Memory usage",
+					"ssd1": "SSD 1 usage"
+				}
+			}
+		},
+		"task": {
+			"message": "You have {{total}} pending tasks",
+			"items": {
+				"task1": "Upgrade Next.JS",
+				"task2": "Train Pokemons",
+				"task3": "Complete Pokedex",
+				"task4": "Catch all shiny",
+				"task5": "Beat all gyms"
+			},
+			"view_all": "View all tasks"
+		},
+		"messages": {
+			"message": "You have {{total}} messages",
+			"items": {
+				"item1": {
+					"user": "John Doe",
+					"time": "Just now",
+					"title": "Pet Pikachu",
+					"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+				},
+				"item2": {
+					"user": "John Doe",
+					"time": "5 mins ago",
+					"title": "Dress Eevee",
+					"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+				},
+				"item3": {
+					"user": "John Doe",
+					"time": "1:52 PM",
+					"title": "Team up training",
+					"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+				},
+				"item4": {
+					"user": "John Doe",
+					"time": "4:03 PM",
+					"title": "Go to Safari Zone",
+					"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+				}
+			}
+		},
+		"profile": {
+			"account": {
+				"title": "Account",
+				"items": {
+					"updates": "Updates",
+					"messages": "Messages",
+					"tasks": "Tasks",
+					"comments": "Comments"
+				}
+			},
+			"settings": {
+				"title": "Settings",
+				"items": {
+					"profile": "Profile",
+					"settings": "Settings",
+					"payments": "Payments",
+					"projects": "Projects"
+				}
+			},
+			"lock_account": "Lock account",
+			"logout": "Logout"
+		},
+		"breadcrumb": {
+			"home": "Home",
+			"library": "Library",
+			"data": "Data"
+		},
+		"sidebar": {
+			"items": {
+				"dashboard": "Dashboard",
+				"sample": "Sample",
+				"theme": "Theme",
+				"colors": "Colors",
+				"typography": "Typography",
+				"components": "Components",
+				"accordion": "Accordion",
+				"breadcrumb": "Breadcrumb",
+				"cards": "Cards",
+				"carousel": "Carousel",
+				"collapse": "Collapse",
+				"list_group": "List group",
+				"navs": "Navs",
+				"pagination": "Pagination",
+				"popovers": "Popovers",
+				"progress": "Progress",
+				"scrollspy": "Scrollspy",
+				"spinners": "Spinners",
+				"tables": "Tables",
+				"tabs": "Tabs",
+				"tooltips": "Tooltips",
+				"buttons": "Buttons",
+				"buttons_group": "Buttons Group",
+				"dropdowns": "Dropdowns",
+				"charts": "Charts",
+				"form_control": "Form Control",
+				"select": "Select",
+				"checks_and_radios": "Checks and radios",
+				"range": "Range",
+				"input_group": "Input group",
+				"floating_labels": "Floating labels",
+				"layout": "Layout",
+				"validation": "Validation",
+				"core_ui_icons": "CoreUI Icons",
+				"core_ui_icons_brand": "CoreUI Icons - Brand",
+				"core_ui_icons_flag": "CoreUI Icons - Flag",
+				"alerts": "Alerts",
+				"badge": "Badge",
+				"modals": "Modals",
+				"toasts": "Toasts",
+				"widgets": "Widgets",
+				"login": "Login",
+				"register": "Register",
+				"error404": "Error 404",
+				"error500": "Error 500",
+				"docs": "Docs",
+				"try_core_ui_pro": "Try CoreUI PRO",
+				"base": "Base",
+				"forms": "Forms",
+				"icons": "Icons",
+				"notifications": "Notifications",
+				"extras": "Extras",
+				"pages": "Pages"
+			}
+		}
+	};
 
   return (
 	<main className={'page_content'}>
-			<p>&nbsp;1</p>
-			<p>&nbsp;1</p>						
-			<p>Képzésszám</p>
-			<p>Videók száma</p>
-		</main>    
+		<div className="container m-5">
+      <div className="row">
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="grey" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  26K
+                  <span className="fs-6 ms-2 fw-normal">
+                    (-12.4%
+                    
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.user}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart1"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <UserChart />
+            </div>
+          </Card>
+        </div>
+
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="grey" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  $6.200
+                  <span className="fs-6 ms-2 fw-normal">
+                    (40.9%
+                   
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.income}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart2"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <IncomeChart />
+            </div>
+          </Card>
+        </div>
+      </div>
+			<div className="row">
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="yellow" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  2.49%
+                  <span className="fs-6 ms-2 fw-normal">
+                    (84.7%
+                   
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.conversion_rate}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart3"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <ConversionChart />
+            </div>
+          </Card>
+        </div>
+
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="yellow" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  44K
+                  <span className="fs-6 ms-2 fw-normal">
+                    (-23.6%
+                    
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.sessions}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart4"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <SessionChart />
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>			
+	</main>    
   );
 }

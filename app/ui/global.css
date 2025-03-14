@@ -20,6 +20,11 @@ input[type='number']::-webkit-outer-spin-button {
 .text-yellow{ color:#ffd32b;}
 .text-grey{ color:#e5e7eb;}
 
+.bg-yellow {background-color: #ffd32b !important;}
+.bg-grey {background-color: #f6f6f6 !important;}
+
+a:hover{color:unset !important;}
+
 /* Magasság (Height) */
 .h-auto { height: auto; }
 .h-px { height: 1px; }
@@ -123,7 +128,7 @@ input[type='number']::-webkit-outer-spin-button {
   max-width: 643px;
 }
 
-/* CHACKBOX , RADIO BUTTON tailwind overdrive */
+/* CHECKBOX , RADIO BUTTON tailwind overdrive */
 .checkbox_item input:before{display: none !important;}
 [type="checkbox"]:hover, [type="radio"]:hover{ background-color: #ffd32b !important;}
 [type="checkbox"]:checked, [type="radio"]:checked{ background-color: #ffd32b !important; background-image:none !important}
@@ -159,6 +164,21 @@ body .page-wrapper{
   display: inline-block;
   width: 36px;
   text-align: center;	
+}
+
+.item_progress{width: 100px;}
+
+.course_section_number{
+	color: #1f1d0d;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	background-color: #ffd32b;
+	box-shadow: 2px 2px 30px rgba(31, 29, 13, .0894963), 3px 3px 0 0 #1f1d0d;
+	border-radius: 50%;
+	height: 32px;
+	width: 32px;
+	display: inline-flex;
 }
 
 /* LANGUAGE SELECTOR */
@@ -235,4 +255,66 @@ body .page-wrapper{
 	cursor: pointer;
 	vertical-align: middle;
 	line-height: 22px;
+}
+
+/* QUIZ */
+
+.quiz-card {
+	position: relative;
+	text-align: center;
+}
+.quiz-card.fade-in {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity .6s, transform 0.5s;
+}
+.quiz-card.fade-out {
+	opacity: 0;
+	transform: translateX(-40%);
+	transition: opacity .3s, transform 0.5s;
+}
+.quiz-card.reset-position {
+	opacity: 0;
+	transform: translateX(40%);
+	transition: none; /* Azonnal legyen itt, animáció nélkül */
+}
+
+/* AI CHAT */
+.chat-messages .chat-msg{
+	padding: 0px 12px 12px 12px;
+	max-width: 70%;
+	text-align: left;	
+}
+.chat-messages .chat-msg.align-self-start{box-shadow: 3px 3px 20px -8px #888888;}
+.chat-messages .chat-msg.align-self-start:before{
+	display: inherit;
+
+	width: 20px;
+	height: 20px;
+	content: "";
+
+	top: 0px;
+	left: 0%;
+	margin-left: -25px;
+	position: relative;
+	border-style: solid;
+	border-width: 0 20px 20px 0;
+	border-color: transparent white transparent transparent;
+
+}
+.chat-messages .chat-msg.align-self-end{box-shadow: -3px 3px 20px -8px #888888;}
+.chat-messages .chat-msg.align-self-end:before{
+	display: inherit;
+
+	width: 20px;
+	height: 20px;
+	content: "";
+	
+	top: 0px;
+	left: 100%;
+	margin-left:5px;
+	position: relative;
+	border-style: solid;
+	border-width: 13px 13px 0 0;
+	border-color: #fed32c transparent transparent transparent;
 }
