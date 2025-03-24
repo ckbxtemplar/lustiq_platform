@@ -1,4 +1,4 @@
-export interface RichTextNode {
+interface RichTextNode {
   type?: string;
   children?: { text: string }[];
 }
@@ -21,4 +21,14 @@ export const richTextToHTML = (richText: RichTextNode[] | undefined): string => 
       }
     })
     .join(""); // Az összes blokkot összefűzzük egy HTML stringgé
+};
+
+export const tagsToHTML = (tags: { name: string }[] | undefined): string => {
+  if (!tags || !Array.isArray(tags) || tags.length === 0) return "";
+
+  const listItems = tags
+    .map((tag) => `<li class='me-1 mb-1'><a href="#!">${tag.name}</a></li>`)
+    .join("");
+
+  return `<ul class="item_category_list unordered_list">${listItems}</ul>`;
 };

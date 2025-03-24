@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { tagsToHTML } from "@/app/utils/courseDataUtils";
 
 interface GridItemProps {  
   documentId: string;
@@ -29,27 +30,27 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 				</div>
 				<div className="item_content">
 					<div className="d-flex align-items-center justify-content-between mb-3">
-						<ul className="item_category_list unordered_list">
-							<li><a href="#!">marketing</a></li>
-						</ul>
+
+						<div dangerouslySetInnerHTML={{ __html: tagsToHTML((data as any).Details.tags) }} />
+
 						{ dashboard ? 
 						<div className="item_progress">
 							<ProgressBar striped variant="warning" now={progress} />
 						</div>
 						:
-						<div className="item_price">
-							<small>Subscribe required <a href="/subrcription-plan" className="text-yellow"><i className="fas fa-question"></i></a></small>
+						<div className="item_price text-end text-nowrap">
+							<small>Subscribe <a href="/subrcription-plan" className="text-yellow"><i className="fas fa-question"></i></a></small>
 						</div>
 						}						
 					</div>
 					<ul className="meta_info_list unordered_list">
 						<li>
 							<i className="fas fa-chart-bar me-1"></i>
-							<span>Beginner</span>
+							<span>{(data as any).Details.level || "Beginner"}</span>
 						</li>
 						<li>
 							<i className="fas fa-clock me-1"></i>
-							<span>120 Hours</span>
+							<span>{(data as any).Details.duration || "4"} Hours</span>
 						</li>
 						<li className='d-none'>
 							<i className="fas fa-star me-1"></i>
@@ -61,6 +62,7 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 							{(data as any).title || "Untitled Course"}
 						</a>
 					</h3>
+					{ (data as any).card_description ? <p className='item_description'>{(data as any).card_description}</p> : ""}
 					<a className="btn_unfill" href={(dashboard?'/dashboard/course/':'/course/')+slug}>
 						<span className="btn_text">{dashboard ? "Start" : "View"}  Course{dashboard ? "" : " Details"}</span>
 						<span className="btn_icon">

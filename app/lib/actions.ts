@@ -5,7 +5,80 @@ import { sendMail } from '@/app/lib/sendmail';
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
- 
+
+/* Contact form START */
+const ContactFormSchema = z.object({
+	email: z.string().email({ message: 'Please enter a valid email address.' }),
+  name: z.string().min(3, { message: 'Name must be at least 3 characters long.' }),
+  message: z.string().min(20, { message: 'Message must be at least 20 characters long.' }),
+});
+
+export type ContactFormState = {
+	state: number | null;
+  errors?: {
+    email?: string[];
+		name?: string[];		
+		message?: string[];				
+  };
+  message?: string | null;
+	fields?: object | null;	
+};
+
+const ContactFormData = ContactFormSchema.pick({ email: true, name: true, message:true });
+
+export async function contactForm(prevState: ContactFormState, formData: FormData): Promise<ContactFormState> {
+
+	const f = {
+    email: formData.get('email') as string,
+    name: formData.get('name') as string,
+    message: formData.get('message') as string,
+		subject: formData.get('subject') as string,
+		telephone: formData.get('telephone') as string,		
+	};
+
+	const validatedFields = ContactFormData.safeParse({
+    email: formData.get('email'),
+    name: formData.get('name'),
+    message: formData.get('message'),
+  });  
+
+  if (!validatedFields.success) {
+    return {
+			state: 0,	
+			fields: f,
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing or invalid fields. Failed to send message.',
+    };
+  }
+	const { email, name, message } = validatedFields.data;
+	const telephone = formData.get('telephone');
+	const subject = formData.get('subject');
+
+
+	const response = sendMail({
+		email: 'hello@lustiq.eu',
+		sendTo: 'kassai.viktor@gmail.com',
+		subject: 'Contact Form Message | Lustiq Platform',
+		html: {
+			template: 'contact_form',
+			params:f
+		}
+	});	
+	
+	return {
+		state: 1,	
+		fields: f,
+		message: 'Thank you for your message, our colleague will respond soon.',
+	};
+
+	return {
+		state: 0,	
+		fields: f,		
+		message: 'Missing or invalid fields. Failed to send message.',
+	};	
+}
+
+
 /* Newsletter forms START */
 const NewsletterSubscribeSchema = z.object({
 	email: z.string().email({ message: 'Please enter a valid email address.' }),

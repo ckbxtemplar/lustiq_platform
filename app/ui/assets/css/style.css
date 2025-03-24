@@ -2166,6 +2166,10 @@ blockquote p {
   opacity: 0.7;
 }
 
+.course_card .item_title + .item_description{
+	margin-top:-20px;
+}
+
 .course_card.style_2 .item_image {
   margin: -28px -28px 23px;
 }

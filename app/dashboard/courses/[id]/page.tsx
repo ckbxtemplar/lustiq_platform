@@ -2,14 +2,14 @@ import { fetchCourse } from '@/app/lib/data';
 import { Metadata } from 'next';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Suspense } from 'react';
 import { GridListSkeleton } from '@/app/ui/skeletons';
-import Quiz from '@/app/ui/dashboard/components/Quiz';
-import AiChat from '@/app/ui/dashboard/components/AiChat';
+
+import Lessons from '@/app/ui/dashboard/components/Lessons';
+Lessons
 import { notFound } from "next/navigation";
 import Breadcrumb from '@/app/ui/breadcrumb';
-import { richTextToHTML } from "@/app/utils/richTextToHTML";
+import { richTextToHTML } from "@/app/utils/courseDataUtils";
 
 export const metadata: Metadata = {
   title: 'Course',
@@ -19,6 +19,16 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
   const params = await props.params;
   const slug = params.id;	
 
+	interface Lesson {
+		title: string;
+		description: string; 
+	}												
+
+	interface Data {
+		lessons: Lesson[];
+		// add hozzá a többi mezőt, amit a data objektum tartalmazhat
+	}
+
 	const course = await fetchCourse(slug);
 
 	if (!course?.data || course.data.length !== 1) {
@@ -26,8 +36,16 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 	}	
 
 	const data = course.data[0];
+	
+	let videoCounter = 0;
+	data.lessons.forEach((item: any) => {
+			if (item.video && item.video.name) {
+				videoCounter++; // Növeli a számlálót
+			}
+	});
 
 	console.log(data);
+	let sectionCounter = 0;
 
   return (
 	<main className="page_content">
@@ -60,9 +78,9 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 						
 							<div className="course_info_card d-none d-lg-block position-absolute me-5">
 								<div className="details_image">
-									<Image src={`http://localhost:1337${data.cover.url}`} width={480} height={360} alt="Collab – Online Learning Platform"/>									
+									<Image src={data?.cover?.url ? `http://localhost:1337${data.cover.url}` : '/assets/images/course/course_details_image_1.jpg'} width={480} height={360} alt="Collab – Online Learning Platform"/>									
 								</div>
-								<ul className="meta_info_list unordered_list">
+								<ul className="meta_info_list unordered_list d-none">
 									<li>
 										<i className="fas fa-star"></i>
 										<span>5 (3k reviews)</span>
@@ -72,19 +90,19 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 								<ul className="course_info_list unordered_list_block">
 									<li>
 										<span><i className="fas fa-user"></i> Created</span>
-										<strong>{data.author.name}</strong>
+										<strong>{data?.author?.name || 'Unknown'}</strong>
 									</li>
 									<li>
 										<span><i className="fas fa-chart-bar"></i> Level</span>
-										<strong>Beginner</strong>
+										<strong>{data?.Details?.level || 'Beginner'}</strong>
 									</li>
 									<li>
 										<span><i className="fas fa-clock"></i> Duration</span>
-										<strong>4 Hours</strong>
+										<strong>{data?.Details?.duration || '0'} Hours</strong>
 									</li>
 									<li>
 										<span><i className="fas fa-video"></i> Lessons</span>
-										<strong>4 Video</strong>
+										<strong>{videoCounter} Video</strong>
 									</li>
 								</ul>
 							</div>
@@ -153,10 +171,8 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 						</aside>						
 					</div>
 					<div className="col col-md-8">
-						<div className="section_heading">
-									<h2 className="heading_text">
-										Kommunikációs alapok – Hogyan értsük meg egymást?
-									</h2>
+						<div className="section_heading my-4">
+									<h2 className="heading_text">{data.sub_title}</h2>
 						</div>
 					</div>
 					<div className="col col-md-12">
@@ -164,117 +180,12 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 						<div className="pb-lg-0">
 							<div className="pe-lg-5">
 
-
-
-								<div className="accordion_wrap mb-5">
-									<div className="accordion style_2" id="corse_details_accordion">
-										<div className="accordion-item">
-											<div className="checkbox_item accordion_item_checked">
-												<input type="checkbox"/>
-											</div>
-											<div className="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapse_one" aria-expanded="true">
-												Asszertív kommunikáció alapjai
-											</div>
-											<div id="collapse_one" className="accordion-collapse collapse show" data-bs-parent="#corse_details_accordion">
-												<div className="accordion-body">
-													
-													<div className="course_intro my-5 py-3">
-														<div className='row align-items-center mb-3 ms-0'>
-															<div className='col-auto'><span className='course_section_number fw-bold'>1</span></div>
-															<div className='col-auto'><h5 className='m-0'>Bevezető</h5></div>
-														</div>																												
-														<p className="mt-3">
-															Az asszertív kommunikáció egy olyan eszköz, amely segít abban, hogy <b>őszintén, mégis tiszteletteljesen</b> fejezd ki az érzéseidet és szükségleteidet, miközben tiszteletben tartod a partnered határait is.
-														</p>
-													</div>
-													
-													<div className="intro_video my-5 py-3">
-														<div className='row align-items-center mb-3 ms-0'>
-															<div className='col-auto'><span className='course_section_number fw-bold'>2</span></div>
-															<div className='col-auto'><h5 className='m-0'>Videó lejátszása</h5></div>
-														</div>
-														<div className="video_wrap mt-3">															
-															<Image src="/assets/images/video/video_poster_3.jpg" width={1458} height={440} alt="Collab – Online Learning Platform"/>
-															<a className="video_play_btn popup_video" href="https://www.youtube.com/watch?v=7e90gBu4pas">
-																<span className="icon"><i className="fas fa-play"></i></span>
-															</a>
-														</div>
-													</div>
-													
-													<div className="quiz_wrapper my-5 py-3">
-														<div className='row align-items-center mb-3 ms-0'>
-															<div className='col-auto'><span className='course_section_number fw-bold'>3</span></div>
-															<div className='col-auto'><h5 className='m-0'>Töltsd ki a kvízt</h5></div>
-														</div>
-														<Quiz/>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div className="accordion-item">
-											<div className="checkbox_item accordion_item_checked">
-												<input type="checkbox"/>
-											</div>
-											<div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse_two" aria-expanded="false">
-												Konfliktuskezelési technikák
-											</div>
-											<div id="collapse_two" className="accordion-collapse collapse" data-bs-parent="#corse_details_accordion">
-												<div className="accordion-body">
-
-												</div>
-											</div>
-										</div>
-										<div className="accordion-item">
-											<div className="checkbox_item accordion_item_checked">
-												<input type="checkbox"/>
-											</div>
-											<div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse_three" aria-expanded="false">
-												Aktív hallgatás fejlesztése
-											</div>
-											<div id="collapse_three" className="accordion-collapse collapse" data-bs-parent="#corse_details_accordion">
-												<div className="accordion-body">
-
-												</div>
-											</div>
-										</div>
-										<div className="accordion-item">
-											<div className="checkbox_item accordion_item_checked">
-												<input type="checkbox"/>
-											</div>
-											<div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse_four" aria-expanded="false">
-												Tanult technikák gyakorlása
-											</div>
-											<div id="collapse_four" className="accordion-collapse collapse" data-bs-parent="#corse_details_accordion">
-												<div className="accordion-body">
-													
-													<div className="course_intro my-5">
-														<div className='row align-items-center mb-3 ms-0'>
-															<div className='col-auto'><span className='course_section_number fw-bold'>1</span></div>
-															<div className='col-auto'><h5 className='m-0'>Bevezető</h5></div>
-														</div>																												
-														<p>Welcome! I'm your AI assistant. How may I help you today? 👏</p>
-													</div>
-													<div className="aichat_wrap my-5 py-3">
-														<div className='row align-items-center mb-3 ms-0'>
-															<div className='col-auto'><span className='course_section_number fw-bold'>2</span></div>
-															<div className='col-auto'><h5 className='m-0'>AI vezérelt beszélgetés</h5></div>
-														</div>
-														<div className="aichat_wrap mt-3 border p-3 bg-grey order border-0 rounded-3">															
-															<AiChat/>
-														</div>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								<Lessons lessons={data.lessons}/>
 
 							</div>
 						</div>
-					</div>
 
+					</div>
 
 				</div>
 			</div>

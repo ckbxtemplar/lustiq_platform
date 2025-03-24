@@ -9,11 +9,21 @@ export default function SiteHeaderMenuMain({ pathname }: { pathname: string }) {
 					<Link className="nav-link" href="/" id="home_submenu" role="button">Home</Link>
 				</li>
 				<li className={pathname === '/courses' ? 'active' : ''}>
-					<Link className="nav-link" href="/courses" id="service_submenu" role="button">
+					<Link className="nav-link" href="/courses" id="courses_submenu" role="button">
 						Courses
 					</Link>
 				</li>
-				<li className="dropdown">
+				<li className={pathname === '/pricing' ? 'active' : ''}>
+					<Link className="nav-link" href="/pricing" id="pricing_submenu" role="button">
+						Pricing
+					</Link>
+				</li>
+				<li className={pathname === '/contact' ? 'active' : ''}>
+					<Link className="nav-link" href="/contact" id="contact_submenu" role="button">
+						Contact
+					</Link>
+				</li>						
+				<li className="dropdown d-none">
 					<Link className="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Pages
 					</Link>
@@ -42,7 +52,7 @@ export default function SiteHeaderMenuMain({ pathname }: { pathname: string }) {
 						<li><Link href="error.html">404 Error</Link></li>
 					</ul>
 				</li>
-				<li className="dropdown">
+				<li className="dropdown d-none">
 					<Link className="nav-link" href="#" id="blog_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Blog
 					</Link>
@@ -51,7 +61,6 @@ export default function SiteHeaderMenuMain({ pathname }: { pathname: string }) {
 						<li><Link href="blog_details.html">Blog Details</Link></li>
 					</ul>
 				</li>
-				<li><Link className="nav-link" href="contact.html">Contact</Link></li>
 			</ul>
 		</div>
 	)

@@ -4,59 +4,21 @@ import { useState } from "react";
 import { Container, Card } from "react-bootstrap";
 import { Button } from '@/app/ui/button';
 
-const quizData = [
-  {
-    question: "Mit jelent az asszertív kommunikáció?",
-    options: [
-			"A saját érzéseink és szükségleteink erőteljes és hangos érvényesítése.",
-			"A saját érzéseink és szükségleteink figyelmen kívül hagyása a másik fél érdekében.", 
-			"Őszinte, tiszteletteljes és határozott kommunikáció, amely figyelembe veszi másik fél érzéseit és jogait.", 
-			"Mindig kedvesnek és engedékenynek lenni, hogy elkerüljük a konfliktusokat."
-		],
-    correct: "Őszinte, tiszteletteljes és határozott kommunikáció, amely figyelembe veszi másik fél érzéseit és jogait.",
-  },	
-  {
-    question: "Melyik állítás jellemző az asszertív kommunikációra?",
-    options: [
-			"Mindig nyugodtnak és érzelmileg semlegesnek kell maradnunk.",
-			"Képesek vagyunk világosan és határozottan kifejezni érzéseinket és szükségleteinket, miközben figyelünk a másik fél érzéseire is.",
-			"Csak akkor kommunikálunk, ha biztosak vagyunk benne, hogy igazunk van.",
-			"Az asszertív kommunikáció lényege, hogy megpróbálunk minden helyzetben a másik fél elvárásainak megfelelni."],
-    correct: "Képesek vagyunk világosan és határozottan kifejezni érzéseinket és szükségleteinket, miközben figyelünk a másik fél érzéseire is.",
-  },
-  {
-    question: "Melyik mondat példázza az asszertív kommunikációt?",
-    options: [
-			"„Az a baj veled, hogy érzéketlen vagy. Ha nem lennél érzéketlen, nem fogdosnád a zsírpárnáimat!”",
-			"„Tudom, hogy nem akartál megbántani, de jelenleg bizonytalan vagyok a testemmel kapcsolatban, mert az utóbbi időben felszaladt rám néhány kiló, ezért bánt, amikor a zsírpárnáimat megfogod. Kérlek, ne csinálj ilyet többet.”", 
-			"„Nem számít mit érzek, miközben fogdosod a zsírpárnáimat, csinálhatod, ha neked jól esik.”", 
-			"„Semmi baj, nem számít, én vagyok túlérzékeny.”"
-		],
-    correct: "„Tudom, hogy nem akartál megbántani, de jelenleg bizonytalan vagyok a testemmel kapcsolatban, mert az utóbbi időben felszaladt rám néhány kiló, ezért bánt, amikor a zsírpárnáimat megfogod. Kérlek, ne csinálj ilyet többet.”",
-  },
-  {
-    question: "Miért fontos az asszertív kommunikáció a szexuális életben?",
-    options: [
-			"Mert segít egyértelműen kifejezni a vágyakat és határokat anélkül, hogy a másik fél megbántva érezné magát.",
-			"Mert így mindig a mi akaratunk érvényesül, és nem kell semmiről lemondanunk.", 
-			"Mert elkerülhetjük vele a nehéz beszélgetéseket.", 
-			"Mert így biztosan nem lesz konfliktus a párkapcsolatban."
-		],
-    correct: "Mert segít egyértelműen kifejezni a vágyakat és határokat anélkül, hogy a másik fél megbántva érezné magát.",
-  },
-  {
-    question: "Melyik helyzet mutatja az asszertív kommunikáció alkalmazását egy szexuális szituációban?",
-    options: [
-			"Ha valami nem esik jól, inkább elhallgatjuk, hogy ne rontsuk el a hangulatot.",
-			"Ha a partner valamit javasol, amit nem szeretnénk, határozottan és tiszteletteljesen jelezzük, hogy nekünk ez nem komfortos.", 
-			"Ha nem tetszik valami, dühösen és sértődötten közöljük, hogy soha többet ne próbálkozzon ilyesmivel.", 
-			"Mindig belemegyünk mindenbe, hogy a másik elégedett legyen."
-		],
-    correct: "Ha a partner valamit javasol, amit nem szeretnénk, határozottan és tiszteletteljesen jelezzük, hogy nekünk ez nem komfortos."
-  }	
-];
+type QuizData = {
+  question: string;
+  options: string[];
+  correct: string;
+};
 
-export default function Quiz() {
+type QuizProps = {
+  quizData: QuizData[];
+};
+
+export default function Quiz({ quizData }: QuizProps) {
+	if (!Array.isArray(quizData) || quizData.length == 0) return false;
+	console.log('____');
+	console.log(quizData);
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState<{ question: string; selected: string; correct: string }[]>([]);
   const [animationClass, setAnimationClass] = useState("fade-in");
