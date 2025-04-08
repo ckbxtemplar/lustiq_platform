@@ -9,7 +9,7 @@ import {
   Revenue,
 	User
 } from './definitions';
-import { formatCurrency } from './utils';
+import { auth } from '@/auth';
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -20,7 +20,6 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
 });
-
 
 /* USER */
 
@@ -212,10 +211,14 @@ export async function fetchBillingAddress(id_user: string): Promise<FetchBilling
 
 /* CMS */
 
-export async function fetchCourses()
+export async function fetchCourses(searchQuery = '')
 {
+	let populate = `populate[0]=cover&populate[1]=author&populate[2]=Details`;
+	let strapi_url = `${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/courses?${populate}`;
 	try {
-		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/courses?populate[0]=cover&populate[1]=author&populate[2]=Details`, {
+		if (searchQuery!== '') strapi_url += `&filters[title][$contains]=${searchQuery}`;
+
+		const res = await fetch(strapi_url, {
 			headers: {
 					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
 			}
@@ -235,21 +238,42 @@ export async function fetchCourses()
 
 export async function fetchCourse(slug: string)
 {
+	const session = await auth();
+	let cms_fields;
+	
+	if (!session?.user?.id){
+		cms_fields = process.env.CMS_QUERY_PUBLIC;
+	}	else {
+		cms_fields = process.env.CMS_QUERY_PRIVATE;
+	}
+
 	try {
-		const res = await fetch(`${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/courses?filters[slug][$eq]=${slug}&populate[0]=lessons.video&populate[1]=author&populate[2]=Details&populate[3]=cover`, {
+		const res = await fetch('http://localhost:1337/graphql', {
+			method: 'POST',
 			headers: {
-					"Authorization": `Bearer ${process.env.CMS_API_KEY}`
-			}
+					"Authorization": `Bearer ${process.env.CMS_API_KEY}`,
+					'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				query: `
+					query {
+						courses (filters: { slug: { eq: "${slug}" } }){
+							${cms_fields}
+						}
+					}
+				`
+			})
 		});
 
-		if (!res.ok) {
+		const data = await res.json();
+		if (!data.data) {
 				throw new Error(`HTTP error! Status: ${res.status}`);
 		}
-		const data = await res.json();
+
 		return data || null;
 	} catch (error) {
 			console.error("Hiba történt a cikk lekérése közben:", error);
-			return 0;
+			return false;
 	}
 }
 

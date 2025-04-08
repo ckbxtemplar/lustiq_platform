@@ -6,7 +6,6 @@ import ScriptLoader from '@/app/ui/assets/js/ScriptLoader';
 import BackToTop from '@/app/ui/backtotop';
 import SiteHeader from '@/app/ui/siteheader';
 import Footer from '@/app/ui/footer';
-import { auth } from '@/auth';
 import { Providers } from '@/app/lib/SessionProvider';
  
 export const metadata: Metadata = {

@@ -1,8 +1,6 @@
 "use client"
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useState } from 'react';
 import Breadcrumb from '@/app/ui/breadcrumb';
 
 interface BannerProps {
@@ -10,10 +8,18 @@ interface BannerProps {
 	title: string;
 	description: string;
 	search:boolean;
+	onSearch: (query: string) => void;
 }
 
-export default function GridBanner({page, title, description, search }: BannerProps) {
 
+export default function Banner({page, title, description, search, onSearch }: BannerProps) {
+  
+	const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const searchQuery = formData.get('search') as string;
+    onSearch(searchQuery);
+  };
 
 	return (	
 		<section className="page_banner">
@@ -28,9 +34,13 @@ export default function GridBanner({page, title, description, search }: BannerPr
 						<p className="page_description">
 							{description}
 						</p>
-						{ search && <form action="#">
+						{ search && <form action="#" onSubmit={handleFormSubmit}>
 							<div className="form_item mb-0">
-								<input type="search" name="search" placeholder="What do you want to learn ?"/>
+								<input 
+								type="search" 
+								name="search" 
+								placeholder="What do you want to learn ?"
+								/>
 								<button type="submit" className="btn btn_dark">
 									<span>
 										<small>Search</small>

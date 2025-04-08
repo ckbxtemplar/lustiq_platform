@@ -12,7 +12,6 @@ interface GridItemProps {
 
 export default function GridItem({documentId, slug, dashboard, progress = 0, data }: GridItemProps) {
 
-	console.log(data);
 	return (
 		<div className="col col-lg-4">
 			<div className="course_card">
@@ -39,7 +38,7 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 						</div>
 						:
 						<div className="item_price text-end text-nowrap">
-							<small>Subscribe <a href="/subrcription-plan" className="text-yellow"><i className="fas fa-question"></i></a></small>
+							<small>Subscribe <a href="/pricing" className="text-yellow"><i className="fas fa-question"></i></a></small>
 						</div>
 						}						
 					</div>

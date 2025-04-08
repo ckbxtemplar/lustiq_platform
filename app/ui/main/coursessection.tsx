@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import GridList from '@/app/ui/courses/grid-list';
 import { Suspense } from 'react';
 import { GridListSkeleton } from '@/app/ui/skeletons';

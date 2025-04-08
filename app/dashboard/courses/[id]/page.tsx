@@ -2,14 +2,10 @@ import { fetchCourse } from '@/app/lib/data';
 import { Metadata } from 'next';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import Image from 'next/image';
-import { Suspense } from 'react';
-import { GridListSkeleton } from '@/app/ui/skeletons';
-
 import Lessons from '@/app/ui/dashboard/components/Lessons';
-Lessons
 import { notFound } from "next/navigation";
 import Breadcrumb from '@/app/ui/breadcrumb';
-import { richTextToHTML } from "@/app/utils/courseDataUtils";
+import { richTextToHTML, courseElementsDetails } from "@/app/utils/courseDataUtils";
 
 export const metadata: Metadata = {
   title: 'Course',
@@ -26,26 +22,19 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 
 	interface Data {
 		lessons: Lesson[];
-		// add hozzá a többi mezőt, amit a data objektum tartalmazhat
 	}
 
 	const course = await fetchCourse(slug);
 
-	if (!course?.data || course.data.length !== 1) {
+	if (!course || !course?.data || !course?.data?.courses || course.data.courses.length !== 1) {
 		notFound();
 	}	
 
-	const data = course.data[0];
-	
-	let videoCounter = 0;
-	data.lessons.forEach((item: any) => {
-			if (item.video && item.video.name) {
-				videoCounter++; // Növeli a számlálót
-			}
-	});
+	const data = course.data.courses[0];
 
-	console.log(data);
-	let sectionCounter = 0;
+	const courseElements = courseElementsDetails(data.lessons);
+
+	const videoCounter = courseElements?.counter.video;
 
   return (
 	<main className="page_content">
@@ -78,7 +67,7 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 						
 							<div className="course_info_card d-none d-lg-block position-absolute me-5">
 								<div className="details_image">
-									<Image src={data?.cover?.url ? `http://localhost:1337${data.cover.url}` : '/assets/images/course/course_details_image_1.jpg'} width={480} height={360} alt="Collab – Online Learning Platform"/>									
+									<Image src={data?.cover?.url ? `http://localhost:1337${data.cover.url}` : '/assets/images/course/course_details_image_1.jpg'} width={480} height={360} alt="Collab – Online Learning Platform"/>
 								</div>
 								<ul className="meta_info_list unordered_list d-none">
 									<li>
@@ -102,7 +91,7 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 									</li>
 									<li>
 										<span><i className="fas fa-video"></i> Lessons</span>
-										<strong>{videoCounter} Video</strong>
+										<strong>{courseElements?.counter.video || '0'} Video</strong>
 									</li>
 								</ul>
 							</div>
