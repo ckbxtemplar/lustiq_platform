@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Breadcrumb from '@/app/ui/breadcrumb';
+import {useTranslations} from 'next-intl';
 
 interface BannerProps {
 	page?: string;  
@@ -20,6 +21,8 @@ export default function Banner({page, title, description, search, onSearch }: Ba
     const searchQuery = formData.get('search') as string;
     onSearch(searchQuery);
   };
+
+	const t = useTranslations('buttons');
 
 	return (	
 		<section className="page_banner">
@@ -43,8 +46,8 @@ export default function Banner({page, title, description, search, onSearch }: Ba
 								/>
 								<button type="submit" className="btn btn_dark">
 									<span>
-										<small>Search</small>
-										<small>Search</small>
+										<small>{t('search')}</small>
+										<small>{t('search')}</small>
 									</span>
 								</button>
 							</div>

@@ -7,6 +7,7 @@ export default function Breadcrumb() {
 
 	const paths = usePathname()
 	const pathNames = paths.split('/').filter( path => path )
+	pathNames.shift()
 	if (!pathNames.includes("dashboard")) pathNames.unshift("home")
 	const listClasses = '';
 	const capitalizeLinks = true;
@@ -16,14 +17,16 @@ export default function Breadcrumb() {
 	<ul className="breadcrumb_nav unordered_list">
 		{
 				pathNames.map( (link, index) => {
-						let href = `/${pathNames.slice(0, index + 1).join('/')}`
+
+						let hrefParts = pathNames.slice(0, index + 1).join('/')
+						let href = (hrefParts).replace('home','')
 						let itemClasses = paths === href ? `${listClasses} ${activeClasses}` : listClasses
 						let itemLink = capitalizeLinks ? link[0].toUpperCase() + link.slice(1, link.length) : link
 						return (
 								<React.Fragment key={index}>
 									<li className={itemClasses} >
 										{pathNames.length !== index + 1 ? (
-											<Link href={href}>{itemLink}</Link>
+											<Link href={`/${href.replace(/^\/+/, '')}`}>{itemLink}</Link>
 										) : (
 											itemLink
 										)}

@@ -50,7 +50,7 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 							<ul className="info_list unordered_list_block pb-0">
 								<li>
 									<i className="fas fa-check"></i>
-									<div dangerouslySetInnerHTML={{ __html: richTextToHTML(data.indtroduction) }} />
+									<div dangerouslySetInnerHTML={{ __html: richTextToHTML(data.introduction) }} />
 								</li>
 							</ul>
 						</div>

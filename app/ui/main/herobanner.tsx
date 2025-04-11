@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
+import {useTranslations} from 'next-intl';
 
 export default function HeroBanner() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,9 +14,11 @@ export default function HeroBanner() {
 			redirect(`/courses?s=${encodeURIComponent(searchQuery)}`);
     }
   };
+	
+	const t = useTranslations('buttons');
 
   return (
-	<section className="hero_banner style_2 mouse_move" style={{ backgroundImage: "url('/assets/images/shape/shape_img_6.svg')" }}>
+	<section className="hero_banner style_2 mouse_move" style={{ backgroundImage: "url('/assets/images/shape/shape_img_6.png')" }}>
 		<div className="container">
 			<div className="row align-items-center">
 				<div className="col col-lg-6">
@@ -36,8 +39,8 @@ export default function HeroBanner() {
 							/>
 							<button type="submit" className="btn btn_dark">
 								<span>
-									<small>Search</small>
-									<small>Search</small>
+									<small>{t('search')}</small>
+									<small>{t('search')}</small>
 								</span>
 							</button>
 						</div>

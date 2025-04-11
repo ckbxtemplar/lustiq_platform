@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import FAQ from '@/app/ui/main/FAQ';
 import NewsletterSection from '@/app/ui/newsletter-section';
+import CheckoutForm from '@/app/ui/subscribebutton';
 
 export const metadata: Metadata = {
   title: 'Pricing',
@@ -19,7 +20,7 @@ export default function Pricing() {
                 Premium Price Packages
               </h2>
             </div>
-
+						<CheckoutForm priceId="price_1RChWv4ExN9ArIY0aknZy2xp"/>
             <div className="pricing_cards_wrapper row align-items-center">
               <div className="col col-lg-6">
                 <div className="pricing_card text-center tilt">

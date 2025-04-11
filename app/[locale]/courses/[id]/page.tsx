@@ -15,9 +15,10 @@ export const metadata: Metadata = {
   title: 'Course',
 };
 
-export default async function CouresView(props: { params: Promise<{ id: string }> }) {
+export default async function CouresView(props: { params: Promise<{ id: string, lang: string }>}) {
   const params = await props.params;
-  const slug = params.id;	
+  const slug = params.id;
+	const language = params.lang;
 
 	const course = await fetchCourse(slug);
 

@@ -9,8 +9,9 @@ import SiteHeaderMenu from './siteheadermenu';
 
 export default function SiteHeader() {
 	const pathname = usePathname();
-	const headerClass = pathname === "/" ? "site_header_2" : "site_header_1";
-	const isDashboard = pathname.startsWith('/dashboard');
+	const countPathParts = pathname.split("/").filter(Boolean);
+	const headerClass = countPathParts.length === 1 ? "site_header_2" : "site_header_1";
+	const isDashboard = countPathParts.length > 0 && countPathParts[1] === 'dashboard';
 
   return (		
 		<header className={`site_header ${headerClass}`}>

@@ -6,7 +6,7 @@ import ScriptLoader from '@/app/ui/assets/js/ScriptLoader';
 import BackToTop from '@/app/ui/backtotop';
 import SiteHeader from '@/app/ui/siteheader';
 import Footer from '@/app/ui/footer';
-import { Providers } from '@/app/lib/SessionProvider';
+import { Providers } from '@/app/lib/providers';
  
 export const metadata: Metadata = {
   title: {
@@ -19,17 +19,22 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+	params,
+}: Readonly<{
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}>) {
+	const { locale } = await params;
+	const dictionary = (await import(`@/app/dictionaries/${locale}.json`)).default;
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
       </head>
     	<body className={`${roboto.className} antialiased`}>
 				<div className='page-wrapper'>
 						<BackToTop/>
-						<Providers>						
+						<Providers locale={locale} dictionary={dictionary}>						
 							<SiteHeader />						
 							{children}
 						</Providers>							

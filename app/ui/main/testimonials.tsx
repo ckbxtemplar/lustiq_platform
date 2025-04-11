@@ -9,7 +9,7 @@ export default function Testimonials() {
 				<div className="common_carousel_1col" data-cursor-text="Drag" data-slick='{"dots":false}'>
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
-							<div className="testimonial_image ms-0" style={{backgroundImage: "url('assets/images/shape/shape_img_6.svg')"}}>
+							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>
 								<Image src="/assets/images/testimonial/testimonial_img_3.png" width={1024} height={1035} alt="Collab – Online Learning Platform"/>
 							</div>
 							<div className="testimonial_content">
@@ -36,7 +36,7 @@ export default function Testimonials() {
 					</div>
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
-							<div className="testimonial_image ms-0" style={{backgroundImage: "url('assets/images/shape/shape_img_6.svg')"}}>
+							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>
 								<Image src="/assets/images/testimonial/testimonial_img_3.png" width={1024} height={1035} alt="Collab – Online Learning Platform"/>
 							</div>
 							<div className="testimonial_content">
@@ -63,7 +63,7 @@ export default function Testimonials() {
 					</div>
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
-							<div className="testimonial_image ms-0" style={{backgroundImage: "url('assets/images/shape/shape_img_6.svg')"}}>
+							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>
 								<Image src="/assets/images/testimonial/testimonial_img_3.png" width={1024} height={1035} alt="Collab – Online Learning Platform"/>
 							</div>
 							<div className="testimonial_content">

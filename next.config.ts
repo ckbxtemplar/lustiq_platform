@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
 	experimental: {
@@ -9,13 +10,21 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/course/:id",
-        destination: "/courses/:id",
+        source: "/:locale/course/:id",
+        destination: "/:locale/courses/:id",
       },
       {
-        source: "/dashboard/course/:id",
-        destination: "/dashboard/courses/:id",
-      }			
+        source: "/:locale/dashboard/course/:id",
+        destination: "/:locale/dashboard/courses/:id",
+      },
+      {
+        source: '/:locale/course',
+        destination: '/:locale/courses',
+      },
+      {
+        source: '/:locale/dashboard/course',
+        destination: '/:locale/dashboard/courses',
+      },								
     ];
   },
   images: {
@@ -31,4 +40,5 @@ const nextConfig: NextConfig = {
   },	
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin('./app/i18n/request.ts');
+export default withNextIntl(nextConfig);
