@@ -1,0 +1,51 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev -p 3008 --turbopack",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@heroicons/react": "^2.2.0",
+    "@mui/material": "^6.4.8",
+    "@stripe/stripe-js": "^7.0.0",
+    "@tailwindcss/forms": "^0.5.9",
+    "@vercel/postgres": "^0.10.0",
+    "autoprefixer": "10.4.20",
+    "axios": "^1.8.3",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.8",
+    "clsx": "^2.1.1",
+    "handlebars": "^4.7.8",
+    "mysql2": "^3.12.0",
+    "next": "latest",
+    "next-auth": "^5.0.0-beta.25",
+    "next-intl": "^4.0.2",
+    "nodemailer": "^6.10.0",
+    "postcss": "8.4.49",
+    "react": "19.0.0",
+    "react-bootstrap": "^2.10.9",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "19.0.0",
+    "react-dropzone": "^14.3.8",
+    "react-flags-select": "^2.4.0",
+    "stripe": "^18.0.0",
+    "tailwindcss": "3.4.16",
+    "typescript": "5.7.2",
+    "use-debounce": "^10.0.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "22.10.1",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6"
+  }
+}

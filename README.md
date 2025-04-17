@@ -1,1 +1,3 @@
-ckbx_templar
+## Next.js App
+
+Lustiq Platform
