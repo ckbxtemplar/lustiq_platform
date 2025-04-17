@@ -11,28 +11,55 @@ import { revalidatePath } from "next/cache";
 import { writeFile } from "fs/promises";
 import path from "path";
 import sharp from "sharp";
+import {withLocalePrefix} from '@/app/utils/common';
  
 /* USER - Login */
 export type AuthenticateState = {
   success: boolean; 
   callbackUrl: string | undefined;
   errorMessage: string | undefined;
+	user?: object | null;
 };
 
 export async function authenticate(
   prevState: AuthenticateState,
   formData: FormData,
 ): Promise<AuthenticateState> {
+	const email = (formData.get('email')?.toString().trim() ?? '');
   try {
-    const result = await signIn('credentials', formData );
+    const result = await signIn('credentials', 
+			{
+				redirect: false,
+				email: email,
+				password: formData.get('password'),
+			}
+		);
+		console.log("result:");
+		console.log(result);
+		console.log("result ok?");
+		console.log(result?.ok);
 
-    return {
-      success: false,      
-      callbackUrl: undefined,
-			errorMessage: 'Invalid credentials.'
-    };
+		const user = await getUser(email);
+		console.log("user:");
+		console.log(user);
+		console.log('nyelv:');
+		console.log(user?.language);
+
+		const redirectTo = formData.get('redirectTo');
+    const callbackUrl = typeof redirectTo === 'string' ? redirectTo : '/dashboard';
+
+		const modifiedUrl = withLocalePrefix(callbackUrl, session?.user?.language);
+		console.log('modifiedUrl :');
+		console.log(modifiedUrl);
+
+		return { // NEXT_REDIRECT errorral tér vissza ha sikeres az auth
+			success: true,						
+			callbackUrl: modifiedUrl,
+			errorMessage: undefined,			
+		};	
 
   } catch (error) {
+		console.log(error)
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin':
@@ -49,15 +76,11 @@ export async function authenticate(
 					};						
       }
     }
-    
-		const redirectTo = formData.get('redirectTo');
-    const callbackUrl = typeof redirectTo === 'string' ? redirectTo : '/dashboard';
-
-		return { // NEXT_REDIRECT errorral tér vissza ha sikeres az auth
-			success: true,						
-			callbackUrl: callbackUrl,
-			errorMessage: undefined						
-		};		
+		return {
+			success: false,						
+			callbackUrl: undefined,
+			errorMessage: 'Something went wrong.',						
+		};		    	
   }
 }
 

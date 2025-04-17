@@ -15,7 +15,11 @@ export default function LoginForm() {
   const [state, formAction, isPending] = useActionState( authenticate, { success: false, errorMessage: undefined, callbackUrl: undefined } );
 	const msg = searchParams.get('m') || false;
 
-	if (state.success) window.location.href	= callbackUrl;
+	// if (state.success) window.location.href	= state.callbackUrl || callbackUrl;
+	if (state.success)
+	{
+		console.log('léptetés '+state.callbackUrl)
+	}
 
   return (
 <form action={formAction}>
@@ -54,7 +58,7 @@ export default function LoginForm() {
 			</div>
 		</div>
 		<input type="hidden" name="redirectTo" value={callbackUrl} />	
-		
+		<input type="hidden" name="redirect" value="false" />	
 		<Button className="btn btn_dark mb-2" aria-disabled={isPending}>
 			<span>
 				<small>Login Now</small>

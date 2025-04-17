@@ -214,7 +214,8 @@ export async function fetchBillingAddress(id_user: string): Promise<FetchBilling
 export async function fetchCourses(searchQuery = '')
 {
 	let populate = `populate[0]=cover&populate[1]=author&populate[2]=Details`;
-	let strapi_url = `${process.env.CMS_PROTOCOL}://${process.env.CMS_URL}:${process.env.CMS_PORT}/api/courses?${populate}`;
+	let strapi_url = `${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}/api/courses?${populate}`;
+
 	try {
 		if (searchQuery!== '') strapi_url += `&filters[title][$contains]=${searchQuery}`;
 

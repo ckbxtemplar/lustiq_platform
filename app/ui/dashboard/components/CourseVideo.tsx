@@ -16,7 +16,7 @@ export default function CourseVideo({ videoSrc, videoName }: CourseVideoProps) {
 		disablePictureInPicture
 		onContextMenu={(e) => e.preventDefault()}
 		>
-		<source src={`http://localhost:1337`+videoSrc} type="video/mp4" />
+		<source src={`${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}`+videoSrc} type="video/mp4" />
 			{videoName} - Your browser does not support the video tag.
 	</video>	
 	)

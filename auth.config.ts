@@ -25,6 +25,7 @@ export const authConfig = {
 					name: user.name,
 					email: user.email,
 					image: user.avatar,
+					language: user.language
 				};
 			}
 	
