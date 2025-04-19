@@ -2,7 +2,7 @@
 
 import ReactFlagsSelect from "react-flags-select";
 import { signIn } from "next-auth/react";
-import { useState, useEffect, useRef, useActionState } from "react";
+import { useState, useEffect, useRef, useActionState, useMemo } from "react";
 import { Button } from '../button';
 import {useDropzone} from 'react-dropzone'
 import { uploadAvatar, uploadAvatarState, personal, personalState, billingAddress, billingAddressState, getBillingAddress  } from '@/app/lib/user-actions';
@@ -75,8 +75,8 @@ function ImageDropZone(props: {required: boolean, name: string})
 }
 
 export function PersonalDataForm() {
+	const langToCountry = { EN: 'GB', HU: 'HU' };
 	const { data: session, update } = useSession();
-
 	const initialStatePersonal: personalState = { 
 		success:null, errors: { }, message: null 
 	};
@@ -84,21 +84,36 @@ export function PersonalDataForm() {
 		success: null, errors: { }, message: null 
 	};	
 	const [statePersonal, formActionPersonal, isPendingPersonal] = useActionState(personal, initialStatePersonal);	
-	const [stateAvatar, formActionAvatar, isPendingAvatar] = useActionState(uploadAvatar, initialStateAvatar);	
-	const [selected, setSelected] =  useState("GB");
+	const [stateAvatar, formActionAvatar, isPendingAvatar] = useActionState(uploadAvatar, initialStateAvatar);
+	const [selectedCountry, setSelectedCountry] =  useState("GB");
+	const [selectedLang, setSelectedLang] =  useState("EN");
+
+	useEffect(() => {
+		const country = langToCountry[(session?.user?.language?.toUpperCase() || "EN")  as keyof typeof langToCountry];
+		setSelectedCountry(country);
+	}, [session?.user?.language]);
+
+	useEffect(() => {
+		const language = (Object.keys(langToCountry)).find(
+			(key) => langToCountry[key as keyof typeof langToCountry] === selectedCountry
+		);
+		console.log("selectedCountry változott: ", selectedCountry);
+		console.log("language értéke: ", language);
+		setSelectedLang(language || "HU");
+	}, [selectedCountry]);
 
 	useEffect(() => {  
-    if (statePersonal.message === "Ok" && session?.user) {
-        const newName = "Béla";
-
+    if (statePersonal.success === true && statePersonal.fields && session?.user) {
         update({
             user: {
                 ...session.user,
-                name: newName,
+                ...statePersonal.fields,
             }
-        }).then(() => console.log("Session updated! Personal datas"));
+        }).then(() => {
+					console.log("Session updated! Personal datas")
+				});
     }
-	}, [statePersonal.message]);
+	}, [statePersonal]);
 
 	useEffect(() => {  
     if (stateAvatar.success === true && session?.user && stateAvatar.filename) {
@@ -108,7 +123,9 @@ export function PersonalDataForm() {
                 ...session.user,
                 image: newImage,
             }
-        }).then(() => console.log("Session updated! image"));
+        }).then(() => {
+					 console.log("Session updated! Avatar image");
+				});
     }
 	}, [stateAvatar.filename]);	
 
@@ -138,10 +155,10 @@ export function PersonalDataForm() {
 						<p>Nyelv választása:</p>						
 						<ReactFlagsSelect 
 							className="language-select"
-							selected={selected}
-							onSelect={code => setSelected(code)} 
+							selected={selectedCountry}
+							onSelect={code => setSelectedCountry(code)} 
 							countries={["GB", "HU"]}
-							customLabels={{ GB: "English", HU: "Magyar" }}
+							customLabels={{ "GB": "English", "HU": "Magyar" }}
 							placeholder="Select Language" 
 							searchPlaceholder="Select your language" />
 							{statePersonal.errors?.language && (
@@ -154,7 +171,7 @@ export function PersonalDataForm() {
 										))}
 								</div>	
 							)}
-						<input type="hidden" name="lang" value={selected} />															
+						<input type="hidden" name="lang" value={selectedLang} />															
 					</div>
 					<div className="col-12 mt-3">
 
@@ -208,6 +225,7 @@ export function PersonalDataForm() {
 		</form>
 	</>
 }
+
 interface BillingAddress {
   name: string;
   zipcode: string;

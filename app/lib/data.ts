@@ -218,7 +218,8 @@ export async function fetchCourses(searchQuery = '')
 
 	try {
 		if (searchQuery!== '') strapi_url += `&filters[title][$contains]=${searchQuery}`;
-
+		console.log('strapi_url:')
+		console.log(strapi_url)
 		const res = await fetch(strapi_url, {
 			headers: {
 					"Authorization": `Bearer ${process.env.CMS_API_KEY}`

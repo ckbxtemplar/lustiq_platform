@@ -2,5 +2,14 @@
   "buttons": {
     "search": "Search",
     "accept": "Accept"
-  }
+  },
+	"pages":{
+		"pricing": {
+			"header": "Pricing",			
+			"buttons":{
+				"sub_monthly": "Monthly subscription",
+				"sub_annual": "Annual subscription"
+			}
+		}
+	}
 }

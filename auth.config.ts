@@ -41,6 +41,7 @@ export const authConfig = {
 			// Tokenből frissítjük a session adatait, így újratöltéskor is megmarad
 			if (token?.user) {
 				session.user = token.user;
+				session.user.language = token.user.language; // Frissítjük a session nyelvét is
 			}
 	
 			return session;

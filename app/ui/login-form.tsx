@@ -15,11 +15,7 @@ export default function LoginForm() {
   const [state, formAction, isPending] = useActionState( authenticate, { success: false, errorMessage: undefined, callbackUrl: undefined } );
 	const msg = searchParams.get('m') || false;
 
-	// if (state.success) window.location.href	= state.callbackUrl || callbackUrl;
-	if (state.success)
-	{
-		console.log('léptetés '+state.callbackUrl)
-	}
+	if (state.success) window.location.href	= state.callbackUrl || callbackUrl;
 
   return (
 <form action={formAction}>

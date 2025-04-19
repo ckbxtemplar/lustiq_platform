@@ -1,9 +1,19 @@
-import NextAuth from 'next-auth';
+import NextAuth, { type DefaultSession } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import { getUser } from '@/app/lib/data';
 import bcrypt from 'bcrypt';
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+			image: string | null;
+      language: string | null;
+
+    } & DefaultSession["user"]
+  }
+}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,

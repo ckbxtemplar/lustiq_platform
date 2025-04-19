@@ -3,6 +3,8 @@ export type User = {
   name: string;
   email: string;
   password: string;
+	language: string | null;
+	avatar: string | null;
 };
 
 export type Customer = {

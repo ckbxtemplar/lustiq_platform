@@ -4,8 +4,12 @@ import { Button } from './button';
 import Link from 'next/link';
 import { registUser, RegistUserState } from '@/app/lib/user-actions';
 import { useActionState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function RegistForm() {
+	const searchParams = useSearchParams();
+	const callbackUrl = searchParams.get('callbackUrl') || '';
+
 	const initialState: RegistUserState = { 
 		errors: { }, message: null 
 	};
@@ -25,6 +29,7 @@ export default function RegistForm() {
   return (
 	<form action={formAction}>
 		<div className="register_form signup_login_form">
+			<input type="hidden" id="callback" name="callbackurl" value={callbackUrl}/>
 			<div className="form_item">
 				<input type="email" id="email" name="email" placeholder="Email"/>
 				{state.errors?.email && (

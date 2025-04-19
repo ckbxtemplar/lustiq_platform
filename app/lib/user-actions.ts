@@ -34,27 +34,15 @@ export async function authenticate(
 				password: formData.get('password'),
 			}
 		);
-		console.log("result:");
-		console.log(result);
-		console.log("result ok?");
-		console.log(result?.ok);
 
 		const user = await getUser(email);
-		console.log("user:");
-		console.log(user);
-		console.log('nyelv:');
-		console.log(user?.language);
 
 		const redirectTo = formData.get('redirectTo');
     const callbackUrl = typeof redirectTo === 'string' ? redirectTo : '/dashboard';
 
-		const modifiedUrl = withLocalePrefix(callbackUrl, session?.user?.language);
-		console.log('modifiedUrl :');
-		console.log(modifiedUrl);
-
 		return { // NEXT_REDIRECT errorral tér vissza ha sikeres az auth
 			success: true,						
-			callbackUrl: modifiedUrl,
+			callbackUrl:  withLocalePrefix(callbackUrl, user?.language!),
 			errorMessage: undefined,			
 		};	
 
@@ -296,6 +284,11 @@ const PersonalFormSchema = z.object({
 	language: z.string().min(2, { message: 'Please select a language.' }),
 });
 
+type PersonalFields = {
+  name?: string;
+  language?: string;
+};
+
 export type personalState = {
 	success: boolean | null;
   errors?: {
@@ -303,18 +296,18 @@ export type personalState = {
 		language?: string[] | null;
   };
   message?: string | null;
-	fields?: object | null;
+	fields?: PersonalFields | null;
 };
 
 const personalData = PersonalFormSchema.pick({ name:true, language: true });
 
 export async function personal(prevState: personalState, formData: FormData): Promise<personalState> {
-	const name = formData.get('username');
-	const language = formData.get('lang');
+	const name = formData.get('username')?.toString().trim() || undefined;
+	const language = formData.get('lang')?.toString().trim() || undefined;
   
 	const validatedFields = personalData.safeParse({
-		name: formData.get('username'),
-    language: formData.get('lang'),
+		name: name,
+    language: language,
   });  
 
   if (!validatedFields.success) {

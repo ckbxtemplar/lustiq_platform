@@ -2,5 +2,14 @@
   "buttons": {
     "search": "Keresés",
     "accept": "Elfogadom"
-  }
+  },
+	"pages":{
+		"pricing": {
+			"header": "Árazás",			
+			"buttons":{
+				"sub_monthly": "Havi előfizetés",
+				"sub_annual": "Éves előfizetés"
+			}
+		}
+	}
 }

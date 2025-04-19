@@ -3,13 +3,16 @@ import Image from 'next/image';
 import FAQ from '@/app/ui/main/FAQ';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import CheckoutForm from '@/app/ui/subscribebutton';
+import {useTranslations} from 'next-intl';
 
 export const metadata: Metadata = {
-  title: 'Pricing',
+  title: 'Pricing'
 };
 
 export default function Pricing() {
-
+	
+	const t = useTranslations('pages.pricing');
+	
   return (
 		<main className="page_content">
 
@@ -20,7 +23,7 @@ export default function Pricing() {
                 Premium Price Packages
               </h2>
             </div>
-						<CheckoutForm priceId="price_1RChWv4ExN9ArIY0aknZy2xp"/>
+						
             <div className="pricing_cards_wrapper row align-items-center">
               <div className="col col-lg-6">
                 <div className="pricing_card text-center tilt">
@@ -49,12 +52,7 @@ export default function Pricing() {
                     </li>
                   </ul>
                   <div className="btn_wrap pb-0">
-                    <a className="btn border_dark" href="#!">
-                      <span>
-                        <small>Grav Now</small>
-                        <small>Grav Now</small>
-                      </span>
-                    </a>
+										<CheckoutForm priceId="price_1RChWv4ExN9ArIY0aknZy2xp" title={t('buttons.sub_monthly')}/>
                   </div>
                 </div>
               </div>
@@ -86,12 +84,7 @@ export default function Pricing() {
                     </li>
                   </ul>
                   <div className="btn_wrap pb-0">
-                    <a className="btn btn_primary" href="#!">
-                      <span>
-                        <small>Grav Now</small>
-                        <small>Grav Now</small>
-                      </span>
-                    </a>
+										<CheckoutForm priceId="price_1RFGsB4ExN9ArIY0rFLUWvJA" title={t('buttons.sub_annual')} btnClass="btn_warning"/>
                   </div>
                 </div>
               </div>
