@@ -354,7 +354,7 @@ export async function fetchLatestInvoices() {
     throw new Error('Failed to fetch the latest invoices.');
   }
 }
-
+*/
 export async function fetchCardData() {
   try {
 		const invoiceCountPromise =  pool.query<(RowDataPacket)[]>(`SELECT COUNT(*) as c FROM invoices`).then(([rows]) => rows);
@@ -376,8 +376,8 @@ export async function fetchCardData() {
 
     const numberOfInvoices = Number(invoiceCountResult[0]?.c ?? '0');
     const numberOfCustomers = Number(customerCountResult[0]?.c ?? '0');
-    const totalPaidInvoices = formatCurrency(invoiceStatusResult[0]?.paid ?? '0');
-    const totalPendingInvoices = formatCurrency(invoiceStatusResult[0]?.pending ?? '0');
+    const totalPaidInvoices = invoiceStatusResult[0]?.paid ?? '0';
+    const totalPendingInvoices = invoiceStatusResult[0]?.pending ?? '0';
 
     return {
       numberOfCustomers,
@@ -391,7 +391,7 @@ export async function fetchCardData() {
   }
 }
 
-
+/*
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredInvoices(
   query: string,
