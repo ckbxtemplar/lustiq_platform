@@ -5,10 +5,12 @@ export function withLocalePrefix(
   locale: string | null
 ): string {
   const supportedLocales = routing.locales;
-  const defaultLocale = routing.defaultLocale;
 
-  // Ha nincs megadva locale, használjuk az alapértelmezettet
-  const targetLocale = (locale ?? defaultLocale).toLowerCase();
+  if (!locale) {
+    return url.startsWith("/") ? url : "/" + url;
+  }
+
+  const targetLocale = locale.toLowerCase();
 
   if (!supportedLocales.includes(targetLocale as any)) {
     throw new Error(`Unsupported locale: ${targetLocale}`);
@@ -18,7 +20,7 @@ export function withLocalePrefix(
     url = "/" + url;
   }
 
-  const parts = url.split("/").filter(Boolean); // pl. ["hu", "dashboard"]
+  const parts = url.split("/").filter(Boolean);
 
   const possibleLocale = parts[0];
   const hasLocale = supportedLocales.includes(possibleLocale as any);

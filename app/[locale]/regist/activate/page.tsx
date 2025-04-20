@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation';
 export default function RegistActivate() {
 	const searchParams = useSearchParams();
 	const uid = searchParams.get('aup');
+	const callbackurl = searchParams.get('callbackurl') || null;
 	const [status, setStatus] = useState<boolean | null>(null);
 	
 	useEffect(() => {
@@ -69,14 +70,21 @@ export default function RegistActivate() {
 					</div>
 					<div className="row justify-content-center mt-4">
 						<div className="col col-auto align-self-center">
-
-									<Link className="btn border_dark" href="/login">
+						{status ? (
+									<Link className="btn border_dark" href={ '/login'+( callbackurl ? "?callbackUrl="+callbackurl : "")}>
 										<span>
 											<small>Login</small>
 											<small>Login</small>
 										</span>
-									</Link>							
-
+									</Link>		
+								) : (					
+									<Link className="btn border_dark" href={'/regist'}>
+										<span>
+											<small>Regist</small>
+											<small>Regist</small>
+										</span>
+									</Link>		
+								)}
 						</div>					
 					</div>											
 				</div>

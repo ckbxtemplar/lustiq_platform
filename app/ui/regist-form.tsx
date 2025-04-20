@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { registUser, RegistUserState } from '@/app/lib/user-actions';
 import { useActionState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 export default function RegistForm() {
 	const searchParams = useSearchParams();
+	const locale = useLocale();
 	const callbackUrl = searchParams.get('callbackUrl') || '';
 
 	const initialState: RegistUserState = { 
@@ -30,6 +32,7 @@ export default function RegistForm() {
 	<form action={formAction}>
 		<div className="register_form signup_login_form">
 			<input type="hidden" id="callback" name="callbackurl" value={callbackUrl}/>
+			<input type="hidden" id="lang" name="lang" value={locale}/>
 			<div className="form_item">
 				<input type="email" id="email" name="email" placeholder="Email"/>
 				{state.errors?.email && (

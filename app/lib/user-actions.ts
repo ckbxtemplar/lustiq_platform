@@ -136,6 +136,8 @@ export async function registUser(prevState: RegistUserState, formData: FormData)
     }
 	}
 
+	const callbackurl = ( formData.get('callbackurl') ? '&callbackurl='+formData.get('callbackurl')?.toString() : '' );
+	const language = ( formData.get('lang') ? formData.get('lang')?.toString() : 'hu' );
 	const response = sendMail({
 		email: 'hello@lustiq.eu',
 		sendTo: email,
@@ -145,6 +147,8 @@ export async function registUser(prevState: RegistUserState, formData: FormData)
 			params:{
 				username: 'viktor',
 				userid: user.userid as string,
+				language: language as string,
+				callbackurl: callbackurl 
 			}
 		}
 	});
