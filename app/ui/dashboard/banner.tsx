@@ -9,7 +9,7 @@ interface BannerProps {
 	title: string;
 	description: string;
 	search:boolean;
-	onSearch: (query: string) => void;
+	onSearch?: (query: string) => void;
 }
 
 
@@ -18,8 +18,10 @@ export default function Banner({page, title, description, search, onSearch }: Ba
 	const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const searchQuery = formData.get('search') as string;
-    onSearch(searchQuery);
+    const searchQuery = formData.get('search') as string;    
+    if (onSearch) {
+      onSearch(searchQuery); // ✅ csak ha definiálva van
+    }		
   };
 
 	const t = useTranslations('buttons');
@@ -37,7 +39,7 @@ export default function Banner({page, title, description, search, onSearch }: Ba
 						<p className="page_description">
 							{description}
 						</p>
-						{ search && <form action="#" onSubmit={handleFormSubmit}>
+						{ search && onSearch && <form action="#" onSubmit={handleFormSubmit}>
 							<div className="form_item mb-0">
 								<input 
 								type="search" 
