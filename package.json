@@ -3,7 +3,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev -p 3008 --turbopack",
-    "start": "next start",
+    "start": "next start -p 3008",
     "lint": "next lint"
   },
   "dependencies": {
