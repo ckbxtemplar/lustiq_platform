@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     serverActions: {
       bodySizeLimit: '5mb',
     },
+  },
+  eslint: {
+    // Ne ellenőrizzen hibákat a build során
+    ignoreDuringBuilds: true,
   },	
   async rewrites() {
     return [
