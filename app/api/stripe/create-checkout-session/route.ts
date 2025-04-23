@@ -20,6 +20,10 @@ export async function POST(request: Request) {
       ],
       success_url: `${process.env.BASE_PROTOCOL+'://'+process.env.BASE_URL+"/"+locale}/subscribe/success`, // Sikeres vásárlás után hova irányítsuk a felhasználót
       cancel_url: `${process.env.BASE_PROTOCOL+'://'+process.env.BASE_URL+"/"+locale}/subscribe/cancel`, // Ha a felhasználó megszakítja a vásárlást
+			client_reference_id: '9',
+			metadata: {
+				userId: 8, 
+			}			
     });
 
     return NextResponse.json({ id: session.id });
