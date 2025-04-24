@@ -124,6 +124,42 @@ export async function subscribeUser(email: string): Promise<SubscribeUserRespons
   }
 }
 
+/* STRIPE start*/
+type LogEventResult = {
+  success: boolean
+}
+
+export async function logStripeWebhookEvent(
+  eventId: string,
+	customerId: string | null,
+	status: string | null,
+  eventType: string,
+  userId: string | null,
+  payload: any
+): Promise<LogEventResult> {
+  try {
+
+    await pool.query(
+      `INSERT INTO stripe_webhook_events (stripe_event_id, customer, status, event_type, id_user, payload)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [
+        eventId,
+				customerId,
+				status,
+        eventType,
+        userId,
+        JSON.stringify(payload)
+      ]
+    )
+
+    return { success: true }
+  } catch (error: any) {
+    console.error('Hiba történt a webhook esemény mentése közben:', error)
+    return { success: false }
+  }
+}
+/* STRIPE end*/
+
 interface BillingAddressData {
   name: string;
   zipcode: string;

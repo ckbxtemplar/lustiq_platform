@@ -25,7 +25,8 @@ export const authConfig = {
 					name: user.name,
 					email: user.email,
 					image: user.avatar,
-					language: user.language
+					language: user.language,
+					subscriber: user.subscriber 
 				};
 			}
 	
@@ -41,7 +42,8 @@ export const authConfig = {
 			// Tokenből frissítjük a session adatait, így újratöltéskor is megmarad
 			if (token?.user) {
 				session.user = token.user;
-				session.user.language = token.user.language; // Frissítjük a session nyelvét is
+				session.user.language = token.user.language; 
+				session.user.subscriber = token.user.subscriber;
 			}
 	
 			return session;

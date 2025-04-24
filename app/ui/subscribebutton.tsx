@@ -33,10 +33,13 @@ export default function CheckoutForm({ priceId, title, btnClass }: CheckoutFormP
 			headers: {
 				'Content-Type': 'application/json',
 			},			
-			body: JSON.stringify({ priceId: priceId, locale: locale }),
+			body: JSON.stringify({ 
+				priceId: priceId, 
+				locale: locale, 
+				userId: session?.user?.id }),
     });
 
-    const session = await response.json();
+    const stripeSession = await response.json();
 
     const stripe = await getStripe();
 
@@ -46,7 +49,7 @@ export default function CheckoutForm({ priceId, title, btnClass }: CheckoutFormP
     }
 
     const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
+      sessionId: stripeSession.id,
     });
 
     if (result.error) {
