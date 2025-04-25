@@ -23,9 +23,12 @@ const pool = mysql.createPool({
 
 /* USER */
 
-export async function getUser(email: string): Promise<User | undefined> {
+export async function getUser(email: string, fields?: string[]): Promise<User | undefined> {
 	try {
-		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT * FROM users WHERE email='${email}' AND status = 1`);
+    const selectedFields = Array.isArray(fields) && fields.length > 0
+      ? fields.map(f => `\`${f}\``).join(', ')
+      : '*';		
+		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT ${selectedFields} FROM users WHERE email = ? AND status = 1`,[email]);
 		return user[0];
 	} catch (error) {
 		console.error('Failed to fetch user:', error);

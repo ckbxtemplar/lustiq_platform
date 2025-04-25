@@ -19,6 +19,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .text-yellow{ color:#ffd32b;}
 .text-grey{ color:#e5e7eb;}
+.text-green{ color:#39c762;}
 
 .bg-yellow {background-color: #ffd32b !important;}
 .bg-grey {background-color: #f6f6f6 !important;}

@@ -28,7 +28,11 @@ const nextConfig: NextConfig = {
       {
         source: '/:locale/dashboard/course',
         destination: '/:locale/dashboard/courses',
-      },								
+      },
+      {
+        source: '/:locale/subscribe/cancel',
+        destination: '/:locale/subscribe/success',
+      },			
     ];
   },
   images: {
