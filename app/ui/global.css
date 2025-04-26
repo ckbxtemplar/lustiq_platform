@@ -319,3 +319,10 @@ body .page-wrapper{
 	border-width: 13px 13px 0 0;
 	border-color: #fed32c transparent transparent transparent;
 }
+
+.header_btns_group .btn{
+	padding: 0 8px !important;
+}
+.header_btns_group .btn span small{
+	font-size: 14px;
+}

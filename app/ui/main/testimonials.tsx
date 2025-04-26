@@ -1,7 +1,10 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
 export default function Testimonials() {
+
+	const t = useTranslations('pages.home.testimonialsSection');
+
   return (
 		<section className="testimonial_section section_space_lg">
 		<div className="container">
@@ -17,18 +20,18 @@ export default function Testimonials() {
 									<Image src="/assets/images/icon/icon_quote.svg" width={64} height={38} alt="Collab – Online Learning Platform"/>
 								</div>
 								<h3 className="testimonial_title">
-									Et netus et malesuada fames ac turpis egestas sed. Nec feugiat nisl pretium fusce id velit ut. Lobortis mattis aliquam faucibus purus in. Ultricies integer quis auctor elit sed. Lobortis scelerisque fermentum dui faucibus in ornare quam. In mollis nunc sed semper
+									{t('sectionTitle1')}
 								</h3>
 								<p>
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Et netus et malesuada fames ac turpis egestas
+									{t('sectionSub1')}
 								</p>
 								<div className="testimonial_admin">
 									<div className="admin_image">
 										<Image src="/assets/images/meta/testimonial_thumbnail_1.jpg" width={120} height={120} alt="Collab – Online Learning Platform"/>
 									</div>
 									<div className="admin_content">
-										<h5 className="testimonial_name">Ray Cooper</h5>
-										<span className="testimonial_designation">Founder of colab courses, lecturer</span>
+										<h5 className="testimonial_name">{t('sectionAuthor1')}</h5>
+										<span className="testimonial_designation">{t('sectionAuthor1sub')}</span>
 									</div>
 								</div>
 							</div>
@@ -44,18 +47,18 @@ export default function Testimonials() {
 									<Image src="/assets/images/icon/icon_quote.svg" width={64} height={38} alt="Collab – Online Learning Platform"/>
 								</div>
 								<h3 className="testimonial_title">
-									Et netus et malesuada fames ac turpis egestas sed. Nec feugiat nisl pretium fusce id velit ut. Lobortis mattis aliquam faucibus purus in. Ultricies integer quis auctor elit sed. Lobortis scelerisque fermentum dui faucibus in ornare quam. In mollis nunc sed semper
+									{t('sectionTitle2')}
 								</h3>
 								<p>
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Et netus et malesuada fames ac turpis egestas
+									{t('sectionSub2')}
 								</p>
 								<div className="testimonial_admin">
 									<div className="admin_image">
 										<Image src="/assets/images/meta/testimonial_thumbnail_1.jpg" width={120} height={120} alt="Collab – Online Learning Platform"/>
 									</div>
 									<div className="admin_content">
-										<h5 className="testimonial_name">Ray Cooper</h5>
-										<span className="testimonial_designation">Founder of colab courses, lecturer</span>
+										<h5 className="testimonial_name">{t('sectionAuthor2')}</h5>
+										<span className="testimonial_designation">{t('sectionAuthor2sub')}</span>
 									</div>
 								</div>
 							</div>
@@ -71,18 +74,18 @@ export default function Testimonials() {
 									<Image src="/assets/images/icon/icon_quote.svg" width={64} height={38} alt="Collab – Online Learning Platform"/>
 								</div>
 								<h3 className="testimonial_title">
-									Et netus et malesuada fames ac turpis egestas sed. Nec feugiat nisl pretium fusce id velit ut. Lobortis mattis aliquam faucibus purus in. Ultricies integer quis auctor elit sed. Lobortis scelerisque fermentum dui faucibus in ornare quam. In mollis nunc sed semper
+									{t('sectionTitle3')}
 								</h3>
 								<p>
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Et netus et malesuada fames ac turpis egestas
+									{t('sectionSub3')}
 								</p>
 								<div className="testimonial_admin">
 									<div className="admin_image">
 										<Image src="/assets/images/meta/testimonial_thumbnail_1.jpg" width={120} height={120} alt="Collab – Online Learning Platform"/>
 									</div>
 									<div className="admin_content">
-										<h5 className="testimonial_name">Ray Cooper</h5>
-										<span className="testimonial_designation">Founder of colab courses, lecturer</span>
+										<h5 className="testimonial_name">{t('sectionAuthor3')}</h5>
+										<span className="testimonial_designation">{t('sectionAuthor3sub')}</span>
 									</div>
 								</div>
 							</div>

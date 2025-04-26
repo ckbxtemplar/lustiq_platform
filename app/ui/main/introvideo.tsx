@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
 export default function IntroVideo() {
+
+	const t = useTranslations('pages.home.introVideo');
+
   return (
 <section className="intro_video_section section_space_lg bg_light_2 overflow-hidden decoration_wrap">
 	<div className="container position-relative">
 		<div className="section_heading text-center">
-			<h2 className="heading_text mb-0">
-				Our Сourses are Suitable for…
+			<h2 className="heading_text mb-0">				
+				{t('title')}
 			</h2>
 		</div>
 		<div className="intro_video">
@@ -26,12 +30,11 @@ export default function IntroVideo() {
 							<i className="fas fa-signal-1"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">For Beginners</span>
-							Students
+							{t('g1title')}
 						</h3>
 					</div>
 					<p className="mb-0">
-						Adipiscing bibendum est ultricies integer. Magnis dis parturient montes nascetur ridiculus mus mauris
+						{t('g1sub')}
 					</p>
 				</div>
 			</div>
@@ -42,12 +45,11 @@ export default function IntroVideo() {
 							<i className="fas fa-signal-2"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">Beginners</span>
-							IT Specialists
+							{t('g2title')}
 						</h3>
 					</div>
 					<p className="mb-0">
-						Facilisi nullam vehicula ipsum a arcu cursus vitae. Interdum velit laoreet id donec ultrices tincidunt arcu
+					{t('g2sub')}
 					</p>
 				</div>
 			</div>
@@ -58,12 +60,11 @@ export default function IntroVideo() {
 							<i className="fas fa-signal-3"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">Current</span>
-							IT Specialists
+							{t('g3title')}
 						</h3>
 					</div>
 					<p className="mb-0">
-						Lectus magna fringilla urna porttitor rhoncus dolor purus non. Orci dapibus ultrices in iaculis
+					{t('g3sub')}
 					</p>
 				</div>
 			</div>
@@ -74,12 +75,11 @@ export default function IntroVideo() {
 							<i className="fas fa-signal-4"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">Corporate</span>
-							Customers
+							{t('g4title')}
 						</h3>
 					</div>
 					<p className="mb-0">
-						Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi. Imperdiet proin fermentum leo vel orc
+					{t('g4sub')}
 					</p>
 				</div>
 			</div>

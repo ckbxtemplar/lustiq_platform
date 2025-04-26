@@ -2,6 +2,7 @@
 
 import { NewsletterSubscribe, NewsletterSubscribeState } from '@/app/lib/actions';
 import { useActionState, useEffect } from 'react';
+import {useTranslations} from 'next-intl';
 
 export default function NewsletterSection() {
 	const initialState: NewsletterSubscribeState = { 
@@ -22,6 +23,8 @@ export default function NewsletterSection() {
     }
   };
 
+	const t = useTranslations('pages.home.newsletterSection');
+
 	return (
 <section className="newslatter_section">
 <div className="container">
@@ -30,19 +33,19 @@ export default function NewsletterSection() {
 			<div className="col col-lg-6">
 				<div className="section_heading text-center">
 					<h2 className="heading_text">
-						Subscribe Now Forget 20% Discount Every Courses
+						{t('title')}
 					</h2>
 					<p className="heading_description mb-0">
-						Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed magna purus, fermentum eu
+						{t('subtitle')}
 					</p>
 				</div>
 				<form action={formAction}>
 					<div className="form_item m-0">
-						<input type="email" name="email" placeholder="Your Email" disabled={state.state === 2}/>
+						<input type="email" name="email" placeholder={t('inputPlaceholder')} disabled={state.state === 2}/>
 						<button type="submit" className="btn btn_dark" disabled={state.state === 2}>
 							<span>
-								<small>Subscribe</small>
-								<small>Subscribe</small>
+								<small>{t('subscribeButton')}</small>
+								<small>{t('subscribeButton')}</small>
 							</span>
 						</button>
 					</div>

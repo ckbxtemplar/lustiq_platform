@@ -1,41 +1,43 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
 export default function CallToAction() {
+
+	const t = useTranslations('pages.home.calltoAction');
+
   return (
 		<section className="calltoaction_section section_space_lg bg_dark decoration_wrap">
 		<div className="container">
 			<div className="row align-items-center">
 				<div className="col col-lg-7">
 					<div className="section_heading mb-lg-0">
-						<h2 className="heading_text text-white">
-							To Help You Choose the Right Course, You Need to Book a Consultation
+						<h2 className="heading_text text-white">							
+							{t('title')}
 						</h2>
 						<p className="heading_description mb-0 text-white">
-							Varius morbi enim nunc faucibus. Eget nunc lobortis mattis aliquam faucibus purus in massa. Diam sit amet nisl suscipit adipiscing bibendum est.
+						{t('sub')}
 						</p>
 					</div>
 				</div>
 				<div className="col col-lg-5">
 					<div className="calltoaction_form">
 						<form action="#">
-							<h3 className="form_title">Get a Consultation</h3>
 							<div className="form_item">
-								<label htmlFor="input_name" className="input_title text-uppercase">Name</label>
-								<input id="input_name" type="text" name="name" placeholder="Input Name"/>
+								<label htmlFor="input_name" className="input_title text-uppercase">{t('form_name')}</label>
+								<input id="input_name" type="text" name="name" placeholder={t('form_name2')}/>
 							</div>
 							<div className="form_item">
-								<label htmlFor="input_email" className="input_title text-uppercase">Email</label>
-								<input id="input_email" type="email" name="email" placeholder="Input Email"/>
+								<label htmlFor="input_email" className="input_title text-uppercase">{t('form_mail')}</label>
+								<input id="input_email" type="email" name="email" placeholder={t('form_mail2')}/>
 							</div>
 							<div className="form_item">
-								<label htmlFor="input_question" className="input_title text-uppercase">Message</label>
-								<textarea id="input_question" name="Message" placeholder="Input Your Question"></textarea>
+								<label htmlFor="input_question" className="input_title text-uppercase">{t('form_message')}</label>
+								<textarea id="input_question" name="Message" placeholder={t('form_message2')}></textarea>
 							</div>
 							<button type="submit" className="btn btn_dark w-100">
 								<span>
-									<small>Get a Consultation</small>
-									<small>Get a Consultation</small>
+									<small>{t('form_button')}</small>
+									<small>{t('form_button')}</small>
 								</span>
 							</button>
 						</form>

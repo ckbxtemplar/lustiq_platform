@@ -6,6 +6,7 @@ import GridList from '@/app/ui/courses/grid-list';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import { Suspense, useState } from 'react';
 import { GridListSkeleton } from '@/app/ui/skeletons';
+import {useTranslations} from 'next-intl';
 
 export default function CoursesClient() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -14,12 +15,14 @@ export default function CoursesClient() {
     setSearchQuery(query);
   };
 
+	const t = useTranslations('pages.home.coursesBanner');
+
   return (
 		<main className="page_content">
 
 		<Banner 
-			title={'Courses'} 
-			description={'Egestas sed tempus urna et pharetra. Leo integer malesuada nunc vel.'} 
+			title={t('title')} 
+			description={t('sub')} 
 			search={true}
 			onSearch={handleSearch}
 		/>

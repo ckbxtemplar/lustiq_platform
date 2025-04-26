@@ -1,15 +1,149 @@
 {
   "buttons": {
     "search": "Search",
-    "accept": "Accept"
+    "accept": "Accept",
+    "personalData": "Personal Data",
+    "billingData": "Billing Data"
   },
-	"pages":{
-		"pricing": {
-			"header": "Pricing",			
-			"buttons":{
-				"sub_monthly": "Monthly subscription",
-				"sub_annual": "Annual subscription"
-			}
-		}
-	}
+  "tags": {
+    "sexuality": "sexuality",
+    "selfawareness": "self-awareness",
+    "intimacy": "intimacy",
+    "relationship": "relationship",
+    "desire": "desire",
+    "sexeducation": "sex education",
+    "sexpositive": "sex-positive",
+    "emotionalsecurity": "emotional security",
+    "sexpsychology": "sex psychology",
+    "bodyawareness": "body awareness"
+  },
+  "grid": {
+    "courses": "Our Courses",
+    "result": "result",
+    "for": "for",
+    "query": "search",
+    "sorting_t": "Sort by",
+    "sorting_newest": "Newest",
+    "sorting_popularity": "Popularity",
+    "subscribe": "Subscribe",
+    "hours": "hours",
+    "startCourse": "Start Course",
+    "viewCourse": "View Course",
+    "explore": "Explore our courses"
+  },
+  "pages": {
+    "pricing": {
+      "header": "Pricing",
+      "buttons": {
+        "sub_monthly": "Monthly Subscription",
+        "sub_annual": "Annual Subscription"
+      }
+    },
+    "home": {
+      "header": {
+        "logoAlt": "Lustiq Sexual Education Platform",
+        "home": "Home",
+        "about": "About Us",
+        "courses": "Courses",
+        "experts": "Our Experts",
+        "pricing": "Pricing",
+        "contact": "Contact",
+        "dashboard": "Dashboard",
+        "mycourses": "My Courses",
+        "personalsettings": "Personal Settings",
+        "login": "Login",
+        "signup": "Sign Up",
+        "signout": "Sign Out"
+      },
+      "heroSection": {
+        "title": "Discover New Dimensions of Intimacy",
+        "subtitle": "Online courses by experts – without taboos",
+        "ctaButton": "Start Now",
+        "buttonPlaceholder": "What do you want to learn about?"
+      },
+      "featuresSection": {
+        "sectionTitle": "Why Choose Lustiq?",
+        "feature1Title": "Reliable Information",
+        "feature1Desc": "Learn from experienced sex psychologists who support your self-discovery.",
+        "feature2Title": "Taboo-Free Education",
+        "feature2Desc": "An open and accepting environment where all questions are welcome.",
+        "feature3Title": "Interactive Content",
+        "feature3Desc": "Hands-on, interactive lessons and exercises for better intimacy."
+      },
+      "introVideo": {
+        "title": "Discover New Dimensions of Intimacy",
+        "g1title": "Curious Explorers",
+        "g1sub": "For those just beginning to explore the world of sexuality.",
+        "g2title": "Growing in Relationships",
+        "g2sub": "Couples and individuals seeking to improve intimacy, communication, and emotional connection.",
+        "g3title": "Deep Divers",
+        "g3sub": "Those who have already started working on themselves and are exploring complex questions of body and mind.",
+        "g4title": "Knowledge Sharers",
+        "g4sub": "Professionals and dedicated learners who want to – or already do – support others in this field."
+      },
+      "calltoAction": {
+        "title": "Have questions about our courses?",
+        "sub": "Feel free to write to us – our team is here to help.",
+        "form_name": "NAME",
+        "form_name2": "Enter your name",
+        "form_mail": "E-MAIL",
+        "form_mail2": "Enter your email address",
+        "form_message": "MESSAGE",
+        "form_message2": "Write your message",
+        "form_button": "SEND"
+      },
+      "coursesSection": {
+        "sectionTitle": "Our Most Popular Courses",
+        "viewAll": "View All Courses",
+        "enrollButton": "Enroll",
+        "courseAltImage": "Lustiq course image"
+      },
+      "coursesBanner": {
+        "title": "Our Courses",
+        "sub": "Online courses by experts – without taboos"
+      },
+      "testimonialsSection": {
+        "sectionTitle1": "Learning about intimacy, body awareness, and desires can be a liberating experience. Sexuality is a natural part of life, yet it's often surrounded by taboos. We want to change that with knowledge and empathy.",
+        "sectionSub1": "More than information – this is a safe space where questions are welcome. We help you navigate the world of feelings, relationships, and boundaries.",
+        "sectionAuthor1": "Dr. Réka Kiss",
+        "sectionAuthor1sub": "Sex psychologist, lecturer, and researcher",
+
+        "sectionTitle2": "Everyone deserves joyful and consensual sexual experiences. That requires reliable information, openness, and self-awareness – exactly what our platform supports.",
+        "sectionSub2": "Sexuality is not just biology – it's also about society, emotions, and culture. We talk about all of these openly.",
+        "sectionAuthor2": "András Németh",
+        "sectionAuthor2sub": "Sex educator, podcast host",
+
+        "sectionTitle3": "Many missed out on proper sex education in school – or were taught based on myths. Here's a chance to rebuild your knowledge and gain confidence in these topics.",
+        "sectionSub3": "Our goal is to support everyone to grow at their own pace and without shame – whether it’s about relationships, identity, or pleasure.",
+        "sectionAuthor3": "Laura Bíró",
+        "sectionAuthor3sub": "Relationship coach, writer"
+      },
+      "expertsSection": {
+        "sectionTitle": "Our Experts",
+        "viewProfile": "View Profile",
+        "expertAltImage": "Expert profile image"
+      },
+      "newsletterSection": {
+        "title": "Subscribe to Our Newsletter!",
+        "subtitle": "Be the first to know about our updates and exclusive content.",
+        "inputPlaceholder": "Enter your email address",
+        "subscribeButton": "Subscribe"
+      },
+      "brands": {
+        "title": "Partners and Press"
+      },
+      "footer": {
+        "copyright": "© 2024 Lustiq. All rights reserved.",
+        "privacyPolicy": "Privacy Policy",
+        "termsConditions": "Terms and Conditions",
+        "socialMediaAlt": "Lustiq social media"
+      },
+      "metaTags": {
+        "homeTitle": "Lustiq – Sex Education Without Taboos",
+        "homeDescription": "An online platform for sex education where experts help you explore and grow your intimacy.",
+        "coursesTitle": "Lustiq – Sex Education Courses",
+        "coursesDescription": "Discover the depths of sexuality with our interactive courses led by sex psychologists."
+      }
+    }
+  }
 }

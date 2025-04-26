@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SiteHeaderUser from './siteheaderuser';
 import SiteHeaderMenu from './siteheadermenu';
+import SiteHeaderLanguageSelect from './siteheaderlanguageselect';
 
 
 export default function SiteHeader() {
@@ -25,10 +26,13 @@ export default function SiteHeader() {
 						{isDashboard ? <div className="d-inline-block text-black fw-normal lh-1 ms-2 align-middle" style={{marginTop:'8px', paddingLeft:'8px', borderLeft:'2px solid #ffd32b'}}><small>Your Own<br/>Dashboard</small></div>: ''}
 					</div>
 				</div>
-				<div className="col col-lg-6 col-2">
+				<div className="col col-lg-auto">
 					<SiteHeaderMenu pathname={pathname} isDashboard={isDashboard}/>
 				</div>
-				<div className="col col-lg-3 col-5">
+				<div className="col col-lg-auto ms-auto">
+					<SiteHeaderLanguageSelect />
+				</div>
+				<div className="col col-lg-auto ms-auto">					
 					<SiteHeaderUser />
 				</div>
 			</div>

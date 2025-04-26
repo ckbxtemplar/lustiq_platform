@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import { userSignOut } from "@/app/lib/user-actions";
 import { useSession } from "next-auth/react";
+import {useTranslations} from 'next-intl';
 
 export default function SiteHeaderUser() {
 	const { data: session, status } = useSession();
@@ -12,6 +13,8 @@ export default function SiteHeaderUser() {
     const success = await userSignOut();
     if (success) window.location.href = '/';
   };
+
+	const t = useTranslations('pages.home.header');	
 
   return (
 		<ul className="header_btns_group unordered_list_end">
@@ -42,13 +45,15 @@ export default function SiteHeaderUser() {
 							<ul className="dropdown-menu" aria-labelledby="pages_usermenu">
 								<li>
 									<Link href="/dashboard">
-										<span className="icon-container me-2 text-center"><i className="fas fa-chalkboard-teacher me-2"></i></span>Dashboard
+										<span className="icon-container me-2 text-center"><i className="fas fa-chalkboard-teacher me-2"></i></span>
+										{t('dashboard')}
 									</Link>
 								</li>
 								<li>
 									<button onClick={handleSignOut} className="dropdown-item">
-										<span className="icon-container me-2 text-center"><i className="fas fa-sign-out-alt me-2"></i></span>Sign Out
-                	</button>
+										<span className="icon-container me-2 text-center"><i className="fas fa-sign-out-alt me-2"></i></span>
+										{t('signout')}
+									</button>
 								</li>
 							</ul>
 						</li>
@@ -59,16 +64,16 @@ export default function SiteHeaderUser() {
 				<li>
 					<Link className="btn border_dark" href="/login">
 						<span>
-							<small>Login</small>
-							<small>Login</small>
+							<small>{t('login')}</small>
+							<small>{t('login')}</small>
 						</span>
 					</Link>
 				</li>
 				<li>
 					<Link className="btn btn_dark" href="/regist">
 						<span>
-							<small>Sign Up</small>
-							<small>Sign Up</small>
+							<small>{t('signup')}</small>
+							<small>{t('signup')}</small>
 						</span>
 					</Link>
 				</li>

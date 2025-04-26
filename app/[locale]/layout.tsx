@@ -10,11 +10,11 @@ import { Providers } from '@/app/lib/providers';
  
 export const metadata: Metadata = {
   title: {
-    template: '%s | Lustiq Platform',
-    default: 'Lustiq Platform',
+    template: '%s | Lustiq Lab',
+    default: 'Lustiq Lab',
   },
-  description: 'Lustiq platform',
-  metadataBase: new URL('https://platform.lustiq.hu'),
+  description: 'Lustiq Lab',
+  metadataBase: new URL('https://lab.lustiq.hu'),
 };
 
 export default async function RootLayout({

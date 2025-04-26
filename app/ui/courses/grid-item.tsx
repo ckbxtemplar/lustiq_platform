@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import { tagsToHTML } from "@/app/utils/courseDataUtils";
+import {useTranslations} from 'next-intl';
 
 interface GridItemProps {  
   documentId: string;
@@ -11,7 +12,9 @@ interface GridItemProps {
 }
 
 export default function GridItem({documentId, slug, dashboard, progress = 0, data }: GridItemProps) {
-
+	
+	const t = useTranslations('grid');
+	
 	return (
 		<div className="col col-lg-4">
 			<div className="course_card">
@@ -38,7 +41,7 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 						</div>
 						:
 						<div className="item_price text-end text-nowrap">
-							<small>Subscribe <a href="/pricing" className="text-yellow"><i className="fas fa-question"></i></a></small>
+							<small>{t('subscribe')} <a href="/pricing" className="text-yellow"><i className="fas fa-question"></i></a></small>
 						</div>
 						}						
 					</div>
@@ -49,7 +52,7 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 						</li>
 						<li>
 							<i className="fas fa-clock me-1"></i>
-							<span>{(data as any).Details.duration || "4"} Hours</span>
+							<span>{(data as any).Details.duration || "4"} {t('hours')}</span>
 						</li>
 						<li className='d-none'>
 							<i className="fas fa-star me-1"></i>
@@ -63,7 +66,7 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 					</h3>
 					{ (data as any).card_description ? <p className='item_description'>{(data as any).card_description}</p> : ""}
 					<a className="btn_unfill" href={(dashboard?'/dashboard/course/':'/course/')+slug}>
-						<span className="btn_text">{dashboard ? "Start" : "View"}  Course{dashboard ? "" : " Details"}</span>
+						<span className="btn_text">{dashboard ? t('startCourse') : t('viewCourse')}</span>
 						<span className="btn_icon">
 							<i className="fas fa-long-arrow-right"></i>
 							<i className="fas fa-long-arrow-right"></i>

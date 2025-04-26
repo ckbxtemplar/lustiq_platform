@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
 export default function Brands() {
+
+	const t = useTranslations('pages.home.brands');
+
   return (
 		<section className="brands_section section_space_lg pb-0">
 		<div className="container">
 			<div className="section_heading text-center">
 				<h2 className="heading_text mb-0">
-					Where Our Graduates Work
+					{t('title')}
 				</h2>
 			</div>
 			<ul className="brands_logo_list unordered_list">

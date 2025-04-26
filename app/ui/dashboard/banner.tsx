@@ -24,7 +24,8 @@ export default function Banner({page, title, description, search, onSearch }: Ba
     }		
   };
 
-	const t = useTranslations('buttons');
+	const b = useTranslations('buttons');
+	const t = useTranslations('pages.home');
 
 	return (	
 		<section className="page_banner">
@@ -44,19 +45,19 @@ export default function Banner({page, title, description, search, onSearch }: Ba
 								<input 
 								type="search" 
 								name="search" 
-								placeholder="What do you want to learn ?"
+								placeholder={t('heroSection.buttonPlaceholder')}
 								/>
 								<button type="submit" className="btn btn_dark">
 									<span>
-										<small>{t('search')}</small>
-										<small>{t('search')}</small>
+										<small>{b('search')}</small>
+										<small>{b('search')}</small>
 									</span>
 								</button>
 							</div>
 						</form> }
 						{ page === "dashboard_profile" && <ul className="tags_list unordered_list">
-                  <li><a href="#section_personal_data">PERSONAL DATA</a></li>
-                  <li><a href="#section_billing_address">Billing address</a></li>
+                  <li><a href="#section_personal_data">{b('personalData')}</a></li>
+                  <li><a href="#section_billing_address">{b('billingData')}</a></li>
                 </ul> }
 					</div>
 				</div>

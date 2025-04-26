@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import GridItem from '@/app/ui/courses/grid-item';
 import { useSearchParams } from 'next/navigation';
+import {useTranslations} from 'next-intl';
 
 interface GridListProps {
   dashboard?: boolean;
@@ -48,15 +49,17 @@ export default function GridList({ dashboard = false, topbar = true, searchQuery
 
     loadCourses();
   }, [searchQuery, urlSearchQuery]);
-
-  return (
+	
+	const t = useTranslations('grid');
+  
+	return (
     <>			
 			{ topbar ? (
 			<div className="filter_topbar">
 				<p className="filter_result">
-					<span>{countCourses}</span> result(s)
+					<span>{countCourses}</span> {t('result')}
 					{prevSearchQuery.current?.trim() && (
-              <> a <strong>'{prevSearchQuery.current}'</strong> keresésre</>
+              <> {t('for')} <strong>'{prevSearchQuery.current}'</strong> {t('query')}</>
           )}
 				</p>
 				<ul className="filter_buttons_list unordered_list">
@@ -68,10 +71,10 @@ export default function GridList({ dashboard = false, topbar = true, searchQuery
 					</li>
 					<li>
 						<div className="form_item m-0">
-							<select name="sorting" defaultValue={"sorting"}>
-								<option value="sorting">Sorting</option>
-								<option value="newest">Newest</option>
-								<option value="popularity">Popularity</option>
+							<select name="sorting" defaultValue={t('sorting_t')}>
+								<option value="sorting">{t('sorting_t')}</option>
+								<option value="newest">{t('sorting_newest')}</option>
+								<option value="popularity">{t('sorting_popularity')}</option>
 							</select>
 						</div>
 					</li>
@@ -82,15 +85,15 @@ export default function GridList({ dashboard = false, topbar = true, searchQuery
 					<div className="row align-items-center">
 						<div className="col col-md-6">
 							<h2 className="heading_text mb-0">
-								Our Courses
+								{t('courses')}
 							</h2>
 						</div>
 						<div className="col col-md-6 d-none d-lg-flex justify-content-end">
 							<div className="btn_wrap p-0">
 								<a className="btn border_dark" href="/courses">
 									<span>
-										<small>Explore Courses</small>
-										<small>Explore Courses</small>
+										<small>{t('explore')}</small>
+										<small>{t('explore')}</small>
 									</span>
 								</a>
 							</div>

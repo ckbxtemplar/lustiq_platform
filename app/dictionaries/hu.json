@@ -1,8 +1,36 @@
 {
   "buttons": {
     "search": "Keresés",
-    "accept": "Elfogadom"
+    "accept": "Elfogadom",
+		"personalData": "Személyes adatok",
+		"billingData": "Számlázási adatok"
   },
+	"tags":{
+		"sexuality": "szexualitás", 
+		"selfawareness": "önismeret", 
+		"intimacy": "intimitás",
+		"relationship": "párkapcsolat",
+		"desire": "vágy",
+		"sexeducation": "szexuális edukáció",
+		"sexpositive": "szexpozitív",
+		"emotionalsecurity": "érzelmi biztonság",
+		"sexpsychology": "szexuálpszichológia",
+		"bodyawareness": "testtudatosság"
+	},
+	"grid":{
+		"courses":"Kurzusaink",
+		"result":"találat",
+		"for":"a",
+		"query":"keresésre",
+		"sorting_t":"Rendezés",
+		"sorting_newest":"Legújabb",
+		"sorting_popularity":"Népszerűség",
+		"subscribe":"Előfizetés",
+		"hours":"óra",
+		"startCourse":"Kurzus kezdése",
+		"viewCourse":"Kurzus megtekintése",
+		"explore":"Fedezd fel a képzéseinket"
+	},	
 	"pages":{
 		"pricing": {
 			"header": "Árazás",			
@@ -10,6 +38,113 @@
 				"sub_monthly": "Havi előfizetés",
 				"sub_annual": "Éves előfizetés"
 			}
-		}
+		},
+		"home":	{
+			"header": {
+				"logoAlt": "Lustiq Szexedukációs Platform",
+				"home": "Főoldal",
+				"about": "Rólunk",
+				"courses": "Kurzusok",
+				"experts": "Szakértőink",
+				"pricing": "Árazás",
+				"contact": "Kapcsolat",
+				"dashboard": "Irányítópult",
+				"mycourses": "Kurzusaim",
+				"personalsettings": "Személyes beállítások",
+				"login": "Bejelentkezés",
+				"signup": "Regisztráció",
+				"signout": "Kijelentkezés"
+			},
+			"heroSection": {
+				"title": "Fedezd fel az intimitás új dimenzióit",
+				"subtitle": "Online kurzusok, szakértőktől tabuk nélkül",
+				"ctaButton": "Kezdd el most",
+				"buttonPlaceholder": "Miről szeretnél tanulni?"
+			},
+			"featuresSection": {
+				"sectionTitle": "Miért válaszd a Lustiq-ot?",
+				"feature1Title": "Hiteles információk",
+				"feature1Desc": "Tapasztalt szexuálpszichológusoktól tanulhatsz, akik segítenek a mélyebb önismeretben.",
+				"feature2Title": "Tabumentes oktatás",
+				"feature2Desc": "Nyílt és elfogadó környezet, ahol minden kérdésedre választ kapsz.",
+				"feature3Title": "Interaktív tartalmak",
+				"feature3Desc": "Gyakorlatias, interaktív leckék és gyakorlatok a jobb intimitásért."
+			},
+			"introVideo": {
+				"title": "Fedezd fel az intimitás új dimenzióit",
+				"g1title": "Kíváncsi felfedezők",
+				"g1sub": "Aki most kezdi az ismerkedést a szexualitás világával.",
+				"g2title": "Kapcsolatban fejlődők",
+				"g2sub": "Párok és egyének, akik szeretnék fejleszteni intimitásukat, kommunikációjukat, érzelmi kapcsolódásukat.",
+				"g3title": "Mélyre ásók",
+				"g3sub": "Akik már dolgoztak magukon, aktívan keresik a testi-lelki harmóniát, komplexebb kérdések foglalkoztatják őket.",
+				"g4title": "Tudásmegosztók",
+				"g4sub": "Szakemberek és elkötelezett érdeklődők, akik másokat is támogatni szeretnének — vagy már támogatnak — a témában."
+			},
+			"calltoAction":{
+				"title":"A kurzusokkal kapcsolatban kérdésed van?",
+				"sub":"Bátran írj nekünk és kollégáink segítenek.",
+				"form_name":"NÉV",
+				"form_name2":"Add meg a neved",
+				"form_mail":"E-MAIL",
+				"form_mail2":"Add meg az email címed",
+				"form_message":"ÜZENET",
+				"form_message2":"Írd meg az üzeneted",
+				"form_button":"KÜLDÉS"
+			},
+			"coursesSection": {
+				"sectionTitle": "Legnépszerűbb kurzusaink",
+				"viewAll": "Összes kurzus megtekintése",
+				"enrollButton": "Beiratkozás",
+				"courseAltImage": "Lustiq kurzus képe"
+			},
+			"coursesBanner": {
+				"title": "Kurzusaink",
+				"sub": "Online kurzusok, szakértőktől tabuk nélkül"
+			},			
+			"testimonialsSection": {
+				"sectionTitle1": "Intimitásról, testtudatról és vágyakról tanulni felszabadító élmény lehet. A szexualitás természetes része az életünknek, mégis sokszor tabu övezi. Ezen szeretnénk változtatni tudással és empátiával.",
+				"sectionSub1": "Több, mint információ – ez egy biztonságos tér, ahol kérdezni is lehet. Segítünk eligazodni az érzések, kapcsolatok és határok világában.",
+				"sectionAuthor1": "Dr. Kiss Réka",
+				"sectionAuthor1sub": "Szexuálpszichológus, oktató és kutató",
+
+				"sectionTitle2": "Mindenkinek joga van az örömteli és kölcsönös beleegyezésen alapuló szexuális élményekhez. Ehhez hiteles információk, nyitottság és önismeret kell – épp ezt támogatja a platformunk.",
+				"sectionSub2": "A szexualitás nemcsak biológia – társadalmi, lelki és kulturális kérdések is kapcsolódnak hozzá. Ezekről is őszintén beszélünk.",
+				"sectionAuthor2": "Németh András",
+				"sectionAuthor2sub": "Szexedukátor, podcast házigazda",
+
+				"sectionTitle3": "Sokaknak kimaradt az iskolai szexedukáció, vagy épp tévhiteken alapult. Itt lehetőség van arra, hogy új alapokra helyezd a tudásodat, és magabiztosabban mozogj ezekben a témákban.",
+				"sectionSub3": "A célunk, hogy támogassunk mindenkit abban, hogy a saját tempójában, szégyen nélkül fejlődhessen – legyen szó kapcsolatról, identitásról vagy élvezetről.",
+				"sectionAuthor3": "Bíró Laura",
+				"sectionAuthor3sub": "Párkapcsolati tanácsadó, író"
+			},
+			"expertsSection": {
+				"sectionTitle": "Szakértőink",
+				"viewProfile": "Profil megtekintése",
+				"expertAltImage": "Szakértő profilképe"
+			},
+			"newsletterSection": {
+				"title": "Iratkozz fel hírlevelünkre!",
+				"subtitle": "Értesülj elsőként újdonságainkról és exkluzív tartalmakról.",
+				"inputPlaceholder": "Add meg az email címed",
+				"subscribeButton": "Feliratkozom"
+			},
+			"brands":{
+				"title":"Partnerek és megjelenések"
+			},
+			"footer": {
+				"copyright": "© 2024 Lustiq. Minden jog fenntartva.",
+				"privacyPolicy": "Adatvédelmi irányelvek",
+				"termsConditions": "Felhasználási feltételek",
+				"socialMediaAlt": "Lustiq közösségi média"
+			},
+			"metaTags": {
+				"homeTitle": "Lustiq – Szexedukáció tabuk nélkül",
+				"homeDescription": "Online szexedukációs platform, ahol szakértők segítenek felfedezni és fejleszteni intimitásodat.",
+				"coursesTitle": "Lustiq – Szexedukációs kurzusok",
+				"coursesDescription": "Fedezd fel a szexualitás mélységeit interaktív kurzusainkkal, szexuálpszichológusok vezetésével."
+			}
+		}		
 	}
 }
+

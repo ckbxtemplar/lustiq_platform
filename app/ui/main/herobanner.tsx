@@ -15,47 +15,49 @@ export default function HeroBanner() {
     }
   };
 	
-	const t = useTranslations('buttons');
+	const b = useTranslations('buttons');
+	const t = useTranslations('pages.home.heroSection');
+	const tags = useTranslations('tags');
 
   return (
 	<section className="hero_banner style_2 mouse_move" style={{ backgroundImage: "url('/assets/images/shape/shape_img_6.png')" }}>
 		<div className="container">
 			<div className="row align-items-center">
 				<div className="col col-lg-6">
-					<h1 className="banner_big_title">
-						Learn Programming with Online Course
+					<h1 className="banner_big_title">						
+						{t('title')}
 					</h1>
-					<p className="banner_description">
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum fugiat
+					<p className="banner_description">						
+						{t('subtitle')}
 					</p>
 					<form action="#" onSubmit={handleSearch}>
 						<div className="form_item">
 							<input 
 								type="search" 
 								name="search" 
-								placeholder="What do you want to learn ?"
+								placeholder={t('buttonPlaceholder')}
 								value={searchQuery}
 								onChange={(e) => setSearchQuery(e.target.value)}
 							/>
 							<button type="submit" className="btn btn_dark">
 								<span>
-									<small>{t('search')}</small>
-									<small>{t('search')}</small>
+									<small>{b('search')}</small>
+									<small>{b('search')}</small>
 								</span>
 							</button>
 						</div>
 					</form>
 					<ul className="tags_list unordered_list">
-						<li><a href="#!">JAVA</a></li>
-						<li><a href="#!">PYTHON</a></li>
-						<li><a href="#!">JavaScript</a></li>
-						<li><a href="#!">C++</a></li>
-						<li><a href="#!">QA</a></li>
-						<li><a href="#!">Ruby</a></li>
-						<li><a href="#!">Android</a></li>
-						<li><a href="#!">.NET</a></li>
-						<li><a href="#!">DevOps</a></li>
-						<li><a href="#!">Project Manager</a></li>
+						<li><a href="#!">{tags('sexuality')}</a></li>
+						<li><a href="#!">{tags('selfawareness')}</a></li>
+						<li><a href="#!">{tags('intimacy')}</a></li>
+						<li><a href="#!">{tags('relationship')}</a></li>
+						<li><a href="#!">{tags('desire')}</a></li>
+						<li><a href="#!">{tags('sexeducation')}</a></li>
+						<li><a href="#!">{tags('sexpositive')}</a></li>
+						<li><a href="#!">{tags('emotionalsecurity')}</a></li>
+						<li><a href="#!">{tags('sexpsychology')}</a></li>
+						<li><a href="#!">{tags('bodyawareness')}</a></li>
 					</ul>
 				</div>
 				<div className="col col-lg-6">

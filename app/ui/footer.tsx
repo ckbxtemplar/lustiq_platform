@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
 export default function Footer() {
+
+	const t = useTranslations('pages.home.footer');
 
   return (
 		<footer className="site_footer">		
@@ -186,7 +189,7 @@ export default function Footer() {
 		<div className="copyright_widget">
 			<div className="container">
 				<p className="copyright_text text-center mb-0">
-					<Link href="https://themeforest.net/user/merkulove">Merkulove</Link> © <b>Collab</b> Template All rights reserved Copyrights 2023
+					<b>{t('copyright')}</b>
 				</p>
 			</div>
 		</div>
