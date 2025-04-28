@@ -8,6 +8,7 @@ import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/user-actions';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import {useTranslations} from 'next-intl';
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
@@ -16,6 +17,8 @@ export default function LoginForm() {
 	const msg = searchParams.get('m') || false;
 
 	if (state.success) window.location.href	= state.callbackUrl || callbackUrl;
+
+	const t = useTranslations('pages.login');
 
   return (
 <form action={formAction}>
@@ -26,7 +29,7 @@ export default function LoginForm() {
 				type="email" 
 				name="email" 
 				id="email"
-				placeholder="Enter your email address"
+				placeholder={t('email')}
 				required			
 			/>
 		</div>
@@ -44,12 +47,12 @@ export default function LoginForm() {
 			<div className="col col-6">
 				<div className="checkbox_item mb-0">
 					<input id="checkbox_remenber" type="checkbox" name="remember" value="true"/>
-					<label htmlFor="checkbox_remenber">Remember me</label>
+					<label htmlFor="checkbox_remenber">{t('remember')}</label>
 				</div>
 			</div>
 			<div className="col col-6">
 				<div className="forget_password text-end">
-					<a href="/forgetpassword">Forget Password</a>
+					<a href="/forgetpassword">{t('forgot')}</a>
 				</div>
 			</div>
 		</div>
@@ -57,8 +60,8 @@ export default function LoginForm() {
 		<input type="hidden" name="redirect" value="false" />	
 		<Button className="btn btn_dark mb-2" aria-disabled={isPending}>
 			<span>
-				<small>Login Now</small>
-				<small>Login Now</small>
+				<small>{t('loginButton')}</small>
+				<small>{t('loginButton')}</small>
 			</span>
 		</Button>	
 
@@ -75,7 +78,7 @@ export default function LoginForm() {
 			)}
 			</div>	
 
-		<p className="mb-0 text-center">Don't have an account? <Link href="/regist">Register Here</Link></p>
+		<p className="mb-0 text-center">{t('noaccount')} <Link href="/regist">{t('noaccountButton')}</Link></p>
 	</div>
 </form>
   );

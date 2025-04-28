@@ -67,7 +67,7 @@ export default function Quiz({ quizData }: QuizProps) {
 
   return (
     <Container className="mt-4 p-0" style={{ overflow: 'hidden' }}>
-			<div className="w-100 px-5">
+			<div className="w-100 px-1 px-lg-5">
 				<div className="progress w-100 progress-bar-striped" style={{height: '24px'}}>
 					{quizData.map((_, index) => (
 						<div
@@ -84,9 +84,9 @@ export default function Quiz({ quizData }: QuizProps) {
 			<div className="w-100 d-flex justify-content-center">
 				<Card className={`mt-4 p-0 border-0 quiz-card ${animationClass}`} style={{ width: "100%" }}>
 					<h4 className="mb-4">{quizData[currentQuestion].question}</h4>
-					<div className="px-5 mt-0 mb-3 quiz-card-answers">
+					<div className="px-0 px-lg-5 mt-0 mb-3 quiz-card-answers">
 						{quizData[currentQuestion].options.map((option, index) => (
-							<Button key={index} className="btn_small mb-2 w-75" onClick={() => handleAnswer(option)}>
+							<Button key={index} className="btn_small mb-2 w-100 w-lg-75" onClick={() => handleAnswer(option)}>
 								<span>
 									<small>{option}</small>
 									<small>{option}</small>

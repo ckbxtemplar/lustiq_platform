@@ -16,7 +16,7 @@ export default function Lessons({ lessons }: LessonProps){
 
 	return (
 		<div className="accordion_wrap mb-5">
-		<div className="accordion style_2" id="corse_details_accordion">
+		<div className="accordion style_2 px-3 px-lg-5" id="corse_details_accordion">
 
 			{lessons.map((item:any,index:number) => {
 				let sectionCounter = 0;

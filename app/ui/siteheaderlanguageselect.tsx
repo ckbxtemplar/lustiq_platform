@@ -25,20 +25,12 @@ export default function SiteHeaderLanguageSelect() {
   const otherLocales = locales.filter((lang) => lang !== locale);
 
   return (
-    <ul className="header_btns_group unordered_list_end">
-      <li>
-        <button
-          className="mobile_menu_btn"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#main_menu_dropdown"
-          aria-controls="main_menu_dropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i className="far fa-bars"></i>
-        </button>
-      </li>
+    <ul className="unordered_list_end">
+			<li className="d-lg-none d-inline-block">
+				<button className="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<i className="far fa-bars"></i>
+				</button>
+			</li>					
       <li>
         <ul className="main_menu_list user_menu unordered_list_end">
           <li className="dropdown">
@@ -53,10 +45,10 @@ export default function SiteHeaderLanguageSelect() {
               <Image
                 src={currentFlag}
                 alt={`Current language: ${locale}`}
-								width={24}
-								height={24}
-								className="rounded-circle"
-								style={{ height: '24px', width: '24px' }}
+								width={40}
+								height={32}
+								className="rounded-circle me-0 me-lg-2"
+								style={{ height: '40px', width: '32px' }}
 								layout="intrinsic"
               />
             </Link>
@@ -67,10 +59,10 @@ export default function SiteHeaderLanguageSelect() {
                     <Image
                       src={flags[lang]}
                       alt={lang}
-                      width={24}
-                      height={24}
-											className="rounded-circle me-2"
-											style={{ height: '24px', width: '24px', display: 'inline-block' }}
+                      width={40}
+                      height={32}
+											className="rounded-circle me-3"
+											style={{ height: '40px', width: '32px', display: 'inline-block' }}
 											layout="intrinsic"
                     />
 										{lang.toUpperCase()}

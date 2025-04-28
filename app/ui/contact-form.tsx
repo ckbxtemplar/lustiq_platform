@@ -3,8 +3,12 @@
 import { contactForm, ContactFormState } from '@/app/lib/actions';
 import { useActionState, useEffect, useState } from 'react';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
 export default function ContactForm() {
+
+	const t = useTranslations('pages.contactForm');
+
 	const initialState: ContactFormState = { 
 		state:null, errors: { }, message: null, fields: {} 
 	};
@@ -38,7 +42,7 @@ export default function ContactForm() {
 				<div className="col col-lg-7">
 					<div className="section_heading text-center">
 						<h2 className="heading_text mb-0">
-							Contact Our Support Team to Know What You Want
+							{t('title')}
 						</h2>
 					</div>
 				</div>
@@ -50,12 +54,12 @@ export default function ContactForm() {
 						<div className="row">
 							<div className="col col-md-6">
 								<div className="form_item m-0">
-									<label htmlFor="input_name" className="input_title">Name</label>
+									<label htmlFor="input_name" className="input_title">{t('name')}</label>
 									<input 
 									id="input_name" 
 									type="text" 
 									name="name" 
-									placeholder="Your Name" 
+									placeholder={t('name_sub')}
 									required
 									value={formData.name} 
 									onChange={handleChange} 
@@ -74,12 +78,12 @@ export default function ContactForm() {
 							</div>
 							<div className="col col-md-6">
 								<div className="form_item m-0">
-									<label htmlFor="input_email" className="input_title">Email</label>
+									<label htmlFor="input_email" className="input_title">{t('email')}</label>
 									<input 
 									id="input_email" 
 									type="email" 
 									name="email" 
-									placeholder="Your Email" 
+									placeholder={t('email_sub')} 
 									required
 									value={formData.email}
 									onChange={handleChange} 									
@@ -98,12 +102,12 @@ export default function ContactForm() {
 							</div>
 							<div className="col col-md-6">
 								<div className="form_item m-0">
-									<label htmlFor="input_phone" className="input_title">Phone</label>
+									<label htmlFor="input_phone" className="input_title">{t('phone')}</label>
 									<input 
 									id="input_phone" 
 									type="tel" 
 									name="telephone" 
-									placeholder="Your Phone"
+									placeholder={t('phone_sub')}
 									value={formData.telephone}
 									onChange={handleChange} 
 									/>
@@ -111,25 +115,25 @@ export default function ContactForm() {
 							</div>
 							<div className="col col-md-6">
 								<div className="form_item m-0">
-									<label htmlFor="input_jubject" className="input_title">Subject</label>
+									<label htmlFor="input_jubject" className="input_title">{t('subject')}</label>
 									<select 
 									name="subject" 
 									id="input_jubject"
 									value={formData.subject}
 									onChange={handleChange}>
-										<option value="Question about courses">Question about courses</option>
-										<option value="General questions" selected>General questions</option>
-										<option value="Technical problem">Technical problem</option>
+										<option value="Question about courses">{t('subject_sub1')}</option>
+										<option value="General questions" selected>{t('subject_sub2')}</option>
+										<option value="Technical problem">{t('subject_sub3')}</option>
 									</select>
 								</div>
 							</div>
 							<div className="col">
 								<div className="form_item">
-									<label htmlFor="input_message" className="input_title">Message</label>
+									<label htmlFor="input_message" className="input_title">{t('message')}</label>
 									<textarea 
 									id="input_message" 
 									name="message" 
-									placeholder="Type Your Message" 
+									placeholder={t('message_sub')}
 									required
 									value={formData.message}
 									onChange={handleChange}></textarea>
@@ -146,8 +150,8 @@ export default function ContactForm() {
 								</div>
 								<button type="submit" className="btn btn_dark w-100 b-block" aria-disabled={isPending}>
 									<span>
-										<small>Send Your Message</small>
-										<small>Send Your Message</small>
+										<small>{t('button')}</small>
+										<small>{t('button')}</small>
 									</span>
 								</button>
 								{ state.state==1 && state.message && (	<div className="alert alert-success d-flex align-items-center gap-1 mt-3 py-1" role="alert" aria-live="polite" aria-atomic="true">{state.message}</div> )}						

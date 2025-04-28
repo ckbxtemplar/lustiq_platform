@@ -19,37 +19,40 @@ export default function Pricing() {
         <section className="pricing_section section_space_lg pb-0">
           <div className="container decoration_wrap">
             <div className="section_heading text-center">
-              <h2 className="heading_text mb-0">
-                Premium Price Packages
-              </h2>
+              <h2 className="heading_text mb-3">{t('title')}</h2>
+							<p>{t('sub')}</p>
             </div>
 						
             <div className="pricing_cards_wrapper row align-items-center">
               <div className="col col-lg-6">
                 <div className="pricing_card text-center tilt">
-                  <h3 className="card_heading">Basic Plan</h3>
+                  <h3 className="card_heading">{t('p_m_title')}</h3>
                   <div className="pricing_wrap">
-                    <span className="price_value"><sup>$</sup>50</span>
-                    <small className="d-block">per 3 mounth</small>
+                    <span className="price_value"><sup>$</sup>10</span>
+                    <small className="d-block"><strong>{t('p_m_sub')}</strong>, {t('p_m_sub2')}</small>
                   </div>
                   <hr/>
                   <ul className="info_list unordered_list_block text-start">
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>All Video for 3 Months</span>
+                      <span>{t('p_m_opt1')}</span>
                     </li>
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>Testing for 10 Courses</span>
+                      <span>{t('p_m_opt2')}</span>
                     </li>
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>Checking 5 Homework</span>
+                      <span>{t('p_m_opt3')}</span>
                     </li>
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>Mentor Consultation </span>
+                      <span>{t('p_m_opt4')}</span>
                     </li>
+                    <li>
+                      <i className="fas fa-caret-right"></i>
+                      <span>{t('p_m_opt5')}</span>
+                    </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
 										<CheckoutForm priceId="price_1RChWv4ExN9ArIY0aknZy2xp" title={t('buttons.sub_monthly')}/>
@@ -58,69 +61,37 @@ export default function Pricing() {
               </div>
               <div className="col col-lg-6">
                 <div className="pricing_card text-center bg_dark tilt">
-                  <div className="card_badge">recommended</div>
-                  <h3 className="card_heading">Standart Plan</h3>
+                  <div className="card_badge">{t('popular')}</div>
+                  <h3 className="card_heading">{t('p_a_title')}</h3>
                   <div className="pricing_wrap">
-                    <span className="price_value"><sup>$</sup>150</span>
-                    <small className="d-block">per 6 mounth</small>
+                    <span className="price_value"><sup>$</sup>80</span>
+										<small className="d-block"><strong>{t('p_a_sub')}</strong>, {t('p_a_sub2')}</small>
                   </div>
                   <hr/>
                   <ul className="info_list unordered_list_block text-start">
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>All Video for 3 Months</span>
+                      <span>{t('p_a_opt1')}</span>
                     </li>
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>Testing for 10 Courses</span>
+                      <span>{t('p_a_opt2')}</span>
                     </li>
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>Checking 5 Homework</span>
+                      <span>{t('p_a_opt3')}</span>
                     </li>
                     <li>
                       <i className="fas fa-caret-right"></i>
-                      <span>Mentor Consultation </span>
+                      <span>{t('p_a_opt4')}</span>
                     </li>
+                    <li>
+                      <i className="fas fa-caret-right"></i>
+                      <span>{t('p_a_opt5')}</span>
+                    </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
 										<CheckoutForm priceId="price_1RFGsB4ExN9ArIY0rFLUWvJA" title={t('buttons.sub_annual')} btnClass="btn_warning"/>
-                  </div>
-                </div>
-              </div>
-              <div className="col col-lg-4 d-none 	">
-                <div className="pricing_card text-center tilt">
-                  <h3 className="card_heading">Premium Plan</h3>
-                  <div className="pricing_wrap">
-                    <span className="price_value"><sup>$</sup>250</span>
-                    <small className="d-block">per 12 mounth</small>
-                  </div>
-                  <hr/>
-                  <ul className="info_list unordered_list_block text-start">
-                    <li>
-                      <i className="fas fa-caret-right"></i>
-                      <span>All Video for 3 Months</span>
-                    </li>
-                    <li>
-                      <i className="fas fa-caret-right"></i>
-                      <span>Testing for 10 Courses</span>
-                    </li>
-                    <li>
-                      <i className="fas fa-caret-right"></i>
-                      <span>Checking 5 Homework</span>
-                    </li>
-                    <li>
-                      <i className="fas fa-caret-right"></i>
-                      <span>Mentor Consultation </span>
-                    </li>
-                  </ul>
-                  <div className="btn_wrap pb-0">
-                    <a className="btn border_dark" href="#!">
-                      <span>
-                        <small>Grav Now</small>
-                        <small>Grav Now</small>
-                      </span>
-                    </a>
                   </div>
                 </div>
               </div>

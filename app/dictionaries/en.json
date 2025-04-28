@@ -29,16 +29,135 @@
     "hours": "hours",
     "startCourse": "Start Course",
     "viewCourse": "View Course",
-    "explore": "Explore our courses"
+    "explore": "Explore our courses",
+		"nocourses":"There are no courses available.",
+		"loading": "Loading..."
   },
   "pages": {
-    "pricing": {
-      "header": "Pricing",
-      "buttons": {
-        "sub_monthly": "Monthly Subscription",
-        "sub_annual": "Annual Subscription"
-      }
-    },
+		"contact": {
+			"title": "Get in Touch with Us",
+			"sub": "Contact us using the information below.",
+			"faq": "FAQ",
+			"faq_sub1": "We have collected the most frequently asked questions",
+			"faq_sub2": "Click here",
+			"email": "Our Email Address",
+			"more": "More Content",
+			"more_sub1": "Check out our YouTube channel",
+			"more_sub2": "by clicking here"
+		},		
+		"contactForm": {
+			"title": "Contact our customer service.",
+			"name": "Name",
+			"name_sub": "How should we address you?",
+			"email": "E-mail",
+			"email_sub": "Enter your email address",
+			"phone": "Phone number",
+			"phone_sub": "Enter your phone number",
+			"subject": "Subject",
+			"subject_sub1": "Questions about courses",
+			"subject_sub2": "General inquiries",
+			"subject_sub3": "Technical issues",
+			"message": "Message",
+			"message_sub": "Enter your message",
+			"button": "Send Message"
+		},
+		"dashboard": {
+			"profile": {
+				"bannerTitle": "Profile settings",
+				"bannerSub": "Manage your profile settings",
+				"avatar": {
+					"title1": "Drag 'n' drop your",
+					"title2": "avatar image here"
+				},
+				"personal": {
+					"title": "Personal information",
+					"sub": "Please provide your personal information",
+					"email": "Email address",
+					"call": "Salutation",
+					"language": "Select language",
+					"button": "Save",
+					"avatarTitle": "Avatar image",
+					"buttonImage": "Set image"
+				},
+				"billing": {
+					"title": "Billing information",
+					"sub": "Please provide your billing information",
+					"b_name_title": "Billing name / Company name",
+					"b_name": "Name",
+					"b_title": "Billing address",
+					"b_zip": "ZIP code",
+					"b_city": "City",
+					"b_address": "Address",
+					"b_tax_title": "Tax number (optional, required for companies)",
+					"b_tax": "Tax number",
+					"b_button": "Save"
+				}
+			}
+		},
+		"login":{
+			"title": "Account Login",
+			"sub": "Please enter your User/Email & Password",
+			"email": "E-mail address",
+			"password": "Password",
+			"forgot": "Forget Password",
+			"noaccount": "Don't have an account?",
+			"noaccountButton": "Register here",
+			"loginButton":"Login Now",
+			"remember": "Remember me"
+		},
+		"regist":{
+			"title":"Create Account",
+			"sub":"Please enter your User/Email & Password",
+			"email":"E-mail address",
+			"password":"Create Password",
+			"password2":"Confirm Password",
+			"signupButton":"Signup Now"			
+		},			
+		"pricing": {  
+			"title": "Subscription Plans",
+			"sub": "Choose the subscription plan that suits you best.",
+			"popular": "most popular",
+			"p_m_title": "Monthly Subscription",
+			"p_m_sub": "/ 1 month",
+			"p_m_sub2": "auto-renewal",
+			"p_m_opt1": "All courses",
+			"p_m_opt2": "All practice questions",
+			"p_m_opt3": "All AI chat features",
+			"p_m_opt4": "Premium newsletter",
+			"p_m_opt5": "Premium customer support",
+			"p_a_title": "Annual Subscription",
+			"p_a_sub": "/ 1 year",
+			"p_a_sub2": "auto-renewal",
+			"p_a_opt1": "All courses",
+			"p_a_opt2": "All practice questions",
+			"p_a_opt3": "All AI chat features",
+			"p_a_opt4": "Premium newsletter",
+			"p_a_opt5": "Premium customer support",      
+			"buttons": {
+				"sub_monthly": "Subscribe Monthly",
+				"sub_annual": "Subscribe Annually"
+			}
+		},
+		"faq": {
+			"title": "Frequently Asked Questions",
+			"sub": "We have collected the most common questions",
+			"q1": "How Do I Select a Course?",
+			"a1": "Browse our course catalog and choose the one that best fits your needs.",
+			"q2": "How Do I Access My Course?",
+			"a2": "After registration, you can access your course through your dashboard.",
+			"q3": "Do I Receive Anything After I Complete a Course?",
+			"a3": "Yes, you will receive a certificate of completion.",
+			"q4": "When should I register?",
+			"a4": "You can register anytime before the course start date.",
+			"q5": "How Does Online Learning Work?",
+			"a5": "You study at your own pace using our online materials and resources.",
+			"q6": "Can I Take More Than One Course at a Time?",
+			"a6": "Yes, you can enroll in multiple courses simultaneously.",
+			"q7": "Where can I go for help?",
+			"a7": "You can contact our support team or check our help center.",
+			"q8": "Can I talk to the professionals in person?",
+			"a8": "Please contact support for specific information about this topic."
+		},
     "home": {
       "header": {
         "logoAlt": "Lustiq Sexual Education Platform",

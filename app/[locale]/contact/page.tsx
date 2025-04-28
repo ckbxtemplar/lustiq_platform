@@ -2,13 +2,15 @@ import { Metadata } from 'next';
 import Process from '@/app/ui/main/process';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import ContactForm from '@/app/ui/contact-form';
+import {useTranslations} from 'next-intl';
 
 export const metadata: Metadata = {
   title: 'Contact',
 };
 
 export default function Contact() {
-
+	
+	const t = useTranslations('pages.contact');
 
   return (
 		<main className="page_content">
@@ -21,10 +23,10 @@ export default function Contact() {
                 <div className="pe-lg-5">
                   <div className="section_heading">
                     <h2 className="heading_text">
-                      Contact Us
+                      {t('title')}
                     </h2>
                     <p className="heading_description mb-0">
-                      Viverra maecenas accumsan lacus vel facilisis volutpat. Faucibus purus in massa tempor nec feugiat nisl
+										{t('sub')}
                     </p>
                   </div>
                 </div>
@@ -36,8 +38,8 @@ export default function Contact() {
 										<i className="fas fa-question"></i>
 									</div>
 									<div className="item_content">
-										<h3 className="item_title">F.A.Q.</h3>
-										<p className="mb-0">Collected the questions <a href="/faq" className="text-black">here</a></p>
+										<h3 className="item_title">{t('faq')}</h3>
+										<p className="mb-0">{t('faq_sub1')} <a href="/faq" className="text-black">{t('faq_sub2')}</a></p>
 									</div>
 								</div>
 							</div>									
@@ -47,7 +49,7 @@ export default function Contact() {
 										<i className="fas fa-envelope"></i>
 									</div>
 									<div className="item_content">
-										<h3 className="item_title">Email Address</h3>
+										<h3 className="item_title">{t('email')}</h3>
 										<p className="mb-0">hello@lustiq.eu</p>
 									</div>
 								</div>
@@ -58,8 +60,8 @@ export default function Contact() {
 										<i className="fas fa-play-circle"></i>
 									</div>
 									<div className="item_content">
-										<h3 className="item_title">More Content</h3>
-										<p className="mb-0">Check out our youtube <a href="https://www.youtube.com/@Szexplicit" className="text-black">channel</a></p>
+										<h3 className="item_title">{t('more')}</h3>
+										<p className="mb-0">{t('more_sub1')} <a href="https://www.youtube.com/@Szexplicit" className="text-black">{t('more_sub2')}</a></p>
 									</div>
 								</div>
 							</div>

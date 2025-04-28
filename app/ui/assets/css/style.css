@@ -4123,6 +4123,9 @@ Responsive For Mobile & Tablet Devices
 /* Media Screen 1024px - Start
 ================================================== */
 @media screen and (max-width: 1024px) {
+	.main_menu_list .dropdown > a:after{ display: none;}
+	.main_menu_list > li > a{ padding: 8px 8px;}
+
   .main_menu_list > li > a {
     font-size: 16px;
     line-height: 22px;
@@ -4291,7 +4294,7 @@ Responsive For Mobile & Tablet Devices
   .main_menu_list > li > a {
     font-size: 18px;
     line-height: 24px;
-    padding: 12px 20px;
+    padding: 8px;
   }
   .main_menu_list .dropdown > a:after {
     font-size: 16px;

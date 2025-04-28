@@ -23,16 +23,16 @@ export default function SiteHeader() {
 						<Link className="site_link align-middle" href="/">
 							<Image src="/assets/images/logo/site_logo.svg" width="143" height="42" alt="Collab - Online Learning Platform"/>
 						</Link>
-						{isDashboard ? <div className="d-inline-block text-black fw-normal lh-1 ms-2 align-middle" style={{marginTop:'8px', paddingLeft:'8px', borderLeft:'2px solid #ffd32b'}}><small>Your Own<br/>Dashboard</small></div>: ''}
+						{isDashboard ? <div className="d-none d-inline-block text-black fw-normal lh-1 ms-2 align-middle" style={{marginTop:'8px', paddingLeft:'8px', borderLeft:'2px solid #ffd32b'}}><small>Your Own<br/>Dashboard</small></div>: ''}
 					</div>
 				</div>
-				<div className="col col-lg-auto">
+				<div className="col-auto">
 					<SiteHeaderMenu pathname={pathname} isDashboard={isDashboard}/>
 				</div>
-				<div className="col col-lg-auto ms-auto">
+				<div className="col-auto ms-auto p-0">
 					<SiteHeaderLanguageSelect />
 				</div>
-				<div className="col col-lg-auto ms-auto">					
+				<div className="col-auto p-0">					
 					<SiteHeaderUser />
 				</div>
 			</div>

@@ -4,7 +4,7 @@ import {useTranslations} from 'next-intl';
 
 export default function Footer() {
 
-	const t = useTranslations('pages.home.footer');
+	const t = useTranslations('pages');
 
   return (
 		<footer className="site_footer">		
@@ -44,70 +44,21 @@ export default function Footer() {
 									<h3 className="footer_widget_title">Links</h3>
 									<ul className="page_list unordered_list_block">
 										<li>
-											<Link href="about.html">
+											<Link href="/">
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">About</span>
+												<span className="item_text">{t('home.header.home')}</span>
 											</Link>
 										</li>
 										<li>
-											<Link href="course.html">
+											<Link href="/courses">
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Courses</span>
+												<span className="item_text">{t('home.header.courses')}</span>
 											</Link>
 										</li>
 										<li>
-											<Link href="mentor.html">
+											<Link href="/pricing">
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Mentors</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="pricing.html">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Prices</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="event.html">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Events</span>
-											</Link>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div className="col col-md-4 col-sm-4">
-								<div className="footer_widget">
-									<h3 className="footer_widget_title">className</h3>
-									<ul className="page_list unordered_list_block">
-										<li>
-											<Link href="#!">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Programming</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="#!">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Art & Design</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="#!">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Business</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="#!">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Engineering</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="#!">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Photography</span>
+												<span className="item_text">{t('home.header.pricing')}</span>
 											</Link>
 										</li>
 									</ul>
@@ -118,21 +69,15 @@ export default function Footer() {
 									<h3 className="footer_widget_title">Support</h3>
 									<ul className="page_list unordered_list_block">
 										<li>
-											<Link href="contact.html">
+											<Link href="/contact">
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Help Center</span>
+												<span className="item_text">{t('home.header.contact')}</span>
 											</Link>
 										</li>
 										<li>
-											<Link href="faq.html">
+											<Link href="/contact">
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">FAQ</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="contact.html">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Contacts</span>
+												<span className="item_text">{t('contact.faq')}</span>
 											</Link>
 										</li>
 										<li>
@@ -157,26 +102,26 @@ export default function Footer() {
 							<h3 className="footer_widget_title">Latest Posts</h3>
 							<ul className="blog_small_group unordered_list_block">
 								<li>
-									<Link className="blog_small" href="blog_details.html">
+									<Link className="blog_small" href="#!">
 										<span className="item_image">
 											<Image src="/assets/images/blog/blog_small_img_1.png" width={140} height={140} alt="Collab – Online Learning Platform"/>
 										</span>
 										<span className="item_content">
-											<span className="item_author"><i className="fas fa-user-alt"></i> by Corabelle Durrad</span>
-											<strong className="item_title">See How Michaele Built a New Life and Career</strong>
-											<small className="item_post_date">October 12, 2023</small>
+											<span className="item_author"><i className="fas fa-user-alt"></i> Csonka Balázs szexuálpszichológus</span>
+											<strong className="item_title">Pornófüggőség: Az első jelek és a kiút belőle</strong>
+											<small className="item_post_date">October 12, 2024</small>
 										</span>
 									</Link>
 								</li>
 								<li>
-									<Link className="blog_small" href="blog_details.html">
+									<Link className="blog_small" href="#!">
 										<span className="item_image">
 											<Image src="/assets/images/blog/blog_small_img_1.png" width={140} height={140} alt="Collab – Online Learning Platform"/>
 										</span>
 										<span className="item_content">
-											<span className="item_author"><i className="fas fa-user-alt"></i> by Corabelle Durrad</span>
-											<strong className="item_title">See How Michaele Built a New Life and Career</strong>
-											<small className="item_post_date">October 12, 2023</small>
+											<span className="item_author"><i className="fas fa-user-alt"></i> @hormonmentes Janka</span>
+											<strong className="item_title">Termékenységtudat: jelzi a tested, amikor termékeny vagy </strong>
+											<small className="item_post_date">October 13, 2024</small>
 										</span>
 									</Link>
 								</li>
@@ -189,7 +134,7 @@ export default function Footer() {
 		<div className="copyright_widget">
 			<div className="container">
 				<p className="copyright_text text-center mb-0">
-					<b>{t('copyright')}</b>
+					<b>{t('home.footer.copyright')}</b>
 				</p>
 			</div>
 		</div>

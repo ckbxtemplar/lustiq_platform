@@ -29,15 +29,137 @@
 		"hours":"óra",
 		"startCourse":"Kurzus kezdése",
 		"viewCourse":"Kurzus megtekintése",
-		"explore":"Fedezd fel a képzéseinket"
+		"explore":"Fedezd fel a képzéseinket",
+		"nocourses":"Nincsenek elérhető tanfolyamok.",
+		"loading":"Betöltés..."
 	},	
-	"pages":{
-		"pricing": {
-			"header": "Árazás",			
+	"pages": {
+		"contact":{
+			"title":"Lépj Kapcsolatba Velünk",
+			"sub":"Vedd fel velünk a kapcsolatot az alábbi elérhetőségeket használva.",
+			"faq":"GY.I.K.",
+			"faq_sub1":"Összegyűjtöttük a leggyakoribb kérdéseket",
+			"faq_sub2":"Kattints ide",
+			"email":"E-mail címünk",
+			"more":"További tartalmak",
+			"more_sub1":"Nézzétek meg YouTube csatornánkat",
+			"more_sub2":"ide kattintva"
+		},
+		"contactForm":{
+			"title":"Lépjen kapcsolatba ügyfélszolgálatunkkal.",
+			"name":"Név",
+			"name_sub":"Hogyan szólíthatunk?",
+			"email":"E-mail",
+			"email_sub":"Add meg az e-mail címed",			
+			"phone":"Telefonszám",
+			"phone_sub":"Add meg a telefonszámod",
+			"subject":"Tárgy",
+			"subject_sub1":"Képzésekkel kapcsolatos kérdések",
+			"subject_sub2":"Általános kérdések",
+			"subject_sub3":"Technikai kérdések",
+			"message":"Üzenet",
+			"message_sub":"Üzenet szövege",
+			"button":"Üzenet küldése"
+		},
+		"courses":{
+
+		},
+		"dashboard":{
+			"profile":{
+				"bannerTitle":"Profil beállítása",
+				"bannerSub":"A fiókoddal kapcsolatos beállítások kezelése",
+				"avatar":{
+					"title1":"Drag 'n' drop your",
+					"title2":"avatar image here"
+				},
+				"personal":{
+					"title":"Személyes adatok",
+					"sub":"Kérlek add meg a személyes adataidat",
+					"email":"E-mail cím",
+					"call":"Megszólítás",
+					"language":"Nyelv választása",
+					"button":"Mentés",
+					"avatarTitle":"Avatar kép",
+					"buttonImage":"Kép beállítása"
+				},
+				"billing":{
+					"title":"Számlázási adatok",
+					"sub":"Kérlek add meg a számlázási adataidat",
+					"b_name_title":"Számlázási név / cégnév",
+					"b_name":"Név",
+					"b_title":"Számlázási cím",
+					"b_zip":"Irányítószám",
+					"b_city":"Település",
+					"b_address":"Cím",
+					"b_tax_title":"Adószám (opcionális, cégeknél kötelező)",
+					"b_tax":"Adószám",
+					"b_button":"Mentés"
+				}
+			}
+		},
+		"login":{
+			"title":"Bejelentkezés",
+			"sub":"Kérlek add meg az email címed és jelszavad",
+			"email":"Email cím",
+			"password":"Jelszó",
+			"forgot":"Elfelejtetted a jelszavad?",
+			"noaccount":"Még nincs fiókod?",
+			"noaccountButton":"Regisztrálok",
+			"loginButton":"Bejelentkezés",
+			"remember": "Emlékezz rám"
+		},
+		"regist":{
+			"title":"Regisztráció",
+			"sub":"Kérlek add meg az email címed és jelszavad",
+			"email":"Email cím",
+			"password":"Jelszó létrehozása",
+			"password2":"Jelszó ismét",
+			"signupButton":"Regisztráció"			
+		},
+		"pricing": {	
+			"title":"Előfizetői csomagok",
+			"sub":"Válaszd ki a számodra legmegfelelőbb előfizetési csomagot.",
+			"popular":"leggyakoribb",
+			"p_m_title":"Havi előfizetés",
+			"p_m_sub":"/ 1 hónap",
+			"p_m_sub2":"automatikus megújítás",
+			"p_m_opt1":"Összes kurzus",
+			"p_m_opt2":"Összes gyakorló kérdés",
+			"p_m_opt3":"Összes AI chat funkció",
+			"p_m_opt4":"Prémium hírlevél",
+			"p_m_opt5":"Prémium ügyfélszolgálat",
+			"p_a_title":"Éves előfizetés",
+			"p_a_sub":"/ 1 év",
+			"p_a_sub2":"automatikus megújítás",
+			"p_a_opt1":"Összes kurzus",
+			"p_a_opt2":"Összes gyakorló kérdés",
+			"p_a_opt3":"Összes AI chat funkció",
+			"p_a_opt4":"Prémium hírlevél",
+			"p_a_opt5":"Prémium ügyfélszolgálat",			
 			"buttons":{
 				"sub_monthly": "Havi előfizetés",
 				"sub_annual": "Éves előfizetés"
 			}
+		},
+		"faq": {
+			"title": "Gyakran Ismételt Kérdések",
+			"sub": "Összegyűjtöttük a leggyakoribb kérdéseket",
+			"q1": "Hogyan választhatok kurzust?",
+			"a1": "Böngéssz a kurzuskatalógusban, és válaszd ki a számodra legmegfelelőbbet.",
+			"q2": "Hogyan érem el a kurzusomat?",
+			"a2": "A regisztráció után a saját fiókodon keresztül elérheted a kurzusaidat.",
+			"q3": "Kapok valamit a kurzus elvégzése után?",
+			"a3": "Igen, a kurzus befejezése után tanúsítványt kapsz.",
+			"q4": "Mikor kell regisztrálnom?",
+			"a4": "A kurzus kezdete előtt bármikor regisztrálhatsz.",
+			"q5": "Hogyan működik az online tanulás?",
+			"a5": "A saját tempódban tanulhatsz az online anyagok és források segítségével.",
+			"q6": "Egyszerre több kurzust is elvégezhetek?",
+			"a6": "Igen, egyszerre több kurzusra is beiratkozhatsz.",
+			"q7": "Hová fordulhatok segítségért?",
+			"a7": "Ügyfélszolgálatunkhoz fordulhatsz, vagy megnézheted a súgóközpontunkat.",
+			"q8": "Személyesen tudok beszélni a szakemberekkel?",
+			"a8": "Kérlek, vedd fel a kapcsolatot az ügyfélszolgálatunkkal ezzel kapcsolatban."
 		},
 		"home":	{
 			"header": {

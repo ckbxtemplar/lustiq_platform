@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { registUser, RegistUserState } from '@/app/lib/user-actions';
 import { useActionState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function RegistForm() {
 	const searchParams = useSearchParams();
@@ -17,6 +17,8 @@ export default function RegistForm() {
 	};
   const [state, formAction, isPending] = useActionState(registUser, initialState);
 	
+	const t = useTranslations('pages.regist');
+
 	useEffect(() => {
     if (typeof window !== "undefined") {
       const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -34,7 +36,7 @@ export default function RegistForm() {
 			<input type="hidden" id="callback" name="callbackurl" value={callbackUrl}/>
 			<input type="hidden" id="lang" name="lang" value={locale}/>
 			<div className="form_item">
-				<input type="email" id="email" name="email" placeholder="Email"/>
+				<input type="email" id="email" name="email" placeholder={t('email')}/>
 				{state.errors?.email && (
 					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
 						{state.errors?.email &&
@@ -47,7 +49,7 @@ export default function RegistForm() {
 				)}	
 			</div>
 			<div className="form_item">
-				<input type="password" id="password" name="password" placeholder="Create Password"/>				
+				<input type="password" id="password" name="password" placeholder={t('password')}/>				
 				{state.errors?.password && (
 					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
 						{state.errors?.password &&
@@ -60,7 +62,7 @@ export default function RegistForm() {
 				)}				
 			</div>
 			<div className="form_item">
-				<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"/>
+				<input type="password" id="confirmPassword" name="confirmPassword" placeholder={t('password2')}/>
 				{state.errors?.confirmPassword && (
 					<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
 						{state.errors?.confirmPassword &&
@@ -75,8 +77,8 @@ export default function RegistForm() {
 
 			<Button type="submit" className="btn btn_dark" aria-disabled={isPending}>
 				<span>
-					<small>Signup Now</small>
-					<small>Signup Now</small>
+					<small>{t('signupButton')}</small>
+					<small>{t('signupButton')}</small>
 				</span>
 			</Button>	
 			{state.errors?.userCreate && (

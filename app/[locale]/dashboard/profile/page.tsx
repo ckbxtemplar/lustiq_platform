@@ -3,11 +3,14 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Banner from '@/app/ui/dashboard/banner';
+import {useTranslations} from 'next-intl';
 
 export const metadata: Metadata = {
   title: 'Profile',
 };
-export default async function ProfilePage() {
+export default function ProfilePage() {
+
+	const t = useTranslations('pages.dashboard.profile');
 
 	return <div>
 					<div className='shape_wrapper'>
@@ -25,7 +28,10 @@ export default async function ProfilePage() {
 						</div>						
 					</div>						
 					<main className={'page_content'}>
-						<Banner page={'dashboard_profile'} title={"Profile settings"} description={"Libero id faucibus nisl tincidunt eget nullam non nisi. Faucibus turpis in eu mi bibendum neque egestas"} search={false} />
+						<Banner page={'dashboard_profile'} 
+						title={t('bannerTitle')} 
+						description={t('bannerSub')} 
+						search={false} />
 						<section className="my-5" id="section_personal_data">
 							<div className="container">
 								<div className="row justify-content-center">
@@ -36,11 +42,11 @@ export default async function ProfilePage() {
 													<i className="fas fa-user"></i>
 												</div>
 												<h3 className="item_title mb-0">
-													<span className="d-block">Personal data</span>
+													<span className="d-block">{t('personal.title')}</span>
 												</h3>
 											</div>
 											<p className="mb-3">
-												Etiam sit amet nisl purus in mollis nunc sed. Viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat
+											{t('personal.sub')}
 											</p>
 										</div>																									
 										<Suspense>
@@ -60,11 +66,11 @@ export default async function ProfilePage() {
 													<i className="fas fa-wallet"></i>
 												</div>
 												<h3 className="item_title mb-0">
-													<span className="d-block">Billing address</span>
+													<span className="d-block">{t('billing.title')}</span>
 												</h3>
 											</div>
 											<p className="mb-3">
-												Etiam sit amet nisl purus in mollis nunc sed. Viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat
+											{t('billing.sub')}
 											</p>
 										</div>																
 										<Suspense>

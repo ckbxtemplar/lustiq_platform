@@ -1,13 +1,15 @@
-import AcmeLogo from '@/app/ui/acme-logo';
 import LoginForm from '@/app/ui/login-form';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
+import {useTranslations} from 'next-intl';
  
 export const metadata: Metadata = {
   title: 'Login',
 };
  
-export default async function LoginPage() {
+export default function LoginPage() {
+
+	const t = useTranslations('pages.login');	
 
   return (
 		<main className="page_content">
@@ -15,10 +17,8 @@ export default async function LoginPage() {
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col col-lg-5">
-							<h1 className="register_heading text-center">Account Login</h1>
-							<p className="register_heading_description text-center">
-								Please enter your User/Email & Password
-							</p>
+							<h1 className="register_heading text-center">{t('title')}</h1>
+							<p className="register_heading_description text-center">{t('sub')}</p>
 							<Suspense>
 								<LoginForm />
 							</Suspense>

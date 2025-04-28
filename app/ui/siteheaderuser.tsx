@@ -17,15 +17,10 @@ export default function SiteHeaderUser() {
 	const t = useTranslations('pages.home.header');	
 
   return (
-		<ul className="header_btns_group unordered_list_end">
-			<li>
-				<button className="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<i className="far fa-bars"></i>
-				</button>
-			</li>				
+		<ul className="unordered_list_end">		
 			{session?.user? (
 				<li>
-					<ul className="main_menu_list user_menu unordered_list_end">
+					<ul className="main_menu_list user_menu unordered_list_end p-1 p-lg-2">
 						<li className="dropdown">
 							<Link className="nav-link" href="#" id="pages_usermenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<button>
@@ -35,7 +30,7 @@ export default function SiteHeaderUser() {
 										alt="User Avatar"
 										width={40}
 										height={40}
-										className="rounded-circle  me-2"
+										className="rounded-circle me-0 me-lg-2"
 									/>
 								) : (
 									<i className="fas fa-user-circle fa-2x me-2"></i>

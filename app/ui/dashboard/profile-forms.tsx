@@ -1,15 +1,16 @@
 "use client"
 
 import ReactFlagsSelect from "react-flags-select";
-import { signIn } from "next-auth/react";
 import { useState, useEffect, useRef, useActionState, useMemo } from "react";
 import { Button } from '../button';
 import {useDropzone} from 'react-dropzone'
 import { uploadAvatar, uploadAvatarState, personal, personalState, billingAddress, billingAddressState, getBillingAddress  } from '@/app/lib/user-actions';
 import { useSession } from "next-auth/react";
+import {useTranslations} from 'next-intl';
 
 function ImageDropZone(props: {required: boolean, name: string}) 
 {
+	const t = useTranslations('pages.dashboard.profile');
   const {required, name} = props; 	
 	const hiddenInputRef = useRef<HTMLInputElement | null>(null);
   const [files, setFiles] = useState<Array<File & { preview: string }>>([]);
@@ -64,7 +65,7 @@ function ImageDropZone(props: {required: boolean, name: string})
 					<div {...getRootProps({className: 'dropzone'})}>
 						<input type ="file" name={name} required={required} style ={{height:'1px', width:'1px', opacity: 0}} ref={hiddenInputRef}/>
 						<input {...getInputProps()} />
-						<span>Drag 'n' drop your<br/>avatar image here</span>
+						<span>{t('avatar.title1')}<br/>{t('avatar.title2')}</span>
 					</div>
 				</div>
 				<div className="col-4 text-center thumb_container">
@@ -75,6 +76,7 @@ function ImageDropZone(props: {required: boolean, name: string})
 }
 
 export function PersonalDataForm() {
+	const t = useTranslations('pages.dashboard.profile');
 	const langToCountry = { EN: 'GB', HU: 'HU' };
 	const { data: session, update } = useSession();
 	const initialStatePersonal: personalState = { 
@@ -97,8 +99,6 @@ export function PersonalDataForm() {
 		const language = (Object.keys(langToCountry)).find(
 			(key) => langToCountry[key as keyof typeof langToCountry] === selectedCountry
 		);
-		console.log("selectedCountry változott: ", selectedCountry);
-		console.log("language értéke: ", language);
 		setSelectedLang(language || "HU");
 	}, [selectedCountry]);
 
@@ -134,11 +134,11 @@ export function PersonalDataForm() {
 			<div className="register_form py-5">
 				<div className="row">
 					<div className="col-12 form_item">
-						<p>E-mail cím:</p>
+						<p>{t('personal.email')}:</p>
 						<input type="email" id="email" disabled value={session?.user?.email || ""}/>
 					</div>					
 					<div className="col-12 form_item">
-						<p>Megszólítás:</p>
+						<p>{t('personal.call')}:</p>
 						<input type="text" id="username" name="username" placeholder="Username" defaultValue={session?.user?.name || ""}/>
 						{statePersonal.errors?.name && (
 							<div className="alert alert-warning d-flex align-items-center gap-1 mt-1 py-1" role="alert" aria-live="polite" aria-atomic="true">
@@ -152,7 +152,7 @@ export function PersonalDataForm() {
 						)}	
 					</div>						
 					<div className="col-12 form-item">
-						<p>Nyelv választása:</p>						
+						<p>{t('personal.language')}:</p>						
 						<ReactFlagsSelect 
 							className="language-select"
 							selected={selectedCountry}
@@ -181,8 +181,8 @@ export function PersonalDataForm() {
 					<div className="col-12 text-end mt-3">
 						<Button type="submit" className="btn btn_dark btn_small">
 							<span>
-								<small>Modify</small>
-								<small>Modify</small>
+								<small>{t('personal.button')}</small>
+								<small>{t('personal.button')}</small>
 							</span>
 						</Button>	
 					</div>	
@@ -194,7 +194,7 @@ export function PersonalDataForm() {
 			<div className="register_form py-5 my-5">
 				<div className="row">
 					<div className="col-12 form-item">
-						<p>Avatar kép:</p>
+						<p>{t('personal.avatarTitle')}:</p>
 						<ImageDropZone name="image" required />						
 					</div>
 					<div className="col-12 mt-3">
@@ -215,8 +215,8 @@ export function PersonalDataForm() {
 					<div className="col-12 text-end mt-3">
 						<Button type="submit" className="btn btn_dark btn_small">
 							<span>
-								<small>Set Image</small>
-								<small>Set Image</small>
+								<small>{t('personal.buttonImage')}</small>
+								<small>{t('personal.buttonImage')}</small>
 							</span>
 						</Button>	
 					</div>	
@@ -235,7 +235,7 @@ interface BillingAddress {
 }
 
 export function BillingAddressForm() {
-	
+	const t = useTranslations('pages.dashboard.profile.billing');
 	const [formData, setFormData] = useState<BillingAddress>({ name: "", zipcode: "", city: "", address: "", tax: "" });
 
 	useEffect(() => {
@@ -264,12 +264,12 @@ export function BillingAddressForm() {
 	<div className="register_form py-5">
 		<div className="row">			
 			<div className="col-12 form_item">
-				<p>Számlázási név:</p>
+				<p>{t('b_name_title')}:</p>
 				<input 
 					type="text" 
 					id="name" 
 					name="name" 
-					placeholder="Számlázási név"
+					placeholder={t('b_name')}
 					value={formData.name} 
 					onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
 				/>
@@ -285,14 +285,14 @@ export function BillingAddressForm() {
 				)}	
 			</div>						
 			<div className="col-12 form_item mb-0">
-				<p>Szálázási cím:</p>
+				<p>{t('b_title')}:</p>
 			</div>			
 			<div className="col-12 col-md-4 form_item">
 				<input 
 					type="text" 
 					id="zipcode" 
 					name="zipcode" 
-					placeholder="Irányítószám" 
+					placeholder={t('b_zip')} 
 					defaultValue={formData.zipcode}
 					onChange={(e) => setFormData({ ...formData, zipcode: e.target.value })}
 				/>
@@ -312,7 +312,7 @@ export function BillingAddressForm() {
 					type="text" 
 					id="city" 
 					name="city" 
-					placeholder="Település"  
+					placeholder={t('b_city')}
 					value={formData.city}
 					onChange={(e) => setFormData({ ...formData, city: e.target.value })}
 				/>
@@ -332,7 +332,7 @@ export function BillingAddressForm() {
 					type="text" 
 					id="address" 
 					name="address" 
-					placeholder="Cím"  
+					placeholder={t('b_address')}  
 					defaultValue={formData.address}
 					onChange={(e) => setFormData({ ...formData, address: e.target.value })}
 				/>
@@ -348,14 +348,14 @@ export function BillingAddressForm() {
 				)}		
 			</div>				
 			<div className="col-12 form_item mb-0">
-				<p>Adószám (opcionális, cégeknél kötelező):</p>
+				<p>{t('b_tax_title')}:</p>
 			</div>				
 			<div className="col-12 form_item">
 				<input 
 					type="text" 
 					id="tax" 
 					name="tax" 
-					placeholder="Adószám"  
+					placeholder={t('b_tax')}
 					defaultValue={formData.tax}
 					onChange={(e) => setFormData({ ...formData, tax: e.target.value })}
 				/>
@@ -378,8 +378,8 @@ export function BillingAddressForm() {
 			<div className="col-12 text-end mt-3">
 				<Button type="submit" className="btn btn_dark btn_small">
 					<span>
-						<small>Save</small>
-						<small>Save</small>
+						<small>{t('b_button')}</small>
+						<small>{t('b_button')}</small>
 					</span>
 				</Button>	
 			</div>	

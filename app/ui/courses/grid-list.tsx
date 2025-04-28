@@ -104,7 +104,7 @@ export default function GridList({ dashboard = false, topbar = true, searchQuery
 			}
       <div className="row">
 			{loading ? (
-          <div className="col-12">Loading...</div>
+          <div className="col-12">{t('loading')}</div>
         ) : courses.length > 0 ? (
           courses.map((course: { documentId: string; slug: string }) => (
             <GridItem
@@ -117,7 +117,7 @@ export default function GridList({ dashboard = false, topbar = true, searchQuery
             />
           ))
         ) : (
-          <div className="col-12">Nincsenek elérhető tanfolyamok</div>
+          <div className="col-12">{t('nocourses')}</div>
         )}
       </div>
     </>
