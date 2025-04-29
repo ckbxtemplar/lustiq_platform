@@ -46,7 +46,7 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 						}						
 					</div>
 					<ul className="meta_info_list unordered_list">
-						<li>
+						<li className='d-none'>
 							<i className="fas fa-chart-bar me-1"></i>
 							<span>{(data as any).Details.level || "Beginner"}</span>
 						</li>

@@ -5,6 +5,18 @@
     "personalData": "Personal Data",
     "billingData": "Billing Data"
   },
+	"components": {
+		"aiChat": {
+			"placeholder": "What would you like to talk about?",
+			"typeMsg": "Text message",
+			"send": "Send Message",
+			"loading": "Loading...",
+			"error": "An error occurred. Please try again later.",
+			"automaticVoice": "Automatic voice playback",
+			"o1": "How can I express my needs firmly but politely?",
+			"o2": "What can I say if I want to say no without feeling guilty?"
+		}
+	},
   "tags": {
     "sexuality": "sexuality",
     "selfawareness": "self-awareness",
@@ -61,6 +73,16 @@
 			"message_sub": "Enter your message",
 			"button": "Send Message"
 		},
+		"courses": {
+			"subscribe": "Subscription",
+			"hours": "hours",
+			"format": "Course format",
+			"duration": "Course structure",
+			"instructors": "Course instructors",
+			"author":"Author",
+			"lessons":"Lessons",
+			"video":"video"
+		},	
 		"dashboard": {
 			"profile": {
 				"bannerTitle": "Profile settings",
@@ -252,6 +274,7 @@
         "title": "Partners and Press"
       },
       "footer": {
+				"description": "We're building a platform that empowers people with real knowledge and expertise - so that their sexuality is not a barrier but a resource in their lives.",				
         "copyright": "© 2024 Lustiq. All rights reserved.",
         "privacyPolicy": "Privacy Policy",
         "termsConditions": "Terms and Conditions",

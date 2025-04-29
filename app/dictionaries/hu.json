@@ -5,6 +5,20 @@
 		"personalData": "Személyes adatok",
 		"billingData": "Számlázási adatok"
   },
+	"components":{
+		"aiChat":{
+			"placeholder":"Miről szeretnél beszélgetni?",
+			"typeMsg":"Szöveges üzenet",
+			"send":"Üzenet küldése",
+			"loading":"Betöltés...",
+			"error":"Hiba történt. Kérlek próbáld újra később.",
+			"automaticVoice":"Hang automatikus lejátszása",
+			"automaticVoiceY":"Igen",
+			"automaticVoiceN":"Nem",
+			"o1":"Hogyan fejezhetem ki az igényeimet határozottan, de udvariasan?",
+			"o2":"Mit mondhatok, ha nemet szeretnék mondani anélkül, hogy bűntudatom lenne?"
+		}		
+	},
 	"tags":{
 		"sexuality": "szexualitás", 
 		"selfawareness": "önismeret", 
@@ -62,7 +76,14 @@
 			"button":"Üzenet küldése"
 		},
 		"courses":{
-
+			"subscribe":"Előfizetés",
+			"hours":"óra",
+			"format":"Kurzus formátuma",
+			"duration":"Kurzus tartalma",
+			"instructors":"Kurzus Instruktorai",
+			"author":"Szerző",
+			"lessons":"Leckék",
+			"video":"videó"
 		},
 		"dashboard":{
 			"profile":{
@@ -255,6 +276,7 @@
 				"title":"Partnerek és megjelenések"
 			},
 			"footer": {
+				"description": "Egy olyan platformot építünk, amely valódi tudással és szakértelemmel támogatja az embereket – hogy a szexualitásuk ne akadály, hanem erőforrás legyen az életükben.",
 				"copyright": "© 2024 Lustiq. Minden jog fenntartva.",
 				"privacyPolicy": "Adatvédelmi irányelvek",
 				"termsConditions": "Felhasználási feltételek",

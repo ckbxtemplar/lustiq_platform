@@ -19,7 +19,7 @@ export default function Footer() {
 								</Link>
 							</div>
 							<p>
-								Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+								{t('home.footer.description')}
 							</p>
 							<ul className="social_links unordered_list">
 								<li>
