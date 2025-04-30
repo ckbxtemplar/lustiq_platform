@@ -28,7 +28,7 @@ export default function Pricing() {
                 <div className="pricing_card text-center tilt">
                   <h3 className="card_heading">{t('p_m_title')}</h3>
                   <div className="pricing_wrap">
-                    <span className="price_value"><sup>$</sup>10</span>
+                    <span className="price_value"><sup>$</sup>29</span>
                     <small className="d-block"><strong>{t('p_m_sub')}</strong>, {t('p_m_sub2')}</small>
                   </div>
                   <hr/>
@@ -64,7 +64,7 @@ export default function Pricing() {
                   <div className="card_badge">{t('popular')}</div>
                   <h3 className="card_heading">{t('p_a_title')}</h3>
                   <div className="pricing_wrap">
-                    <span className="price_value"><sup>$</sup>80</span>
+                    <span className="price_value"><sup>$</sup>290</span>
 										<small className="d-block"><strong>{t('p_a_sub')}</strong>, {t('p_a_sub2')}</small>
                   </div>
                   <hr/>
