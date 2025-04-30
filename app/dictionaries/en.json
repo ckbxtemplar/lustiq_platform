@@ -81,7 +81,8 @@
 			"instructors": "Course instructors",
 			"author":"Author",
 			"lessons":"Lessons",
-			"video":"video"
+			"video":"video",
+			"aititle":"AI Practice"
 		},	
 		"dashboard": {
 			"profile": {

@@ -4,15 +4,20 @@ import React from "react";
 import Quiz from '@/app/ui/dashboard/components/Quiz';
 import AiChat from '@/app/ui/dashboard/components/AiChat';
 import CourseVideo from '@/app/ui/dashboard/components/CourseVideo';
+import {useTranslations} from 'next-intl';
 
 type LessonData = Record<string, any>;
 
 type LessonProps = {
   lessons: LessonData[];
+	details: any;
 };
 
-export default function Lessons({ lessons }: LessonProps){
+export default function Lessons({ lessons, details }: LessonProps){
 
+	console.log(lessons);
+	console.log(details);
+	const t = useTranslations('pages.courses');
 
 	return (
 		<div className="accordion_wrap mb-5">
@@ -41,7 +46,7 @@ export default function Lessons({ lessons }: LessonProps){
 						}, 300);
 					}}
 					>
-						{item.title}
+						{item.title=='ai' ? t('aititle') : item.title}
 					</div>
 					<div id={'lesson'+item.id} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} data-bs-parent="#corse_details_accordion">
 						<div className="accordion-body">												
@@ -61,7 +66,7 @@ export default function Lessons({ lessons }: LessonProps){
 											<div className='col-auto'><h5 className='m-0'>AI vezérelt beszélgetés</h5></div>
 										</div>
 										<div className="aichat_wrap mt-3 border p-3 bg-grey order border-0 rounded-3">															
-											<AiChat/>
+											<AiChat elevenlabsAgentId={details.elevenlabsAgentId}/>
 										</div>
 									</div>
 								</>

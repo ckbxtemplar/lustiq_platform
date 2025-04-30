@@ -62,24 +62,24 @@ export default function HeroBanner() {
 				</div>
 				<div className="col col-lg-6">
 					<div className="banner_image_2">
-						<div className="image_wrap_1">
+						<div className="child_image image_wrap_1">
 							<div className="layer" data-depth="0.1">
-								<Image src="/assets/images/banner/hero_banner_img_2.png" width={1130} height={3008} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/banner/hero_banner_img_team1.jpg" width={700} height={467} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="child_image image_wrap_2">
-							<div className="layer" data-depth="0.3">
-								<Image src="/assets/images/banner/hero_banner_img_3.jpg" width={518} height={336} alt="Collab – Online Learning Platform"/>
+							<div className="layer" data-depth="0.2">
+								<Image src="/assets/images/banner/hero_banner_img_3.jpg" width={518} height={345} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="child_image image_wrap_3">
-							<div className="layer" data-depth="0.2">
-								<Image src="/assets/images/banner/hero_banner_img_4.jpg" width={580} height={376} alt="Collab – Online Learning Platform"/>
+							<div className="layer" data-depth="0.3">
+								<Image src="/assets/images/banner/hero_banner_img_4.jpg" width={580} height={425} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="child_image image_wrap_4">
-							<div className="layer" data-depth="0.4">
-								<Image src="/assets/images/banner/hero_banner_img_5.jpg" width={518} height={336} alt="Collab – Online Learning Platform"/>
+							<div className="layer" data-depth="0.3">
+								<Image src="/assets/images/banner/hero_banner_img_5.jpg" width={518} height={345} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 					</div>

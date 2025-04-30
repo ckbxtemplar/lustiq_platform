@@ -17,7 +17,7 @@ export default function IntroVideo() {
 		<div className="intro_video">
 			<div className="video_wrap tilt">
 				<Image src="/assets/images/video/video_poster_1.jpg" width={2338} height={880} alt="Collab – Online Learning Platform"/>
-				<Link className="video_play_btn popup_video" href="https://www.youtube.com/watch?v=7e90gBu4pas">
+				<Link className="video_play_btn popup_video" href="https://www.youtube.com/watch?v=f0UdE1Qti0Q&ab_channel=Lustiq">
 					<span className="icon"><i className="fas fa-play"></i></span>
 				</Link>
 			</div>

@@ -9,7 +9,11 @@ type Message = {
   timestamp: Date;
 };
 
-export default function AiChat() {
+type AiChatProps = {
+  elevenlabsAgentId?: string; 
+};
+
+export default function AiChat({ elevenlabsAgentId }: AiChatProps) {
 	const t = useTranslations('components.aiChat');
   const now = new Date();
   const [input, setInput] = useState<string>("");
@@ -20,7 +24,7 @@ export default function AiChat() {
   const [threadId, setThreadId] = useState<string | null>(null);
   const textFieldRef = useRef<HTMLInputElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-	const [isAudioEnabled, setIsAudioEnabled] = useState<boolean>(true);
+	const [isAudioEnabled, setIsAudioEnabled] = useState<boolean>(false);
 	const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -112,7 +116,7 @@ export default function AiChat() {
       <div className="overflow-auto p-3 px-1 px-lg-3 chat-container">
         <div className="d-flex flex-column gap-3 chat-messages">
           {messages.map((msg, index) => (
-            <div key={index} className={`chat-msg rounded rounded-3 ${msg.role === 'bot' ? 'bg-white align-self-start' : 'bg-yellow align-self-end'}`}>
+            <div key={index} className={`chat-msg rounded rounded-3 ${msg.role === 'bot' ? 'bg-white align-self-start' : 'bg-yellow text-white align-self-end'}`}>
               <span>{msg.content}</span>
             </div>
           ))}
@@ -122,7 +126,7 @@ export default function AiChat() {
 
       <div className="comment_form_wrap my-3 pb-3" ref={formRef}>
 
-				<div className="d-flex align-items-center gap-1 ms-2 mb-1">
+				<div className="d-flex align-items-center gap-1 ms-2 mb-3">
 					<span className="me-2">{t('automaticVoice')}:</span>
 
 					<div className="form-check form-check-inline">
@@ -148,11 +152,13 @@ export default function AiChat() {
 						/>
 						<label className="form-check-label" htmlFor="audio-off">{t('automaticVoiceN')}</label>
 					</div>
-				</div>			
+				</div>	
+
+				<div style={{clear:'both'}}></div>	
 
         <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }}>
           <div className="row">
-            <div className="col">
+            <div className="col-12 col-lg-7">
               <div className="form_item mb-2">
                 <input 
                   id="message-input" 
@@ -175,6 +181,7 @@ export default function AiChat() {
               <button type="submit" className="btn btn_dark">
                 <span>
                   <small>{t('send')}</small>
+									<small>{t('send')}</small>
                 </span>
               </button>
             </div>
@@ -182,6 +189,9 @@ export default function AiChat() {
         </form>
       </div>
 
+			{/* <elevenlabs-convai agent-id="owfjFkMyKUhylAJlsDHI"></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> */}
+			{/* <elevenlabs-convai agent-id="Yv5PrNHlQnqQHBMUxiKT" ></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> */}
+			{elevenlabsAgentId && (<><elevenlabs-convai agent-id={elevenlabsAgentId} style={{position:'absolute',bottom:'140px'}}></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script></>)}
       {/* Rejtett audio lejátszó */}
       {threadId && (
         <audio ref={audioRef}>

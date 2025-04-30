@@ -83,7 +83,8 @@
 			"instructors":"Kurzus Instruktorai",
 			"author":"Szerző",
 			"lessons":"Leckék",
-			"video":"videó"
+			"video":"videó",
+			"aititle":"AI Gyakorlás"
 		},
 		"dashboard":{
 			"profile":{

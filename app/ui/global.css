@@ -17,11 +17,11 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.text-yellow{ color:#ffd32b;}
+.text-yellow{ color:#FA2243;}
 .text-grey{ color:#e5e7eb;}
 .text-green{ color:#39c762;}
 
-.bg-yellow {background-color: #ffd32b !important;}
+.bg-yellow {background-color: #FA2243 !important;}
 .bg-grey {background-color: #f6f6f6 !important;}
 
 a:hover{color:unset !important;}
@@ -131,8 +131,8 @@ a:hover{color:unset !important;}
 
 /* CHECKBOX , RADIO BUTTON tailwind overdrive */
 .checkbox_item input:before{display: none !important;}
-[type="checkbox"]:hover, [type="radio"]:hover{ background-color: #ffd32b !important;}
-[type="checkbox"]:checked, [type="radio"]:checked{ background-color: #ffd32b !important; background-image:none !important}
+[type="checkbox"]:hover, [type="radio"]:hover{ background-color: #FA2243 !important;}
+[type="checkbox"]:checked, [type="radio"]:checked{ background-color: #FA2243 !important; background-image:none !important}
 [type="checkbox"]:focus, [type="radio"]:focus{box-shadow: none !important;}
 
 /* DROPDOWN MENU kiegészítése button -ra */
@@ -150,7 +150,7 @@ a:hover{color:unset !important;}
 }
 .main_menu_list .dropdown-menu > li:hover > button, 
 .main_menu_list .dropdown-menu > li.active >  button{
-	background-color: #f7ff62;
+	background-color: #FF8390;
 }
 @media screen and (width <= 991px) {
 	.main_menu_list.user_menu .dropdown-menu {
@@ -174,7 +174,7 @@ body .page-wrapper{
 	align-items: center;
 	justify-content: center;
 	vertical-align: middle;
-	background-color: #ffd32b;
+	background-color: #FA2243;
 	box-shadow: 2px 2px 30px rgba(31, 29, 13, .0894963), 3px 3px 0 0 #1f1d0d;
 	border-radius: 50%;
 	height: 32px;
@@ -215,7 +215,7 @@ body .page-wrapper{
 }
 
 .dropzone:focus {
-  border-color: #fed32c;
+  border-color: #fa2243;
 }
 
 .dropzone.disabled {
@@ -317,7 +317,7 @@ body .page-wrapper{
 	position: relative;
 	border-style: solid;
 	border-width: 13px 13px 0 0;
-	border-color: #fed32c transparent transparent transparent;
+	border-color: #fa2243 transparent transparent transparent;
 }
 
 .header_btns_group .btn{

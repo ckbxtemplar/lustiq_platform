@@ -142,7 +142,7 @@ export default function CoursePrivate({ data }: { data: any }) {
 						<div className="pb-lg-0">
 							<div className="pe-lg-5">
 
-								<Lessons lessons={data.lessons}/>
+								<Lessons lessons={data.lessons} details={data.Details}/>
 
 							</div>
 						</div>

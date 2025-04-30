@@ -18,7 +18,8 @@ export default function Page() {
 			<Testimonials />
 			<CallToAction />
 			<Brands />
-			<Blog />
+			{/* <Blog /> */}
+			<div className="section_space_lg"></div>
 			<NewsletterSection />			
     </main>
   );

@@ -23,16 +23,16 @@ export default function Footer() {
 							</p>
 							<ul className="social_links unordered_list">
 								<li>
-									<Link href="#!"><i className="fab fa-facebook-f"></i></Link>
+									<Link href="https://www.facebook.com/szexplicit"><i className="fab fa-facebook-f"></i></Link>
 								</li>
 								<li>
-									<Link href="#!"><i className="fab fa-youtube"></i></Link>
+									<Link href="https://www.youtube.com/@Szexplicit"><i className="fab fa-youtube"></i></Link>
 								</li>
 								<li>
-									<Link href="#!"><i className="fab fa-twitter"></i></Link>
+									<Link href="https://www.instagram.com/szex_plicit/"><i className="fab fa-instagram"></i></Link>
 								</li>
 								<li>
-									<Link href="#!"><i className="fab fa-linkedin-in"></i></Link>
+									<Link href="https://www.linkedin.com/company/szexplicit/"><i className="fab fa-linkedin-in"></i></Link>
 								</li>
 							</ul>
 						</div>
