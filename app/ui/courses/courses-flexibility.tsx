@@ -10,14 +10,14 @@ export default function CoursesFlexibility() {
 		setSearchQuery(query);
 	};
 
-	const t = useTranslations('pages.courses');
+	const t = useTranslations('components.flexibility');
 
 	return (
 	<section className="policy_section section_space_lg">
 	<div className="container position-relative">
 		<div className="section_heading text-center">
 			<h2 className="heading_text mb-0">
-				Flexibility in Planning and Teaching
+				{t('title')}
 			</h2>
 		</div>
 		<div className="row">
@@ -28,12 +28,11 @@ export default function CoursesFlexibility() {
 							<i className="fas fa-book-open"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">Allocate the time </span>
-							for study
+							<span className="d-block">{t('t1_1')}</span>{t('t1_2')}
 						</h3>
 					</div>
 					<p className="mb-0">
-						Etiam sit amet nisl purus in mollis nunc sed. Viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat
+						{t('s1')}
 					</p>
 				</div>
 			</div>
@@ -44,12 +43,10 @@ export default function CoursesFlexibility() {
 							<i className="fas fa-code-branch"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">Alternative learning </span>
-							formats
-						</h3>
+							<span className="d-block">{t('t2_1')}</span>{t('t2_2')}</h3>
 					</div>
 					<p className="mb-0">
-						Posuere ac ut consequat semper viverra nam libero justo. Semper feugiat nibh sed pulvinar proin gravida hendrerit
+						{t('s2')}
 					</p>
 				</div>
 			</div>
@@ -60,12 +57,10 @@ export default function CoursesFlexibility() {
 							<i className="fas fa-comment-smile"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">Mentors with over 5 </span>
-							years of experience
-						</h3>
+							<span className="d-block">{t('t3_1')}</span>{t('t3_2')}</h3>
 					</div>
 					<p className="mb-0">
-						Nunc sed velit dignissim sodales ut eu sem. Id faucibus nisl tincidunt eget. Nunc non blandit massa enim
+						{t('s3')}
 					</p>
 				</div>
 			</div>
@@ -76,12 +71,10 @@ export default function CoursesFlexibility() {
 							<i className="fas fa-user-graduate"></i>
 						</div>
 						<h3 className="item_title mb-0">
-							<span className="d-block">Follow the Training </span>
-							Program
-						</h3>
+							<span className="d-block">{t('t4_1')}</span>{t('t4_2')}</h3>
 					</div>
 					<p className="mb-0">
-						Tincidunt vitae semper quis lectus nulla at. Eget lorem dolor sed viverra ipsum nunc. Tellus at urna condimentum
+						{t('s4')}
 					</p>
 				</div>
 			</div>

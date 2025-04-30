@@ -15,8 +15,6 @@ type LessonProps = {
 
 export default function Lessons({ lessons, details }: LessonProps){
 
-	console.log(lessons);
-	console.log(details);
 	const t = useTranslations('pages.courses');
 
 	return (

@@ -126,7 +126,7 @@ export default function AiChat({ elevenlabsAgentId }: AiChatProps) {
 
       <div className="comment_form_wrap my-3 pb-3" ref={formRef}>
 
-				<div className="d-flex align-items-center gap-1 ms-2 mb-3">
+				<div className="d-flex align-items-center gap-1 ms-2 mb-3 d-none">
 					<span className="me-2">{t('automaticVoice')}:</span>
 
 					<div className="form-check form-check-inline">
@@ -185,13 +185,13 @@ export default function AiChat({ elevenlabsAgentId }: AiChatProps) {
                 </span>
               </button>
             </div>
+						{elevenlabsAgentId && (<div className="col-12 col-lg-5"><elevenlabs-convai agent-id={elevenlabsAgentId} style={{position:'relative'}}></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script></div>)}
           </div>
         </form>
       </div>
 
 			{/* <elevenlabs-convai agent-id="owfjFkMyKUhylAJlsDHI"></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> */}
-			{/* <elevenlabs-convai agent-id="Yv5PrNHlQnqQHBMUxiKT" ></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> */}
-			{elevenlabsAgentId && (<><elevenlabs-convai agent-id={elevenlabsAgentId} style={{position:'absolute',bottom:'140px'}}></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script></>)}
+			{/* <elevenlabs-convai agent-id="Yv5PrNHlQnqQHBMUxiKT" ></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> */}			
       {/* Rejtett audio lejátszó */}
       {threadId && (
         <audio ref={audioRef}>

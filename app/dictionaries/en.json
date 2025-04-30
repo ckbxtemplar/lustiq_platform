@@ -13,9 +13,26 @@
 			"loading": "Loading...",
 			"error": "An error occurred. Please try again later.",
 			"automaticVoice": "Automatic voice playback",
+			"automaticVoiceY":"Yes",
+			"automaticVoiceN":"No",			
 			"o1": "How can I express my needs firmly but politely?",
 			"o2": "What can I say if I want to say no without feeling guilty?"
-		}
+		},
+		"flexibility":{
+			"title":"Flexibility in Planning and Teaching",
+			"t1_1":"Allocate the time",
+			"t1_2":"for study",
+			"s1":"Set aside 15 minutes whenever it suits you and start building a more confident, joyful sex life—completely at your own pace.",
+			"t2_1":"Immersive,",
+			"t2_2":"Multi-Format Learning",
+			"s2":"Animated micro-classes, quick quizzes and an interactive AI coach turn knowledge into an engaging, hands-on experience.",
+			"t3_1":"Expert Instructors",
+			"t3_2":"You Can Trust",
+			"s3":"Psychologists, sex therapists, gynecologists and urologists—each with 5 + years of clinical practice—stand behind every lesson.",
+			"t4_1":"A Guided",
+			"t4_2":"Growth Path",
+			"s4":"Step-by-step, theme-based modules show you exactly how to deepen intimacy and reach your personal or relationship goals."
+		}		
 	},
   "tags": {
     "sexuality": "sexuality",
@@ -247,18 +264,18 @@
       "testimonialsSection": {
         "sectionTitle1": "Learning about intimacy, body awareness, and desires can be a liberating experience. Sexuality is a natural part of life, yet it's often surrounded by taboos. We want to change that with knowledge and empathy.",
         "sectionSub1": "More than information – this is a safe space where questions are welcome. We help you navigate the world of feelings, relationships, and boundaries.",
-        "sectionAuthor1": "Dr. Réka Kiss",
-        "sectionAuthor1sub": "Sex psychologist, lecturer, and researcher",
+        "sectionAuthor1": "Dorottya Vasarhelyi",
+        "sectionAuthor1sub": "Sexual Psychologist",
 
         "sectionTitle2": "Everyone deserves joyful and consensual sexual experiences. That requires reliable information, openness, and self-awareness – exactly what our platform supports.",
         "sectionSub2": "Sexuality is not just biology – it's also about society, emotions, and culture. We talk about all of these openly.",
-        "sectionAuthor2": "András Németh",
-        "sectionAuthor2sub": "Sex educator, podcast host",
+        "sectionAuthor2": "Greta Varga",
+        "sectionAuthor2sub": "Sexual Psychologist",
 
         "sectionTitle3": "Many missed out on proper sex education in school – or were taught based on myths. Here's a chance to rebuild your knowledge and gain confidence in these topics.",
         "sectionSub3": "Our goal is to support everyone to grow at their own pace and without shame – whether it’s about relationships, identity, or pleasure.",
-        "sectionAuthor3": "Laura Bíró",
-        "sectionAuthor3sub": "Relationship coach, writer"
+        "sectionAuthor3": "Etelka Katona",
+        "sectionAuthor3sub": "Sexual Psychologist"
       },
       "expertsSection": {
         "sectionTitle": "Our Experts",

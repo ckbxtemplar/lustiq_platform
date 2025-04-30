@@ -17,7 +17,22 @@
 			"automaticVoiceN":"Nem",
 			"o1":"Hogyan fejezhetem ki az igényeimet határozottan, de udvariasan?",
 			"o2":"Mit mondhatok, ha nemet szeretnék mondani anélkül, hogy bűntudatom lenne?"
-		}		
+		},
+		"flexibility": {
+			"title": "Rugalmasság a tanulásban és oktatásban",
+			"t1_1": "Szánj időt",
+			"t1_2": "a tanulásra",
+			"s1": "Szánj napi 15 percet, amikor csak neked kényelmes, és kezdd el építeni magabiztosabb, örömtelibb szexuális életed—teljesen a saját tempódban.",
+			"t2_1": "Elmerülő,",
+			"t2_2": "többformátumú tanulás",
+			"s2": "Animált mikróleckék, gyors kvízek és egy interaktív AI coach teszik az ismeretszerzést lebilincselő, gyakorlatias élménnyé.",
+			"t3_1": "Szakértő oktatók,",
+			"t3_2": "akikben megbízhatsz",
+			"s3": "Pszichológusok, szexuálterapeuták, nőgyógyászok és urológusok—mindegyikük több mint 5 év klinikai tapasztalattal rendelkezik—állnak minden lecke mögött.",
+			"t4_1": "Vezetett",
+			"t4_2": "fejlődési út",
+			"s4": "Lépésről lépésre, tematikus modulokon keresztül mutatjuk meg, hogyan mélyítsd az intimitást és érd el személyes vagy párkapcsolati céljaidat."
+		}
 	},
 	"tags":{
 		"sexuality": "szexualitás", 
@@ -249,18 +264,18 @@
 			"testimonialsSection": {
 				"sectionTitle1": "Intimitásról, testtudatról és vágyakról tanulni felszabadító élmény lehet. A szexualitás természetes része az életünknek, mégis sokszor tabu övezi. Ezen szeretnénk változtatni tudással és empátiával.",
 				"sectionSub1": "Több, mint információ – ez egy biztonságos tér, ahol kérdezni is lehet. Segítünk eligazodni az érzések, kapcsolatok és határok világában.",
-				"sectionAuthor1": "Dr. Kiss Réka",
-				"sectionAuthor1sub": "Szexuálpszichológus, oktató és kutató",
+				"sectionAuthor1": "Dorottya Vasarhelyi",
+				"sectionAuthor1sub": "Sexual Psychologist",
 
 				"sectionTitle2": "Mindenkinek joga van az örömteli és kölcsönös beleegyezésen alapuló szexuális élményekhez. Ehhez hiteles információk, nyitottság és önismeret kell – épp ezt támogatja a platformunk.",
 				"sectionSub2": "A szexualitás nemcsak biológia – társadalmi, lelki és kulturális kérdések is kapcsolódnak hozzá. Ezekről is őszintén beszélünk.",
-				"sectionAuthor2": "Németh András",
-				"sectionAuthor2sub": "Szexedukátor, podcast házigazda",
+				"sectionAuthor2": "Greta Varga",
+				"sectionAuthor2sub": "Sexual Psychologist",
 
 				"sectionTitle3": "Sokaknak kimaradt az iskolai szexedukáció, vagy épp tévhiteken alapult. Itt lehetőség van arra, hogy új alapokra helyezd a tudásodat, és magabiztosabban mozogj ezekben a témákban.",
 				"sectionSub3": "A célunk, hogy támogassunk mindenkit abban, hogy a saját tempójában, szégyen nélkül fejlődhessen – legyen szó kapcsolatról, identitásról vagy élvezetről.",
-				"sectionAuthor3": "Bíró Laura",
-				"sectionAuthor3sub": "Párkapcsolati tanácsadó, író"
+				"sectionAuthor3": "Etelka Katona",
+				"sectionAuthor3sub": "Sexual Psychologist"
 			},
 			"expertsSection": {
 				"sectionTitle": "Szakértőink",
