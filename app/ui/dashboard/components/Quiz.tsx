@@ -72,8 +72,8 @@ export default function Quiz({ quizData }: QuizProps) {
 					{quizData.map((_, index) => (
 						<div
 							key={index}
-							className={`text-center d-flex flex-column justify-content-center ${index < currentQuestion ? "progress-bar bg-warning" : ""} 
-												${index === currentQuestion ? "progress-bar bg-warning progress-bar-striped progress-bar-animated" : ""}`}
+							className={`text-center d-flex flex-column justify-content-center ${index < currentQuestion ? "progress-bar bg-danger" : ""} 
+												${index === currentQuestion ? "progress-bar bg-danger progress-bar-striped progress-bar-animated" : ""}`}
 							style={{ width: `${100 / quizData.length}%` }}
 						>
 								<span>{index + 1}.</span>

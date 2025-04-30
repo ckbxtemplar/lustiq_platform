@@ -37,7 +37,7 @@ export default function GridItem({documentId, slug, dashboard, progress = 0, dat
 
 						{ dashboard ? 
 						<div className="item_progress">
-							<ProgressBar striped variant="warning" now={progress} />
+							<ProgressBar striped variant="danger" now={progress} />
 						</div>
 						:
 						<div className="item_price text-end text-nowrap">
