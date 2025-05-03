@@ -13,7 +13,7 @@ export default function Testimonials() {
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
 							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>
-								<Image src="/assets/images/testimonial/testimonial_img_3.png" width={1024} height={1035} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/testimonial/vasarhelyi-dorottya-profil.jpg" width={630} height={630} alt="Collab – Online Learning Platform"/>
 							</div>
 							<div className="testimonial_content">
 								<div className="quote_icon">
@@ -26,9 +26,7 @@ export default function Testimonials() {
 									{t('sectionSub1')}
 								</p>
 								<div className="testimonial_admin">
-									<div className="admin_image">
-										<Image src="/assets/images/meta/testimonial_thumbnail_1.jpg" width={120} height={120} alt="Collab – Online Learning Platform"/>
-									</div>
+
 									<div className="admin_content">
 										<h5 className="testimonial_name">{t('sectionAuthor1')}</h5>
 										<span className="testimonial_designation">{t('sectionAuthor1sub')}</span>
@@ -40,7 +38,7 @@ export default function Testimonials() {
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
 							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>
-								<Image src="/assets/images/testimonial/testimonial_img_3.png" width={1024} height={1035} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/testimonial/Varga_Greta_profil.jpg" width={630} height={630} alt="Collab – Online Learning Platform"/>
 							</div>
 							<div className="testimonial_content">
 								<div className="quote_icon">
@@ -67,7 +65,7 @@ export default function Testimonials() {
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
 							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>
-								<Image src="/assets/images/testimonial/testimonial_img_3.png" width={1024} height={1035} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/testimonial/Katona_Etelka_Profil.jpg" width={630} height={630} alt="Collab – Online Learning Platform"/>
 							</div>
 							<div className="testimonial_content">
 								<div className="quote_icon">
