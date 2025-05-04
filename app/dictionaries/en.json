@@ -99,7 +99,11 @@
 			"author":"Author",
 			"lessons":"Lessons",
 			"video":"video",
-			"aititle":"AI Practice"
+			"aititle":"AI Practice",
+			"description":"Introduction",
+			"videoplay":"Watch the video",
+			"quiz":"Take the quiz",
+			"ai":"AI guided conversation"			
 		},	
 		"dashboard": {
 			"profile": {

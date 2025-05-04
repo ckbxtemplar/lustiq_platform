@@ -54,14 +54,14 @@ export default function Lessons({ lessons, details }: LessonProps){
 									<div className="course_intro my-5">
 										<div className='row align-items-center mb-3 ms-0'>
 											<div className='col-auto'><span className='course_section_number fw-bold'>1</span></div>
-											<div className='col-auto'><h5 className='m-0'>Bevezető</h5></div>
+											<div className='col-auto'><h5 className='m-0'>{t('description')}</h5></div>
 										</div>																												
 										<p>Welcome! I'm your AI assistant. How may I help you today? 👏</p>
 									</div>
 									<div className="aichat_wrap my-5 py-3">
 										<div className='row align-items-center mb-3 ms-0'>
 											<div className='col-auto'><span className='course_section_number fw-bold'>2</span></div>
-											<div className='col-auto'><h5 className='m-0'>AI vezérelt beszélgetés</h5></div>
+											<div className='col-auto'><h5 className='m-0'>{t('ai')}</h5></div>
 										</div>
 										<div className="aichat_wrap mt-3 border p-3 bg-grey order border-0 rounded-3">															
 											<AiChat elevenlabsAgentId={details.elevenlabsAgentId}/>
@@ -74,7 +74,7 @@ export default function Lessons({ lessons, details }: LessonProps){
 								<div className="course_intro my-5 py-3">
 									<div className='row align-items-center mb-3 ms-0'>
 										<div className='col-auto'><span className='course_section_number fw-bold'>{++sectionCounter}</span></div>
-										<div className='col-auto'><h5 className='m-0'>Bevezető</h5></div>
+										<div className='col-auto'><h5 className='m-0'>{t('description')}</h5></div>
 									</div>																												
 									<p className="mt-3">
 										{item.description}
@@ -86,7 +86,7 @@ export default function Lessons({ lessons, details }: LessonProps){
 								<div className="intro_video my-5 py-3">
 									<div className='row align-items-center mb-3 ms-0'>
 										<div className='col-auto'><span className='course_section_number fw-bold'>{++sectionCounter}</span></div>
-										<div className='col-auto'><h5 className='m-0'>Videó lejátszása</h5></div>
+										<div className='col-auto'><h5 className='m-0'>{t('videoplay')}</h5></div>
 									</div>
 									<div className="video_wrap mt-3">															
 										{/* <Image src="/assets/images/video/video_poster_3.jpg" width={1458} height={440} alt="Collab – Online Learning Platform"/>
@@ -102,7 +102,7 @@ export default function Lessons({ lessons, details }: LessonProps){
 								<div className="quiz_wrapper my-5 py-3">
 									<div className='row align-items-center mb-3 ms-0'>
 										<div className='col-auto'><span className='course_section_number fw-bold'>{++sectionCounter}</span></div>
-										<div className='col-auto'><h5 className='m-0'>Töltsd ki a kvízt</h5></div>
+										<div className='col-auto'><h5 className='m-0'>{t('quiz')}</h5></div>
 									</div>
 									<Quiz quizData={item.questions}/>
 								</div>

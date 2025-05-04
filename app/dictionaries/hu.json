@@ -99,7 +99,11 @@
 			"author":"Szerző",
 			"lessons":"Leckék",
 			"video":"videó",
-			"aititle":"AI Gyakorlás"
+			"aititle":"AI Gyakorlás",
+			"description":"Bevezető",
+			"videoplay":"Videó lejátszása",
+			"quiz":"Töltsd ki a kvízt",
+			"ai":"AI vezérelt beszélgetés"
 		},
 		"dashboard":{
 			"profile":{
