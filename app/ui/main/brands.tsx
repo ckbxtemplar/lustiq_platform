@@ -17,42 +17,41 @@ export default function Brands() {
 			<ul className="brands_logo_list unordered_list">
 				<li>
 					<Link href="#!">
-						<Image src="/assets/images/brands/logo_microsoft.png" width={300} height={80} alt="Microsoft"/>
+						<div>
+							<Image src="/assets/images/brands/logo_microsoft.png" width={300} height={80} alt="Microsoft"/>
+						</div>
+						<div className='text-black mt-2'>Varga Gréta</div>
 					</Link>
+					
 				</li>
 				<li>
 					<Link href="#!">
 						<Image src="/assets/images/brands/logo_alphabet.png" width={300} height={80} alt="Alphabet"/>
+						<div className='text-black mt-2'>Varga Gréta</div>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
 						<Image src="/assets/images/brands/logo_intel.png" width={300} height={80} alt="Intel"/>
+						<div className='text-black mt-2'>Varga Gréta</div>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
 						<Image src="/assets/images/brands/logo_cisco.png" width={300} height={80} alt="Cisco"/>
+						<div className='text-black mt-2'>Varga Gréta</div>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
 						<Image src="/assets/images/brands/logo_verizon_communications.png" width={300} height={80} alt="Verizon Communications"/>
+						<div className='text-black mt-2'>Varga Gréta</div>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
 						<Image src="/assets/images/brands/logo_infopulse.png" width={300} height={80} alt="Infopulse.png"/>
-					</Link>
-				</li>
-				<li>
-					<Link href="#!">
-						<Image src="/assets/images/brands/logo_amazon.png" width={300} height={80} alt="Amazon"/>
-					</Link>
-				</li>
-				<li>
-					<Link href="#!">
-						<Image src="/assets/images/brands/logo_wix_com_website.png" width={300} height={80} alt="Wix"/>
+						<div className='text-black mt-2'>Varga Gréta</div>
 					</Link>
 				</li>
 			</ul>

@@ -328,3 +328,7 @@ body .page-wrapper{
 }
 
 elevenlabs-convai > div:first-child > div:first-child > span:first-child {display:none !important;}
+
+.brands_logo_list > li {width: 33% !important;}
+
+.brands_logo_list a{flex-direction: column !important;}
