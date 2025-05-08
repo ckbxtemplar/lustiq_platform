@@ -327,8 +327,37 @@ body .page-wrapper{
 	font-size: 14px;
 }
 
+/* .site_header_2:not(.sticky) .main_menu_list > li > a{color:white !important;} */
+
 elevenlabs-convai > div:first-child > div:first-child > span:first-child {display:none !important;}
 
 .brands_logo_list > li {width: 33% !important;}
+.brands_logo_list a{flex-direction: column !important; color:black; text-align: center; height:auto !important; min-height: 320px;}
+.brands_logo_list a img{max-width: 180px;	max-height: 180px !important;	border-radius: 50%;}
 
-.brands_logo_list a{flex-direction: column !important;}
+.newslatter_section.newslatter_soon{
+	margin-top: -60px;
+	padding-bottom: 30px;
+	background-color: #f8f8f8 !important;
+	background-image: none !important;
+	
+}
+.newslatter_section.newslatter_soon .newslatter_box{
+	box-shadow: rgb(0, 0, 0) 20px 20px !important;
+}
+.accordion .accordion-button:after{color:white !important}
+
+.hero_banner.style_2 .banner_big_title, .hero_banner.style_2 .banner_description{color:#ffeaed !important;}
+
+.newslatter_section .shape_img_1{
+	left: 19%;
+	bottom: -26px;
+	max-width: 169px;
+	z-index: 100 !important;
+}
+
+.newslatter_section .shape_img_2 {
+	top: -60px;
+	right: 20%;
+	max-width: 169px;
+}

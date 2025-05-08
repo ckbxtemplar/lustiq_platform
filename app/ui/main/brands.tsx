@@ -10,48 +10,57 @@ export default function Brands() {
 		<section className="brands_section section_space_lg pb-0">
 		<div className="container">
 			<div className="section_heading text-center">
-				<h2 className="heading_text mb-0">
+				<h2 className="heading_text mb-2">
 					{t('title')}
 				</h2>
+				<p>
+					{t('sub')}
+				</p>
 			</div>
 			<ul className="brands_logo_list unordered_list">
 				<li>
 					<Link href="#!">
 						<div>
-							<Image src="/assets/images/brands/logo_microsoft.png" width={300} height={80} alt="Microsoft"/>
+							<Image src={'/assets/images/brands/'+t('head1_img')} width={200} height={200} alt="Microsoft"/>
 						</div>
-						<div className='text-black mt-2'>Varga Gréta</div>
+						<div className='text-black mt-2'>{t('head1_name')}</div>
+						<small className="fw-normal lh-sm"><i>{t('head1_sub')}</i></small>
 					</Link>
 					
 				</li>
 				<li>
 					<Link href="#!">
-						<Image src="/assets/images/brands/logo_alphabet.png" width={300} height={80} alt="Alphabet"/>
-						<div className='text-black mt-2'>Varga Gréta</div>
+						<Image src={'/assets/images/brands/'+t('head2_img')} width={200} height={200} alt="Alphabet"/>
+						<div className='text-black mt-2'>{t('head2_name')}</div>
+						<small className="fw-normal lh-sm"><i>{t('head2_sub')}</i></small>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
-						<Image src="/assets/images/brands/logo_intel.png" width={300} height={80} alt="Intel"/>
-						<div className='text-black mt-2'>Varga Gréta</div>
+						<Image src={'/assets/images/brands/'+t('head3_img')} width={200} height={200} alt="Intel"/>
+						<div className='text-black mt-2'>{t('head3_name')}</div>
+						<small className="fw-normal lh-sm"><i>{t('head3_sub')}</i></small>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
-						<Image src="/assets/images/brands/logo_cisco.png" width={300} height={80} alt="Cisco"/>
-						<div className='text-black mt-2'>Varga Gréta</div>
+						<Image src={'/assets/images/brands/'+t('head4_img')} width={200} height={200} alt="Cisco"/>
+						<div className='text-black mt-2'>{t('head4_name')}</div>
+						<small className="fw-normal lh-sm"><i>{t('head4_sub')}</i></small>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
-						<Image src="/assets/images/brands/logo_verizon_communications.png" width={300} height={80} alt="Verizon Communications"/>
-						<div className='text-black mt-2'>Varga Gréta</div>
+						<Image src={'/assets/images/brands/'+t('head5_img')} width={200} height={200} alt="Verizon Communications"/>
+						<div className='text-black mt-2'>{t('head5_name')}</div>
+						<small className="fw-normal lh-sm"><i>{t('head5_sub')}</i></small>
 					</Link>
 				</li>
 				<li>
 					<Link href="#!">
-						<Image src="/assets/images/brands/logo_infopulse.png" width={300} height={80} alt="Infopulse.png"/>
-						<div className='text-black mt-2'>Varga Gréta</div>
+						<Image src={'/assets/images/brands/'+t('head6_img')} width={200} height={200} alt="Infopulse.png"/>
+						<div className='text-black mt-2'>{t('head6_name')}</div>
+						<small className="fw-normal lh-sm"><i>{t('head6_sub')}</i></small>
 					</Link>
 				</li>
 			</ul>

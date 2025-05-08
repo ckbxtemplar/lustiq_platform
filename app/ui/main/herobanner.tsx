@@ -16,7 +16,7 @@ export default function HeroBanner({page = 'home'}) {
   };
 	
 	const b = useTranslations('buttons');
-	const t = useTranslations('pages.home.heroSection');
+	const t = useTranslations('pages.'+page+'.heroSection');
 	const tags = useTranslations('tags');
 
   return (

@@ -37,8 +37,8 @@ export default function Footer() {
 							</ul>
 						</div>
 					</div>
-					<div className="col col-lg-6">
-						<div className="row">
+					<div className="col col-lg-9">
+						<div className="row justify-content-end">
 							<div className="col col-md-4 col-sm-4">
 								<div className="footer_widget">
 									<h3 className="footer_widget_title">Links</h3>
@@ -97,7 +97,7 @@ export default function Footer() {
 							</div>
 						</div>
 					</div>
-					<div className="col col-lg-3 col-md-6 col-sm-6">
+					<div className="col col-lg-3 col-md-6 col-sm-6 d-none">
 						<div className="footer_widget">
 							<h3 className="footer_widget_title">Latest Posts</h3>
 							<ul className="blog_small_group unordered_list_block">

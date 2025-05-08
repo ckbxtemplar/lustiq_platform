@@ -202,6 +202,21 @@
 			"q8": "Személyesen tudok beszélni a szakemberekkel?",
 			"a8": "Kérlek, vedd fel a kapcsolatot az ügyfélszolgálatunkkal ezzel kapcsolatban."
 		},
+		"soon":{
+			"newsletterSection": {
+				"title": "Csatlakozz a várólistánkhoz!",
+				"subtitle": "Kurzusaink hamarosan elérhetőek lesznek – iratkozz fel, és értesítünk, amint indulunk! Ne maradj le a legjobb témákról!",
+				"subtitle2": "Egy új tanulási közösség van születőben – legyél részese már az indulás előtt! Csatlakozz most, és fejlődjünk együtt.",
+				"inputPlaceholder": "Add meg az email címed",
+				"subscribeButton": "Feliratkozom"
+			},
+			"heroSection": {
+				"title": "Fedezd fel az intimitás új dimenzióit",
+				"subtitle": "Valami izgalmas készül! Ha kíváncsi vagy, kukkants be elsőként – iratkozz fel a várólistára!",
+				"ctaButton": "Kezdd el most",
+				"buttonPlaceholder": "Miről szeretnél tanulni?"
+			}	
+		},
 		"home":	{
 			"header": {
 				"logoAlt": "Lustiq Szexedukációs Platform",
@@ -268,7 +283,7 @@
 			"testimonialsSection": {
 				"sectionTitle1": "Intimitásról, testtudatról és vágyakról tanulni felszabadító élmény lehet. A szexualitás természetes része az életünknek, mégis sokszor tabu övezi. Ezen szeretnénk változtatni tudással és empátiával.",
 				"sectionSub1": "Több, mint információ – ez egy biztonságos tér, ahol kérdezni is lehet. Segítünk eligazodni az érzések, kapcsolatok és határok világában.",
-				"sectionAuthor1": "Dorottya Vasarhelyi",
+				"sectionAuthor1": "Dorottya Vásárhelyi",
 				"sectionAuthor1sub": "Sexual Psychologist",
 
 				"sectionTitle2": "Mindenkinek joga van az örömteli és kölcsönös beleegyezésen alapuló szexuális élményekhez. Ehhez hiteles információk, nyitottság és önismeret kell – épp ezt támogatja a platformunk.",
@@ -293,8 +308,27 @@
 				"subscribeButton": "Feliratkozom"
 			},
 			"brands":{
-				"title":"Partnerek és megjelenések"
-			},
+				"title":"Szakemberek akikkel dolgozunk",
+				"sub":"A Lustiq csapata elkötelezett a szexuális edukáció iránt. Szakértőink több év tapasztalattal rendelkeznek a szexuális egészség területén.",
+				"head1_name":"Varga Gréta",
+				"head1_sub":"Szexuálpszichológiai szakpszichológus",
+				"head1_img":"varga-greta-xs.jpg",
+				"head2_name":"Katona Etelka",
+				"head2_sub":"egészségpszichológiai szakpszichológus",
+				"head2_img":"katona-etelka-xs.jpg",
+				"head3_name":"Dorottya Vásárhelyi",
+				"head3_sub":"pszichológus, szexuálpszichológiai szakpszichológus",
+				"head3_img":"vasarhelyi-dorottya-xs.jpg",
+				"head4_name":"Hodász András",
+				"head4_sub":"pap",
+				"head4_img":"hodasz-andras-xs.jpg",
+				"head5_name":"Szlameniczky Anna",
+				"head5_sub":"Termékenységtudat oktató, mentálhigiénés szakember",
+				"head5_img":"szlameniczky-anna-xs.jpg",
+				"head6_name":"Balázs Ivett Pille",
+				"head6_sub":"fizioterapeuta, manuálterapeuta",
+				"head6_img":"pillefizio_eszteranna-xs.jpg"
+			},	
 			"footer": {
 				"description": "Egy olyan platformot építünk, amely valódi tudással és szakértelemmel támogatja az embereket – hogy a szexualitásuk ne akadály, hanem erőforrás legyen az életükben.",
 				"copyright": "© 2024 Lustiq. Minden jog fenntartva.",
