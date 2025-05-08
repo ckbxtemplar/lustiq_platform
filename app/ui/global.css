@@ -347,7 +347,7 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 }
 .accordion .accordion-button:after{color:white !important}
 
-.hero_banner.style_2 .banner_big_title, .hero_banner.style_2 .banner_description{color:#ffeaed !important;}
+.hero_banner.style_2 .banner_big_title, .hero_banner.style_2 .banner_description, .hero_banner.style_2 .banner_subdescription{color:#ffeaed !important;}
 
 .newslatter_section .shape_img_1{
 	left: 19%;

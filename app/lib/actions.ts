@@ -117,7 +117,7 @@ export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, f
 			return {		
 				state: 0,		
 				errors: { alreadySubscribed: ['already subscribed to the newsletter']  },
-				message: 'Already subscribed to the newsletter',
+				message: 'Already subscribed',
 			}
 	}
 	else if (subscribe.success === 1) // már feliratkozott
@@ -125,7 +125,7 @@ export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, f
 		return {
 			state: subscribe.success,
 			errors: { alreadySubscribed: ['already subscribed to the newsletter']  },
-			message: 'Already subscribed to the newsletter',
+			message: 'Already subscribed',
 		}
 	}
 	else if (subscribe.success === 2) // siker

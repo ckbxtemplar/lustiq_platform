@@ -27,9 +27,8 @@ export default function HeroBanner({page = 'home'}) {
 					<h1 className="banner_big_title">						
 						{t('title')}
 					</h1>
-					<p className="banner_description">						
-						{t('subtitle')}
-					</p>
+					{ page === 'soon' && ( <p className="banner_subdescription">{t('subtitle2')}</p> )}					
+					<p className="banner_description">{t('subtitle')}</p>					
 					{ page === 'home' && (
 					<form action="#" onSubmit={handleSearch}>
 						<div className="form_item">

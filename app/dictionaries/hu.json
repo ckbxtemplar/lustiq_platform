@@ -212,7 +212,8 @@
 			},
 			"heroSection": {
 				"title": "Fedezd fel az intimitás új dimenzióit",
-				"subtitle": "Valami izgalmas készül! Ha kíváncsi vagy, kukkants be elsőként – iratkozz fel a várólistára!",
+				"subtitle": "Ha kíváncsi vagy, kukkants be elsőként – iratkozz fel a várólistára!",
+				"subtitle2": "Valami izgalmas készül!",
 				"ctaButton": "Kezdd el most",
 				"buttonPlaceholder": "Miről szeretnél tanulni?"
 			}	
