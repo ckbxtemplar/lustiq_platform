@@ -57,7 +57,7 @@ export default function SiteHeaderUser() {
       ) : (
 				<>
 				<li>
-					<Link className="btn border_dark" href="/login">
+					<Link className="btn border_dark btn_small" href="/login">
 						<span>
 							<small>{t('login')}</small>
 							<small>{t('login')}</small>
@@ -65,7 +65,7 @@ export default function SiteHeaderUser() {
 					</Link>
 				</li>
 				<li>
-					<Link className="btn btn_dark" href="/regist">
+					<Link className="btn btn_dark btn_small ms-1" href="/regist">
 						<span>
 							<small>{t('signup')}</small>
 							<small>{t('signup')}</small>

@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { useState } from 'react';
 import {useTranslations} from 'next-intl';
 
-export default function HeroBanner() {
+export default function HeroBanner({page = 'home'}) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = (e: React.FormEvent) => {
@@ -30,6 +30,7 @@ export default function HeroBanner() {
 					<p className="banner_description">						
 						{t('subtitle')}
 					</p>
+					{ page === 'home' && (
 					<form action="#" onSubmit={handleSearch}>
 						<div className="form_item">
 							<input 
@@ -47,6 +48,7 @@ export default function HeroBanner() {
 							</button>
 						</div>
 					</form>
+					)}
 					<ul className="tags_list unordered_list">
 						<li><a href="#!">{tags('sexuality')}</a></li>
 						<li><a href="#!">{tags('selfawareness')}</a></li>

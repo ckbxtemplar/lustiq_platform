@@ -11,8 +11,9 @@ import SiteHeaderLanguageSelect from './siteheaderlanguageselect';
 export default function SiteHeader() {
 	const pathname = usePathname();
 	const countPathParts = pathname.split("/").filter(Boolean);
-	const headerClass = countPathParts.length === 1 ? "site_header_2" : "site_header_1";
+	const headerClass = countPathParts.length === 1 || countPathParts.includes("soon") ? "site_header_2" : "site_header_1";
 	const isDashboard = countPathParts.length > 0 && countPathParts[1] === 'dashboard';
+	console.log(countPathParts);
 
   return (		
 		<header className={`site_header ${headerClass}`}>
