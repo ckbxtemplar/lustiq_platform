@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import LinearProgress from '@mui/material/LinearProgress';
 import {useTranslations} from 'next-intl';
@@ -190,9 +190,6 @@ export default function AiChat({ elevenlabsAgentId }: AiChatProps) {
         </form>
       </div>
 
-			{/* <elevenlabs-convai agent-id="owfjFkMyKUhylAJlsDHI"></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> */}
-			{/* <elevenlabs-convai agent-id="Yv5PrNHlQnqQHBMUxiKT" ></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script> */}			
-      {/* Rejtett audio lejátszó */}
       {threadId && (
         <audio ref={audioRef}>
           <source src={`https://ai.lustiq.eu/audio/${threadId}.mp3?nocache=${Date.now()}`} type="audio/mpeg" />

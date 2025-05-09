@@ -92,7 +92,7 @@ export default function SubscriptionStatus() {
 				{message.head}
 			</h1>
       <p>{message.sub}</p>			
-			{message.icon === 3 && ( <a class="btn border_dark" href="/dashboard"><span><small>Dashboard</small><small>Dashboard</small></span></a>	)}	
+			{message.icon === 3 && ( <a className="btn border_dark" href="/dashboard"><span><small>Dashboard</small><small>Dashboard</small></span></a>	)}	
     </div>
   );
 }

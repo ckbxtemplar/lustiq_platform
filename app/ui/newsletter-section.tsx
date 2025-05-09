@@ -27,7 +27,7 @@ export default function NewsletterSection({page="home"}: {page?: string}) {
 	const t = useTranslations('pages.'+page+'.newsletterSection');
 
 	return (
-<section className={'newslatter_section ' + (page === 'soon' ? ' newslatter_soon' : '')}>
+<section id="newsletter" className={'newslatter_section ' + (page === 'soon' ? ' newslatter_soon' : '')}>
 	<div className="container">
 		<div className={'newslatter_box'+ (page === 'soon' ? ' bg_light_2' : '')}>
 			<div className="row justify-content-center">

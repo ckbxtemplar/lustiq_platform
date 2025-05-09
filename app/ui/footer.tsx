@@ -13,18 +13,20 @@ export default function Footer() {
 				<div className="row">
 					<div className="col col-lg-3 col-md-6 col-sm-6">
 						<div className="footer_widget">
-							<div className="site_logo">
+							<div className="site_logo mb-3">
 								<Link className="site_link" href="index.html">
 									<Image src="/assets/images/logo/site_logo_2.svg" width="143" height="42" alt="Collab - Online Learning Platform"/>
 								</Link>
 							</div>
-							<p className="mb-4">
+							<div className="mb-4">
 								{t('home.footer.description1')}
-							</p>
-							<p>
+							</div>
+							<div className="mb-4">
 								<strong>{t('home.footer.description2')}</strong>
-								<div>{t('home.footer.description3')}</div>
-							</p>							
+								<div>{t('home.footer.description3')}
+								<br/>
+								<a href="#newsletter" className="btn btn-sm btn_unfill text-white p-0">Feliratkozom</a></div>
+							</div>							
 							<ul className="social_links unordered_list">
 								<li>
 									<Link href="https://www.facebook.com/szexplicit"><i className="fab fa-facebook-f"></i></Link>
