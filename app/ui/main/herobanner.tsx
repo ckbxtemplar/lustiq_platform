@@ -49,16 +49,13 @@ export default function HeroBanner({page = 'home'}) {
 					</form>
 					)}
 					<ul className="tags_list unordered_list">
-						<li><a href="#!">{tags('sexuality')}</a></li>
-						<li><a href="#!">{tags('selfawareness')}</a></li>
-						<li><a href="#!">{tags('intimacy')}</a></li>
-						<li><a href="#!">{tags('relationship')}</a></li>
-						<li><a href="#!">{tags('desire')}</a></li>
-						<li><a href="#!">{tags('sexeducation')}</a></li>
 						<li><a href="#!">{tags('sexpositive')}</a></li>
-						<li><a href="#!">{tags('emotionalsecurity')}</a></li>
-						<li><a href="#!">{tags('sexpsychology')}</a></li>
+						<li><a href="#!">{tags('selfconfidence')}</a></li>
+						<li><a href="#!">{tags('communication')}</a></li>
+						<li><a href="#!">{tags('relationship')}</a></li>
 						<li><a href="#!">{tags('bodyawareness')}</a></li>
+						<li><a href="#!">{tags('desire')}</a></li>
+						<li><a href="#!">{tags('safety')}</a></li>						
 					</ul>
 				</div>
 				<div className="col col-lg-6">

@@ -26,7 +26,6 @@ export default function Testimonials() {
 									{t('sectionSub1')}
 								</p>
 								<div className="testimonial_admin">
-
 									<div className="admin_content">
 										<h5 className="testimonial_name">{t('sectionAuthor1')}</h5>
 										<span className="testimonial_designation">{t('sectionAuthor1sub')}</span>
@@ -51,9 +50,6 @@ export default function Testimonials() {
 									{t('sectionSub2')}
 								</p>
 								<div className="testimonial_admin">
-									<div className="admin_image">
-										<Image src="/assets/images/meta/testimonial_thumbnail_1.jpg" width={120} height={120} alt="Collab – Online Learning Platform"/>
-									</div>
 									<div className="admin_content">
 										<h5 className="testimonial_name">{t('sectionAuthor2')}</h5>
 										<span className="testimonial_designation">{t('sectionAuthor2sub')}</span>
@@ -78,9 +74,6 @@ export default function Testimonials() {
 									{t('sectionSub3')}
 								</p>
 								<div className="testimonial_admin">
-									<div className="admin_image">
-										<Image src="/assets/images/meta/testimonial_thumbnail_1.jpg" width={120} height={120} alt="Collab – Online Learning Platform"/>
-									</div>
 									<div className="admin_content">
 										<h5 className="testimonial_name">{t('sectionAuthor3')}</h5>
 										<span className="testimonial_designation">{t('sectionAuthor3sub')}</span>

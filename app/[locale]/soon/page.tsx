@@ -1,6 +1,5 @@
-import Image from 'next/image';
+import { Metadata } from 'next';
 import HeroBanner from '@/app/ui/main/herobanner';
-import CoursesSection from '@/app/ui/main/coursessection';
 import IntroVideo from '@/app/ui/main/introvideo'; 
 import Process from '@/app/ui/main/process';
 import Testimonials from '@/app/ui/main/testimonials';
@@ -10,7 +9,11 @@ import NewsletterSection from '@/app/ui/newsletter-section';
 import FAQ from '@/app/ui/main/FAQ';
 import SoonEvents from '@/app/ui/main/soonEvents';
 import SoonRichtext from '@/app/ui/main/soonRichtext';
- 
+
+export const metadata: Metadata = {
+  title: 'Intimitás, tudással',
+};
+
 export default function Page() {
   return (
     <main className={'page_content'}>

@@ -19,16 +19,16 @@ export default function RegistForm() {
 	
 	const t = useTranslations('pages.regist');
 
-	useEffect(() => {
-    if (typeof window !== "undefined") {
-      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-      const tooltipList = tooltipTriggerList.map(tooltipTriggerEl => new (window as any).bootstrap.Tooltip(tooltipTriggerEl));
+	// useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  //     const tooltipList = tooltipTriggerList.map(tooltipTriggerEl => new (window as any).bootstrap.Tooltip(tooltipTriggerEl));
 
-      return () => {
-        tooltipList.forEach(tooltip => tooltip.dispose());
-      };
-    }
-  }, []);
+  //     return () => {
+  //       tooltipList.forEach(tooltip => tooltip.dispose());
+  //     };
+  //   }
+  // }, []);
 
   return (
 	<form action={formAction}>

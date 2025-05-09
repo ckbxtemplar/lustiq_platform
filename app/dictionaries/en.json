@@ -32,19 +32,56 @@
 			"t4_1":"A Guided",
 			"t4_2":"Growth Path",
 			"s4":"Step-by-step, theme-based modules show you exactly how to deepen intimacy and reach your personal or relationship goals."
+		},
+		"richTextSection": {
+			"soon": {
+				"title": "We're launching soon!",
+				"sub": "Join the waitlist and be the first to know when our courses become available.",
+				"bold": "Lustiq Lab is a new sexual education platform where experts help you explore and deepen your intimacy. We're launching soon!",
+				"button": "Want early access? Join the waitlist and get exclusive insights and special offers!"
+			},
+			"soon1": {
+				"title": "Lustig is revolutionizing sexual health and intimacy.",
+				"sub": "Our unique therapeutic and educational platform allows anyone to begin their journey of sexual self-discovery with the help of an AI-powered therapist — and transition to a real human expert when needed.",
+				"bold": "Our mission is to provide personalized, discreet, and expert-guided support for sexual health and relationship well-being.",
+				"italic": "“Our AI coach is trained in collaboration with sexologists, ensuring fast, science-based, and professionally sound answers. Anyone can ask anonymously about any sexual issue — without judgment.”"
+			},
+			"soon2": {
+				"title": "We believe that sexuality can be learned...",
+				"sub": "...that understanding pleasure, desire, and intimacy is a skill — one that can be developed with the right safe space and trustworthy knowledge.",
+				"sub2": "We also know that when someone has a fulfilling sex life, it doesn’t just benefit their relationship — it boosts their confidence, quality of life, and mental well-being too.",
+				"bold": "For us, personal growth naturally includes sexual development."
+			}
+		},
+		"soonEventsSection": {
+			"title": "Why is a new approach needed?",
+			"sub": "Sexuality is often surrounded by outdated, incomplete, or taboo knowledge. We believe true sexual well-being begins with honest conversations, expert knowledge, and real support. These points highlight why the old system doesn't work — and why we created this platform.",
+			"points": {
+				"1": "When our sexual health is off, it can lead to anxiety, tension, and loss of connection in our relationships.",
+				"2": "Talking openly about sex is still hard — taboos, misunderstandings, and narrow perspectives (often only heteronormative) dominate the discourse.",
+				"3": "Many struggle with pressure to perform, lack of desire, or emotional disconnection — yet few feel safe asking for help.",
+				"4": "Traditional sex education is often dry, outdated, or simply inaccessible.",
+				"5": "There's no modern, personalized, and holistic solution that truly blends science, psychology, and technology — until now."
+			}
+		},
+		"CheckoutForm": {
+			"notready": "Payment is currently unavailable"
 		}		
 	},
   "tags": {
-    "sexuality": "sexuality",
-    "selfawareness": "self-awareness",
-    "intimacy": "intimacy",
-    "relationship": "relationship",
-    "desire": "desire",
-    "sexeducation": "sex education",
-    "sexpositive": "sex-positive",
-    "emotionalsecurity": "emotional security",
-    "sexpsychology": "sex psychology",
-    "bodyawareness": "body awareness"
+		"sexuality": "sexuality",
+		"selfawareness": "self-awareness",
+		"intimacy": "intimacy",
+		"relationship": "relationship",
+		"desire": "desire",
+		"sexeducation": "sex education",
+		"sexpositive": "sex-positive",
+		"emotionalsecurity": "emotional security",
+		"sexpsychology": "sex psychology",
+		"selfconfidence": "self-confidence",
+		"communication": "communication",
+		"bodyawareness": "body awareness",
+		"safety": "safety"
   },
   "grid": {
     "courses": "Our Courses",
@@ -202,6 +239,22 @@
 			"q8": "Can I talk to the professionals in person?",
 			"a8": "Please contact support for specific information about this topic."
 		},
+		"soon": {
+			"newsletterSection": {
+				"title": "Join Our Waitlist!",
+				"subtitle": "Our courses will be available soon – sign up and we’ll let you know the moment we launch. Don’t miss out on the most exciting topics!",
+				"subtitle2": "A new learning community is on the rise – be part of it even before the launch. Join now and grow with us.",
+				"inputPlaceholder": "Enter your email address",
+				"subscribeButton": "Subscribe"
+			},
+			"heroSection": {
+				"title": "Lustiq Lab – Intimacy, Empowered by Knowledge",
+				"subtitle": "We’re launching soon. Want to be among the first to join? Sign up for early access and get exclusive insights and discounts!",
+				"subtitle2": "A place where sexuality is finally discussed clearly, without taboos, in a safe and supportive space.",
+				"ctaButton": "Join the Waitlist",
+				"buttonPlaceholder": "What would you like to learn about?"
+			}
+		},		
     "home": {
       "header": {
         "logoAlt": "Lustiq Sexual Education Platform",
@@ -233,17 +286,17 @@
         "feature3Title": "Interactive Content",
         "feature3Desc": "Hands-on, interactive lessons and exercises for better intimacy."
       },
-      "introVideo": {
-        "title": "Discover New Dimensions of Intimacy",
-        "g1title": "Curious Explorers",
-        "g1sub": "For those just beginning to explore the world of sexuality.",
-        "g2title": "Growing in Relationships",
-        "g2sub": "Couples and individuals seeking to improve intimacy, communication, and emotional connection.",
-        "g3title": "Deep Divers",
-        "g3sub": "Those who have already started working on themselves and are exploring complex questions of body and mind.",
-        "g4title": "Knowledge Sharers",
-        "g4sub": "Professionals and dedicated learners who want to – or already do – support others in this field."
-      },
+			"introVideo": {
+				"title": "Who is it for?",
+				"g1title": "First steps",
+				"g1sub": "If you've never had access to reliable sex education, you can start here safely.",
+				"g2title": "Growing together",
+				"g2sub": "Want to rekindle the spark, improve communication, and bring more joy into your relationship? Our practical courses can help.",
+				"g3title": "Expert depth",
+				"g3sub": "If you've already read or studied, but are looking for specific techniques and routines — you'll find them here, with voice-based AI support.",
+				"g4title": "Knowledge sharers",
+				"g4sub": "Professionals and dedicated learners who want to support others — or already do — in this field."
+			},
       "calltoAction": {
         "title": "Have questions about our courses?",
         "sub": "Feel free to write to us – our team is here to help.",
@@ -293,10 +346,31 @@
         "subscribeButton": "Subscribe"
       },
       "brands": {
-        "title": "Partners and Press"
+				"title": "Experts We Work With",
+				"sub": "The Lustiq team is dedicated to sexual education. Our experts have years of experience in the field of sexual health.",
+				"head1_name": "Gréta Varga",
+				"head1_sub": "Specialist in Sexual Psychology",
+				"head1_img": "varga-greta-xs.jpg",
+				"head2_name": "Etelka Katona",
+				"head2_sub": "Health Psychology Specialist",
+				"head2_img": "katona-etelka-xs.jpg",
+				"head3_name": "Dorottya Vásárhelyi",
+				"head3_sub": "Psychologist, Specialist in Sexual Psychology",
+				"head3_img": "vasarhelyi-dorottya-xs.jpg",
+				"head4_name": "András Hodász",
+				"head4_sub": "Catholic Priest",
+				"head4_img": "hodasz-andras-xs.jpg",
+				"head5_name": "Anna Szlameniczky",
+				"head5_sub": "Fertility Awareness Educator, Mental Health Professional",
+				"head5_img": "szlameniczky-anna-xs.jpg",
+				"head6_name": "Ivett Pille Balázs",
+				"head6_sub": "Physiotherapist, Manual Therapist",
+				"head6_img": "pillefizio_eszteranna-xs.jpg"
       },
       "footer": {
-				"description": "We're building a platform that empowers people with real knowledge and expertise - so that their sexuality is not a barrier but a resource in their lives.",				
+				"description1": "We're building a platform that empowers people with real knowledge and expertise - so that their sexuality is not a barrier but a resource in their lives.",				
+				"description2": "Dont miss the launch!",
+				"description3": "More than just content: community, live events, AI support, real growth. Sign up now and get an exclusive launch discount!",
         "copyright": "© 2024 Lustiq. All rights reserved.",
         "privacyPolicy": "Privacy Policy",
         "termsConditions": "Terms and Conditions",

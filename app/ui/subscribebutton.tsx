@@ -66,8 +66,9 @@ export default function CheckoutForm({ priceId, title, btnClass }: CheckoutFormP
         {ButtonContent}
       </a>
     ) : (
-      <button type="submit" className={`btn ${btnClass || 'border_dark'}`} disabled={loading}>
-        {ButtonContent}
+			//  disabled={loading}   ;    {ButtonContent}
+      <button type="submit" className={`btn ${btnClass || 'border_dark'}`} disabled={true}> 
+        <span><small>A fizetés jelenleg nem elérhető</small><small>A fizetés jelenleg nem elérhető</small></span>
       </button>
     )}
  		</form>

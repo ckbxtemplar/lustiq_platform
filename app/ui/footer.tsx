@@ -18,9 +18,13 @@ export default function Footer() {
 									<Image src="/assets/images/logo/site_logo_2.svg" width="143" height="42" alt="Collab - Online Learning Platform"/>
 								</Link>
 							</div>
-							<p>
-								{t('home.footer.description')}
+							<p className="mb-4">
+								{t('home.footer.description1')}
 							</p>
+							<p>
+								<strong>{t('home.footer.description2')}</strong>
+								<div>{t('home.footer.description3')}</div>
+							</p>							
 							<ul className="social_links unordered_list">
 								<li>
 									<Link href="https://www.facebook.com/szexplicit"><i className="fab fa-facebook-f"></i></Link>

@@ -23,7 +23,7 @@ export default function IntroVideo() {
 			</div>
 		</div>
 		<div className="row">
-			<div className="col col-lg-3 col-md-6 col-sm-6">
+			<div className="col col-lg-4 col-md-6 col-sm-6">
 				<div className="iconbox_item">
 					<div className="title_wrap">
 						<div className="item_icon">
@@ -38,7 +38,7 @@ export default function IntroVideo() {
 					</p>
 				</div>
 			</div>
-			<div className="col col-lg-3 col-md-6 col-sm-6">
+			<div className="col col-lg-4 col-md-6 col-sm-6">
 				<div className="iconbox_item">
 					<div className="title_wrap">
 						<div className="item_icon">
@@ -53,7 +53,7 @@ export default function IntroVideo() {
 					</p>
 				</div>
 			</div>
-			<div className="col col-lg-3 col-md-6 col-sm-6">
+			<div className="col col-lg-4 col-md-6 col-sm-6">
 				<div className="iconbox_item">
 					<div className="title_wrap">
 						<div className="item_icon">
@@ -65,21 +65,6 @@ export default function IntroVideo() {
 					</div>
 					<p className="mb-0">
 					{t('g3sub')}
-					</p>
-				</div>
-			</div>
-			<div className="col col-lg-3 col-md-6 col-sm-6">
-				<div className="iconbox_item">
-					<div className="title_wrap">
-						<div className="item_icon">
-							<i className="fas fa-signal-4"></i>
-						</div>
-						<h3 className="item_title mb-0">
-							{t('g4title')}
-						</h3>
-					</div>
-					<p className="mb-0">
-					{t('g4sub')}
 					</p>
 				</div>
 			</div>

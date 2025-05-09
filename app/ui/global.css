@@ -150,7 +150,7 @@ a:hover{color:unset !important;}
 }
 .main_menu_list .dropdown-menu > li:hover > button, 
 .main_menu_list .dropdown-menu > li.active >  button{
-	background-color: #FF8390;
+	background-color: #ff8085;
 }
 @media screen and (width <= 991px) {
 	.main_menu_list.user_menu .dropdown-menu {
@@ -361,3 +361,5 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 	right: 20%;
 	max-width: 169px;
 }
+
+.popular_event_list ul .column:first-child{flex:0 !important}

@@ -7,9 +7,7 @@ import {useTranslations} from 'next-intl';
 
 export default function SoonEvents({page = 'soon'}) {
 	
-	const b = useTranslations('buttons');
-	const t = useTranslations('pages.home.heroSection');
-	const tags = useTranslations('tags');
+	const t = useTranslations('components.soonEventsSection');
 
   return (
 		<section className="popular_event_section section_space_lg bg_dark decoration_wrap">
@@ -18,10 +16,10 @@ export default function SoonEvents({page = 'soon'}) {
 				<div className="col col-lg-7">
 					<div className="section_heading mb-lg-0">
 						<h2 className="heading_text text-white">
-							Online Events are Amazing Opportunities to Have Fun and Learn
+							{t('title')}
 						</h2>
 						<p className="heading_description mb-0 text-white">
-							Rhoncus dolor purus non enim praesent elementum facilisis. Nec tincidunt praesent semper feugiat nibh sed pulvinar. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. Iaculis eu non diam phasellus vestibulum lorem sed risus.
+							{t('sub')}
 						</p>
 						<div className="btn_wrap pb-0 d-none">
 							<a className="btn btn_primary" href="event.html">
@@ -35,60 +33,47 @@ export default function SoonEvents({page = 'soon'}) {
 				</div>
 				<div className="col col-lg-5">
 					<div className="popular_event_list">
-						<h3 className="wrap_title">Most Popular Events</h3>
-						<ul className="unordered_list_block">
+						<ul className="unordered_list_block info_list">					
 							<li>
-								<div className="column">
-									<b className="day">12</b>
-									<span className="month">february</span>
-									<strong className="time">03:50 PM</strong>
+								<div className="column text-center">
+									<i className="fas fa-square"></i>
 								</div>
 								<div className="column">
-									<h4 className="event_title">Digital Transformation Conference</h4>
-									<span className="event_name">
-										<strong>Prepare for:</strong> <small>Lora Hill</small>
-									</span>
+									<h6 className='mb-0'>{t('points.1')}</h6>
 								</div>
 							</li>
 							<li>
 								<div className="column">
-									<b className="day">12</b>
-									<span className="month">february</span>
-									<strong className="time">03:50 PM</strong>
+									<i className="fas fa-square"></i>
 								</div>
 								<div className="column">
-									<h4 className="event_title">Digital Transformation Conference</h4>
-									<span className="event_name">
-										<strong>Prepare for:</strong> <small>Lora Hill</small>
-									</span>
+									<h6 className='mb-0'>{t('points.2')}</h6>
 								</div>
 							</li>
 							<li>
 								<div className="column">
-									<b className="day">12</b>
-									<span className="month">february</span>
-									<strong className="time">03:50 PM</strong>
+									<i className="fas fa-square"></i>
 								</div>
 								<div className="column">
-									<h4 className="event_title">Digital Transformation Conference</h4>
-									<span className="event_name">
-										<strong>Prepare for:</strong> <small>Lora Hill</small>
-									</span>
+									<h6 className='mb-0'>{t('points.3')}</h6>
 								</div>
 							</li>
 							<li>
 								<div className="column">
-									<b className="day">12</b>
-									<span className="month">february</span>
-									<strong className="time">03:50 PM</strong>
+									<i className="fas fa-square"></i>
 								</div>
 								<div className="column">
-									<h4 className="event_title">Digital Transformation Conference</h4>
-									<span className="event_name">
-										<strong>Prepare for:</strong> <small>Lora Hill</small>
-									</span>
+									<h6 className='mb-0'>{t('points.4')}</h6>
 								</div>
 							</li>
+							<li>
+								<div className="column">
+									<i className="fas fa-square"></i>
+								</div>
+								<div className="column">
+									<h6 className='mb-0'>{t('points.5')}</h6>
+								</div>
+							</li>																					
 						</ul>
 					</div>
 				</div>

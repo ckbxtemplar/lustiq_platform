@@ -32,6 +32,40 @@
 			"t4_1": "Vezetett",
 			"t4_2": "fejlődési út",
 			"s4": "Lépésről lépésre, tematikus modulokon keresztül mutatjuk meg, hogyan mélyítsd az intimitást és érd el személyes vagy párkapcsolati céljaidat."
+		},
+		"richTextSection": {
+			"soon":{				
+				"title":"Hamarosan indulunk!",
+				"sub":"Iratkozz fel a várólistára, és értesítünk, amint elérhetőek lesznek a kurzusaink.",
+				"bold":"A Lustiq Lab egy új szexuális edukációs platform, ahol szakértők segítenek felfedezni és fejleszteni intimitásodat. Hamarosan indulunk!",
+				"button":"Ha elsőként szeretnél belépni, iratkozz fel a várólistára, és küldjük a kulisszatitkokat, kedvezményeket!"
+			},
+			"soon1":{
+				"title":"A Lustig forradalmasítja a szexuális egészség és intimitás világát.",
+				"sub":"Egyedülálló terápiás és edukációs platformunk lehetővé teszi, hogy bárki elinduljon saját szexuális önismereti útján egy mesterséges intelligenciával támogatott terapeuta segítségével, majd igény szerint könnyedén áttérjen valódi, humán szakemberhez.",
+				"bold":"Küldetésünk, hogy személyre szabott, diszkrét és szakértői támogatást nyújtsunk a szexuális egészség és kapcsolati harmónia terén.",
+				"italic":"”Az AI coachot szexuálpszichológusokkal közösen képezzük, így a válaszok nemcsak gyorsak, hanem tudományosan megalapozottak és szakmailag hitelesek is. Bárki anonim módon kérdezhet bármilyen szexuális problémáról vagy kérdésről, ítélkezés nélkül.”"
+			},
+			"soon2":{
+				"title":"Hiszünk abban, hogy a szexualitás tanulható...",
+				"sub":"...hogy az öröm, a vágy, az intimitás megismerése olyan készség, amit fejleszthetünk – ha van hozzá biztonságos tér és hiteles tudás.",
+				"sub2":"És azt is tudjuk, hogy ha valakinek jó a szexuális élete, az nemcsak a párkapcsolatára hat pozitívan – hanem az önbizalmára, az életminőségére, a mentális jóllétére is.",
+				"bold":"Nálunk az önfejlesztés természetes része a szexualitásnak."
+			}				
+		},
+		"soonEventsSection": {
+			"title":"Miért van szükség egy új szemléletre?",
+			"sub":"A szexualitásról szóló tudás és beszélgetés sokszor hiányos, elavult vagy egyszerűen tabusított. Mi abban hiszünk, hogy a szexuális jólét alapja az őszinte kommunikáció, a hiteles tudás és a támogatás. Ezek a pontok megmutatják, miért nem működik a régi rendszer — és miért jött létre a platformunk.",
+			"points": {
+				"1":"Ha nincs rendben a szexuális egészségünk, az könnyen okozhat szorongást, feszültséget, és elveheti a kedvet a kapcsolatainktól is.",
+				"2":"A szexről még mindig nehéz nyíltan beszélni – sok a tabu, a félreértés, és a nézőpontok többsége csak a heteró világot tükrözi.",
+				"3":"Gyakori a teljesítménykényszer, a vágy hiánya vagy az érzelmi eltávolodás – de sokan mégsem mernek segítséget kérni.",
+				"4":"A hagyományos szexuális felvilágosítás vagy túl száraz, vagy túl régi, vagy egyszerűen nem jut el hozzánk.",
+				"5":"Nincs olyan modern, személyre szabott és átfogó megoldás, ami egyszerre épít a tudományra, a lélektani tudásra és a technológiára."
+			}
+		},
+		"checkoutForm":{
+			"notready":"A fizetés jelenleg nem elérhető"
 		}
 	},
 	"tags":{
@@ -44,7 +78,10 @@
 		"sexpositive": "szexpozitív",
 		"emotionalsecurity": "érzelmi biztonság",
 		"sexpsychology": "szexuálpszichológia",
-		"bodyawareness": "testtudatosság"
+		"selfconfidence": "önbizalom",
+		"communication": "kommunikáció",
+		"bodyawareness": "testtudat",
+		"safety": "biztonság"	
 	},
 	"grid":{
 		"courses":"Kurzusaink",
@@ -211,12 +248,12 @@
 				"subscribeButton": "Feliratkozom"
 			},
 			"heroSection": {
-				"title": "Fedezd fel az intimitás új dimenzióit",
-				"subtitle": "Ha kíváncsi vagy, kukkants be elsőként – iratkozz fel a várólistára!",
-				"subtitle2": "Valami izgalmas készül!",
-				"ctaButton": "Kezdd el most",
+				"title": "Lustiq Lab – Intimitás, tudással",
+				"subtitle": "Hamarosan indulunk. Ha elsőként szeretnél belépni, iratkozz fel a várólistára, és küldjük a kulisszatitkokat, kedvezményeket!",
+				"subtitle2": "Egy hely, ahol a szexualitásról végre érthetően, tabuk nélkül és biztonságos környezetben tanulhatsz.",
+				"ctaButton": "Csatlakozom a várólistához",
 				"buttonPlaceholder": "Miről szeretnél tanulni?"
-			}	
+			}
 		},
 		"home":	{
 			"header": {
@@ -242,21 +279,21 @@
 			},
 			"featuresSection": {
 				"sectionTitle": "Miért válaszd a Lustiq-ot?",
-				"feature1Title": "Hiteles információk",
-				"feature1Desc": "Tapasztalt szexuálpszichológusoktól tanulhatsz, akik segítenek a mélyebb önismeretben.",
-				"feature2Title": "Tabumentes oktatás",
-				"feature2Desc": "Nyílt és elfogadó környezet, ahol minden kérdésedre választ kapsz.",
-				"feature3Title": "Interaktív tartalmak",
-				"feature3Desc": "Gyakorlatias, interaktív leckék és gyakorlatok a jobb intimitásért."
+				"feature1Title": "Hiteles forrás",
+				"feature1Desc": "Szexuálpszichológusok, orvosok és kapcsolati szakértők készítik a kurzusokat.",
+				"feature2Title": "Tabumentes tér",
+				"feature2Desc": "Kérdezz név nélkül, gyakorolj az AI coach‑szal, teszteld magad kvízekkel.",
+				"feature3Title": "360° megközelítés",
+				"feature3Desc": "Test – lélek – kapcsolat: online kurzusok + gyakorlatok a holisztikus élményért."
 			},
 			"introVideo": {
-				"title": "Fedezd fel az intimitás új dimenzióit",
-				"g1title": "Kíváncsi felfedezők",
-				"g1sub": "Aki most kezdi az ismerkedést a szexualitás világával.",
-				"g2title": "Kapcsolatban fejlődők",
-				"g2sub": "Párok és egyének, akik szeretnék fejleszteni intimitásukat, kommunikációjukat, érzelmi kapcsolódásukat.",
-				"g3title": "Mélyre ásók",
-				"g3sub": "Akik már dolgoztak magukon, aktívan keresik a testi-lelki harmóniát, komplexebb kérdések foglalkoztatják őket.",
+				"title": "Kinek szól?",
+				"g1title": "Első lépések",
+				"g1sub": "Ha még sosem kaptál hiteles szexedukációt, itt biztonságosan elindulhatsz.",
+				"g2title": "Páros fejlődés",
+				"g2sub": "Szeretnétek visszahozni a tüzet, jobb kommunikációt, több örömöt a kapcsolatotokba? Gyakorlatias kurzusokkal segítünk.",
+				"g3title": "Szakértői mélység",
+				"g3sub": "Ha már olvastál, tanultál, de konkrét technikákat, rutinokat keresel – itt megtalálod, hangalapú Ai támogatással.",
 				"g4title": "Tudásmegosztók",
 				"g4sub": "Szakemberek és elkötelezett érdeklődők, akik másokat is támogatni szeretnének — vagy már támogatnak — a témában."
 			},
@@ -331,7 +368,9 @@
 				"head6_img":"pillefizio_eszteranna-xs.jpg"
 			},	
 			"footer": {
-				"description": "Egy olyan platformot építünk, amely valódi tudással és szakértelemmel támogatja az embereket – hogy a szexualitásuk ne akadály, hanem erőforrás legyen az életükben.",
+				"description1": "Egy olyan platformot építünk, amely valódi tudással és szakértelemmel támogatja az embereket – hogy a szexualitásuk ne akadály, hanem erőforrás legyen az életükben.",
+				"description2": "Ne maradj le az indulásról!",
+				"description3": "Több mint tananyag: közösség, élő események, AI‑támogatás, valós fejlődés. Iratkozz fel, és küldjük az induló kedvezményt!",
 				"copyright": "© 2024 Lustiq. Minden jog fenntartva.",
 				"privacyPolicy": "Adatvédelmi irányelvek",
 				"termsConditions": "Felhasználási feltételek",
