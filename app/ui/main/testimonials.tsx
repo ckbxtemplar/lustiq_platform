@@ -37,7 +37,7 @@ export default function Testimonials() {
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
 							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>
-								<Image src="/assets/images/testimonial/Varga_Greta_profil.jpg" width={630} height={630} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/testimonial/Varga_Greta_profil2.jpg" width={630} height={630} alt="Collab – Online Learning Platform"/>
 							</div>
 							<div className="testimonial_content">
 								<div className="quote_icon">

@@ -27,7 +27,7 @@ export default function HeroBanner({page = 'home'}) {
 					<h1 className="banner_big_title">						
 						{t('title')}
 					</h1>
-					{ page === 'soon' && ( <p className="banner_subdescription">{t('subtitle2')}</p> )}					
+					<p className="banner_subdescription">{t('subtitle2')}</p>				
 					<p className="banner_description">{t('subtitle')}</p>					
 					{ page === 'home' && (
 					<form action="#" onSubmit={handleSearch}>
@@ -67,7 +67,7 @@ export default function HeroBanner({page = 'home'}) {
 						</div>
 						<div className="child_image image_wrap_2">
 							<div className="layer" data-depth="0.2">
-								<Image src="/assets/images/banner/hero_banner_img_3.jpg" width={518} height={345} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/banner/hero_banner_img_6.jpg" width={518} height={345} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="child_image image_wrap_3">
