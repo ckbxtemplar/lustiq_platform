@@ -1,4 +1,12 @@
 {
+	"server":{
+		"newsletter":{
+			"msg_success":"Köszönjük, hogy feliratkoztál - ezzel megtetted az első lépést a tudatos szexuális jóllét felé. Amint megnyílik a regisztráció a Lustiq-Lab-hez, az elsők között kapsz értesítést.",
+			"already":"Ezzel a címmel már feliratkoztál!",
+			"missing":"Hiányzó vagy hibás adatokat adtál meg. Nem sikerült a feliratkozás.",
+			"unknown":"Unknown error"
+		}
+	},
   "buttons": {
     "search": "Keresés",
     "accept": "Elfogadom",
@@ -65,7 +73,7 @@
 			}
 		},
 		"checkoutForm":{
-			"notready":"A fizetés jelenleg nem elérhető"
+			"notready":"HAMAROSAN"
 		}
 	},
 	"tags":{
@@ -109,7 +117,49 @@
 			"email":"E-mail címünk",
 			"more":"További tartalmak",
 			"more_sub1":"Nézzétek meg YouTube csatornánkat",
-			"more_sub2":"ide kattintva"
+			"more_sub2":"ide kattintva",
+			"about":{
+				"1_t":"Küldetésünk",
+				"1_d":"A Lustiq-Lab azért jött létre, hiteles tudást adjunk a szexualitásról - tabuk nélkül, tudományos alapon, inspiráló formában. Hiszünk abban, hogy a szexuális jóllét nem luxus, hanem alapvető emberi szükséglet: ha rendben vagyunk a saját intimitásunkkal, kiegyensúlyozottabbak a kapcsolataink, erősebb az önbizalmunk, és egészségesebb a lelkünk‑testünk egyaránt.",
+				"2_t":"Miért volt szükség ránk?",
+				"2_sub_1_t":"Hiányos szexuális nevelés:", 
+				"2_sub_1_d":"felnőttként is sokan csak suttogva mernek kérdezni, miközben az információk gyakran pontatlanok vagy szégyenre épülnek.",
+				"2_sub_2_t":"Szétszórt források:",
+				"2_sub_2_d":"külön kell orvost, pszichológust, edzőt keresni, ha valóban átfogó választ akarunk - és még így is ritkán kapunk gyakorlatba ültethető segítséget.",
+				"2_sub_3_t":"Modern párok új igényei:",
+				"2_sub_3_d":"gyors, digitális, személyre szabott támogatásra vágyunk, ami illeszkedik a mindennapjainkhoz.",
+				"3_t":"A mi megoldásunk",
+				"3_sub_1":"Szakértői videókurzusok - pszichológusok, orvosok, szexuálterapeuták, intimfitness-edzők és dietetikusok közösen állították össze, 15-perces, könnyen feldolgozható blokkokban.",
+				"3_sub_2":"AI-coach -hang és chatalapú, anonimitást garantáló gyakorlótér, amely azonnali visszajelzést ad kommunikációs vagy intimitási helyzetekben.",
+				"3_sub_3":"Interaktív feladatok & kvízek - hogy a tudás be is épüljön, ne csak „meghallgasd”.",
+				"3_sub_4":"Holisztikus termékcsalád - libidófokozó cseppek és Bond-Bites csokoládé, amelyek természetes összetevőkkel támogatják a testi oldal fejlődését.",
+				"4_t":"Alapértékeink",
+				"4_sub_1_t":"Hitelesség:",
+				"4_sub_1_d":"minden tartalmunkat a legjobb szakemberekkel készítettük el.",
+				"4_sub_2_t":"Tabumentesség:",
+				"4_sub_2_d":"őszintén beszélünk a kényes témákról is, mert a csend csak a problémákat mélyíti.",
+				"4_sub_3_t":"Inkluzivitás:",
+				"4_sub_3_d":"nem, orientáció, életkor és élethelyzet szerint is mindenkihez szólunk.",
+				"4_sub_4_t":"Fejlődés & öröm:",
+				"4_sub_4_d":"a szexualitásnak nem „megoldandó hibáról”, hanem felfedezhető erőforrásról kell szólnia.",
+				"5_t":"Szakmai csapatunk",
+				"5_sub_1_t":"Bakonyi-Gergő",
+				"5_sub_1_d":"alapító",
+				"5_sub_2_t":"Kassai-Viktor",
+				"5_sub_2_d":"alapító, vezető fejlesztő, AI-innováció",
+				"5_sub_3_t":"Varga-Gréta",
+				"5_sub_3_d":"PhD - szexuálpszichológus, szakmai vezető",
+				"5_sub_4_t":"Vitary Dani",
+				"5_sub_4_d":"Stratégiai Mentor",
+				"5_sub_5_t":"Juhász Diána",
+				"5_sub_5_d":"Táplálkozási szakértő",
+				"5_sub_6_t":"Tamás Zsófi",
+				"5_sub_6_d":"Közösségfejlesztési vezető",
+				"6_t":"A jövőkép",
+				"6_d":"2024 végére minden fontos szexuális témát lefedő kurzuskatalógust kínálunk, négy nyelven, globális eléréssel. Célunk, hogy a Lustiq-Lab legyen a szexuális edukáció „masterclassa” ahol a tudás, a technológia és az öröm találkozik.",
+				"7_d_1":"Tedd meg te is az első lépést!",
+				"7_d_2":"Csatlakozz a várólistánkhoz, és légy az elsők között, akik hozzáférnek a Lustiq-Lab teljes élményéhez."				
+			}			
 		},
 		"contactForm":{
 			"title":"Lépjen kapcsolatba ügyfélszolgálatunkkal.",
@@ -241,9 +291,12 @@
 		},
 		"soon":{
 			"newsletterSection": {
-				"title": "Csatlakozz a várólistánkhoz!",
-				"subtitle": "Kurzusaink hamarosan elérhetőek lesznek – iratkozz fel, és értesítünk, amint indulunk! Ne maradj le a legjobb témákról!",
-				"subtitle2": "Egy új tanulási közösség van születőben – legyél részese már az indulás előtt! Csatlakozz most, és fejlődjünk együtt.",
+				"title": "Fedezd fel, mennyivel teljesebb lehet a szexuális életed!",
+				"subtitle": "Iratkozz fel a Lustiq-Lab várólistájára, és:",
+				"subtitle2": "ingyenes minileckéket kapsz szakértőinktől (pszichológus, orvos, intim fitness tréner stb.);",
+				"subtitle3": "elsőként értesülhetsz a platform indulásáról és kedvezményes bevezető előfizetésünkről;",
+				"subtitle4": "exkluzív gyakorlati tippeket, letölthető útmutatókat küldünk, hogy már a nyitás előtt elkezdhess fejlődni.",
+				"subtitle5": "Csatlakozz most – tedd meg az első lépést a tudatos, örömteli és magabiztos szexualitás felé!",												
 				"inputPlaceholder": "Add meg az email címed",
 				"subscribeButton": "Feliratkozom"
 			},
@@ -316,23 +369,23 @@
 			},
 			"coursesBanner": {
 				"title": "Kurzusaink",
-				"sub": "Online kurzusok, szakértőktől tabuk nélkül"
+				"sub": "Fedezd fel a szexualitás mélységeit interaktív kurzusainkkal, szexuálpszichológusok vezetésével."
 			},			
 			"testimonialsSection": {
 				"sectionTitle1": "Intimitásról, testtudatról és vágyakról tanulni felszabadító élmény lehet. A szexualitás természetes része az életünknek, mégis sokszor tabu övezi. Ezen szeretnénk változtatni tudással és empátiával.",
 				"sectionSub1": "Több, mint információ – ez egy biztonságos tér, ahol kérdezni is lehet. Segítünk eligazodni az érzések, kapcsolatok és határok világában.",
 				"sectionAuthor1": "Dorottya Vásárhelyi",
-				"sectionAuthor1sub": "Sexual Psychologist",
+				"sectionAuthor1sub": "Pszichológus, szexuálpszichológiai szakpszichológus",
 
 				"sectionTitle2": "Mindenkinek joga van az örömteli és kölcsönös beleegyezésen alapuló szexuális élményekhez. Ehhez hiteles információk, nyitottság és önismeret kell – épp ezt támogatja a platformunk.",
 				"sectionSub2": "A szexualitás nemcsak biológia – társadalmi, lelki és kulturális kérdések is kapcsolódnak hozzá. Ezekről is őszintén beszélünk.",
 				"sectionAuthor2": "Greta Varga",
-				"sectionAuthor2sub": "Sexual Psychologist",
+				"sectionAuthor2sub": "Szexuálpszichológiai szakpszichológus",
 
 				"sectionTitle3": "Sokaknak kimaradt az iskolai szexedukáció, vagy épp tévhiteken alapult. Itt lehetőség van arra, hogy új alapokra helyezd a tudásodat, és magabiztosabban mozogj ezekben a témákban.",
 				"sectionSub3": "A célunk, hogy támogassunk mindenkit abban, hogy a saját tempójában, szégyen nélkül fejlődhessen – legyen szó kapcsolatról, identitásról vagy élvezetről.",
 				"sectionAuthor3": "Etelka Katona",
-				"sectionAuthor3sub": "Sexual Psychologist"
+				"sectionAuthor3sub": "Egészségpszichológiai szakpszichológus"
 			},
 			"expertsSection": {
 				"sectionTitle": "Szakértőink",
@@ -368,10 +421,10 @@
 				"head6_img":"pillefizio_eszteranna-xs.jpg"
 			},	
 			"footer": {
-				"description1": "Egy olyan platformot építünk, amely valódi tudással és szakértelemmel támogatja az embereket – hogy a szexualitásuk ne akadály, hanem erőforrás legyen az életükben.",
+				"description1": "Tanulj tudatosan, fejlődj bátran, élvezd szabadon. Rövid, 15 perces videóleckék orvosoktól, pszichológusoktól és szexuálterapeutáktól. Interaktív AI-coachokkal azonnal gyakorolhatsz, visszajelzést kapsz, és biztos kézzel ültetheted át a tanultakat a hálószobába - vagy azon túlra.",
 				"description2": "Ne maradj le az indulásról!",
 				"description3": "Több mint tananyag: közösség, élő események, AI‑támogatás, valós fejlődés. Iratkozz fel, és küldjük az induló kedvezményt!",
-				"copyright": "© 2024 Lustiq. Minden jog fenntartva.",
+				"copyright": "© 2025 Lustiq. Minden jog fenntartva.",
 				"privacyPolicy": "Adatvédelmi irányelvek",
 				"termsConditions": "Felhasználási feltételek",
 				"socialMediaAlt": "Lustiq közösségi média"

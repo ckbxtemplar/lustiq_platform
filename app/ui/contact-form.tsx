@@ -38,6 +38,8 @@ export default function ContactForm() {
 	return (
 	<section className="contact_form_section section_space_lg bg_light decoration_wrap overflow-hidden">
 		<div className="container decoration_wrap">
+
+
 			<div className="row justify-content-center">
 				<div className="col col-lg-7">
 					<div className="section_heading text-center">

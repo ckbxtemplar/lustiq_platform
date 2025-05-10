@@ -20,7 +20,7 @@ export default function Banner({page, title, description, search, onSearch }: Ba
     const formData = new FormData(event.currentTarget);
     const searchQuery = formData.get('search') as string;    
     if (onSearch) {
-      onSearch(searchQuery); // ✅ csak ha definiálva van
+      onSearch(searchQuery); 
     }		
   };
 

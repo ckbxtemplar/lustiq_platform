@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import getStripe from '@/app/utils/get-stripejs';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useSession } from "next-auth/react";
 
 type CheckoutFormProps = {
@@ -12,6 +12,8 @@ type CheckoutFormProps = {
 };
 
 export default function CheckoutForm({ priceId, title, btnClass }: CheckoutFormProps) {
+
+  const t = useTranslations('components.checkoutForm');
   const [loading, setLoading] = useState(false);
 	const locale = useLocale();
 
@@ -68,7 +70,7 @@ export default function CheckoutForm({ priceId, title, btnClass }: CheckoutFormP
     ) : (
 			//  disabled={loading}   ;    {ButtonContent}
       <button type="submit" className={`btn ${btnClass || 'border_dark'}`} disabled={true}> 
-        <span><small>A fizetés jelenleg nem elérhető</small><small>A fizetés jelenleg nem elérhető</small></span>
+        <span><small>{t('notready')}</small><small>{t('notready')}</small></span>
       </button>
     )}
  		</form>

@@ -1,4 +1,12 @@
 {
+	"server":{
+		"newsletter":{
+			"msg_success":"Thank you for subscribing! you've just taken the first step toward greater sexual well-being. We'll notify you as soon as Lustiq-Lab opens for registration, so you can be among the very first to join.",
+			"already":"Already subscribed",
+			"missing":"Missing or invalid fields. Failed to create user.",
+			"unknown":"Ismeretlen hiba"							
+		}
+	},	
   "buttons": {
     "search": "Search",
     "accept": "Accept",
@@ -65,7 +73,7 @@
 			}
 		},
 		"CheckoutForm": {
-			"notready": "Payment is currently unavailable"
+			"notready": "COMING SOON"
 		}		
 	},
   "tags": {
@@ -109,7 +117,49 @@
 			"email": "Our Email Address",
 			"more": "More Content",
 			"more_sub1": "Check out our YouTube channel",
-			"more_sub2": "by clicking here"
+			"more_sub2": "by clicking here",
+			"about": {
+				"1_t": "Our Mission",
+				"1_d": "Lustiq-Lab was created to provide credible knowledge about sexuality – without taboos, based on science, and in an inspiring format. We believe that sexual well-being is not a luxury, but a fundamental human need: when we are in harmony with our own intimacy, our relationships become more balanced, our self-confidence grows stronger, and both our mental and physical health improve.",
+				"2_t": "Why are we needed?",
+				"2_sub_1_t": "Lack of sexual education:",
+				"2_sub_1_d": "Even as adults, many people only dare to ask questions in whispers, while the information they find is often inaccurate or rooted in shame.",
+				"2_sub_2_t": "Scattered resources:",
+				"2_sub_2_d": "You have to seek out doctors, psychologists, and trainers separately to get truly comprehensive answers – and even then, practical support is rare.",
+				"2_sub_3_t": "Modern couples, new needs:",
+				"2_sub_3_d": "We want fast, digital, and personalized support that fits seamlessly into our everyday lives.",
+				"3_t": "Our Solution",
+				"3_sub_1": "Expert video courses – created by psychologists, doctors, sex therapists, intimate fitness trainers, and dietitians, in easy-to-digest 15-minute modules.",
+				"3_sub_2": "AI coach – a voice and chat-based anonymous practice space that gives instant feedback in communication or intimacy scenarios.",
+				"3_sub_3": "Interactive tasks & quizzes – so that the knowledge isn’t just heard, but truly integrated.",
+				"3_sub_4": "Holistic product line – libido-enhancing drops and Bond-Bites chocolate, supporting physical development with natural ingredients.",
+				"4_t": "Our Core Values",
+				"4_sub_1_t": "Credibility:",
+				"4_sub_1_d": "All our content is created with top-level professionals.",
+				"4_sub_2_t": "Taboo-free approach:",
+				"4_sub_2_d": "We speak honestly about sensitive topics, because silence only deepens the problems.",
+				"4_sub_3_t": "Inclusivity:",
+				"4_sub_3_d": "We speak to everyone, regardless of gender, orientation, age, or life situation.",
+				"4_sub_4_t": "Growth & Joy:",
+				"4_sub_4_d": "Sexuality shouldn't be about fixing flaws, but about discovering a powerful resource.",
+				"5_t": "Our Professional Team",
+				"5_sub_1_t": "Gergő Bakonyi",
+				"5_sub_1_d": "Founder",
+				"5_sub_2_t": "Viktor Kassai",
+				"5_sub_2_d": "Co-founder, Lead Developer, AI Innovation",
+				"5_sub_3_t": "Gréta Varga",
+				"5_sub_3_d": "PhD – Sex Psychologist, Head of Content",
+				"5_sub_4_t": "Dani Vitary",
+				"5_sub_4_d": "Strategic Mentor",
+				"5_sub_5_t": "Diána Juhász",
+				"5_sub_5_d": "Nutrition Expert",
+				"5_sub_6_t": "Zsófi Tamás",
+				"5_sub_6_d": "Head of Community Development",
+				"6_t": "Our Vision",
+				"6_d": "By the end of 2024, we aim to offer a comprehensive course catalog covering all key sexual topics, in four languages, with global reach. Our goal is to make Lustiq-Lab the 'masterclass' of sexual education – where knowledge, technology, and joy come together.", 
+				"7_d_1": "Take the first step too!",
+				"7_d_2": "Join our waitlist and be among the first to access the full Lustiq-Lab experience."
+			}					
 		},		
 		"contactForm": {
 			"title": "Contact our customer service.",
@@ -241,9 +291,12 @@
 		},
 		"soon": {
 			"newsletterSection": {
-				"title": "Join Our Waitlist!",
-				"subtitle": "Our courses will be available soon – sign up and we’ll let you know the moment we launch. Don’t miss out on the most exciting topics!",
-				"subtitle2": "A new learning community is on the rise – be part of it even before the launch. Join now and grow with us.",
+				"title": "Discover how much more fulfilling your sex life can be!",
+				"subtitle": "Join the Lustiq-Lab waitlist and:",
+				"subtitle2": "receive free mini-lessons from our experts (psychologist, doctor, intimate fitness trainer, etc.);",
+				"subtitle3": "be the first to know when the platform launches and get access to our discounted introductory subscription;",
+				"subtitle4": "receive exclusive practical tips and downloadable guides to start improving even before the launch.",
+				"subtitle5": "Join now – take the first step toward a conscious, joyful, and confident sexuality!",
 				"inputPlaceholder": "Enter your email address",
 				"subscribeButton": "Subscribe"
 			},
@@ -322,7 +375,7 @@
         "sectionTitle1": "Learning about intimacy, body awareness, and desires can be a liberating experience. Sexuality is a natural part of life, yet it's often surrounded by taboos. We want to change that with knowledge and empathy.",
         "sectionSub1": "More than information – this is a safe space where questions are welcome. We help you navigate the world of feelings, relationships, and boundaries.",
         "sectionAuthor1": "Dorottya Vasarhelyi",
-        "sectionAuthor1sub": "Sexual Psychologist",
+        "sectionAuthor1sub": "Psychologist, Specialist in Sexual Psychology",
 
         "sectionTitle2": "Everyone deserves joyful and consensual sexual experiences. That requires reliable information, openness, and self-awareness – exactly what our platform supports.",
         "sectionSub2": "Sexuality is not just biology – it's also about society, emotions, and culture. We talk about all of these openly.",
@@ -332,7 +385,7 @@
         "sectionTitle3": "Many missed out on proper sex education in school – or were taught based on myths. Here's a chance to rebuild your knowledge and gain confidence in these topics.",
         "sectionSub3": "Our goal is to support everyone to grow at their own pace and without shame – whether it’s about relationships, identity, or pleasure.",
         "sectionAuthor3": "Etelka Katona",
-        "sectionAuthor3sub": "Sexual Psychologist"
+        "sectionAuthor3sub": "Health Psychology Specialist"
       },
       "expertsSection": {
         "sectionTitle": "Our Experts",

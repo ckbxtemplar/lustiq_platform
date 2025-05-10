@@ -331,7 +331,6 @@ body .page-wrapper{
 
 elevenlabs-convai > div:first-child > div:first-child > span:first-child {display:none !important;}
 
-.brands_logo_list > li {width: 33% !important;}
 .brands_logo_list a{flex-direction: column !important; color:black; text-align: center; height:auto !important; min-height: 320px;}
 .brands_logo_list a img{max-width: 180px;	max-height: 180px !important;	border-radius: 50%;}
 
@@ -363,3 +362,9 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 }
 
 .popular_event_list ul .column:first-child{flex:0 !important}
+
+.imageStyle1{
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 10px 10px #1f1d0d;	
+}

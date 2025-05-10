@@ -12,7 +12,7 @@ import {useTranslations} from 'next-intl';
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard/courses';
   const [state, formAction, isPending] = useActionState( authenticate, { success: false, errorMessage: undefined, callbackUrl: undefined } );
 	const msg = searchParams.get('m') || false;
 

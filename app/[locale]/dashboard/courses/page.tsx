@@ -4,6 +4,7 @@ import GridList from '@/app/ui/courses/grid-list';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import { Suspense } from 'react';
 import { GridListSkeleton } from '@/app/ui/skeletons';
+import {useTranslations} from 'next-intl';
 
 export const metadata: Metadata = {
   title: 'Courses',
@@ -11,10 +12,16 @@ export const metadata: Metadata = {
 
 export default function Courses() {
 
+const t = useTranslations('pages.home.coursesBanner');
+
   return (
 		<main className="page_content">
 
-		<Banner title={'Courses'} description={'Egestas sed tempus urna et pharetra. Leo integer malesuada nunc vel.'} search={false}/>
+		<Banner 
+			title={t('title')} 
+			description={t('sub')} 
+			search={false}
+		/>		
 
 		<section className="courses_archive_section section_space_md">
 			<div className="container">

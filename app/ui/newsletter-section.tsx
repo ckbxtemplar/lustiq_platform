@@ -31,14 +31,27 @@ export default function NewsletterSection({page="home"}: {page?: string}) {
 	<div className="container">
 		<div className={'newslatter_box'+ (page === 'soon' ? ' bg_light_2' : '')}>
 			<div className="row justify-content-center">
-				<div className="col col-lg-7">
-					<div className="section_heading text-center">
+				<div className="col col-lg-10">
+					<div className="section_heading text-center mb-3">
 						<h2 className="heading_text">
 							{t('title')}
 						</h2>
+						{ page==='home' && (
 						<p className="heading_description mb-0">
 							{t('subtitle')}
 						</p>
+						)}
+						{ page==='soon' && (
+						<div className="row justify-content-center">
+							<div className="heading_description mb-0 text-start col-12 col-lg-10">							
+								<h4 className="mt-4 text-start">{t('subtitle')}</h4>
+								<div className="info_list mb-1 text-start"><i className="fas fa-square me-4"></i> {t('subtitle2')}</div>
+								<div className="info_list mb-1 text-start"><i className="fas fa-square me-4"></i> {t('subtitle3')}</div>
+								<div className="info_list mb-1 text-start"><i className="fas fa-square me-4"></i> {t('subtitle4')}</div>
+								<h4 className="mt-4 text-center">{t('subtitle5')}</h4>
+							</div>		
+						</div>
+						)}						
 					</div>
 					<form action={formAction}>
 						<div className="form_item m-0">
@@ -57,13 +70,6 @@ export default function NewsletterSection({page="home"}: {page?: string}) {
 						<div className="col col-lg-5">{getAlertMessage()}</div>
 					</div>				
 				)}	
-				{page === 'soon' && (				
-					<div className="col col-lg-7 text-center fw-bold mt-3 mb-0">
-						<p className="heading_description mb-0">
-							{t('subtitle2')}
-						</p>				
-					</div>
-				)}		
 			</div>
 		</div>
 	</div>

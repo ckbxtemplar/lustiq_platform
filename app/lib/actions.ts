@@ -5,6 +5,7 @@ import { sendMail } from '@/app/lib/sendmail';
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import {getTranslations} from 'next-intl/server';
 
 /* Contact form START */
 const ContactFormSchema = z.object({
@@ -96,6 +97,8 @@ export type NewsletterSubscribeState = {
 const NewsletterSubscribeData = NewsletterSubscribeSchema.pick({ email: true });
 
 export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, formData: FormData): Promise<NewsletterSubscribeState> {
+	
+	const t = await getTranslations('server.newsletter');
 
 	const validatedFields = NewsletterSubscribeData.safeParse({
     email: formData.get('email')
@@ -103,9 +106,9 @@ export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, f
 
   if (!validatedFields.success) {
     return {
-			state: 0,	
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing or invalid fields. Failed to create user.',
+		state: 0,	
+      	errors: validatedFields.error.flatten().fieldErrors,
+      	message: t('missing')
     };
   }
 	const { email } = validatedFields.data;
@@ -117,7 +120,7 @@ export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, f
 			return {		
 				state: 0,		
 				errors: { alreadySubscribed: ['already subscribed to the newsletter']  },
-				message: 'Already subscribed',
+				message: t('already'),
 			}
 	}
 	else if (subscribe.success === 1) // már feliratkozott
@@ -125,7 +128,7 @@ export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, f
 		return {
 			state: subscribe.success,
 			errors: { alreadySubscribed: ['already subscribed to the newsletter']  },
-			message: 'Already subscribed',
+			message: t('already')
 		}
 	}
 	else if (subscribe.success === 2) // siker
@@ -143,14 +146,14 @@ export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, f
 
 		return {
 			state: subscribe.success,
-			message: 'Subscribe was successful',
+			message: t('msg_success')
 		}
 
 	}
 
 	return {
 		state: 0,
-		message: 'Unknown error',
+		message: t('unknown')
 	}	
 }
 
