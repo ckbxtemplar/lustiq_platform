@@ -36,7 +36,11 @@ export default function CoursePubBody({ data }: { data: any }) {
 								return(
 							<div className="accordion-item" key={'accordian-item-'+index}>
 								<div className={`accordion-button `+(index===0?`collapsed`:``)} role="button" data-bs-toggle="collapse" data-bs-target={'#collapse_'+index} aria-expanded={(index===0?`true`:`false`)}>
-									{item.title}
+									{item.title=='ai' ? (
+										<span>{t('ai')}</span>
+									) : (
+										<span>{item.title}</span>
+									)}
 								</div>
 								<div id={'collapse_'+index} className={`accordion-collapse collapse `+(index===0?`show`:``)} data-bs-parent="#corse_details_accordion">
 									<div className="accordion-body">

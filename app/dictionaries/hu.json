@@ -325,9 +325,9 @@
 				"signout": "Kijelentkezés"
 			},
 			"heroSection": {
-				"title": "Fedezd fel az intimitás új dimenzióit",
-				"subtitle": "Online kurzusok, szakértőktől tabuk nélkül",
-				"subtitle2": "Tanuld meg itt, amit nem tanítottak meg a szexről",				
+				"title": "Tanuld meg itt, amit nem tanítottak meg a szexről",
+				"subtitle": "Megbízható szakemberek, tudományos alapok, online kurzusok",
+				"subtitle2": "",				
 				"ctaButton": "Kezdd el most",
 				"buttonPlaceholder": "Miről szeretnél tanulni?"
 			},
