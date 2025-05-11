@@ -62,7 +62,7 @@ export default function HeroBanner({page = 'home'}) {
 					<div className="banner_image_2">
 						<div className="child_image image_wrap_1">
 							<div className="layer" data-depth="0.1">
-								<Image src="/assets/images/banner/hero_banner_img_team1.jpg" width={700} height={467} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/banner/hero_banner_img_team1_v2.jpg" width={700} height={467} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="child_image image_wrap_2">

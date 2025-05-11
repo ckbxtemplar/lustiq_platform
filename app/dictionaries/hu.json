@@ -333,12 +333,12 @@
 			},
 			"featuresSection": {
 				"sectionTitle": "Miért válaszd a Lustiq Lab-ot?",
-				"feature1Title": "Hiteles forrás",
-				"feature1Desc": "Szexuálpszichológusok, orvosok és kapcsolati szakértők készítik a kurzusokat.",
-				"feature2Title": "Tabumentes tér",
-				"feature2Desc": "Kérdezz név nélkül, gyakorolj az AI coach‑szal, teszteld magad kvízekkel.",
-				"feature3Title": "360° megközelítés",
-				"feature3Desc": "Test – lélek – kapcsolat: online kurzusok + gyakorlatok a holisztikus élményért."
+				"feature1Title": "Tudományosan megalapozott",
+				"feature1Desc": "Szakképzett pszichológusok, orvosok, gyógytornászok, intim torna trénerek és más tudományterületekről érkező szakemberek készítik a kurzusokat.",
+				"feature2Title": "Gyakorlatorientált",
+				"feature2Desc": "A kurzusokhoz kapcsolódó kvízekkel, feladatokkal és AI-agent segítségével az elméleti tudást gyakorlati tudássá fejlesztheted.",
+				"feature3Title": "Holisztikus",
+				"feature3Desc": "A kurzusokat holisztikus személetmóddal állítottuk össze, így minden problémakörnek megismerheted a biológiai, pszichológiai és szociális aspektusait."
 			},
 			"introVideo": {
 				"title": "Kinek szól?",
