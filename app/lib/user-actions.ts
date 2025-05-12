@@ -12,6 +12,7 @@ import { writeFile } from "fs/promises";
 import path from "path";
 import sharp from "sharp";
 import {withLocalePrefix} from '@/app/utils/common';
+import {getTranslations} from 'next-intl/server';
  
 /* USER - Login */
 export type AuthenticateState = {
@@ -99,7 +100,9 @@ export type RegistUserState = {
 
 const createdUser = RegistFormSchema.pick({ email: true, password: true, confirmPassword: true });
 
-export async function registUser(prevState: RegistUserState, formData: FormData): Promise<RegistUserState> {
+export async function registUser(prevState: RegistUserState, formData: FormData): Promise<RegistUserState> 
+{
+	const t = await getTranslations('server.mail.userActivate');
 
   const validatedFields = createdUser.safeParse({
     email: formData.get('email'),
@@ -141,19 +144,25 @@ export async function registUser(prevState: RegistUserState, formData: FormData)
 	const response = sendMail({
 		email: 'hello@lustiq.eu',
 		sendTo: email,
-		subject: 'Activate the registration | Lustiq Platform',
+		subject: t('subject')+' | Lustiq Lab',
 		html: {
 			template: 'user_activate',
 			params:{
 				username: 'viktor',
 				userid: user.userid as string,
 				language: language as string,
-				callbackurl: callbackurl 
+				callbackurl: callbackurl,
+				p1: t('p1'),
+				p2: t('p2'),
+				p3: t('p3'),
+				p4: t('p4'),
+				h1: t('h1'),
+				button: t('button')
 			}
 		}
 	});
 
-  redirect(`/regist/success?email=${encodeURIComponent(email)}`);
+  redirect(`/${language}/regist/success?email=${encodeURIComponent(email)}`);
 }
 
 /* USER - Forget Password */

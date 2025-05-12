@@ -45,7 +45,7 @@ export default function Footer() {
 								<h3 className='footer_widget_title text-white mb-4'>{t('home.footer.description2')}</h3>
 								<div>{t('home.footer.description3')}
 								<br/>
-								<a href="#newsletter" className="btn btn-sm btn_unfill text-white p-0 mt-2">Feliratkozom</a></div>
+								<a href="/soon" className="btn btn-sm btn_unfill text-white p-0 mt-2">Feliratkozom</a></div>
 							</div>							
 						</div>
 					</div>					

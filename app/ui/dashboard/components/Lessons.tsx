@@ -56,7 +56,7 @@ export default function Lessons({ lessons, details }: LessonProps){
 											<div className='col-auto'><span className='course_section_number fw-bold'>1</span></div>
 											<div className='col-auto'><h5 className='m-0'>{t('description')}</h5></div>
 										</div>																												
-										<p>Welcome! I'm your AI assistant. How may I help you today? 👏</p>
+										<p>{t('aisub')}</p>
 									</div>
 									<div className="aichat_wrap my-5 py-3">
 										<div className='row align-items-center mb-3 ms-0'>

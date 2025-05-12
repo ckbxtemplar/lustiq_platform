@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import {useTranslations} from 'next-intl';
 
 export default function RegistActivate() {
+	const t = useTranslations('pages.regist.activate');
 	const searchParams = useSearchParams();
 	const uid = searchParams.get('aup');
 	const callbackurl = searchParams.get('callbackurl') || null;
@@ -39,10 +41,10 @@ export default function RegistActivate() {
 					<div className="row justify-content-center">
 						<div className="col col-12 align-self-center">
 							<h1 className="register_heading text-center">{status === null
-									? "Processing activation..."
+									? t('s1')
 									: status
-									? "Successful activation"
-									: "Activation failed"}
+									? t('s2')
+									: t('s3')}
 							</h1>
 						</div>
 					</div>
@@ -56,11 +58,11 @@ export default function RegistActivate() {
 											<div className="item_content">											
 											{status ? (
 												<>
-														The profile has been successfully activated.<br />You can log in to the site.
+														{t('m1')}<br />{t('m2')}
 												</>
 												) : (
 												<>
-														Activation failed.<br />Please try again or contact support.
+														{t('m3')}<br />{t('m4')}
 												</>
 												)}
 											</div>
@@ -73,15 +75,15 @@ export default function RegistActivate() {
 						{status ? (
 									<Link className="btn border_dark" href={ '/login'+( callbackurl ? "?callbackUrl="+callbackurl : "")}>
 										<span>
-											<small>Login</small>
-											<small>Login</small>
+											<small>{t('loginButton')}</small>
+											<small>{t('loginButton')}</small>
 										</span>
 									</Link>		
 								) : (					
 									<Link className="btn border_dark" href={'/regist'}>
 										<span>
-											<small>Regist</small>
-											<small>Regist</small>
+											<small>{t('signupButton')}</small>
+											<small>{t('signupButton')}</small>
 										</span>
 									</Link>		
 								)}

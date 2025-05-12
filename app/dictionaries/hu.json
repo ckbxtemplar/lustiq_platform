@@ -5,6 +5,17 @@
 			"already":"Ezzel a címmel már feliratkoztál!",
 			"missing":"Hiányzó vagy hibás adatokat adtál meg. Nem sikerült a feliratkozás.",
 			"unknown":"Unknown error"
+		},
+		"mail":		{
+			"userActivate":{
+				"subject":"Kérlek aktiváld a fiókodat",
+				"p1":"Üdvözlünk!",
+				"h1":"Örömmel köszöntünk a Lustiq Lab közösségben!",
+				"p2":"Felhasználói azonosítód:",
+				"p3":"Készen állsz egy különleges utazásra? Csak egy lépés választ el attól, hogy felfedezd a Lustiq élményt. Aktiváld a profilod most!",
+				"p4":"Kellemes időtöltést a Lustiq Lab világában!",
+				"button":"Profil aktiválása"
+			}
 		}
 	},
   "buttons": {
@@ -187,6 +198,7 @@
 			"lessons":"Leckék",
 			"video":"videó",
 			"aititle":"AI Gyakorlás",
+			"aisub":"Ez a beszélgetés névtelen és bizalmas: semmilyen adatodat nem tároljuk. Itt szabadon felteheted azokat a kérdéseket is, amiket eddig nem mertél megfogalmazni – vagy gyakorolhatod a tanult technikákat, mielőtt élesben alkalmaznád őket. Próbáld ki most!",
 			"description":"Bevezető",
 			"videoplay":"Videó lejátszása",
 			"quiz":"Töltsd ki a kvízt",
@@ -242,7 +254,26 @@
 			"email":"Email cím",
 			"password":"Jelszó létrehozása",
 			"password2":"Jelszó ismét",
-			"signupButton":"Regisztráció"			
+			"signupButton":"Regisztráció",
+			"loginButton":"Bejelentkezés",
+			"activate": {
+				"s1": "Aktiválás folyamatban...",
+				"s2": "Sikeres aktiválás",
+				"s3": "Az aktiválás sikertelen",
+				"m1": "A profil sikeresen aktiválva lett.",
+				"m2": "Most már bejelentkezhetsz az oldalra.",
+				"m3": "Az aktiválás nem sikerült.",
+				"m4": "Kérjük, próbáld meg újra, vagy lépj kapcsolatba az ügyfélszolgálattal.",
+				"signupButton": "Regisztráció",
+				"loginButton": "Bejelentkezés"
+			},
+			"success": {
+				"m1": "Sikeres regisztráció",
+				"m2": "Az új fiók aktiválásához",
+				"m3": "küldtünk egy e-mailt a megadott címre.",
+				"m4": "Ha az e-mail 5 percen belül nem érkezik meg, és nem található a levélszemét mappában sem,",
+				"m5": "kérjük, vedd fel velünk a kapcsolatot (hello@lustiq.eu)."
+			}
 		},
 		"pricing": {	
 			"title":"Előfizetői csomagok",

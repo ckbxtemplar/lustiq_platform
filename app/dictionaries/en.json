@@ -5,7 +5,18 @@
 			"already":"Already subscribed",
 			"missing":"Missing or invalid fields. Failed to create user.",
 			"unknown":"Ismeretlen hiba"							
-		}
+		},
+		"mail": {
+			"userActivate": {
+				"subject": "Please activate your account",
+				"p1": "Welcome!",
+				"h1": "We’re happy to welcome you to the Lustiq community!",
+				"p2": "Your user ID:",
+				"p3": "Ready for a special journey? You're just one step away from discovering the Lustiq experience. Activate your profile now!",
+				"p4": "Enjoy your time in the world of Lustiq Lab!",
+				"button": "Activate profile"
+			}
+		}		
 	},	
   "buttons": {
     "search": "Search",
@@ -187,6 +198,7 @@
 			"lessons":"Lessons",
 			"video":"video",
 			"aititle":"AI Practice",
+			"aisub": "This conversation is anonymous and confidential: we do not store any of your data. Here, you can freely ask the questions you've never dared to ask – or practice the techniques you've learned before using them in real life. Try it now!",
 			"description":"Introduction",
 			"videoplay":"Watch the video",
 			"quiz":"Take the quiz",
@@ -242,7 +254,26 @@
 			"email":"E-mail address",
 			"password":"Create Password",
 			"password2":"Confirm Password",
-			"signupButton":"Signup Now"			
+			"signupButton":"Signup Now",
+			"loginButton":"LogIn Now",
+			"activate":{
+				"s1":"Processing activation...",
+				"s2":"Successful activation",
+				"s3":"Activation failed",
+				"m1":"The profile has been successfully activated.",
+				"m2":"You can log in to the site.",
+				"m3":"Activation failed.",
+				"m4":"Please try again or contact support.",
+				"signupButton":"Signup Now",
+				"loginButton":"LogIn Now"
+			},
+			"success":{
+				"m1":"Successful registration",
+				"m2":"To activate this new account,",
+				"m3":"we sent a mail to the specified e-mail address.",
+				"m4":"If the email does not arrive within 5 minutes and is not in the spam folder,",
+				"m5":"please contact us (hello@lustiq.eu)."
+			}			
 		},			
 		"pricing": {  
 			"title": "Subscription Plans",

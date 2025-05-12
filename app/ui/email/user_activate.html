@@ -1,7 +1,7 @@
-<p>Hi there!</p>
-<h1>Welcome our new member!</h1>
-<p>Your user ID is: {{{userid}}}</p>
-<p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
+<p>{{{p1}}}</p>
+<h1>{{{h1}}}</h1>
+<p>{{{p2}}} {{{userid}}}</p>
+<p>{{{p3}}}</p>
 <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
 	<tbody>
 		<tr>
@@ -9,7 +9,11 @@
 				<table role="presentation" border="0" cellpadding="0" cellspacing="0">
 					<tbody>
 						<tr>
-							<td> <a href="{{{BASE_PROTOCOL}}}://{{{BASE_URL}}}/{{{language}}}/regist/activate?aup={{{userid}}}{{{callbackurl}}}" target="_blank">Activate profile</a> </td>
+							<td> 
+								<a href="{{{BASE_PROTOCOL}}}://{{{BASE_URL}}}/{{{language}}}/regist/activate?aup={{{userid}}}{{{callbackurl}}}" target="_blank">
+									{{{button}}}
+								</a> 
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -17,4 +21,4 @@
 		</tr>
 	</tbody>
 </table>
-<p>Good luck! Hope it works.</p>
+<p>{{{p4}}}</p>
