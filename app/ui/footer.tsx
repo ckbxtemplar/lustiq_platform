@@ -14,7 +14,7 @@ export default function Footer() {
 
 					<div className="col col-lg-4 col-md-6 col-sm-6">
 						<div className="footer_widget">
-							<div className="site_logo mb-3">
+							<div className="site_logo mb-2">
 								<Link className="site_link" href="index.html">
 									<Image src="/assets/images/logo/site_logo_2.svg" width="143" height="42" alt="Collab - Online Learning Platform"/>
 								</Link>
@@ -40,12 +40,12 @@ export default function Footer() {
 					</div>
 
 					<div className="col col-lg-4 col-md-6 col-sm-6">
-						<div className="footer_widget">
+						<div className="footer_widget">						
 							<div className="mb-4">
-								<strong>{t('home.footer.description2')}</strong>
+								<h3 className='footer_widget_title text-white mb-4'>{t('home.footer.description2')}</h3>
 								<div>{t('home.footer.description3')}
 								<br/>
-								<a href="#newsletter" className="btn btn-sm btn_unfill text-white p-0">Feliratkozom</a></div>
+								<a href="#newsletter" className="btn btn-sm btn_unfill text-white p-0 mt-2">Feliratkozom</a></div>
 							</div>							
 						</div>
 					</div>					
@@ -128,8 +128,10 @@ export default function Footer() {
 		<div className="copyright_widget">
 			<div className="container">
 				<p className="copyright_text text-center mb-0">
+					<Link className="text-white me-5" target="_lustiq" href="https://getlustiq.hu">Lustiq Termékek</Link>					
+					<Link className="text-white me-5" target="_lustiq" href="https://play.lustiq.eu">Lustiq Play</Link>					
 					<b>{t('home.footer.copyright')}</b>
-				</p>
+				</p>			
 			</div>
 		</div>
 		</footer>
