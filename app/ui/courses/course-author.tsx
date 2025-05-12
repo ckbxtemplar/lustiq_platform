@@ -15,7 +15,7 @@ export default function CoursePubBanner({ data }: { data: any }) {
 					<div className="row align-items-center">
 						<div className="col col-lg-4">
 							<div className="details_image image_widget">
-								<Image src={data.avatar.url ? `http://localhost:1337${data.avatar.url}` : '/assets/images/mentor/mentor_details_image_1.jpg'} width={1042} height={1088} alt="Collab – Online Learning Platform"/>
+								<Image src={data.avatar?.url ? `http://localhost:1337${data.avatar.url}` : '/assets/images/mentor/mentor_details_image_1.jpg'} width={1042} height={1088} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="col col-lg-8">

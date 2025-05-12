@@ -23,7 +23,7 @@ export default function CoursePubBody({ data }: { data: any }) {
 							</div>
 							<div className="intro_video mb-4">
 								<div className="video_wrap">
-									<CourseVideo videoSrc={data.intro_video.url} videoName={data.intro_video.name}/>
+									{ data.intro_video?.url && (<CourseVideo videoSrc={data.intro_video.url} videoName={data.intro_video.name}/>)}
 								</div>
 							</div>
 							<div dangerouslySetInnerHTML={{ __html: richTextToHTML(data.introduction) }} />

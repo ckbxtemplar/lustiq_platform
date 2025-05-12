@@ -11,7 +11,8 @@ export default function Footer() {
 		<div className="footer_widget_area">
 			<div className="container">
 				<div className="row">
-					<div className="col col-lg-3 col-md-6 col-sm-6">
+
+					<div className="col col-lg-4 col-md-6 col-sm-6">
 						<div className="footer_widget">
 							<div className="site_logo mb-3">
 								<Link className="site_link" href="index.html">
@@ -21,12 +22,6 @@ export default function Footer() {
 							<div className="mb-4">
 								{t('home.footer.description1')}
 							</div>
-							<div className="mb-4">
-								<strong>{t('home.footer.description2')}</strong>
-								<div>{t('home.footer.description3')}
-								<br/>
-								<a href="#newsletter" className="btn btn-sm btn_unfill text-white p-0">Feliratkozom</a></div>
-							</div>							
 							<ul className="social_links unordered_list">
 								<li>
 									<Link href="https://www.facebook.com/szexplicit"><i className="fab fa-facebook-f"></i></Link>
@@ -43,8 +38,20 @@ export default function Footer() {
 							</ul>
 						</div>
 					</div>
-					<div className="col col-lg-9">
-						<div className="row justify-content-end">
+
+					<div className="col col-lg-4 col-md-6 col-sm-6">
+						<div className="footer_widget">
+							<div className="mb-4">
+								<strong>{t('home.footer.description2')}</strong>
+								<div>{t('home.footer.description3')}
+								<br/>
+								<a href="#newsletter" className="btn btn-sm btn_unfill text-white p-0">Feliratkozom</a></div>
+							</div>							
+						</div>
+					</div>					
+
+					<div className="col col-lg-4 col-md-6 col-sm-6">
+						<div className="row justify-content-center">
 							<div className="col col-md-4 col-sm-4">
 								<div className="footer_widget">
 									<h3 className="footer_widget_title">Links</h3>
@@ -67,13 +74,6 @@ export default function Footer() {
 												<span className="item_text">{t('home.header.pricing')}</span>
 											</Link>
 										</li>
-									</ul>
-								</div>
-							</div>
-							<div className="col col-md-4 col-sm-4">
-								<div className="footer_widget">
-									<h3 className="footer_widget_title">Support</h3>
-									<ul className="page_list unordered_list_block">
 										<li>
 											<Link href="/contact">
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
@@ -85,19 +85,7 @@ export default function Footer() {
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
 												<span className="item_text">{t('contact.faq')}</span>
 											</Link>
-										</li>
-										<li>
-											<Link href="#!">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Security</span>
-											</Link>
-										</li>
-										<li>
-											<Link href="#!">
-												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
-												<span className="item_text">Private Police</span>
-											</Link>
-										</li>
+										</li>										
 									</ul>
 								</div>
 							</div>
