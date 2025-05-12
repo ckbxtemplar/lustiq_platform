@@ -24,8 +24,8 @@ export default function Lessons({ lessons, details }: LessonProps){
 			{lessons.map((item:any,index:number) => {
 				let sectionCounter = 0;
 				return (
-				<div className="accordion-item" key={index}>
-					<div className="checkbox_item accordion_item_checked">
+				<div className="accordion-item ps-0 ps-lg-4" key={index}>
+					<div className="checkbox_item accordion_item_checked d-none d-lg-block">
 						<input type="checkbox"/>
 					</div>											
 					<div className={`accordion-button ${index === 0 ? 'collapsed' : ''}`} 

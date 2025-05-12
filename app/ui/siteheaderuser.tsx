@@ -17,7 +17,7 @@ export default function SiteHeaderUser() {
 	const t = useTranslations('pages.home.header');	
 
   return (
-		<ul className="unordered_list_end">		
+		<ul className="unordered_list_center">		
 			{session?.user? (
 				<li>
 					<ul className="main_menu_list user_menu unordered_list_end p-1 p-lg-2">

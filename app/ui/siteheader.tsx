@@ -33,7 +33,7 @@ export default function SiteHeader() {
 				<div className="col-auto ms-auto p-0">
 					<SiteHeaderLanguageSelect />
 				</div>
-				<div className="col-auto p-0">					
+				<div className="col-12 col-lg-auto p-0">					
 					<SiteHeaderUser />
 				</div>
 			</div>

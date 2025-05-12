@@ -368,3 +368,5 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
     overflow: hidden;
     box-shadow: 10px 10px #1f1d0d;	
 }
+
+[class^="_poweredBy_"] {display: none !important}
