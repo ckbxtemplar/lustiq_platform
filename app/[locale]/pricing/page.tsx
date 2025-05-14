@@ -106,6 +106,12 @@ export default function Pricing() {
           </div>
         </section>
 
+				<div className="py-5 my-5 bg_light_2">
+					<div className="py-5 my-5 bg_light_2">
+					<NewsletterSection page="soon" />	
+					</div>
+				</div>
+
 				<FAQ/>
 
 				<NewsletterSection/>

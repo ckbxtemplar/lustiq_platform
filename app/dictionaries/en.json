@@ -356,10 +356,12 @@
         "signout": "Sign Out"
       },
       "heroSection": {
-        "title": "Discover New Dimensions of Intimacy",
-        "subtitle": "Online courses by experts – without taboos",
-        "ctaButton": "Start Now",
-        "buttonPlaceholder": "What do you want to learn about?"
+				"title": "Learn here what you weren't taught about sex",
+				"title2": "We're launching soon! 🚀",
+				"subtitle": "Trusted experts, scientific foundations, online courses",
+				"subtitle2": "",
+				"ctaButton": "Start now",
+				"buttonPlaceholder": "What would you like to learn about?"
       },
       "featuresSection": {
         "sectionTitle": "Why Choose Lustiq?",

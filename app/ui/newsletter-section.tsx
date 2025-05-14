@@ -5,7 +5,7 @@ import { NewsletterSubscribe, NewsletterSubscribeState } from '@/app/lib/actions
 import { useActionState, useEffect } from 'react';
 import {useTranslations} from 'next-intl';
 
-export default function NewsletterSection({page="home"}: {page?: string}) {
+export default function NewsletterSection({page="home", card=true}: {page?: string, card?: boolean}) {
 	const initialState: NewsletterSubscribeState = { 
 		state:null, errors: { }, message: null 
 	};
@@ -24,12 +24,12 @@ export default function NewsletterSection({page="home"}: {page?: string}) {
     }
   };
 
-	const t = useTranslations('pages.'+page+'.newsletterSection');
+	const t = useTranslations('pages.'+page+'.newsletterSection');	
 
 	return (
-<section id="newsletter" className={'newslatter_section ' + (page === 'soon' ? ' newslatter_soon' : '')}>
+<section id="newsletter" className={'newsletter_section ' + (page == 'soon' && ' newsletter_soon') + (card===false ? ' newsletter_naked' : '')}>
 	<div className="container">
-		<div className={'newslatter_box'+ (page === 'soon' ? ' bg_light_2' : '')}>
+		<div className={'newslatter_box' }>
 			<div className="row justify-content-center">
 				<div className="col col-lg-10">
 					<div className="section_heading text-center mb-3">

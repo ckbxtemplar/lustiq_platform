@@ -24,10 +24,15 @@ export default function HeroBanner({page = 'home'}) {
 		<div className="container">
 			<div className="row align-items-center">
 				<div className="col col-lg-6">
-					<h1 className="banner_big_title">						
+					<h2 className="text-white mb-3">						
 						{t('title')}
-					</h1>
-					<p className="banner_subdescription">{t('subtitle2')}</p>				
+					</h2>
+					{ page === 'home' && (
+					<h1 className="banner_big_title mb-3">						
+						{t('title2')}
+					</h1>						
+					)}
+					<p className="banner_subdescription mb-3">{t('subtitle2')}</p>				
 					<p className="banner_description">{t('subtitle')}</p>					
 					{ page === 'home' && (
 					<form action="#" onSubmit={handleSearch}>

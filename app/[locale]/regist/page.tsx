@@ -2,7 +2,8 @@ import RegistForm from '@/app/ui/regist-form';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import {useTranslations} from 'next-intl';
- 
+import NewsletterSection from '@/app/ui/newsletter-section'; 
+
 export const metadata: Metadata = {
   title: 'Regist',
 };
@@ -13,7 +14,8 @@ export default function RegistPage() {
 
   return (
 		<main className="page_content">
-			<section className="register_section section_space_lg">
+			<NewsletterSection page="soon" card={false} />
+			{/* <section className="register_section section_space_lg">
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col col-lg-5">
@@ -27,7 +29,7 @@ export default function RegistPage() {
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> */}
 		</main>
   );
 }

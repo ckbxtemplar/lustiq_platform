@@ -334,28 +334,39 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 .brands_logo_list a{flex-direction: column !important; color:black; text-align: center; height:auto !important; min-height: 320px;}
 .brands_logo_list a img{max-width: 180px;	max-height: 180px !important;	border-radius: 50%;}
 
-.newslatter_section.newslatter_soon{
+.newsletter_section.newsletter_soon{
 	margin-top: -60px;
-	padding-bottom: 30px;
-	background-color: #f8f8f8 !important;
+	padding-bottom: 30px;	
 	background-image: none !important;
 	
 }
-.newslatter_section.newslatter_soon .newslatter_box{
-	box-shadow: rgb(0, 0, 0) 20px 20px !important;
+.newsletter_section.newsletter_soon.newsletter_naked{
+	margin-top: 0px;
+	padding-bottom: 0px;	
 }
+
+.newsletter_naked{
+	background-color: #f8f8f8 !important;
+	box-shadow: none !important;	
+}
+
+.newsletter_section:not(.newsletter_naked) .newslatter_box{
+	box-shadow: rgb(0, 0, 0) 20px 20px !important;
+	background-color: rgb(255, 128, 133);
+}
+
 .accordion .accordion-button:after{color:white !important}
 
 .hero_banner.style_2 .banner_big_title, .hero_banner.style_2 .banner_description, .hero_banner.style_2 .banner_subdescription{color:#ffeaed !important;}
 
-.newslatter_section .shape_img_1{
+.newsletter_section .shape_img_1{
 	left: 19%;
 	bottom: -26px;
 	max-width: 169px;
 	z-index: 100 !important;
 }
 
-.newslatter_section .shape_img_2 {
+.newsletter_section .shape_img_2 {
 	top: -60px;
 	right: 20%;
 	max-width: 169px;

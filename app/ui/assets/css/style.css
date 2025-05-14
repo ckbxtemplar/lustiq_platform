@@ -1950,22 +1950,22 @@ blockquote p {
 }
 .banner_image_2 .image_wrap_1 {
   top: -250px;
-  left: 30%;
+  left: 40%;
 	max-width: 300px;
 }
 .banner_image_2 .image_wrap_2 {
   top: -80px;
-  left: 40%;
+  left: 60%;
 	max-width: 240px;
 }
 .banner_image_2 .image_wrap_3 {
   top: 0px;
-  left: 0%;
+  left: 10%;
 	max-width: 240px;
 }
 .banner_image_2 .image_wrap_4 {
   top: 100px;
-  right: 0%;
+  right: -10%;
 	max-width: 240px;
 }
 
@@ -2804,7 +2804,7 @@ blockquote p {
 ================================================== */
 /* 3.8 - Newsletter - Start
 ================================================== */
-.newslatter_section {
+.newsletter_section {
   background-image: linear-gradient(0deg, #1F1D0D 120px, transparent 0);
 }
 
@@ -2815,10 +2815,7 @@ blockquote p {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 8px;
-  background-color: #ff8085;
   background-position: center center;
-  -webkit-box-shadow: 20px 20px 0 0 #FA2243;
-          box-shadow: 20px 20px 0 0 #FA2243;
 }
 .newslatter_box :-moz-placeholder {
   color: #444444;

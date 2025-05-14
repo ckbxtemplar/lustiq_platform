@@ -13,6 +13,7 @@ export default function Page() {
   return (
     <main className={'page_content'}>
 			<HeroBanner/>
+			<NewsletterSection page="soon" />
 			<CoursesSection/>
 			<IntroVideo />
 			<SoonEvents/>
@@ -21,8 +22,7 @@ export default function Page() {
 			<CallToAction />
 			<Brands />
 			{/* <Blog /> */}
-			<div className="section_space_lg"></div>
-			<NewsletterSection />			
+			<div className="section_space_lg"></div>						
     </main>
   );
 }
