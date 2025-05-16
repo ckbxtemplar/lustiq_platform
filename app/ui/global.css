@@ -351,8 +351,10 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 }
 
 .newsletter_section:not(.newsletter_naked) .newslatter_box{
-	box-shadow: rgb(0, 0, 0) 20px 20px !important;
 	background-color: rgb(255, 128, 133);
+}
+.popular_event_list, .calltoaction_form, .newslatter_box{
+	box-shadow: 10px 10px 20px #1f1d0d30, 10px 10px #fa2243 !important;
 }
 
 .accordion .accordion-button:after{color:white !important}
@@ -381,3 +383,21 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 }
 
 [class^="_poweredBy_"] {display: none !important}
+
+/* text scroll effect */
+
+.bg-pattern{
+	background-image: url(/assets/images/shape/overlay.png), linear-gradient(135deg, #6e142b 30%, #a52843 60%, #d6455b) !important;
+	background-repeat: repeat !important;
+	background-size: auto !important;
+}
+.bg-pattern2{
+	background-image: url(/assets/images/shape/overlay.png), linear-gradient(45deg, #d8d1d3 20%, #efe7e8 60%, #fbf8f7) !important;
+	background-repeat: repeat !important;
+	background-size: auto !important;
+}
+.bg-pattern3{
+	background-image: url(/assets/images/shape/overlay.png), linear-gradient(45deg, #1a1616 20%, #2e2929 60%, #3b3533) !important;
+	background-repeat: repeat !important;
+	background-size: auto !important;
+}

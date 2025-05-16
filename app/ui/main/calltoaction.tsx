@@ -6,7 +6,7 @@ export default function CallToAction() {
 	const t = useTranslations('pages.home.calltoAction');
 
   return (
-		<section className="calltoaction_section section_space_lg bg_dark decoration_wrap">
+		<section className="calltoaction_section section_space_lg bg_dark bg-pattern3 decoration_wrap">
 		<div className="container">
 			<div className="row align-items-center">
 				<div className="col col-lg-7">

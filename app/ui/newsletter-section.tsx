@@ -29,7 +29,7 @@ export default function NewsletterSection({page="home", card=true}: {page?: stri
 	return (
 <section id="newsletter" className={'newsletter_section ' + (page == 'soon' && ' newsletter_soon') + (card===false ? ' newsletter_naked' : '')}>
 	<div className="container">
-		<div className={'newslatter_box' }>
+		<div className={'newslatter_box '+(card===true ? 'bg-pattern2' : '') }>
 			<div className="row justify-content-center">
 				<div className="col col-lg-10">
 					<div className="section_heading text-center mb-3">

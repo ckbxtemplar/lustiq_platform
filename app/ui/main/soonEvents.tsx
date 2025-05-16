@@ -1,8 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
-import { useState } from 'react';
+import { ScrollRevealWords } from '@/components/animate/text/scroll-reveal';
 import {useTranslations} from 'next-intl';
 
 export default function SoonEvents({page = 'soon'}) {
@@ -10,7 +9,7 @@ export default function SoonEvents({page = 'soon'}) {
 	const t = useTranslations('components.soonEventsSection');
 
   return (
-		<section className="popular_event_section section_space_lg bg_dark decoration_wrap">
+		<section className="popular_event_section section_space_lg bg_dark bg-pattern3 decoration_wrap">
 		<div className="container">
 			<div className="row align-items-center">
 				<div className="col col-lg-7">
@@ -18,9 +17,9 @@ export default function SoonEvents({page = 'soon'}) {
 						<h2 className="heading_text text-white">
 							{t('title')}
 						</h2>
-						<p className="heading_description mb-0 text-white">
-							{t('sub')}
-						</p>
+						<div className="heading_description mb-0 text-white">
+							<ScrollRevealWords>{t('sub')}</ScrollRevealWords>
+						</div>
 						<div className="btn_wrap pb-0 d-none">
 							<a className="btn btn_primary" href="event.html">
 								<span>

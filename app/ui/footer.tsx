@@ -7,7 +7,7 @@ export default function Footer() {
 	const t = useTranslations('pages');
 
   return (
-		<footer className="site_footer">		
+		<footer className="site_footer bg-pattern3">		
 		<div className="footer_widget_area">
 			<div className="container">
 				<div className="row">

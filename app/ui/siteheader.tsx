@@ -22,7 +22,7 @@ export default function SiteHeader() {
 				<div className="col-auto">
 					<div className="site_logo">
 						<Link className="site_link align-middle me-4 py-4" href="/">
-							<Image src="/assets/images/logo/site_logo.svg" width="143" height="42" alt="Collab - Online Learning Platform"/>
+							{/* <Image src="/assets/images/logo/site_logo.svg" width="143" height="42" alt="Collab - Online Learning Platform"/> */}
 						</Link>
 						{isDashboard ? <div className="d-none d-inline-block text-black fw-normal lh-1 ms-2 align-middle" style={{marginTop:'8px', paddingLeft:'8px', borderLeft:'2px solid #FA2243'}}><small>Your Own<br/>Dashboard</small></div>: ''}
 					</div>
