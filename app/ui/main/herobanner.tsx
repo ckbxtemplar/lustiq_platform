@@ -21,23 +21,23 @@ export default function HeroBanner({page = 'home'}) {
 	const tags = useTranslations('tags');
 
   return (
-	<section className="hero_banner bg-pattern style_2 mouse_move" style={{ backgroundImage: "url('/assets/images/shape/shape_img_6.png')" }}>
+	<section className="hero_banner bg-white style_2 mouse_move">
 		<div className="container">
 			<div className="row align-items-center">
 				
 				<div className="col col-lg-6">
-					<h2 className="text-white my-5">						
+					<h2 className="text-black my-5 text-start">						
 						<ScrollRevealWords>{t('title')}</ScrollRevealWords>
 					</h2>
 					{ page === 'home' && (
-					<h1 className="banner_big_title my-5">						
-						<ScrollRevealWords>{t('title2')}</ScrollRevealWords>
+					<h1 className="banner_big_title my-5 text-black">						
+						<span className='fw-bold fs-1'>{t('title2_1')}</span><br/><span className='fw-bold'>{t('title2_2')}</span>
 					</h1>						
 					)}
-					<h4 className="text-white my-5"><ScrollRevealWords>{t('subtitle2')}</ScrollRevealWords></h4>				
-					<h4 className="text-white my-5"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></h4>					
+					<h4 className="text-black my-5 text-end text-md-start"><ScrollRevealWords>{t('subtitle2')}</ScrollRevealWords></h4>				
+					<h4 className="text-black my-5 text-end text-md-start"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></h4>					
 					{ page === 'home' && (
-					<form action="#" onSubmit={handleSearch} className="mt-5">
+					<form action="#" onSubmit={handleSearch} className="mt-5 d-none d-md-block">
 						<div className="form_item">
 							<input 
 								type="search" 

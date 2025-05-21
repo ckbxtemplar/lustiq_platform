@@ -448,7 +448,8 @@ hr {
   padding: 0 28px;
 }
 .btn.btn_small span small {
-  padding: 9px 0;
+	font-size: 14px;
+  padding: 7px 0;
 }
 
 .btn_primary {
@@ -1906,7 +1907,7 @@ blockquote p {
 
 .hero_banner.style_2 {
   overflow: hidden;
-  padding: 152px 0 160px;
+  padding: 140px 0 120px;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #FA2243;
@@ -1926,9 +1927,6 @@ blockquote p {
 .banner_image_2 {
   position: relative;
 }
-.banner_image_2 .image_wrap_1 {
-  margin-bottom: -850px;
-}
 .banner_image_2 .child_image {
   z-index: 1;
   position: absolute;
@@ -1936,8 +1934,8 @@ blockquote p {
 .banner_image_2 .child_image .layer {  
   overflow: hidden;
   border-radius: 8px;
-  -webkit-box-shadow: 10px 10px 0 0 #1F1D0D;
-          box-shadow: 10px 10px 0 0 #1F1D0D;
+  -webkit-box-shadow: 8px 8px 0 0 #fa2243;
+          box-shadow: 8px 8px 0 0 #fa2243;
 }
 .banner_image_2 .child_image .layer:before {
   top: 10px;
@@ -1950,22 +1948,22 @@ blockquote p {
 }
 .banner_image_2 .image_wrap_1 {
   top: -280px;
-  left: 40%;
+  left: 10%;
 	max-width: 340px;
 }
 .banner_image_2 .image_wrap_2 {
   top: -60px;
-  right: -10%;
+  left: 15%;
 	max-width: 230px;
 }
 .banner_image_2 .image_wrap_3 {
   top: 50px;
-  right: 40%;
+  left: 60%;
 	max-width: 230px;
 }
 .banner_image_2 .image_wrap_4 {
   top: 160px;
-  right: -10%;
+  left: 0%;
 	max-width: 230px;
 }
 
@@ -2572,6 +2570,9 @@ blockquote p {
   font-size: 65px;
   line-height: 65px;
   display: inline-block;
+}
+.pricing_card .pricing_wrap .price_value.price_value_old{
+	font-size:22px;
 }
 .pricing_card .pricing_wrap small {
   color: #A09F9F;
@@ -3234,12 +3235,12 @@ blockquote p {
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-image:url('/assets/images/logo/site_logo_light.png');
+	background-image:url('/assets/images/logo/site_logo_red.png');
 	width:143px;
 	height:80px;
 }
 .site_header.site_header_1 .site_link, .site_header.sticky .site_link{
-	background-image:url('/assets/images/logo/site_logo_black.png');
+	background-image:url('/assets/images/logo/site_logo_red.png');
 }
 
 .main_menu_list > li:hover > a, 
@@ -4366,25 +4367,28 @@ Responsive For Mobile & Tablet Devices
             justify-content: center;
   }
   .hero_banner .banner_image_2 {
-    max-width: 500px;
+		min-height:180px;
     margin: 20px auto auto;
   }
   .banner_image_2 .image_wrap_1 {
-    margin-bottom: -780px;
-  }
-  .banner_image_2 .child_image .layer {
-    max-width: 180px;
+		top: -70px;
+		left: 20%;
+		max-width: 340px;
   }
   .banner_image_2 .image_wrap_2 {
-    right: -15%;
+		max-width: 180px;		
+		top: 20px;
+		left: 0%;
   }
   .banner_image_2 .image_wrap_3 {
-    top: 24%;
-    right: -30%;
+		max-width: 180px;				
+		top: 100px;
+		left: 40%;
   }
   .banner_image_2 .image_wrap_4 {
-    top: 30%;
-    left: -24%;
+		max-width: 180px;				
+		top: 180px;
+		left: 10%;
   }
   .testimonial_item_2 {
     display: block;
@@ -4607,22 +4611,27 @@ Responsive For Mobile & Tablet Devices
     padding: 50px 30px;
   }
   .hero_banner .banner_image_2 {
-    max-width: 400px;
-  }
-  .banner_image_2 .child_image .layer {
-    max-width: 130px;
+    margin: 20px auto auto;
   }
   .banner_image_2 .image_wrap_1 {
-    margin-bottom: -680px;
-  }
-  .banner_image_2 .image_wrap_4 {
-    left: -10%;
-  }
-  .banner_image_2 .image_wrap_3 {
-    right: -18%;
+		top: -70px;
+		left: 20%;
+		max-width: 340px;
   }
   .banner_image_2 .image_wrap_2 {
-    right: -10%;
+		max-width: 180px;		
+		top: 20px;
+		left: 0%;
+  }
+  .banner_image_2 .image_wrap_3 {
+		max-width: 180px;				
+		top: 100px;
+		left: 40%;
+  }
+  .banner_image_2 .image_wrap_4 {
+		max-width: 180px;				
+		top: 180px;
+		left: 10%;
   }
   .brands_logo_list > li {
     width: 50%;
@@ -4855,8 +4864,28 @@ Responsive For Mobile & Tablet Devices
   .course_card .item_price {
     margin-top: 10px;
   }
+  .hero_banner .banner_image_2 {
+    margin: 20px auto auto;
+  }
   .banner_image_2 .image_wrap_1 {
-    margin-bottom: -540px;
+		top: -70px;
+		left: 20%;
+		max-width: 340px;
+  }
+  .banner_image_2 .image_wrap_2 {
+		max-width: 180px;		
+		top: 20px;
+		left: 0%;
+  }
+  .banner_image_2 .image_wrap_3 {
+		max-width: 180px;				
+		top: 100px;
+		left: 40%;
+  }
+  .banner_image_2 .image_wrap_4 {
+		max-width: 180px;				
+		top: 180px;
+		left: 10%;
   }
   .banner_image_2 .child_image .layer {
     max-width: 100px;

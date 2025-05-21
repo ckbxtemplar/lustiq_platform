@@ -4,6 +4,7 @@ import FAQ from '@/app/ui/main/FAQ';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import CheckoutForm from '@/app/ui/subscribebutton';
 import {useTranslations} from 'next-intl';
+import CountBack from '@/app/ui/main/countBack';
 
 export const metadata: Metadata = {
   title: 'Pricing'
@@ -28,7 +29,8 @@ export default function Pricing() {
                 <div className="pricing_card text-center tilt">
                   <h3 className="card_heading">{t('p_m_title')}</h3>
                   <div className="pricing_wrap">
-                    <span className="price_value">9.900<sup>HUF</sup></span>
+                    <span className="price_value price_value_old d-block">Eredeti ár: <del>9.900</del></span>
+										<span className="price_value">4.990<sup>HUF</sup></span>
                     <small className="d-block"><strong>{t('p_m_sub')}</strong>, {t('p_m_sub2')}</small>
                   </div>
                   <hr/>
@@ -64,7 +66,8 @@ export default function Pricing() {
                   <div className="card_badge">{t('popular')}</div>
                   <h3 className="card_heading">{t('p_a_title')}</h3>
                   <div className="pricing_wrap">
-                    <span className="price_value">89.000<sup>HUF</sup></span>
+										<span className="price_value price_value_old d-block">Eredeti ár: <del>89.900</del></span>
+                    <span className="price_value">26.970<sup>HUF</sup></span>
 										<small className="d-block"><strong>{t('p_a_sub')}</strong>, {t('p_a_sub2')}</small>
                   </div>
                   <hr/>
@@ -106,8 +109,10 @@ export default function Pricing() {
           </div>
         </section>
 
-				<div className="py-5 my-5 bg_light_2">
-					<div className="py-5 my-5 bg_light_2">
+				<CountBack fromDate={"2025.06.19. 19:00"}/>
+
+				<div className="py-5 mt-5">
+					<div className="py-5">
 					<NewsletterSection page="soon" />	
 					</div>
 				</div>

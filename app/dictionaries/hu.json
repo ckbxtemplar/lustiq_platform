@@ -25,6 +25,12 @@
 		"billingData": "Számlázási adatok"
   },
 	"components":{
+		"countBack":{
+			"days":"nap", 
+			"hours":"óra", 
+			"minutes":"perc", 
+			"seconds":"mp"
+		},
 		"aiChat":{
 			"placeholder":"Miről szeretnél beszélgetni?",
 			"typeMsg":"Szöveges üzenet",
@@ -358,7 +364,8 @@
 			},
 			"heroSection": {
 				"title": "Tanuld meg itt, amit nem tanítottak meg a szexről!",
-				"title2": "Kapunyitás: Június 25. 19:00",
+				"title2_1": "Kapunyitás:",
+				"title2_2": "Június 25. 19:00",
 				"subtitle": "Megbízható szakemberek, tudományos alapok, online kurzusok",
 				"subtitle2": "",		
 				"ctaButton": "Kezdd el most",
