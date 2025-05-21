@@ -57,7 +57,7 @@ export default function Pricing() {
                     </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
-										<CheckoutForm priceId="price_1RRBLiKoWBLyki7EDPZuHNd7" title={t('buttons.sub_monthly')}/>
+										<CheckoutForm priceId="price_1RRDG3KoWBLyki7ElaP1loZT" title={t('buttons.sub_monthly')}/>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function Pricing() {
                     </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
-										<CheckoutForm priceId="price_1RRBOOKoWBLyki7Ey4Uk5l6x" title={t('buttons.sub_annual')} btnClass="btn_warning"/>
+										<CheckoutForm priceId="price_1RRDEbKoWBLyki7EfOf6jMhb" title={t('buttons.sub_annual')} btnClass="btn_warning"/>
                   </div>
                 </div>
               </div>

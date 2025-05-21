@@ -87,6 +87,7 @@ a:hover{color:unset !important;}
 	color: #fa2243;
   border-color: #fa2243;
 }
+.btn.border_red:hover span small{color: #fa2243 !important;  }
 .btn.btn_red{
     color: #fff;
     background-color: #fa2243;
