@@ -23,6 +23,8 @@ input[type='number']::-webkit-outer-spin-button {
 
 .bg-yellow {background-color: #FA2243 !important;}
 .bg-grey {background-color: #f6f6f6 !important;}
+.bg-white{background-color: white !important; background-image:linear-gradient(180deg, #EEEEEE 20%, #ffffff 40%);}
+
 
 a:hover{color:unset !important;}
 
@@ -81,7 +83,15 @@ a:hover{color:unset !important;}
 .size-5 { width: calc(var(--spacing) * 16); height: calc(var(--spacing) * 16); }
 
 .border-red{text-shadow: 5px 5px #fa2243;}
-
+.btn.border_red{
+	color: #fa2243;
+  border-color: #fa2243;
+}
+.btn.btn_red{
+    color: #fff;
+    background-color: #fa2243;
+    border-color: #fa2243;	
+}
 /* ALERT customize */
 .alert{
 	box-shadow: 4px 4px 20px rgba(31, 29, 13, 0.12), 4px 4px 0 rgba(31, 29, 13, 0.87);

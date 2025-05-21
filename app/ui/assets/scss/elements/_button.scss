@@ -82,7 +82,7 @@
 	background-color: $color_primary;
 	&:hover {
 		color: $color_dark;
-		box-shadow: 0 8px 24px 0 rgba(247, 255, 98, 0.4);
+		box-shadow: 0 8px 24px 0 #dc354540;
 		span {
 			small {
 				color: $color_dark;
@@ -111,7 +111,7 @@
 	background-color: $color_warning;
 	&:hover {
 		color: $color_dark;
-		box-shadow: 0 8px 24px 0 rgba(255, 211, 43, 0.5);
+		box-shadow: 0 8px 24px 0 #dc354540;
 		span {
 			small {
 				color: $color_dark;

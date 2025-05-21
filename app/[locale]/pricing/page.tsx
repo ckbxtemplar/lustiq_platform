@@ -30,7 +30,7 @@ export default function Pricing() {
                   <h3 className="card_heading">{t('p_m_title')}</h3>
                   <div className="pricing_wrap">
                     <span className="price_value price_value_old d-block">Eredeti ár: <del>9.900</del></span>
-										<span className="price_value">4.990<sup>HUF</sup></span>
+										<span className="price_value">4.950<sup>HUF</sup></span>
                     <small className="d-block"><strong>{t('p_m_sub')}</strong>, {t('p_m_sub2')}</small>
                   </div>
                   <hr/>
@@ -57,7 +57,7 @@ export default function Pricing() {
                     </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
-										<CheckoutForm priceId="price_1RChWv4ExN9ArIY0aknZy2xp" title={t('buttons.sub_monthly')}/>
+										<CheckoutForm priceId="price_1RRBLiKoWBLyki7EDPZuHNd7" title={t('buttons.sub_monthly')}/>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function Pricing() {
                     </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
-										<CheckoutForm priceId="price_1RFGsB4ExN9ArIY0rFLUWvJA" title={t('buttons.sub_annual')} btnClass="btn_warning"/>
+										<CheckoutForm priceId="price_1RRBOOKoWBLyki7Ey4Uk5l6x" title={t('buttons.sub_annual')} btnClass="btn_warning"/>
                   </div>
                 </div>
               </div>

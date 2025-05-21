@@ -336,7 +336,9 @@
 				"subtitle4": "elsőként léphetsz be a Lustiq Lab platformra, és visszajelzéseiddel részt vehetsz az oldal végleges formájának az alakításában.",
 				"subtitle5": "Iratkozz fel a Lustiq Lab hírlevélre, hogy elsőként értesülj a Lustiq Lab kurzusokról és eseményekről!",												
 				"inputPlaceholder": "Add meg az email címed",
-				"subscribeButton": "Feliratkozom"
+				"subscribeButton": "Feliratkozom",
+				"pricingButton": "Árazás",
+				"pricingTitle": "Előfizetési lehetőségek áttekintése:"
 			},
 			"heroSection": {
 				"title": "Lustiq Lab – Intimitás, tudással",

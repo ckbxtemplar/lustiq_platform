@@ -69,8 +69,8 @@ export default function CheckoutForm({ priceId, title, btnClass }: CheckoutFormP
       </a>
     ) : (
 			//  disabled={loading}   ;    {ButtonContent}
-      <button type="submit" className={`btn ${btnClass || 'border_dark'}`} disabled={true}> 
-        <span><small>{t('notready')}</small><small>{t('notready')}</small></span>
+      <button type="submit" className={`btn ${btnClass || 'border_dark'}`} disabled={loading}> 
+        {ButtonContent}
       </button>
     )}
  		</form>

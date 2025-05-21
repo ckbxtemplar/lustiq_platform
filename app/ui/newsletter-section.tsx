@@ -42,20 +42,38 @@ export default function NewsletterSection({page="home", card=true}: {page?: stri
 						</p>
 						)}
 						{ page==='soon' && (
+						<>
 						<div className="row justify-content-center">
-							<div className="heading_description mb-0 text-start col-12 col-lg-10 bulletpoint_container">							
+							<div className="heading_description mb-2 text-start col-12 col-lg-10 bulletpoint_container">							
 								<h4 className="mt-4 text-start">{t('subtitle')}</h4>
 								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle1')}</div>
 								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle2')}</div>
 								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle3')}</div>
-								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle4')}</div>
-								<h4 className="mt-4 text-center">{t('subtitle5')}</h4>
+								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle4')}</div>								
 							</div>		
 						</div>
+						<div className="row justify-content-center">
+							<div className="col-12 col-lg-10 py-4">
+								<h4 className="me-4"><span className="me-4">{t('pricingTitle')}</span>
+								<a href="/pricing" className="btn border_dark btn_small">
+									<span>
+										<small>{t('pricingButton')}</small>
+										<small>{t('pricingButton')}</small>
+									</span>
+								</a>
+								</h4>
+							</div>
+						</div>
+						<div className="row justify-content-center">
+							<div className="col-12 col-lg-10">
+									<h4 className="mt-4 text-center">{t('subtitle5')}</h4>
+							</div>
+						</div>
+						</>
 						)}						
 					</div>
 					<form action={formAction}>
-						<div className="form_item m-0">
+						<div className="form_item my-2">
 							<input type="email" name="email" placeholder={t('inputPlaceholder')} disabled={state.state === 2}/>
 							<button type="submit" className="btn btn_dark" disabled={state.state === 2}>
 								<span>

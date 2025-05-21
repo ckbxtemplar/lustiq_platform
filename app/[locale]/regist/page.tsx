@@ -13,9 +13,8 @@ export default function RegistPage() {
 	const t = useTranslations('pages.regist');	
 
   return (
-		<main className="page_content">
-			<NewsletterSection page="soon" card={false} />
-			{/* <section className="register_section section_space_lg">
+		<main className="page_content">			
+			<section className="register_section section_space_lg">
 				<div className="container">
 					<div className="row justify-content-center">
 						<div className="col col-lg-5">
@@ -29,7 +28,7 @@ export default function RegistPage() {
 						</div>
 					</div>
 				</div>
-			</section> */}
+			</section>
 		</main>
   );
 }

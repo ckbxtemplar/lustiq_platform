@@ -52,7 +52,7 @@ export default function LoginForm() {
 			</div>
 			<div className="col col-6">
 				<div className="forget_password text-end">
-					<a href="/forgetpassword">{t('forgot')}</a>
+					<a href="/forgetpassword" className="btn_unfill">{t('forgot')}</a>
 				</div>
 			</div>
 		</div>
@@ -76,9 +76,15 @@ export default function LoginForm() {
 					<p className="m-0">{state.errorMessage}</p>
 				</div>
 			)}
-			</div>	
-
-		<p className="mb-0 text-center">{t('noaccount')} <Link href="/regist">{t('noaccountButton')}</Link></p>
+		</div>	
+		<div className="row mt-5 justify-content-center align-items-center">
+			<div className="col-auto">
+				{t('noaccount')}
+			</div>
+			<div className="col-auto">
+					<a href="/regist" className="btn border_dark btn_small"><span><small>{t('noaccountButton')}</small><small>{t('noaccountButton')}</small></span></a>
+			</div>
+		</div>
 	</div>
 </form>
   );

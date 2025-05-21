@@ -459,8 +459,8 @@ hr {
 }
 .btn_primary:hover {
   color: #1F1D0D;
-  -webkit-box-shadow: 0 8px 24px 0 rgba(247, 255, 98, 0.4);
-          box-shadow: 0 8px 24px 0 rgba(247, 255, 98, 0.4);
+  -webkit-box-shadow: 0 8px 24px 0 #dc354540;
+          box-shadow: 0 8px 24px 0 #dc354540;
 }
 .btn_primary:hover span small {
   color: #1F1D0D;
@@ -485,8 +485,8 @@ hr {
 }
 .btn_warning:hover {
   color: #1F1D0D;
-  -webkit-box-shadow: 0 8px 24px 0 rgba(255, 211, 43, 0.5);
-          box-shadow: 0 8px 24px 0 rgba(255, 211, 43, 0.5);
+  -webkit-box-shadow: 0 8px 24px 0 #dc354540;
+          box-shadow: 0 8px 24px 0 #dc354540;
 }
 .btn_warning:hover span small {
   color: #1F1D0D;
