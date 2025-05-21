@@ -28,7 +28,7 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 	const subscribed = session?.user?.subscriber;
 	console.log("feliratkozva:"+subscribed);
 
-  if (!subscribed || subscribed !== '5') {
+  if (!subscribed || subscribed !== 5) {
     redirect('/dashboard/courses?msg=subscription-required');
   }
 
