@@ -45,6 +45,7 @@ export default function NewsletterSection({page="home", card=true}: {page?: stri
 						<div className="row justify-content-center">
 							<div className="heading_description mb-0 text-start col-12 col-lg-10">							
 								<h4 className="mt-4 text-start">{t('subtitle')}</h4>
+								<div className="info_list mb-1 text-start"><i className="fas fa-square me-4"></i> {t('subtitle1')}</div>
 								<div className="info_list mb-1 text-start"><i className="fas fa-square me-4"></i> {t('subtitle2')}</div>
 								<div className="info_list mb-1 text-start"><i className="fas fa-square me-4"></i> {t('subtitle3')}</div>
 								<div className="info_list mb-1 text-start"><i className="fas fa-square me-4"></i> {t('subtitle4')}</div>

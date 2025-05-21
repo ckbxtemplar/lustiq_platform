@@ -1949,24 +1949,24 @@ blockquote p {
   position: absolute;
 }
 .banner_image_2 .image_wrap_1 {
-  top: -250px;
+  top: -280px;
   left: 40%;
-	max-width: 300px;
+	max-width: 340px;
 }
 .banner_image_2 .image_wrap_2 {
-  top: -80px;
-  left: 60%;
-	max-width: 240px;
+  top: -60px;
+  right: -10%;
+	max-width: 230px;
 }
 .banner_image_2 .image_wrap_3 {
-  top: 0px;
-  left: 10%;
-	max-width: 240px;
+  top: 50px;
+  right: 40%;
+	max-width: 230px;
 }
 .banner_image_2 .image_wrap_4 {
-  top: 100px;
+  top: 160px;
   right: -10%;
-	max-width: 240px;
+	max-width: 230px;
 }
 
 /* 3.1 - Banner - End

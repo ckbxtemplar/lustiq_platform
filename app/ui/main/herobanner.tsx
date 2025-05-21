@@ -26,18 +26,18 @@ export default function HeroBanner({page = 'home'}) {
 			<div className="row align-items-center">
 				
 				<div className="col col-lg-6">
-					<h2 className="text-white my-3">						
+					<h2 className="text-white my-5">						
 						<ScrollRevealWords>{t('title')}</ScrollRevealWords>
 					</h2>
 					{ page === 'home' && (
-					<h1 className="banner_big_title my-3">						
+					<h1 className="banner_big_title my-5">						
 						<ScrollRevealWords>{t('title2')}</ScrollRevealWords>
 					</h1>						
 					)}
-					<h4 className="text-white my-3"><ScrollRevealWords>{t('subtitle2')}</ScrollRevealWords></h4>				
-					<h4 className="text-white my-3"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></h4>					
+					<h4 className="text-white my-5"><ScrollRevealWords>{t('subtitle2')}</ScrollRevealWords></h4>				
+					<h4 className="text-white my-5"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></h4>					
 					{ page === 'home' && (
-					<form action="#" onSubmit={handleSearch}>
+					<form action="#" onSubmit={handleSearch} className="mt-5">
 						<div className="form_item">
 							<input 
 								type="search" 
@@ -55,7 +55,7 @@ export default function HeroBanner({page = 'home'}) {
 						</div>
 					</form>
 					)}
-					<ul className="tags_list unordered_list">
+					<ul className="tags_list unordered_list d-none">
 						<li><a href="#!">{tags('sexpositive')}</a></li>
 						<li><a href="#!">{tags('selfconfidence')}</a></li>
 						<li><a href="#!">{tags('communication')}</a></li>
@@ -69,12 +69,12 @@ export default function HeroBanner({page = 'home'}) {
 					<div className="banner_image_2">
 						<div className="child_image image_wrap_1">
 							<div className="layer" data-depth="0.1">
-								<Image src="/assets/images/banner/hero_banner_img_team1_v2.jpg" width={700} height={467} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/banner/hero_banner_img_team1_v2.jpg" width={700} height={405} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="child_image image_wrap_2">
 							<div className="layer" data-depth="0.2">
-								<Image src="/assets/images/banner/hero_banner_img_6.jpg" width={518} height={345} alt="Collab – Online Learning Platform"/>
+								<Image src="/assets/images/banner/hero_banner_img_7.jpg" width={594} height={437} alt="Collab – Online Learning Platform"/>
 							</div>
 						</div>
 						<div className="child_image image_wrap_3">

@@ -322,12 +322,13 @@
 		},
 		"soon":{
 			"newsletterSection": {
-				"title": "Fedezd fel, mennyivel teljesebb lehet a szexuális életed!",
-				"subtitle": "Iratkozz fel a Lustiq-Lab várólistájára, és:",
-				"subtitle2": "ingyenes minileckéket kapsz szakértőinktől (pszichológus, orvos, intim fitness tréner stb.);",
-				"subtitle3": "elsőként értesülhetsz a platform indulásáról és kedvezményes bevezető előfizetésünkről;",
-				"subtitle4": "exkluzív gyakorlati tippeket, letölthető útmutatókat küldünk, hogy már a nyitás előtt elkezdhess fejlődni.",
-				"subtitle5": "Csatlakozz most – tedd meg az első lépést a tudatos, örömteli és magabiztos szexualitás felé!",												
+				"title": "Fizess elő elsőként a Lustiq Lab platformra életre szóló kedvezménnyel!",
+				"subtitle": "Ha a június 25-ei kapunyitás előtt vásárolsz előfizetést:",
+				"subtitle1": "életre szóló 50% kedvezményt kapsz havi előfizetés, és életre szóló 70% kedvezményt kapsz éves előfizetés esetén;",
+				"subtitle2": "éves előfizetőként megajándékozunk egy 11.990 Ft értékű Lustiq Bond Bites csokoládéval;",
+				"subtitle3": "bármely előfizetéssel részt vehetsz a 100.000 Ft értékű Lustiq nyereményjátékban;",
+				"subtitle4": "elsőként léphetsz be a Lustiq Lab platformra, és visszajelzéseiddel részt vehetsz az oldal végleges formájának az alakításában.",
+				"subtitle5": "Iratkozz fel a Lustiq Lab hírlevélre, hogy elsőként értesülj a Lustiq Lab kurzusokról és eseményekről!",												
 				"inputPlaceholder": "Add meg az email címed",
 				"subscribeButton": "Feliratkozom"
 			},
@@ -356,8 +357,8 @@
 				"signout": "Kijelentkezés"
 			},
 			"heroSection": {
-				"title": "Tanuld meg itt, amit nem tanítottak meg a szexről",
-				"title2": "Hamarosan indulunk! 🚀",
+				"title": "Tanuld meg itt, amit nem tanítottak meg a szexről!",
+				"title2": "Kapunyitás: Június 25. 19:00",
 				"subtitle": "Megbízható szakemberek, tudományos alapok, online kurzusok",
 				"subtitle2": "",		
 				"ctaButton": "Kezdd el most",
