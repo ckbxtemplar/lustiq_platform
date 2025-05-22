@@ -7,6 +7,7 @@ import BackToTop from '@/app/ui/backtotop';
 import SiteHeader from '@/app/ui/siteheader';
 import Footer from '@/app/ui/footer';
 import { Providers } from '@/app/lib/providers';
+import GlobalMessageHandler from '@/app/ui/global-message-handler';
  
 export const metadata: Metadata = {
   title: {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Lustiq Lab',
   },
   description: 'Lustiq Lab',
-  metadataBase: new URL('https://lab.lustiq.hu'),
+  metadataBase: new URL('https://lustiqlab.hu'),
 };
 
 export default async function RootLayout({
@@ -31,10 +32,11 @@ export default async function RootLayout({
     <html lang={locale}>
       <head>
       </head>
-    	<body className={`${roboto.className} antialiased`}>
+    	<body className={`${roboto.className} antialiased`}>				
 				<div className='page-wrapper'>
 						<BackToTop/>
 						<Providers locale={locale} dictionary={dictionary}>						
+							<GlobalMessageHandler />
 							<SiteHeader />						
 							{children}
 						</Providers>							

@@ -55,7 +55,7 @@ export default function NewsletterSection({page="home", card=true}: {page?: stri
 						<div className="row justify-content-center">
 							<div className="col-12 col-lg-10 py-4">
 								<h4 className="me-4"><span className="me-4">{t('pricingTitle')}</span>
-								<a href="/pricing" className="btn border_dark btn_small">
+								<a href="/pricing" className="btn btn_dark">
 									<span>
 										<small>{t('pricingButton')}</small>
 										<small>{t('pricingButton')}</small>
@@ -75,7 +75,7 @@ export default function NewsletterSection({page="home", card=true}: {page?: stri
 					<form action={formAction}>
 						<div className="form_item my-2">
 							<input type="email" name="email" placeholder={t('inputPlaceholder')} disabled={state.state === 2}/>
-							<button type="submit" className="btn btn_dark" disabled={state.state === 2}>
+							<button type="submit" className="btn border_dark " disabled={state.state === 2}>
 								<span>
 									<small>{t('subscribeButton')}</small>
 									<small>{t('subscribeButton')}</small>

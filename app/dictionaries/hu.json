@@ -25,6 +25,25 @@
 		"billingData": "Számlázási adatok"
   },
 	"components":{
+		"messagePopup":{
+			"close":"Bezárás",
+			"auth_problem": {
+				"title":"Jogosultásg szükséges",
+				"msg":"A felkeresett oldal nem érhető el számodra."
+			},
+			"session_expired": {
+				"title":"Lejárt munkamenet",
+				"msg":"Mivel a munkameneted lejárt, ezért kérlek újra jelentkezz be az oldalra."
+			},
+			"payment_required": {
+				"title":"Fizetés szükséges",
+				"msg":"A felkeresett oldal csak érvényes előfizetéssel érhető el."
+			},
+			"start_soon":{
+				"title":"Hamarosan indulunk",
+				"msg":"Június 25. 19:00 -án tesszük nyilvánossá a kurzusokat, addig is köszönjük a bizalmad és dolgozunk a minőségi tartalmakon!"
+			}
+		},
 		"countBack":{
 			"days":"nap", 
 			"hours":"óra", 
@@ -292,7 +311,7 @@
 			"p_m_opt2":"Összes gyakorló kérdés",
 			"p_m_opt3":"Összes AI chat funkció",
 			"p_m_opt4":"Prémium hírlevél",
-			"p_m_opt5":"Prémium ügyfélszolgálat",
+			"p_m_opt5":"100% garancia - 7 napon belül bármikor lemondhatod és visszautaljuk a teljes összeget",
 			"p_a_title":"Éves előfizetés",
 			"p_a_sub":"/ 1 év",
 			"p_a_sub2":"automatikus megújítás",
@@ -300,7 +319,7 @@
 			"p_a_opt2":"Összes gyakorló kérdés",
 			"p_a_opt3":"Összes AI chat funkció",
 			"p_a_opt4":"Prémium hírlevél",
-			"p_a_opt5":"Prémium ügyfélszolgálat",			
+			"p_a_opt5":"100% garancia - 7 napon belül bármikor lemondhatod és visszautaljuk a teljes összeget",			
 			"buttons":{
 				"sub_monthly": "Havi előfizetés",
 				"sub_annual": "Éves előfizetés"
@@ -337,7 +356,7 @@
 				"subtitle5": "Iratkozz fel a Lustiq Lab hírlevélre, hogy elsőként értesülj a Lustiq Lab kurzusokról és eseményekről!",												
 				"inputPlaceholder": "Add meg az email címed",
 				"subscribeButton": "Feliratkozom",
-				"pricingButton": "Árazás",
+				"pricingButton": "Árazás és csomagok",
 				"pricingTitle": "Előfizetési lehetőségek áttekintése:"
 			},
 			"heroSection": {

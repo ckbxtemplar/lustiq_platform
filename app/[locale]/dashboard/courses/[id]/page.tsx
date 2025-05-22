@@ -26,10 +26,9 @@ export default async function DashboardCouresView(props: { params: Promise<{ id:
 	
 	const session = await auth() as CustomSession;	
 	const subscribed = session?.user?.subscriber;
-	console.log("feliratkozva:"+subscribed);
 
   if (!subscribed || subscribed !== 5) {
-    redirect('/dashboard/courses?msg=subscription-required');
+    redirect('/dashboard/courses?msg=start_soon');
   }
 
 	const course = await fetchCourse(slug);

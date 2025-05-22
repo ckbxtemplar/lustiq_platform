@@ -25,6 +25,31 @@
     "billingData": "Billing Data"
   },
 	"components": {
+		"messagePopup": {
+			"close": "Close",
+			"auth_problem": {
+				"title": "Authorization Required",
+				"msg": "The page you tried to access is not available to you."
+			},
+			"session_expired": {
+				"title": "Session Expired",
+				"msg": "Your session has expired. Please log in again to continue."
+			},
+			"payment_required": {
+				"title": "Payment Required",
+				"msg": "This page is only accessible with an active subscription."
+			},
+			"start_soon": {
+				"title": "Coming Soon",
+				"msg": "Courses will be available from June 25 at 7:00 PM. Thank you for your trust — we’re working hard to deliver quality content!"
+			}
+		},
+		"countBack": {
+			"days": "days",
+			"hours": "hours",
+			"minutes": "minutes",
+			"seconds": "sec"
+		},
 		"aiChat": {
 			"placeholder": "What would you like to talk about?",
 			"typeMsg": "Text message",
