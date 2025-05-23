@@ -8,6 +8,7 @@ import SiteHeader from '@/app/ui/siteheader';
 import Footer from '@/app/ui/footer';
 import { Providers } from '@/app/lib/providers';
 import GlobalMessageHandler from '@/app/ui/global-message-handler';
+import Script from 'next/script'
  
 export const metadata: Metadata = {
   title: {
@@ -31,6 +32,22 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-HB1VJFF3ED"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-HB1VJFF3ED');
+            `,
+          }}
+        />			
       </head>
     	<body className={`${roboto.className} antialiased`}>				
 				<div className='page-wrapper'>
