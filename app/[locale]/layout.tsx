@@ -9,6 +9,7 @@ import Footer from '@/app/ui/footer';
 import { Providers } from '@/app/lib/providers';
 import GlobalMessageHandler from '@/app/ui/global-message-handler';
 import Script from 'next/script'
+
  
 export const metadata: Metadata = {
   title: {
@@ -29,6 +30,8 @@ export default async function RootLayout({
 	const { locale } = await params;
 	const dictionary = (await import(`@/app/dictionaries/${locale}.json`)).default;
 
+
+
   return (
     <html lang={locale}>
       <head>
@@ -48,8 +51,25 @@ export default async function RootLayout({
             `,
           }}
         />			
+				<Script id="gtm-head" strategy="afterInteractive">
+					{`
+						(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+						new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+						j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+						'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+						})(window,document,'script','dataLayer','GTM-5CVV86J9');
+					`}
+				</Script>				
       </head>
     	<body className={`${roboto.className} antialiased`}>				
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
+              <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CVV86J9"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            `,
+          }}
+        />
 				<div className='page-wrapper'>
 						<BackToTop/>
 						<Providers locale={locale} dictionary={dictionary}>						
