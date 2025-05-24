@@ -427,3 +427,19 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 .bulletpoint_container .bulletpoint_item i{
 	margin-left: -20px;
 }
+ #cc-main {
+     /** Change font **/
+     --cc-font-family: Roboto;
+
+     /** Change button primary color to black **/
+     --cc-btn-primary-bg: #fa2243;
+     --cc-btn-primary-border-color: #fa2243;
+     --cc-btn-primary-hover-bg: #444444;
+     --cc-btn-primary-hover-border-color: #444444;
+
+     /** Also make toggles the same color as the button **/
+     --cc-toggle-on-bg: var(--cc-btn-primary-bg);
+
+     /** Make the buttons a bit rounder **/
+     --cc-btn-border-radius: 10px;
+ }

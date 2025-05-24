@@ -76,10 +76,11 @@ export default async function RootLayout({
 							<GlobalMessageHandler />
 							<SiteHeader />						
 							{children}
+							<ScriptLoader />
 						</Providers>							
 						<Footer/>					
 				</div>
-				<ScriptLoader />
+				
 			</body>
     </html>
   );
