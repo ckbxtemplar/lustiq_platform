@@ -38,7 +38,7 @@ export default function SoonEvents({page = 'soon'}) {
 										<i className="fas fa-square"></i>
 									</div>
 									<div className="column">
-										<h6 className='mb-0'>{t('points.1')}</h6>
+										<h6 className='mb-0 fw-normal'>{t('points.1')}</h6>
 									</div>
 								</li>
 								<li>
@@ -46,7 +46,7 @@ export default function SoonEvents({page = 'soon'}) {
 										<i className="fas fa-square"></i>
 									</div>
 									<div className="column">
-										<h6 className='mb-0'>{t('points.2')}</h6>
+										<h6 className='mb-0 fw-normal'>{t('points.2')}</h6>
 									</div>
 								</li>
 								<li>
@@ -54,7 +54,7 @@ export default function SoonEvents({page = 'soon'}) {
 										<i className="fas fa-square"></i>
 									</div>
 									<div className="column">
-										<h6 className='mb-0'>{t('points.3')}</h6>
+										<h6 className='mb-0 fw-normal'>{t('points.3')}</h6>
 									</div>
 								</li>
 								<li>
@@ -62,7 +62,7 @@ export default function SoonEvents({page = 'soon'}) {
 										<i className="fas fa-square"></i>
 									</div>
 									<div className="column">
-										<h6 className='mb-0'>{t('points.4')}</h6>
+										<h6 className='mb-0 fw-normal'>{t('points.4')}</h6>
 									</div>
 								</li>
 								<li>
@@ -70,7 +70,7 @@ export default function SoonEvents({page = 'soon'}) {
 										<i className="fas fa-square"></i>
 									</div>
 									<div className="column">
-										<h6 className='mb-0'>{t('points.5')}</h6>
+										<h6 className='mb-0 fw-normal'>{t('points.5')}</h6>
 									</div>
 								</li>																					
 							</ul>

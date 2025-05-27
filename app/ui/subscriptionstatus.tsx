@@ -2,6 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
+import { redirect } from 'next/navigation';
 
 export default function SubscriptionStatus() {
   const { data: session, update } = useSession();
@@ -28,7 +29,7 @@ export default function SubscriptionStatus() {
 
   useEffect(() => {
     const checkSubscriber = async () => {
-      if (!session?.user?.id) return;
+      if (!session?.user?.id) redirect('/pricing?msg=session_expired');
 
 			const res = await fetch('/api/user/data', {
 				method: 'POST',

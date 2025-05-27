@@ -1,8 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
-import { useState } from 'react';
 import {useTranslations} from 'next-intl';
 
 export default function SoonRichtext({version = 'soon'}) {

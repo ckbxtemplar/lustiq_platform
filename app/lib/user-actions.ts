@@ -13,6 +13,7 @@ import path from "path";
 import sharp from "sharp";
 import {withLocalePrefix} from '@/app/utils/common';
 import {getTranslations} from 'next-intl/server';
+import { subscribeToKlaviyo } from '@/app/lib/klaviyo';
  
 /* USER - Login */
 export type AuthenticateState = {
@@ -129,9 +130,10 @@ export async function registUser(prevState: RegistUserState, formData: FormData)
 
 	const hashedPassword = await bcrypt.hash(password,10);	
 	const token = generateToken();
+	const newsletter = formData.get('newsletter') === 'on';
 
 	// Sql 
-	const user = await createUser(email,hashedPassword,token);
+	const user = await createUser(email,hashedPassword,token,newsletter);
 	if (!user || user.success === 0){
 		 return {
       errors: { userCreate: [user.message]  },
@@ -141,6 +143,9 @@ export async function registUser(prevState: RegistUserState, formData: FormData)
 
 	const callbackurl = ( formData.get('callbackurl') ? '&callbackurl='+formData.get('callbackurl')?.toString() : '' );
 	const language = ( formData.get('lang') ? formData.get('lang')?.toString() : 'hu' );
+	
+	if (newsletter) subscribeToKlaviyo(email,'regist');
+	
 	const response = sendMail({
 		email: 'hello@lustiq.eu',
 		sendTo: email,

@@ -1,4 +1,7 @@
 import { Metadata } from 'next';
+import Banner from '@/app/ui/dashboard/banner';
+import FirstSteps from '@/app/ui/dashboard/first_steps';
+import {useTranslations} from 'next-intl';
 import {
   Button,
   ButtonGroup,
@@ -16,13 +19,196 @@ import UserChart from '@/app/ui/dashboard/components/UserChart';
 import IncomeChart from '@/app/ui/dashboard/components/IncomeChart';
 import ConversionChart from '@/app/ui/dashboard/components/ConversionChart';
 import SessionChart from '@/app/ui/dashboard/components/SessionChart';
+import CountBack from '@/app/ui/main/countBack';
+import GridList from '@/app/ui/courses/grid-list';
+import { Suspense } from 'react';
+import { GridListSkeleton } from '@/app/ui/skeletons';
 
 export const metadata: Metadata = {
   title: 'Lustiq Platform - Dashboard',
 };
 
 export default function Page() {
-	const dict = {
+	
+
+	const t = useTranslations('pages.dashboard');
+
+  return (
+	<main className={'page_content'}>
+
+		<Banner 
+			title={t('banner.title')} 
+			description={t('banner.sub')} 
+			search={false}
+		/>	
+
+		<FirstSteps/>
+		
+		<CountBack fromDate={"2025.06.19. 19:00"}/>
+		<section className="courses_archive_section section_space_md">
+			<div className="container">
+				<Suspense fallback={<GridListSkeleton />}>
+					<GridList dashboard={true}/>
+				</Suspense>
+			</div>				
+		</section>
+
+		{/* <div className="container m-5">
+      <div className="row">
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="grey" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  26K
+                  <span className="fs-6 ms-2 fw-normal">
+                    (-12.4%
+                    
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.user}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart1"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <UserChart />
+            </div>
+          </Card>
+        </div>
+
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="grey" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  $6.200
+                  <span className="fs-6 ms-2 fw-normal">
+                    (40.9%
+                   
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.income}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart2"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <IncomeChart />
+            </div>
+          </Card>
+        </div>
+      </div>
+			<div className="row">
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="yellow" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  2.49%
+                  <span className="fs-6 ms-2 fw-normal">
+                    (84.7%
+                   
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.conversion_rate}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart3"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <ConversionChart />
+            </div>
+          </Card>
+        </div>
+
+        <div className="col-sm-6 col-lg-3 p-2">
+          <Card bg="yellow" text="black" className="mb-4">
+            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
+              <div>
+                <div className="fs-4 fw-semibold">
+                  44K
+                  <span className="fs-6 ms-2 fw-normal">
+                    (-23.6%
+                    
+                    )
+                  </span>
+                </div>
+                <div>{dict.dashboard.featured.sessions}</div>
+              </div>
+              <Dropdown align="end">
+                <DropdownToggle
+                  as="button"
+                  bsPrefix="btn"
+                  className="btn-link rounded-0 text-white shadow-none p-0"
+                  id="dropdown-chart4"
+                >
+                  
+                </DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
+                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
+                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </CardBody>
+            <div className="mt-3 mx-3" style={{ height: '70px' }}>
+              <SessionChart />
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>			 */}
+	</main>    
+  );
+
+const dict = {
 		"login": {
 			"title": "Login",
 			"description": "Sign in to your account",
@@ -352,160 +538,4 @@ export default function Page() {
 		}
 	};
 
-  return (
-	<main className={'page_content'}>
-		<div className="container m-5">
-      <div className="row">
-        <div className="col-sm-6 col-lg-3 p-2">
-          <Card bg="grey" text="black" className="mb-4">
-            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
-              <div>
-                <div className="fs-4 fw-semibold">
-                  26K
-                  <span className="fs-6 ms-2 fw-normal">
-                    (-12.4%
-                    
-                    )
-                  </span>
-                </div>
-                <div>{dict.dashboard.featured.user}</div>
-              </div>
-              <Dropdown align="end">
-                <DropdownToggle
-                  as="button"
-                  bsPrefix="btn"
-                  className="btn-link rounded-0 text-white shadow-none p-0"
-                  id="dropdown-chart1"
-                >
-                  
-                </DropdownToggle>
-
-                <DropdownMenu>
-                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
-                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
-                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </CardBody>
-            <div className="mt-3 mx-3" style={{ height: '70px' }}>
-              <UserChart />
-            </div>
-          </Card>
-        </div>
-
-        <div className="col-sm-6 col-lg-3 p-2">
-          <Card bg="grey" text="black" className="mb-4">
-            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
-              <div>
-                <div className="fs-4 fw-semibold">
-                  $6.200
-                  <span className="fs-6 ms-2 fw-normal">
-                    (40.9%
-                   
-                    )
-                  </span>
-                </div>
-                <div>{dict.dashboard.featured.income}</div>
-              </div>
-              <Dropdown align="end">
-                <DropdownToggle
-                  as="button"
-                  bsPrefix="btn"
-                  className="btn-link rounded-0 text-white shadow-none p-0"
-                  id="dropdown-chart2"
-                >
-                  
-                </DropdownToggle>
-
-                <DropdownMenu>
-                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
-                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
-                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </CardBody>
-            <div className="mt-3 mx-3" style={{ height: '70px' }}>
-              <IncomeChart />
-            </div>
-          </Card>
-        </div>
-      </div>
-			<div className="row">
-        <div className="col-sm-6 col-lg-3 p-2">
-          <Card bg="yellow" text="black" className="mb-4">
-            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
-              <div>
-                <div className="fs-4 fw-semibold">
-                  2.49%
-                  <span className="fs-6 ms-2 fw-normal">
-                    (84.7%
-                   
-                    )
-                  </span>
-                </div>
-                <div>{dict.dashboard.featured.conversion_rate}</div>
-              </div>
-              <Dropdown align="end">
-                <DropdownToggle
-                  as="button"
-                  bsPrefix="btn"
-                  className="btn-link rounded-0 text-white shadow-none p-0"
-                  id="dropdown-chart3"
-                >
-                  
-                </DropdownToggle>
-
-                <DropdownMenu>
-                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
-                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
-                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </CardBody>
-            <div className="mt-3 mx-3" style={{ height: '70px' }}>
-              <ConversionChart />
-            </div>
-          </Card>
-        </div>
-
-        <div className="col-sm-6 col-lg-3 p-2">
-          <Card bg="yellow" text="black" className="mb-4">
-            <CardBody className="pb-0 d-flex justify-content-between align-items-start">
-              <div>
-                <div className="fs-4 fw-semibold">
-                  44K
-                  <span className="fs-6 ms-2 fw-normal">
-                    (-23.6%
-                    
-                    )
-                  </span>
-                </div>
-                <div>{dict.dashboard.featured.sessions}</div>
-              </div>
-              <Dropdown align="end">
-                <DropdownToggle
-                  as="button"
-                  bsPrefix="btn"
-                  className="btn-link rounded-0 text-white shadow-none p-0"
-                  id="dropdown-chart4"
-                >
-                  
-                </DropdownToggle>
-
-                <DropdownMenu>
-                  <DropdownItem href="#/action-1">{dict.dashboard.featured.action.action1}</DropdownItem>
-                  <DropdownItem href="#/action-2">{dict.dashboard.featured.action.action2}</DropdownItem>
-                  <DropdownItem href="#/action-3">{dict.dashboard.featured.action.action3}</DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </CardBody>
-            <div className="mt-3 mx-3" style={{ height: '70px' }}>
-              <SessionChart />
-            </div>
-          </Card>
-        </div>
-      </div>
-    </div>			
-	</main>    
-  );
 }

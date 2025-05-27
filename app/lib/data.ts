@@ -66,10 +66,10 @@ type CreateUserResponse = {
   message: string;
 	userid?: string;
 };
-export async function createUser(email: string, password:string, token?: string): Promise<CreateUserResponse> {
+export async function createUser(email: string, password:string, token?: string, newsletter:boolean = false): Promise<CreateUserResponse> {
 	try {
-		const fields = ["email", "password"];
-		const values = [email, password];
+		const fields = ["email", "password", "newsletter"];
+		const values = [email, password, newsletter ? 1 : 0];
 
 		if (token) {
 			fields.push("token");

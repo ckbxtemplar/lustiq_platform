@@ -74,6 +74,12 @@ export default function RegistForm() {
 					</div>	
 				)}			
 			</div>
+			<div className="mb-3">
+				<div className="checkbox_item mb-0">
+					<input id="checkbox_remenber" name="newsletter" type="checkbox" value="on"/> 
+					<label htmlFor="checkbox_remenber">{t('newsletter')}</label>
+				</div>
+			</div>
 
 			<Button type="submit" className="btn btn_dark" aria-disabled={isPending}>
 				<span>

@@ -9,7 +9,7 @@ export default function Testimonials() {
 		<section className="testimonial_section section_space_lg">
 		<div className="container">
 			<div className="testimonial_carousel">
-				<div className="common_carousel_1col" data-cursor-text="Drag" data-slick='{"dots":false}'>
+				<div className="common_carousel_1col" data-cursor-text="Drag" data-slick='{"autoplay":true,"dots":true}'>
 					<div className="carousel_item">
 						<div className="testimonial_item_2">
 							<div className="testimonial_image ms-0" style={{backgroundImage: "url('/assets/images/shape/shape_img_6.png')"}}>

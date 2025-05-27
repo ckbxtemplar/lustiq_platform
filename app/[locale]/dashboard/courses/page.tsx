@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Courses() {
 
-const t = useTranslations('pages.home.coursesBanner');
+	const t = useTranslations('pages.home.coursesBanner');
 
   return (
 		<main className="page_content">

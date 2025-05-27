@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import {getTranslations} from 'next-intl/server';
+import { subscribeToKlaviyo } from '@/app/lib/klaviyo';
 
 /* Contact form START */
 const ContactFormSchema = z.object({
@@ -143,6 +144,8 @@ export async function NewsletterSubscribe(prevState: NewsletterSubscribeState, f
 				}
 			}
 		});
+
+		subscribeToKlaviyo(email,'newsletter'); // nem kell await .. klaviyo-ra nem várunk
 
 		return {
 			state: subscribe.success,

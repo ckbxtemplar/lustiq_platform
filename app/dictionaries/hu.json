@@ -144,6 +144,17 @@
 		"loading":"Betöltés..."
 	},	
 	"pages": {
+		"subscribe":{
+			"title":"Előfizetési státusz",
+			"sub":"Köszönjük, hogy visszatértél a fizetési oldalról!",
+			"sub2":"Az aktuális előfizetési státuszod állapotát itt láthatod:",
+			"success":{
+				"1":"1"
+			},
+			"cancel":{
+				"1":"1"
+			}			
+		},
 		"contact":{
 			"title":"Lépj Kapcsolatba Velünk",
 			"sub":"Vedd fel velünk a kapcsolatot az alábbi elérhetőségeket használva.",
@@ -230,6 +241,23 @@
 			"ai":"AI vezérelt beszélgetés"
 		},
 		"dashboard":{
+			"firststeps":{
+				"title":"Az Első Két lépés",
+				"sub":"Itt megtalálod az első lépéseket, amik segíthetnek a platform megismerésében.",
+				"video":{
+					"title":"Üdvözlő videó",
+					"description":"Nézd meg ezt a rövid videót, hogy megtudd, hogyan használhatod ki a Lustiq Lab előnyeit."
+				},
+				"quiz":{
+					"title":"Ismerkedjünk meg!",
+					"description":"A rövid kvíz segít nekünk jobban megismerni téged, és személyre szabott élményt nyújtani számodra.",
+					"button":"Kvíz kitöltése"
+				}				
+			},
+			"banner":{
+				"title":"Üdvözlünk a Lustiq Labban!",
+				"sub":"Gratulálunk, hogy bátor voltál és a fejlődés útját választottad!"
+			},
 			"profile":{
 				"bannerTitle":"Profil beállítása",
 				"bannerSub":"A fiókoddal kapcsolatos beállítások kezelése",
@@ -281,6 +309,7 @@
 			"password2":"Jelszó ismét",
 			"signupButton":"Regisztráció",
 			"loginButton":"Bejelentkezés",
+			"newsletter":"Feliratkozom a Lustiq Lab hírlevelére",
 			"activate": {
 				"s1": "Aktiválás folyamatban...",
 				"s2": "Sikeres aktiválás",

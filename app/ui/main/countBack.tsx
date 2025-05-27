@@ -5,10 +5,10 @@ import { useTranslations } from 'next-intl';
 import { string } from 'zod';
 
 type TimeLeft = {
-	days?: number;
-	hours?: number;
-	minutes?: number;
-	seconds?: number;
+	days?: string;
+	hours?: string;
+	minutes?: string;
+	seconds?: string;
 	number?: number;
 	message?: string;
 };
@@ -43,10 +43,10 @@ export default function CountBack({ fromDate }) {
 				return;
 			}
 
-			const seconds = Math.floor((diff / 1000) % 60);
-			const minutes = Math.floor((diff / 1000 / 60) % 60);
-			const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-			const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+			const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+			const minutes = String(Math.floor((diff / 1000 / 60) % 60)).padStart(2, '0');
+			const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+			const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
 
 			setTimeLeft({ days, hours, minutes, seconds });
 		};
@@ -58,6 +58,21 @@ export default function CountBack({ fromDate }) {
 	}, [fromDate]);
 
 	return (
+		<>
+		<style jsx>{`
+			.counter_value span {
+				display: inline-block;
+				min-width: 2.3ch;
+				text-align: center;
+			}
+			.counter_item p{
+				font-size: 16px;
+				line-height: 24px;
+				text-align: end;
+				padding-right: 8px;				
+			}
+		`}</style>
+
 		<section className="popular_event_section section_space_lg bg_dark bg-pattern3 decoration_wrap mt-5 mb-0">
 			<div className="container">
 				<div className="row align-items-center justify-content-center mb-3 mb-md-0">
@@ -106,5 +121,6 @@ export default function CountBack({ fromDate }) {
 				</div>
 			</div>
 		</section>
+		</>
 	);
 }

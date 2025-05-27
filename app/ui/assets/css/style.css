@@ -249,7 +249,7 @@ hr {
 }
 
 .bg_primary {
-  background-color: #ff8085;
+  background-color: #FA2243;
 }
 
 .bg_facebook {
@@ -454,8 +454,8 @@ hr {
 
 .btn_primary {
   color: #1F1D0D;
-  border-color: #ff8085;
-  background-color: #ff8085;
+  border-color: #FA2243;
+  background-color: #FA2243;
 }
 .btn_primary:hover {
   color: #1F1D0D;
@@ -532,7 +532,7 @@ hr {
   top: 50%;
   font-size: 14px;
   position: absolute;
-  color: #ff8085;
+  color: #FA2243;
   -webkit-transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -814,7 +814,7 @@ blockquote p {
   height: 10px;
   display: block;
   border-radius: 100%;
-  background-color: #ff8085;
+  background-color: #FA2243;
   -webkit-transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -908,7 +908,7 @@ blockquote p {
           transform: translate(-50%, -50%);
 }
 .carousel_arrow button:hover i {
-  color: #ff8085;
+  color: #FA2243;
 }
 
 .arrow_top_right {
@@ -1187,7 +1187,7 @@ blockquote p {
   font-family: "Font Awesome 5 Pro";
 }
 .checkbox_item input:checked {
-  background-color: #ff8085;
+  background-color: #FA2243;
 }
 .checkbox_item input:checked:before {
   opacity: 1;
@@ -1220,14 +1220,14 @@ blockquote p {
   color: #ffffff;
 }
 .vanilla-calendar-header button:hover {
-  color: #ff8085;
+  color: #FA2243;
 }
 
 .vanilla-calendar-arrow:before, .vanilla-calendar-arrow:after {
   background-color: #ffffff;
 }
 .vanilla-calendar-arrow:hover:before, .vanilla-calendar-arrow:hover:after {
-  background-color: #ff8085;
+  background-color: #FA2243;
 }
 
 .vanilla-calendar-day__btn {
@@ -1242,7 +1242,7 @@ blockquote p {
 .vanilla-calendar-day__btn_today,
 .vanilla-calendar-day__btn:hover {
   color: #1F1D0D;
-  background-color: #ff8085;
+  background-color: #FA2243;
 }
 
 .vanilla-calendar-day__btn_weekend,
@@ -1642,7 +1642,7 @@ blockquote p {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 8px;
-  background-color: #ff8085;
+  background-color: #FA2243;
 }
 .deals_countdown .discount_value strong {
   font-size: 45px;
@@ -1985,7 +1985,7 @@ blockquote p {
 .service_item:hover {
   z-index: 1;
   border-color: #1F1D0D;
-  background-color: #ff8085;
+  background-color: #FA2243;
   -webkit-box-shadow: 0px 20px 30px 0px rgba(31, 29, 13, 0.1);
           box-shadow: 0px 20px 30px 0px rgba(31, 29, 13, 0.1);
 }
@@ -2723,7 +2723,7 @@ blockquote p {
   line-height: 1;
   font-size: 34px;
   position: absolute;
-  text-shadow: 2px -2px 0 #ff8085;
+  text-shadow: 2px -2px 0 #FA2243;
 }
 
 .testimonial_item_2 {
@@ -2737,8 +2737,8 @@ blockquote p {
 .testimonial_item_2 .testimonial_image {
   margin: 0 80px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 520px;
-          flex: 0 0 520px;
+      -ms-flex: 0 0 420px;
+          flex: 0 0 420px;
   overflow: hidden;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -3134,7 +3134,7 @@ blockquote p {
   font-weight: 400;
   text-align: right;
   position: absolute;
-  color: #ff8085;
+  color: #FA2243;
   padding: 20px 18px 0 0;
   -webkit-transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -3274,7 +3274,7 @@ blockquote p {
   padding: 14px 0;
   -webkit-animation: unset;
           animation: unset;
-  min-width: 210px;
+  /* min-width: 210px; */
   inset: 100% auto auto auto;
   border-radius: 8px;
   border: 2px solid #1F1D0D;
@@ -3312,7 +3312,7 @@ blockquote p {
   background-color: #1F1D0D;
 }
 .main_menu_list .dropdown-menu > li:hover > a, .main_menu_list .dropdown-menu > li.active > a {
-  background-color: #ff8085;
+  background-color: #FA2243;
 }
 .main_menu_list .dropdown-menu .dropdown > a:after {
   margin-top: 1px;
@@ -3378,7 +3378,7 @@ blockquote p {
   color: #ffffff;
 }
 .site_footer .page_list a:hover {
-  color: #ff8085;
+  color: #FA2243;
 }
 .site_footer .blog_small:hover {
   background-color: rgba(255, 255, 255, 0.04);
@@ -3795,7 +3795,7 @@ blockquote p {
   text-align: center;
   border-radius: 100%;
   margin: -1px 5px 0 0;
-  color: #ff8085;
+  color: #FA2243;
   background-color: #1F1D0D;
 }
 .prevnext_post_wrap .post_item span small {
