@@ -14,53 +14,39 @@ export default function HowWorks() {
 			</div>			
 			<div className="row align-items-end justify-content-center">
 				<div className="col col-lg-3">
+						
 						<Image src="/assets/images/steps/step_1.png" width={200} height={200} alt="Collab – Online Learning Platform"/>
+						<div className="iconbox_item">
+							<div className="serial_number">01</div>
+							<hr/>
+							<div className="title_wrap">
+								<h3 className="item_title mb-0">{t('o1')}</h3>
+							</div>
+						</div>						
 				</div>
 				<div className="col col-lg-3 offset-lg-1">
 					
 						<Image src="/assets/images/steps/step_2.png" width={200} height={200} alt="Collab – Online Learning Platform"/>
+						<div className="iconbox_item">
+							<div className="serial_number">02</div>
+							<hr/>
+							<div className="title_wrap">
+								<h3 className="item_title mb-0">{t('o2')}</h3>
+							</div>
+						</div>						
 
 				</div>
 				<div className="col col-lg-3 offset-lg-1">
-						<Image src="/assets/images/steps/step_3.png" width={200} height={200} alt="Collab – Online Learning Platform"/>
-				</div>								
-			</div>
-
-			<div className="row align-items-start justify-content-center">
-				<div className="col col-lg-3 pt-0">
 					
-					<div className="iconbox_item">
-						<div className="serial_number">01</div>
-						<hr/>
-						<div className="title_wrap">
-							<h3 className="item_title mb-0">{t('o1')}</h3>
-						</div>
-					</div>					
-						
-				</div>
-				<div className="col col-lg-3 pt-0 offset-lg-1">
-						
+						<Image src="/assets/images/steps/step_3.png" width={200} height={200} alt="Collab – Online Learning Platform"/>
+						<div className="iconbox_item">
+							<div className="serial_number">03</div>
+							<hr/>
+							<div className="title_wrap">
+								<h3 className="item_title mb-0">{t('o3')}</h3>
+							</div>
+						</div>						
 
-					<div className="iconbox_item">
-						<div className="serial_number">02</div>
-						<hr/>
-						<div className="title_wrap">
-							<h3 className="item_title mb-0">{t('o2')}</h3>
-						</div>
-					</div>
-
-
-				</div>
-				<div className="col col-lg-3 pt-0 offset-lg-1">
-
-					<div className="iconbox_item">
-						<div className="serial_number">03</div>
-						<hr/>
-						<div className="title_wrap">
-							<h3 className="item_title mb-0">{t('o3')}</h3>
-						</div>
-					</div>					
-						
 				</div>								
 			</div>			
 		</div>

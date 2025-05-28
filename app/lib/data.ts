@@ -309,11 +309,15 @@ export async function fetchCoursesTags(searchQuery = ''): Promise<string[]> {
       })
       .filter((tag: any): tag is string => typeof tag === 'string' && tag.trim() !== '');
 
-    console.log(allTags);
-
     const uniqueTags = Array.from(new Set(allTags));
+    // Véletlenszerű sorrendbe keverés (Fisher-Yates algoritmus)
+    for (let i = uniqueTags.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [uniqueTags[i], uniqueTags[j]] = [uniqueTags[j], uniqueTags[i]];
+    }
 
-    return uniqueTags;
+    // Maximum 10 elemet ad vissza
+    return uniqueTags.slice(0, 10);
   } catch (error) {
     console.error("Hiba történt a tagek lekérése közben:", error);
     return [];
