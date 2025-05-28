@@ -1835,7 +1835,7 @@ blockquote p {
   color: #444444;
 }
 .hero_banner .tags_list {
-  max-width: 400px;
+  /* max-width: 400px; */
 }
 
 .hero_banner.style_1 {
