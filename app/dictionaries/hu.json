@@ -25,6 +25,12 @@
 		"billingData": "Számlázási adatok"
   },
 	"components":{
+		"howworks":{
+			"title":"Hogyan működik?!",
+			"o1":"Válassz témát – 1 perc alatt beiratkozol",
+			"o2":"Nézd meg a 4×15 perces videókat – akár ebédszünetben",
+			"o3":"Próbáld ki a feladatokat, kérdezz az  Ai coach-tól – azonnali visszajelzés hangban"
+		},
 		"messagePopup":{
 			"close":"Bezárás",
 			"auth_problem": {
@@ -44,7 +50,9 @@
 				"msg":"Június 25. 19:00 -án tesszük nyilvánossá a kurzusokat, addig is köszönjük a bizalmad és dolgozunk a minőségi tartalmakon!"
 			}
 		},
-		"countBack":{
+		"countback":{
+			"title":"Indulás",
+			"sub":"A kurzusok ettől az időponttól érhetők el.",
 			"days":"nap", 
 			"hours":"óra", 
 			"minutes":"perc", 
@@ -138,7 +146,7 @@
 		"subscribe":"Előfizetés",
 		"hours":"óra",
 		"startCourse":"Kurzus kezdése",
-		"viewCourse":"Kurzus megtekintése",
+		"viewCourse":"Megnézem a részleteket",
 		"explore":"Fedezd fel a képzéseinket",
 		"nocourses":"Nincsenek elérhető tanfolyamok.",
 		"loading":"Betöltés..."
@@ -413,13 +421,18 @@
 				"signout": "Kijelentkezés"
 			},
 			"heroSection": {
-				"title": "Tanuld meg itt, amit nem tanítottak meg a szexről!",
-				"title2_1": "Kapunyitás:",
-				"title2_2": "Június 25. 19:00",
-				"subtitle": "Megbízható szakemberek, tudományos alapok, online kurzusok",
-				"subtitle2": "",		
-				"ctaButton": "Kezdd el most",
-				"buttonPlaceholder": "Miről szeretnél tanulni?"
+				"title": "A szexualitás tanulható – biztonságos, hiteles szexedukáció neked.",
+				"subtitle": "Rövid, lényegre törő videók, hangalapú AI-coach és vezetett érzelemnapló segít, hogy a kíváncsiságodból azonnal használható tudás legyen.",
+				"subtitle2": "",
+				"ctaButton": "Feliratkozom a kedvezményre",
+				"ctaButton2": "Megnézem a témákat",
+				"buttonPlaceholder": "Miről szeretnél tanulni?",
+				"a_1_t":"Szexedukáció – tabuk nélkül",
+				"a_1_d":"Minden testi-lelki kurzus egy előfizetésben, magyar szakértőkkel.",
+				"a_2_t":"Rövid videók + AI-gyakorlatok",
+				"a_2_d":"Videó, kvíz, érzelem napló, hangalapú Ai – tanuld meg és gyakorold azonnal.",
+				"a_3_t":"Személyre szabott út",
+				"a_3_d":"Orgazmus-, kommunikáció- és páros modulok, a saját tempódban."
 			},
 			"featuresSection": {
 				"sectionTitle": "Miért válaszd a Lustiq Lab-ot?",

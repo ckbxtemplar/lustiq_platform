@@ -256,7 +256,10 @@ export async function fetchCourses(searchQuery = '')
 	let strapi_url = `${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}/api/courses?${populate}`;
 
 	try {
-		if (searchQuery!== '') strapi_url += `&filters[title][$contains]=${searchQuery}`;
+		if (searchQuery !== '') {
+			strapi_url += `&filters[$or][0][title][$contains]=${searchQuery}`;
+			strapi_url += `&filters[$or][1][Details][tags][$contains]=${searchQuery}`;
+		}
 
 		const res = await fetch(strapi_url, {
 			headers: {
@@ -275,6 +278,48 @@ export async function fetchCourses(searchQuery = '')
 			return 0;
 	}
 }
+
+export async function fetchCoursesTags(searchQuery = ''): Promise<string[]> {
+  let populate = `populate[0]=Details`;
+  let strapi_url = `${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}/api/courses?${populate}`;
+
+  try {
+
+    const res = await fetch(strapi_url, {
+      headers: {
+        "Authorization": `Bearer ${process.env.CMS_API_KEY}`
+      }
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    const allTags: string[] = data.data
+      .flatMap((course: any) => {
+        const tags = course?.Details?.tags;
+        if (Array.isArray(tags)) {
+          return tags.map((t: any) =>
+            typeof t === 'string' ? t : t.name || t.title || ''
+          );
+        }
+        return [];
+      })
+      .filter((tag: any): tag is string => typeof tag === 'string' && tag.trim() !== '');
+
+    console.log(allTags);
+
+    const uniqueTags = Array.from(new Set(allTags));
+
+    return uniqueTags;
+  } catch (error) {
+    console.error("Hiba történt a tagek lekérése közben:", error);
+    return [];
+  }
+}
+
 
 export async function fetchCourse(slug: string)
 {

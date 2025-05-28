@@ -7,7 +7,7 @@ export default function IntroVideo() {
 	const t = useTranslations('pages.home.introVideo');
 
   return (
-<section className="intro_video_section section_space_lg bg_light_2 overflow-hidden decoration_wrap">
+<section className="intro_video_section section_space_lg overflow-hidden decoration_wrap">
 	<div className="container position-relative">
 		<div className="section_heading text-center">
 			<h2 className="heading_text mb-0">				
@@ -17,7 +17,7 @@ export default function IntroVideo() {
 		<div className="intro_video">
 			<div className="video_wrap tilt">
 				<Image src="/assets/images/video/video_poster_1.jpg" width={2338} height={880} alt="Collab – Online Learning Platform"/>
-				<Link className="video_play_btn popup_video" href="https://www.youtube.com/watch?v=zYV8T8Vn9TM&ab">
+				<Link className="video_play_btn popup_video" href="https://www.youtube.com/watch?v=zYV8T8Vn9TM">
 					<span className="icon"><i className="fas fa-play"></i></span>
 				</Link>
 			</div>

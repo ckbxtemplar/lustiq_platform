@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { string } from 'zod';
 
 type TimeLeft = {
 	days?: string;
@@ -14,19 +13,17 @@ type TimeLeft = {
 };
 
 export default function CountBack({ fromDate }) {
-	const t = useTranslations('components.countBack');
+	const t = useTranslations('components.countback');
 	const [timeLeft, setTimeLeft] = useState<TimeLeft>({});
 
 	useEffect(() => {
 		let interval: NodeJS.Timeout;
 
-		// Ha szám (pl. "42")
 		if (!isNaN(Number(fromDate))) {
 			setTimeLeft({ number: Number(fromDate) });
 			return;
 		}
 
-		// Ha dátum string (pl. "2025-12-31 23:59:00")
 		const targetDate = new Date(fromDate);
 		if (isNaN(targetDate.getTime())) {
 			setTimeLeft({ message: 'Invalid date' });
@@ -51,7 +48,7 @@ export default function CountBack({ fromDate }) {
 			setTimeLeft({ days, hours, minutes, seconds });
 		};
 
-		updateCountdown(); // első futtatás
+		updateCountdown();
 		interval = setInterval(updateCountdown, 1000);
 
 		return () => clearInterval(interval); // takarítás
@@ -73,14 +70,13 @@ export default function CountBack({ fromDate }) {
 			}
 		`}</style>
 
-		<section className="popular_event_section section_space_lg bg_dark bg-pattern3 decoration_wrap mt-5 mb-0">
+		<section className="popular_event_section section_space_lg bg_dark bg-pattern3 decoration_wrap mt-0 mb-0">
 			<div className="container">
-				<div className="row align-items-center justify-content-center mb-3 mb-md-0">
+				<div className="row align-items-top justify-content-center mb-3 mb-md-0">
 					
 					<div className="col-12 col-lg-auto">
-						<div className='counter_item text-white borderless me-5 p-0'>
-							<h3 className="counter_value text-white">Indulás: </h3>
-							<p className="d-none d-lg-block">&nbsp;</p>
+						<div className='counter_item text-white text-end borderless me-5 p-0'>
+							<h3 className="counter_value text-white">{t('title')}:</h3><small>{t('sub')}</small>
 						</div>
 					</div>
 					

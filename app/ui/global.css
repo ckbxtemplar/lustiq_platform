@@ -23,10 +23,10 @@ input[type='number']::-webkit-outer-spin-button {
 
 .bg-yellow {background-color: #FA2243 !important;}
 .bg-grey {background-color: #f6f6f6 !important;}
-.bg-white{background-color: white !important; background-image:linear-gradient(180deg, #EEEEEE 20%, #ffffff 40%);}
+.bg-white{background-color: white !important; background-image:linear-gradient(180deg, #EEEEEE 20%, #ffffff 40%, #EEEEEE 100%);}
 
 
-a:hover{color:unset !important;}
+/* a:hover{color:unset !important;} */
 
 /* Magasság (Height) */
 .h-auto { height: auto; }
@@ -371,8 +371,6 @@ elevenlabs-convai > div:first-child > div:first-child > span:first-child {displa
 }
 
 .accordion .accordion-button:after{color:white !important}
-
-/* .hero_banner.style_2 .banner_big_title, .hero_banner.style_2 .banner_description, .hero_banner.style_2 .banner_subdescription{color:#ffeaed !important;} */
 
 .newsletter_section .shape_img_1{
 	left: 19%;

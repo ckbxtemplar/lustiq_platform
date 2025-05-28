@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 import { useState } from 'react';
 import {useTranslations} from 'next-intl';
 import { ScrollRevealWords } from '@/components/animate/text/scroll-reveal';
+import TagsCloud from '@/app/ui/tags-cloud';
 
 export default function HeroBanner({page = 'home'}) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,22 +22,22 @@ export default function HeroBanner({page = 'home'}) {
 	const tags = useTranslations('tags');
 
   return (
-	<section className="hero_banner bg-white style_2 mouse_move">
+	<section className="hero_banner bg-white style_2 mouse_move pb-5">
 		<div className="container">
 			<div className="row align-items-center">
 				
-				<div className="col col-lg-6">
-					<h2 className="text-black my-5 text-start">						
-						<ScrollRevealWords>{t('title')}</ScrollRevealWords>
-					</h2>
-					{ page === 'home' && (
-					<h1 className="banner_big_title my-5 text-black">						
-						<span className='fw-bold fs-1'>{t('title2_1')}</span><br/><span className='fw-bold'>{t('title2_2')}</span>
-					</h1>						
-					)}
-					<h4 className="text-black my-5 text-end text-md-start"><ScrollRevealWords>{t('subtitle2')}</ScrollRevealWords></h4>				
-					<h4 className="text-black my-5 text-end text-md-start"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></h4>					
-					{ page === 'home' && (
+				<div className="col col-lg-7">
+					<div className="my-5">
+						<h1 className="text-black banner_big_title text-start m-0">						
+							<ScrollRevealWords>{t('title')}</ScrollRevealWords>
+						</h1>																	
+						<a href='#newsletter' className='btn border_dark btn_small mt-3'><span><small>{t('ctaButton')}</small><small>{t('ctaButton')}</small></span></a>
+					</div>
+					<div className="my-5">
+						<p className="banner_description text-end text-md-start m-0"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></p>					
+						<a href='/pricing' className='btn btn_dark btn_small mt-3'><span><small>{t('ctaButton2')}</small><small>{t('ctaButton2')}</small></span></a>					
+					</div>
+					{ page === 'Xhome' && (
 					<form action="#" onSubmit={handleSearch} className="mt-5 d-none d-md-block">
 						<div className="form_item">
 							<input 
@@ -55,17 +56,11 @@ export default function HeroBanner({page = 'home'}) {
 						</div>
 					</form>
 					)}
-					<ul className="tags_list unordered_list d-none">
-						<li><a href="#!">{tags('sexpositive')}</a></li>
-						<li><a href="#!">{tags('selfconfidence')}</a></li>
-						<li><a href="#!">{tags('communication')}</a></li>
-						<li><a href="#!">{tags('relationship')}</a></li>
-						<li><a href="#!">{tags('bodyawareness')}</a></li>
-						<li><a href="#!">{tags('desire')}</a></li>
-						<li><a href="#!">{tags('safety')}</a></li>						
-					</ul>
+					<div className="my-5">
+						<TagsCloud/>
+					</div>
 				</div>
-				<div className="col col-lg-6">
+				<div className="col col-lg-5">
 					<div className="banner_image_2">
 						<div className="child_image image_wrap_1">
 							<div className="layer" data-depth="0.1">
@@ -90,6 +85,49 @@ export default function HeroBanner({page = 'home'}) {
 					</div>
 				</div>
 			</div>
+		</div>
+		<div className='container-fluid px-5'>
+			<div className="row mt-5">
+				<div className="col col-md-4">
+					<div className="service_item" data-magnetic>
+						<div className="item_icon">							
+							<img src="assets/images/service/icon_academic_cap.svg" alt="Collab – Online Learning Platform"/>
+						</div>
+						<div className="item_content">
+							<h3 className="item_title">{t('a_1_t')}</h3>
+							<p className="mb-0">
+								{t('a_1_d')}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div className="col col-md-4">
+					<div className="service_item" data-magnetic>
+						<div className="item_icon">
+							<img src="assets/images/service/icon_communication.svg" alt="Collab – Online Learning Platform"/>
+						</div>
+						<div className="item_content">
+							<h3 className="item_title">{t('a_2_t')}</h3>
+							<p className="mb-0">
+								{t('a_1_d')}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div className="col col-md-4">
+					<div className="service_item" data-magnetic>
+						<div className="item_icon">							
+							<img src="assets/images/service/icon_physics.svg" alt="Collab – Online Learning Platform"/>
+						</div>
+						<div className="item_content">
+							<h3 className="item_title">{t('a_3_t')}</h3>
+							<p className="mb-0">
+								{t('a_3_d')}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>			
 		</div>
 	</section>
 )}

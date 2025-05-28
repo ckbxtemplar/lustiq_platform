@@ -31,9 +31,6 @@ export const ScrollRevealWords: React.FC<ScrollRevealWordsProps> = ({ children }
 
     const firstTop = (spans[0].getBoundingClientRect().top-headerHeight) + window.scrollY;
     const lastBottom = (spans[spans.length - 1].getBoundingClientRect().top + spans[spans.length - 1].getBoundingClientRect().height - headerHeight) + window.scrollY;
-		
-		console.log('top: '+spans[spans.length - 1].getBoundingClientRect().top);
-		console.log('height: '+spans[spans.length - 1].getBoundingClientRect().height);
 
     const firstRelative = (firstTop / viewportHeight);
     const lastRelative = (lastBottom / viewportHeight) ;
@@ -52,9 +49,6 @@ export const ScrollRevealWords: React.FC<ScrollRevealWordsProps> = ({ children }
 			range = offPatient;
 			startRelative = firstRelative;
 		}
-
-
-		console.log('range: '+range);
 
     const step = words.length > 1 ? range / (words.length - 1) : 0;
     let rawPositions = words.map((_, i) => startRelative + step * i);

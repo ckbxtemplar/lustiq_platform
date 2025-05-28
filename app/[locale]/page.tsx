@@ -7,7 +7,7 @@ import CallToAction from '@/app/ui/main/calltoaction';
 import SoonEvents from '@/app/ui/main/soonEvents';
 import CountBack from '@/app/ui/main/countBack';
 import Brands from '@/app/ui/main/brands';
-import Blog from '@/app/ui/main/blog';
+import HowWorks from '@/app/ui/main/howworks';
 import NewsletterSection from '@/app/ui/newsletter-section';
  
 export default function Page() {
@@ -17,7 +17,8 @@ export default function Page() {
 			<CountBack fromDate={"2025.06.19. 19:00"}/>
 			<NewsletterSection page="soon" />
 			<IntroVideo />
-			<CoursesSection/>			
+			<CoursesSection/>
+			<HowWorks/>
 			<SoonEvents/>
 			<Process />
 			<Testimonials />
