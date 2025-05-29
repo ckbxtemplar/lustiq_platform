@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
 import {useTranslations} from 'next-intl';
-import { ScrollRevealWords } from '@/components/animate/text/scroll-reveal';
 import TagsCloud from '@/app/ui/tags-cloud';
 
 export default function HeroBanner({page = 'home'}) {

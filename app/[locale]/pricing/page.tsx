@@ -5,6 +5,7 @@ import NewsletterSection from '@/app/ui/newsletter-section';
 import CheckoutForm from '@/app/ui/subscribebutton';
 import {useTranslations} from 'next-intl';
 import CountBack from '@/app/ui/main/countBack';
+import Trusted from '@/app/ui/main/trusted';
 
 export const metadata: Metadata = {
   title: 'Pricing'
@@ -16,20 +17,21 @@ export default function Pricing() {
 	
   return (
 		<main className="page_content">
+				<Trusted/>
 
-        <section className="pricing_section section_space_lg pb-0">
+        <section className="pricing_section section_space_lg pt-5">
           <div className="container decoration_wrap">
             <div className="section_heading text-center">
               <h2 className="heading_text mb-3">{t('title')}</h2>
 							<p>{t('sub')}</p>
             </div>
 						
-            <div className="pricing_cards_wrapper row align-items-center">
+            <div className="pricing_cards_wrapper row align-items-center py-3">
               <div className="col col-lg-6">
                 <div className="pricing_card text-center tilt">
                   <h3 className="card_heading">{t('p_m_title')}</h3>
                   <div className="pricing_wrap">
-                    <span className="price_value price_value_old d-block">Eredeti ár: <del>9.900</del></span>
+                    <span className="price_value price_value_old d-block">{t('original')}: <del>9.900</del></span>
 										<span className="price_value">4.950<sup>HUF</sup></span>
                     <small className="d-block"><strong>{t('p_m_sub')}</strong>, {t('p_m_sub2')}</small>
                   </div>
@@ -66,7 +68,7 @@ export default function Pricing() {
                   <div className="card_badge">{t('popular')}</div>
                   <h3 className="card_heading">{t('p_a_title')}</h3>
                   <div className="pricing_wrap">
-										<span className="price_value price_value_old d-block">Eredeti ár: <del>89.900</del></span>
+										<span className="price_value price_value_old d-block">{t('original')}: <del>89.900</del></span>
                     <span className="price_value">26.970<sup>HUF</sup></span>
 										<small className="d-block"><strong>{t('p_a_sub')}</strong>, {t('p_a_sub2')}</small>
                   </div>
@@ -111,11 +113,7 @@ export default function Pricing() {
 
 				<CountBack fromDate={"2025.06.19. 19:00"}/>
 
-				<div className="py-5 mt-5">
-					<div className="py-5">
 					<NewsletterSection page="soon" />	
-					</div>
-				</div>
 
 				<FAQ/>
 

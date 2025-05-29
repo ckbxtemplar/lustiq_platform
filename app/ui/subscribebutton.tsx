@@ -64,7 +64,7 @@ export default function CheckoutForm({ priceId, title, btnClass }: CheckoutFormP
   return (
 		<form onSubmit={handleSubmit}>
     {!session?.user?.id ? (
-      <a className={`btn ${btnClass || 'border_dark'}`} href="/regist?callbackUrl=pricing">
+      <a className={`btn ${btnClass || 'border_dark'}`} href="/regist?callbackUrl=pricing&msg=registbeforecheckout">
         {ButtonContent}
       </a>
     ) : (

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { ScrollRevealWords } from '@/components/animate/text/scroll-reveal';
 import {useTranslations} from 'next-intl';
 
 export default function SoonEvents({page = 'soon'}) {
@@ -18,7 +17,7 @@ export default function SoonEvents({page = 'soon'}) {
 								{t('title')}
 							</h2>
 							<div className="heading_description mb-0 text-white">
-								<ScrollRevealWords>{t('sub')}</ScrollRevealWords>
+								{t('sub')}
 							</div>
 							<div className="btn_wrap pb-0 d-none">
 								<a className="btn btn_primary" href="event.html">

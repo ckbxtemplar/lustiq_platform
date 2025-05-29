@@ -1,7 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { ScrollRevealWords } from '@/components/animate/text/scroll-reveal';
 import {useTranslations} from 'next-intl';
 
 export default function Trusted() {
@@ -19,10 +18,10 @@ export default function Trusted() {
 								{t('title')}<br/><span className='fw-normal'>{t('sub')}</span>
 							</h2>
 							<div className="heading_description mb-0 text-white">
-								<ScrollRevealWords>{t('desc')}</ScrollRevealWords>
+								{t('desc')}
 							</div>
 							<div className="heading_description mb-0 text-white">
-								<ScrollRevealWords>{t('subdesc')}</ScrollRevealWords>
+								{t('subdesc')}
 							</div>							
 							<div className="btn_wrap pb-0">
 								<a className="btn btn_primary btn_small text-white" href="/contact">

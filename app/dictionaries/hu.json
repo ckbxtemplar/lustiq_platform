@@ -48,6 +48,7 @@
 			"o3":"Próbáld ki a feladatokat, kérdezz az  Ai coach-tól – azonnali visszajelzés hangban"
 		},
 		"messagePopup":{
+			"btnOk":"Rendben",
 			"close":"Bezárás",
 			"auth_problem": {
 				"title":"Jogosultásg szükséges",
@@ -64,7 +65,11 @@
 			"start_soon":{
 				"title":"Hamarosan indulunk",
 				"msg":"Június 25. 19:00 -án tesszük nyilvánossá a kurzusokat, addig is köszönjük a bizalmad és dolgozunk a minőségi tartalmakon!"
-			}
+			},
+			"registbeforecheckout":{
+				"title":"Kérlek regisztrálj",
+				"msg":"Fizetés előtt kérlek regisztrálj 1 perc alatt! Regisztrációt követően a fizetési folyamat automatikusan folytatódik."
+			}			
 		},
 		"countback":{
 			"title":"Indulás",
@@ -356,7 +361,7 @@
 		"pricing": {	
 			"title":"Előfizetői csomagok",
 			"sub":"Válaszd ki a számodra legmegfelelőbb előfizetési csomagot.",
-			"popular":"leggyakoribb",
+			"popular":"legnépszerűbb",
 			"p_m_title":"Havi előfizetés",
 			"p_m_sub":"/ 1 hónap",
 			"p_m_sub2":"automatikus megújítás",
@@ -372,10 +377,11 @@
 			"p_a_opt2":"Összes gyakorló kérdés",
 			"p_a_opt3":"Összes AI chat funkció",
 			"p_a_opt4":"Prémium hírlevél",
-			"p_a_opt5":"100% garancia - 7 napon belül bármikor lemondhatod és visszautaljuk a teljes összeget",			
+			"p_a_opt5":"100% garancia - 7 napon belül bármikor lemondhatod és visszautaljuk a teljes összeget",	
+			"original":"Eredeti ár",
 			"buttons":{
-				"sub_monthly": "Havi előfizetés",
-				"sub_annual": "Éves előfizetés"
+				"sub_monthly": "Előfizetek",
+				"sub_annual": "Éves tagság most"
 			}
 		},
 		"faq": {

@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 
 export default function GlobalMessageHandler() {
   const searchParams = useSearchParams();
-  const [message, setMessage] = useState({title:'',msg:''});
+  const [message, setMessage] = useState({title:'',msg:'', btn: ''});
   const modalRef = useRef<HTMLDivElement | null>(null);
 	
 	const t = useTranslations('components.messagePopup');
@@ -15,19 +15,29 @@ const messages = {
   auth_problem: {
     title: t('auth_problem.title'),
     msg: t('auth_problem.msg'),
+		btn: t('btnOk')		
   },
   session_expired: {
     title: t('session_expired.title'),
     msg: t('session_expired.msg'),
+		btn: t('btnOk')		
   },
   payment_required: {
     title: t('payment_required.title'),
     msg: t('payment_required.msg'),
+		btn: t('btnOk')		
   },
   start_soon: {
     title: t('start_soon.title'),
     msg: t('start_soon.msg'),
+		btn: t('btnOk')		
   },
+  registbeforecheckout: {
+    title: t('registbeforecheckout.title'),
+    msg: t('registbeforecheckout.msg'),
+		btn: t('btnOk')
+  },	
+	
 };
 
   useEffect(() => {
@@ -59,7 +69,7 @@ const messages = {
           </div>
           <div className="modal-body">{message.msg}</div>
           <div className="modal-footer">
-            <button type="button" className="btn btn_dark btn_small" data-bs-dismiss="modal"><span><small>{t('close')}</small><small>{t('close')}</small></span></button>
+            <button type="button" className="btn btn_dark btn_small" data-bs-dismiss="modal"><span><small>{message.btn}</small><small>{message.btn}</small></span></button>
           </div>
         </div>
       </div>
