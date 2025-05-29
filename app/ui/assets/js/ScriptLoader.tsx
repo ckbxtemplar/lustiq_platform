@@ -1,13 +1,44 @@
 'use client';
 
-import Reac, { useEffect }  from 'react';
+import Reac, { useEffect, useState, useRef  }  from 'react';
 import Script from 'next/script';
 import * as CookieConsent from "vanilla-cookieconsent";
 import {useLocale} from 'next-intl';
+import { usePathname } from 'next/navigation';
 
 const ScriptLoader: React.FC = () => {
 
 	const locale = useLocale();
+  const pathname = usePathname();
+  const [scriptKey, setScriptKey] = useState(0);
+
+  const isFirstLoad = useRef(true);
+
+  useEffect(() => {
+    if (isFirstLoad.current) {
+      // Ez az első betöltés, nem csinálunk semmit, mert Next.js már betöltötte a scriptet
+      isFirstLoad.current = false;
+      return;
+    }
+
+    // Második és további route váltáskor újratöltjük a scriptet
+    const scriptId = 'main-js';
+    const existingScript = document.getElementById(scriptId);
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = '/assets/js/main.js';
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, [pathname]);
 
 	useEffect(() => {
 			CookieConsent.run({
@@ -114,24 +145,24 @@ const ScriptLoader: React.FC = () => {
 
   return (
 		<>
-      <Script src="/assets/js/jquery.min.js"/>
-      <Script src="/assets/js/popper.min.js"/>
-      <Script src="/assets/js/bootstrap.min.js"/>
-      <Script src="/assets/js/bootstrap-dropdown-ml-hack.js"/>
-      <Script src="/assets/js/cursor.js"/>
-      <Script src="/assets/js/wow.min.js"/>
-      <Script src="/assets/js/tilt.min.js"/>
-      <Script src="/assets/js/parallax.min.js"/>
-      <Script src="/assets/js/parallax-scroll.js"/>
-      <Script src="/assets/js/slick.min.js"/>
-      <Script src="/assets/js/magnific-popup.min.js"/>
-      <Script src="/assets/js/waypoint.js"/>
-      <Script src="/assets/js/counterup.min.js"/>
-      <Script src="/assets/js/countdown.js"/>
-      <Script src="/assets/js/vanilla-calendar.min.js"/>  
-      <Script src="/assets/js/main.js" strategy='lazyOnload'/>
+			<Script src="/assets/js/jquery.min.js"/>
+			<Script src="/assets/js/popper.min.js"/>
+			<Script src="/assets/js/bootstrap.min.js"/>
+			<Script src="/assets/js/bootstrap-dropdown-ml-hack.js"/>
+			<Script src="/assets/js/cursor.js"/>
+			<Script src="/assets/js/wow.min.js"/>
+			<Script src="/assets/js/tilt.min.js"/>
+			<Script src="/assets/js/parallax.min.js"/>
+			<Script src="/assets/js/parallax-scroll.js"/>
+			<Script src="/assets/js/slick.min.js"/>
+			<Script src="/assets/js/magnific-popup.min.js"/>
+			<Script src="/assets/js/waypoint.js"/>
+			<Script src="/assets/js/counterup.min.js"/>
+			<Script src="/assets/js/countdown.js"/>
+			<Script src="/assets/js/vanilla-calendar.min.js"/>  
+			<Script src="/assets/js/main.js" strategy='lazyOnload'/>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css"></link>
-			</>			
+		</>			
   );
 };
 

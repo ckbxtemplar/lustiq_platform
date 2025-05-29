@@ -27,14 +27,14 @@ export default function HeroBanner({page = 'home'}) {
 			<div className="row align-items-center">
 				
 				<div className="col col-lg-7">
-					<div className="my-5">
-						<h1 className="text-black banner_big_title text-start m-0">						
-							<ScrollRevealWords>{t('title')}</ScrollRevealWords>
+					<div className="my-5 text-start">
+						<h1 className="text-black banner_big_title m-0">						
+							{t('title')}
 						</h1>																	
 						<a href='#newsletter' className='btn btn_dark btn_small mt-3'><span><small>{t('ctaButton')}</small><small>{t('ctaButton')}</small></span></a>
 					</div>
-					<div className="my-5">
-						<p className="banner_description text-end text-md-start m-0"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></p>					
+					<div className="my-5 text-end text-md-start">
+						<p className="banner_description m-0">{t('subtitle')}</p>					
 						<a href='/pricing' className='btn border_dark btn_small mt-3'><span><small>{t('ctaButton2')}</small><small>{t('ctaButton2')}</small></span></a>					
 					</div>
 					{ page === 'Xhome' && (

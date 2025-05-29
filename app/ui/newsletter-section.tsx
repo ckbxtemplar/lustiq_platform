@@ -33,26 +33,44 @@ export default function NewsletterSection({page="home", card=true}: {page?: stri
 			<div className="row justify-content-center">
 				<div className="col col-lg-10">
 					<div className="section_heading text-center mb-3">
-						<h2 className="heading_text">
-							{t('title')}
-						</h2>
+
 						{ page==='home' && (
-						<p className="heading_description mb-0">
-							{t('subtitle')}
-						</p>
+							<>
+								<h2 className="heading_text">
+									{t('title')}
+								</h2>							
+								<p className="heading_description mb-0">
+									{t('subtitle')}
+								</p>						
+							</>
+
 						)}
 						{ page==='soon' && (
 						<>
-						<div className="row justify-content-center">
-							<div className="heading_description mb-2 text-start col-12 col-lg-10 bulletpoint_container">							
-								<h4 className="mt-4 text-start">{t('subtitle')}</h4>
-								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle1')}</div>
-								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle2')}</div>
-								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle3')}</div>
-								<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle4')}</div>								
-							</div>		
+						<div className="row">
+							<div className="col-12 col-lg-8">
+								<h2 className="heading_text">
+									{t('title')}
+								</h2>
+							</div>
+							<div className="col-auto">
+								<Image src="/assets/images/banner/earlybird.png" width={180} height={180} alt="Collab – Online Learning Platform"/>
+							</div>
+						</div>						
+						<div className="row justify-content-center my-4">
+							
+							<div className="heading_description mb-2 text-start col-12 col-lg-auto bulletpoint_container">							
+								<h4 className="mt-4 mb-3 text-start">{t('subtitle')}</h4>
+								<div className="ms-4">
+									<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle1')}</div>
+									<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle2')}</div>
+									<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle3')}</div>
+									<div className="info_list mb-1 text-start bulletpoint_item my-2"><i className="fas fa-square"></i> {t('subtitle4')}</div>								
+								</div>								
+							</div>						
+
 						</div>
-						<div className="row justify-content-center">
+						<div className="row justify-content-center my-4">
 							<div className="col-12 col-lg-10 py-4">
 								<h4 className="me-4"><span className="me-4">{t('pricingTitle')}</span>
 								<a href="/pricing" className="btn btn_dark">
@@ -64,8 +82,9 @@ export default function NewsletterSection({page="home", card=true}: {page?: stri
 								</h4>
 							</div>
 						</div>
+						<hr/>
 						<div className="row justify-content-center">
-							<div className="col-12 col-lg-10">
+							<div className="col-12 col-lg-10 mb-3">
 									<h4 className="mt-4 text-center">{t('subtitle5')}</h4>
 							</div>
 						</div>

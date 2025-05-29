@@ -62,7 +62,7 @@ export default function Trusted() {
 							</ul>
 						</div>
 					</div>
-					<div className="col col-lg-auto">
+					<div className="col col-lg-auto d-none d-md-block">
 						<Image src="/assets/images/trusted/image_1.png" width={300} height={300} alt="Collab – Online Learning Platform"/>
 					</div>
 
