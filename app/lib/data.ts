@@ -284,7 +284,6 @@ export async function fetchCoursesTags(searchQuery = ''): Promise<string[]> {
   let strapi_url = `${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}/api/courses?${populate}`;
 
   try {
-
     const res = await fetch(strapi_url, {
       headers: {
         "Authorization": `Bearer ${process.env.CMS_API_KEY}`
@@ -297,32 +296,81 @@ export async function fetchCoursesTags(searchQuery = ''): Promise<string[]> {
 
     const data = await res.json();
 
-    const allTags: string[] = data.data
-      .flatMap((course: any) => {
-        const tags = course?.Details?.tags;
-        if (Array.isArray(tags)) {
-          return tags.map((t: any) =>
-            typeof t === 'string' ? t : t.name || t.title || ''
-          );
-        }
-        return [];
-      })
-      .filter((tag: any): tag is string => typeof tag === 'string' && tag.trim() !== '');
+    const allTags: string[] = [];
 
-    const uniqueTags = Array.from(new Set(allTags));
-    // Véletlenszerű sorrendbe keverés (Fisher-Yates algoritmus)
+    for (const course of data.data) {
+      const details = course?.Details;
+      const tags = details?.tags;
+
+      // Tag-ek feldolgozása
+      if (Array.isArray(tags)) {
+        for (const t of tags) {
+          if (typeof t === 'string') {
+            allTags.push(t);
+          } else if (t?.name || t?.title) {
+            allTags.push(t.name || t.title);
+          }
+        }
+      }
+    }
+
+    // Egyedi tag-ek + véletlenszerű sorrend
+    const uniqueTags = Array.from(new Set(
+      allTags.filter((tag): tag is string => typeof tag === 'string' && tag.trim() !== '')
+    ));
     for (let i = uniqueTags.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [uniqueTags[i], uniqueTags[j]] = [uniqueTags[j], uniqueTags[i]];
     }
 
-    // Maximum 10 elemet ad vissza
-    return uniqueTags.slice(0, 10);
+		const r = uniqueTags.slice(0, 10);    
+		return r;
+
   } catch (error) {
-    console.error("Hiba történt a tagek lekérése közben:", error);
+    console.error("Hiba történt a tagek és címek lekérése közben:", error);
     return [];
   }
 }
+
+export async function fetchCoursesTitles(searchQuery = ''): Promise<{ slug: string, title: string }[]> {
+  let populate = `populate[0]=Details`;
+  let strapi_url = `${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}/api/courses?${populate}`;
+
+  try {
+    const res = await fetch(strapi_url, {
+      headers: {
+        "Authorization": `Bearer ${process.env.CMS_API_KEY}`
+      }
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+     const titles: { slug: string, title: string }[] = [];
+
+    for (const course of data.data) {
+      const details = course?.Details;
+      const slug = course?.slug || '';
+      const title = course?.title || '';
+
+      // Cím és slug hozzáadása
+      if (slug && title) {
+        titles.push({ slug, title });
+      }
+
+    }
+
+		return titles;
+
+  } catch (error) {
+    console.error("Hiba történt a tagek és címek lekérése közben:", error);
+    return [];
+  }
+}
+
 
 
 export async function fetchCourse(slug: string)

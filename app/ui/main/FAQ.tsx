@@ -75,14 +75,13 @@ export default function FAQ() {
 						</div>
 					</div>
 				</div>
-
 				<div className="col col-lg-6">
 					<div className="accordion" id="faq_accordion_2">
 						<div className="accordion-item">
-							<div className="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#a2_collapse_one" aria-expanded="true">
+							<div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#a2_collapse_one" aria-expanded="false">
 								{t('q5')}
 							</div>
-							<div id="a2_collapse_one" className="accordion-collapse collapse show" data-bs-parent="#faq_accordion_2">
+							<div id="a2_collapse_one" className="accordion-collapse collapse" data-bs-parent="#faq_accordion_2">
 								<div className="accordion-body">
 									<p className="mb-0">
 										{t('a5')}
@@ -110,18 +109,6 @@ export default function FAQ() {
 								<div className="accordion-body">
 									<p className="mb-0">
 										{t('a7')}
-									</p>
-								</div>
-							</div>
-						</div>
-						<div className="accordion-item">
-							<div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#a2_collapse_four" aria-expanded="false">
-								{t('q8')}
-							</div>
-							<div id="a2_collapse_four" className="accordion-collapse collapse" data-bs-parent="#faq_accordion_2">
-								<div className="accordion-body">
-									<p className="mb-0">
-										{t('a8')}
 									</p>
 								</div>
 							</div>

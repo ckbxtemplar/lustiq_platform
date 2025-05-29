@@ -1,10 +1,13 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
+import CoursesFooterList from '@/app/ui/courses-footer-list';
 
 export default function Footer() {
 
 	const t = useTranslations('pages');
+
 
   return (
 		<footer className="site_footer bg-pattern3">		
@@ -39,20 +42,20 @@ export default function Footer() {
 						</div>
 					</div>
 
-					<div className="col col-lg-4 col-md-6 col-sm-6">
-						<div className="footer_widget">						
-							<div className="mb-4">
-								<h3 className='footer_widget_title text-white mb-4'>{t('home.footer.description2')}</h3>
-								<div>{t('home.footer.description3')}
-								<br/>
-								<a href="/soon" className="btn btn-sm btn_unfill text-white p-0 mt-2">Feliratkozom</a></div>
-							</div>							
-						</div>
-					</div>					
-
-					<div className="col col-lg-4 col-md-6 col-sm-6">
+					<div className="col col-lg-auto ms-auto offset-md-1 offset-lg-1">
 						<div className="row justify-content-center">
-							<div className="col col-md-4 col-sm-4">
+							<div className="col">
+								<div className="footer_widget">
+									<h3 className="footer_widget_title">{t('home.footer.coursestitle')}</h3>
+									<CoursesFooterList/>
+								</div>
+							</div>
+						</div>
+					</div>				
+
+					<div className="col col-lg-auto offset-md-1 offset-lg-1">
+						<div className="row justify-content-center">
+							<div className="col">
 								<div className="footer_widget">
 									<h3 className="footer_widget_title">Links</h3>
 									<ul className="page_list unordered_list_block">
@@ -91,37 +94,28 @@ export default function Footer() {
 							</div>
 						</div>
 					</div>
-					<div className="col col-lg-3 col-md-6 col-sm-6 d-none">
+
+				</div>
+				<div className='row mt-5 pt-5'>
+					<div className="col col-lg-12">
 						<div className="footer_widget">
-							<h3 className="footer_widget_title">Latest Posts</h3>
-							<ul className="blog_small_group unordered_list_block">
-								<li>
-									<Link className="blog_small" href="#!">
-										<span className="item_image">
-											<Image src="/assets/images/blog/blog_small_img_1.png" width={140} height={140} alt="Collab – Online Learning Platform"/>
-										</span>
-										<span className="item_content">
-											<span className="item_author"><i className="fas fa-user-alt"></i> Csonka Balázs szexuálpszichológus</span>
-											<strong className="item_title">Pornófüggőség: Az első jelek és a kiút belőle</strong>
-											<small className="item_post_date">October 12, 2024</small>
-										</span>
-									</Link>
-								</li>
-								<li>
-									<Link className="blog_small" href="#!">
-										<span className="item_image">
-											<Image src="/assets/images/blog/blog_small_img_1.png" width={140} height={140} alt="Collab – Online Learning Platform"/>
-										</span>
-										<span className="item_content">
-											<span className="item_author"><i className="fas fa-user-alt"></i> @hormonmentes Janka</span>
-											<strong className="item_title">Termékenységtudat: jelzi a tested, amikor termékeny vagy </strong>
-											<small className="item_post_date">October 13, 2024</small>
-										</span>
-									</Link>
-								</li>
-							</ul>
+							
+							<div className='row align-items-center'>
+								<div className="col-12 col-lg">
+
+									<div className="mb-4">
+										<h3 className='footer_widget_title text-white mb-4'>{t('home.footer.description2')}</h3>
+										<div>{t('home.footer.description3')}</div>
+									</div>	
+
+								</div>
+								<div className="col-12 col-lg-auto">
+									<a href="/soon" className="btn btn_red btn_small"><span><small>{t('home.footer.feliratkozom')}</small><small>{t('home.footer.feliratkozom')}</small></span></a>
+								</div>
+							</div>			
+						
 						</div>
-					</div>
+					</div>							
 				</div>
 			</div>
 		</div>

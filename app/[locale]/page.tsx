@@ -8,6 +8,8 @@ import SoonEvents from '@/app/ui/main/soonEvents';
 import CountBack from '@/app/ui/main/countBack';
 import Brands from '@/app/ui/main/brands';
 import HowWorks from '@/app/ui/main/howworks';
+import Reviews from '@/app/ui/main/reviews';
+import Trusted from '@/app/ui/main/trusted';
 import NewsletterSection from '@/app/ui/newsletter-section';
  
 export default function Page() {
@@ -16,7 +18,9 @@ export default function Page() {
 			<HeroBanner/>
 			<CountBack fromDate={"2025.06.19. 19:00"}/>
 			<NewsletterSection page="soon" />
+			<Reviews />
 			<IntroVideo />
+			<Trusted/>
 			<CoursesSection/>
 			<HowWorks/>
 			<SoonEvents/>

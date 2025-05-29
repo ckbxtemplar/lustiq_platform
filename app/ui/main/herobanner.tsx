@@ -31,11 +31,11 @@ export default function HeroBanner({page = 'home'}) {
 						<h1 className="text-black banner_big_title text-start m-0">						
 							<ScrollRevealWords>{t('title')}</ScrollRevealWords>
 						</h1>																	
-						<a href='#newsletter' className='btn border_dark btn_small mt-3'><span><small>{t('ctaButton')}</small><small>{t('ctaButton')}</small></span></a>
+						<a href='#newsletter' className='btn btn_dark btn_small mt-3'><span><small>{t('ctaButton')}</small><small>{t('ctaButton')}</small></span></a>
 					</div>
 					<div className="my-5">
 						<p className="banner_description text-end text-md-start m-0"><ScrollRevealWords>{t('subtitle')}</ScrollRevealWords></p>					
-						<a href='/pricing' className='btn btn_dark btn_small mt-3'><span><small>{t('ctaButton2')}</small><small>{t('ctaButton2')}</small></span></a>					
+						<a href='/pricing' className='btn border_dark btn_small mt-3'><span><small>{t('ctaButton2')}</small><small>{t('ctaButton2')}</small></span></a>					
 					</div>
 					{ page === 'Xhome' && (
 					<form action="#" onSubmit={handleSearch} className="mt-5 d-none d-md-block">
@@ -91,7 +91,7 @@ export default function HeroBanner({page = 'home'}) {
 				<div className="col col-md-4">
 					<div className="service_item" data-magnetic>
 						<div className="item_icon">							
-							<img src="assets/images/service/icon_academic_cap.svg" alt="Collab – Online Learning Platform"/>
+							<img src="/assets/images/service/icon_academic_cap.svg" alt="Collab – Online Learning Platform"/>
 						</div>
 						<div className="item_content">
 							<h3 className="item_title">{t('a_1_t')}</h3>
@@ -104,7 +104,7 @@ export default function HeroBanner({page = 'home'}) {
 				<div className="col col-md-4">
 					<div className="service_item" data-magnetic>
 						<div className="item_icon">
-							<img src="assets/images/service/icon_communication.svg" alt="Collab – Online Learning Platform"/>
+							<img src="/assets/images/service/icon_communication.svg" alt="Collab – Online Learning Platform"/>
 						</div>
 						<div className="item_content">
 							<h3 className="item_title">{t('a_2_t')}</h3>
@@ -117,7 +117,7 @@ export default function HeroBanner({page = 'home'}) {
 				<div className="col col-md-4">
 					<div className="service_item" data-magnetic>
 						<div className="item_icon">							
-							<img src="assets/images/service/icon_physics.svg" alt="Collab – Online Learning Platform"/>
+							<img src="/assets/images/service/icon_physics.svg" alt="Collab – Online Learning Platform"/>
 						</div>
 						<div className="item_content">
 							<h3 className="item_title">{t('a_3_t')}</h3>

@@ -25,6 +25,22 @@
 		"billingData": "Számlázási adatok"
   },
 	"components":{
+		"reviews":{
+			"title":"Első tesztelői vélemények"
+		},
+		"trusted":{
+			"title":"Miért bízhatsz bennünk?",
+			"sub":" – 3 pillér",
+			"desc":"A Lustiq Lab nem csupán egy szexedukációs platform – hanem egy megbízható, hiteles és gyakorlati tudásra épülő társad az intimitás fejlesztésében.",
+			"subdesc":"Az alábbi három pillérre épül minden tartalmunk és szolgáltatásunk:",
+			"o1t":"Tudományosan megalapozott 🔬",
+			"o1d":"Szexuálpszichológusok, orvosok, manuálterapeuták készítik",
+			"o2t":"Gyakorlat­központú 📝",
+			"o2d":"Kvízek, feladatlapok, AI-coach minden leckénél",
+			"o3t":"Ítélkezésmentes tér 🤗",
+			"o3d":"Inkluzív nyelv, anonim kérdezési lehetőség",
+			"btn":"Ismerj meg minket"
+		},
 		"howworks":{
 			"title":"Hogyan működik?!",
 			"o1":"Válassz témát – 1 perc alatt beiratkozol",
@@ -365,22 +381,26 @@
 		"faq": {
 			"title": "Gyakran Ismételt Kérdések",
 			"sub": "Összegyűjtöttük a leggyakoribb kérdéseket",
-			"q1": "Hogyan választhatok kurzust?",
-			"a1": "Böngéssz a kurzuskatalógusban, és válaszd ki a számodra legmegfelelőbbet.",
-			"q2": "Hogyan érem el a kurzusomat?",
-			"a2": "A regisztráció után a saját fiókodon keresztül elérheted a kurzusaidat.",
-			"q3": "Kapok valamit a kurzus elvégzése után?",
-			"a3": "Igen, a kurzus befejezése után tanúsítványt kapsz.",
-			"q4": "Mikor kell regisztrálnom?",
-			"a4": "A kurzus kezdete előtt bármikor regisztrálhatsz.",
-			"q5": "Hogyan működik az online tanulás?",
-			"a5": "A saját tempódban tanulhatsz az online anyagok és források segítségével.",
+			"q1": "Miben különbözik a Lustiq Lab a megszokott szexedukációs tartalmaktól?",
+			"a1": "Stúdió-minőségű, lényegre törő videóleckéket kapsz, amelyeket szexuálpszichológusok, klinikai szakpszichológusok és más szakértők készítenek. A kurzusok végén interaktív kvíz és érzelmi napló segít feldolgozni és beépíteni a tanultakat.",
+
+			"q2": "Mi történik, ha nem tetszik a tartalom?",
+			"a2": "7 napos, kérdés nélküli pénz-visszafizetési garanciát adunk: ha nem vált be, visszautaljuk az összeget.",
+
+			"q3": "Mennyire anonim és biztonságos az AI-coach?",
+			"a3": "A hangalapú tréner titkosított csatornán kommunikál. Csak akkor tárol beszélgetést, ha ezt külön bekapcsolod, hogy később is emlékezzen a kontextusra.",
+
+			"q4": "Nőknek, férfiaknak vagy pároknak ajánljátok?",
+			"a4": "Mindhárom célcsoportnak: van női és férfi orgazmust segítő modul, kommunikációs kurzus, valamint vágykülönbség-híd pároknak.",
+
+			"q5": "Milyen témák várhatóak még a közeljövőben?",
+			"a5": "Érkező kurzusaink: menstruációs ciklus és libidó, pornó-detox, tantra-alapok és szülés utáni újrakapcsolódás.",
+
 			"q6": "Egyszerre több kurzust is elvégezhetek?",
 			"a6": "Igen, egyszerre több kurzusra is beiratkozhatsz.",
-			"q7": "Hová fordulhatok segítségért?",
-			"a7": "Ügyfélszolgálatunkhoz fordulhatsz, vagy megnézheted a súgóközpontunkat.",
-			"q8": "Személyesen tudok beszélni a szakemberekkel?",
-			"a8": "Kérlek, vedd fel a kapcsolatot az ügyfélszolgálatunkkal ezzel kapcsolatban."
+
+			"q7": "Személyesen tudok beszélni a szakemberekkel?",
+			"a7": "Kérlek, vedd fel a kapcsolatot az ügyfélszolgálatunkkal ezzel kapcsolatban."
 		},
 		"soon":{
 			"newsletterSection": {
@@ -401,7 +421,14 @@
 				"subtitle": "Hamarosan indulunk. Ha elsőként szeretnél belépni, iratkozz fel a várólistára, és küldjük a kulisszatitkokat, kedvezményeket!",
 				"subtitle2": "Egy hely, ahol a szexualitásról végre érthetően, tabuk nélkül és biztonságos környezetben tanulhatsz.",
 				"ctaButton": "Csatlakozom a várólistához",
-				"buttonPlaceholder": "Miről szeretnél tanulni?"
+				"ctaButton2": "Megnézem a témákat",
+				"buttonPlaceholder": "Miről szeretnél tanulni?",
+				"a_1_t":"Szexedukáció – tabuk nélkül",
+				"a_1_d":"Minden testi-lelki kurzus egy előfizetésben, magyar szakértőkkel.",
+				"a_2_t":"Rövid videók + AI-gyakorlatok",
+				"a_2_d":"Videó, kvíz, érzelem napló, hangalapú Ai – tanuld meg és gyakorold azonnal.",
+				"a_3_t":"Személyre szabott út",
+				"a_3_d":"Orgazmus-, kommunikáció- és páros modulok, a saját tempódban."				
 			}
 		},
 		"home":	{
@@ -531,7 +558,9 @@
 				"copyright": "© 2025 Lustiq. Minden jog fenntartva.",
 				"privacyPolicy": "Adatvédelmi irányelvek",
 				"termsConditions": "Felhasználási feltételek",
-				"socialMediaAlt": "Lustiq közösségi média"
+				"socialMediaAlt": "Lustiq közösségi média",
+				"coursestitle": "Kurzusok",			
+				"feliratkozom": "Feliratkozom"
 			},
 			"metaTags": {
 				"homeTitle": "Lustiq – Szexedukáció tabuk nélkül",
