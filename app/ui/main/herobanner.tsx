@@ -34,7 +34,7 @@ export default function HeroBanner({page = 'home'}) {
 					</div>
 					<div className="my-5 text-end text-md-start">
 						<p className="banner_description m-0">{t('subtitle')}</p>					
-						<a href='/pricing' className='btn border_dark btn_small mt-3'><span><small>{t('ctaButton2')}</small><small>{t('ctaButton2')}</small></span></a>					
+						<a href='/courses' className='btn border_dark btn_small mt-3'><span><small>{t('ctaButton2')}</small><small>{t('ctaButton2')}</small></span></a>					
 					</div>
 					{ page === 'Xhome' && (
 					<form action="#" onSubmit={handleSearch} className="mt-5 d-none d-md-block">
