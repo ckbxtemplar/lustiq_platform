@@ -61,7 +61,7 @@ export default function WhatsAbout({version = 'pricing'}) {
 										<div className="py-1 pe-3">
 											<i className="far fa-file-audio fa-2x"></i>											
 										</div>
-										<h4 className='fw-normal w-75'>{t('o11')}<br/>{t('o12')}</h4>
+										<h6 className='fw-bold w-75'>{t('o11')}<br/>{t('o12')}</h6>
 									</div>									
 								</div>
 								<div className="iconbox_item">
@@ -69,7 +69,7 @@ export default function WhatsAbout({version = 'pricing'}) {
 										<div className="py-1 pe-3">
 											<i className="fas fa-chalkboard-teacher fa-2x"></i>
 										</div>
-										<h4 className='fw-normal w-75'>{t('o21')}<br/>{t('o22')}</h4>
+										<h6 className='fw-bold w-75'>{t('o21')}<br/>{t('o22')}</h6>
 									</div>									
 								</div>
 								<div className="iconbox_item">
@@ -77,7 +77,7 @@ export default function WhatsAbout({version = 'pricing'}) {
 										<div className="py-1 pe-3">
 											<i className="fas fa-mobile-alt fa-2x"></i>
 										</div>
-										<h4 className='fw-normal w-75'>{t('o31')}<br/>{t('o32')}</h4>
+										<h6 className='fw-bold w-75'>{t('o31')}<br/>{t('o32')}</h6>
 									</div>									
 								</div>																							
 								

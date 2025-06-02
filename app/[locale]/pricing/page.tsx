@@ -44,7 +44,7 @@ export default function Pricing() {
 				</nav>
 			</nav>
 
-		<main className="page_content">
+		<main className="page_content section_space_lg">
 
 			<div data-bs-spy="scroll" data-bs-target="#navbar-scrollspy" data-bs-offset="0">
 
