@@ -8,7 +8,7 @@ export default function Trusted() {
 	const t = useTranslations('components.trusted');
 
   return (
-		<section className="popular_event_section section_space_lg bg_dark bg-pattern3 decoration_wrap">
+		<section className="popular_event_section section_space_lg bg_dark bg-pattern3 decoration_wrap" id="section_trusted">
 			<div className="container-fluid">
 				<div className="row align-items-center justify-content-center">
 					

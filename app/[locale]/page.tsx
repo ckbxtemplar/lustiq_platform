@@ -21,8 +21,8 @@ export default function Page() {
 			<Reviews />
 			<IntroVideo />
 			<Trusted/>
+			<HowWorks/>			
 			<CoursesSection/>
-			<HowWorks/>
 			<SoonEvents/>
 			<Process />
 			<Testimonials />

@@ -10,10 +10,12 @@ interface BannerProps {
 	description: string;
 	search:boolean;
 	onSearch?: (query: string) => void;
+	image?:boolean;
+	list?: string[];
 }
 
 
-export default function Banner({page, title, description, search, onSearch }: BannerProps) {
+export default function Banner({page, title, description, search, onSearch, image=true, list }: BannerProps) {
   
 	const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,9 +30,9 @@ export default function Banner({page, title, description, search, onSearch }: Ba
 	const t = useTranslations('pages.home');
 
 	return (	
-		<section className="page_banner">
+		<section className="page_banner" id="section_banner">
 		<div className="container">
-			<div className="content_wrapper" style={{backgroundImage: `url('/assets/images/banner/page_banner_image.png')`}}>
+			<div className="content_wrapper" style={image ? { backgroundImage: `url('/assets/images/banner/page_banner_image.png')` } : {}}>
 				<div className="row align-items-center">
 					<div className="col col-md-6">
 
@@ -60,6 +62,21 @@ export default function Banner({page, title, description, search, onSearch }: Ba
                   <li><a href="#section_billing_address">{b('billingData')}</a></li>
                 </ul> }
 					</div>
+					
+					{list && list.length > 0 && (
+						<div className="col col-md-6">
+							<ul className="unordered_list_block info_list">
+								{list.map((listItem, index) => (
+									<li key={index}>
+										<div className="info_list text-start bulletpoint_item my-1 py-0">
+											<i className="fas fa-square"></i><span>{listItem}</span>
+										</div>
+									</li>
+								))}
+							</ul>
+						</div>
+					)}
+
 				</div>
 			</div>
 		</div>

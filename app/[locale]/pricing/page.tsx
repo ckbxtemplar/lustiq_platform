@@ -4,8 +4,13 @@ import FAQ from '@/app/ui/main/FAQ';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import CheckoutForm from '@/app/ui/subscribebutton';
 import {useTranslations} from 'next-intl';
-import CountBack from '@/app/ui/main/countBack';
+import Reviews from '@/app/ui/main/reviews';
 import Trusted from '@/app/ui/main/trusted';
+import WhatsAbout from '@/app/ui/main/whatsabout';
+import WhyAndHow from '@/app/ui/main/whyandhow';
+import WhatYouGet from '@/app/ui/main/whatyouget';
+import Banner from '@/app/ui/dashboard/banner';
+import SzexplicitRecommendation from '@/app/ui/main/szexplicitRecommendation';
 
 export const metadata: Metadata = {
   title: 'Pricing'
@@ -14,12 +19,52 @@ export const metadata: Metadata = {
 export default function Pricing() {
 	
 	const t = useTranslations('pages.pricing');
-	
-  return (
-		<main className="page_content">
-				<Trusted/>
+	const bannerList = [
+		t('banner.list.1'),
+		t('banner.list.2'),
+		t('banner.list.3'),
+		t('banner.list.4'),
+		t('banner.list.5'),
+	];	
 
-        <section className="pricing_section section_space_lg pt-5">
+
+  return (
+		<>
+			<nav id="navbar-scrollspy" className="navbar navbar-light flex-column align-items-stretch p-3 fixed-top d-none">
+				<nav className="nav nav-pills flex-column">
+					<a className="nav-link" href="#section_banner">Kezdjük</a>
+					<a className="nav-link" href="#section_whatsabout">Miről szól</a>
+					<a className="nav-link" href="#section_whyandhow">Probléma + Megoldás</a>
+					<a className="nav-link" href="#section_whatyouget">Mit kapsz?</a>
+					<a className="nav-link" href="#section_trusted">Bízhatsz bennünk?</a>
+					<a className="nav-link" href="#section_pricing">Csomagok</a>
+					<a className="nav-link" href="#item-3">Első vélemények</a>
+					<a className="nav-link" href="#item-3">Megjelenéseink</a>
+					<a className="nav-link" href="#item-3">Kérdés-válasz</a>
+				</nav>
+			</nav>
+
+		<main className="page_content">
+
+			<div data-bs-spy="scroll" data-bs-target="#navbar-scrollspy" data-bs-offset="0">
+
+				<Banner 
+					title={t('banner.title')} 
+					description={t('banner.sub')} 
+					image={false}
+					list={bannerList}
+					search={false}					
+				/>
+
+				<WhatsAbout/>
+
+				<WhyAndHow/>
+				
+				<WhatYouGet/>
+
+				<Trusted/>				
+        
+				<section className="pricing_section section_space_lg pt-5" id="section_pricing">
           <div className="container decoration_wrap">
             <div className="section_heading text-center">
               <h2 className="heading_text mb-3">{t('title')}</h2>
@@ -102,7 +147,7 @@ export default function Pricing() {
               </div>
             </div>
 
-            <div className="deco_item shape_img_1" data-parallax='{"y" : 130, "smoothness": 6}'>
+            <div className="deco_item shape_img_1" data-parallax='{"y" : 230, "smoothness": 6}'>
               <Image src="/assets/images/shape/shape_img_4.png" width={327} height={321} alt="Collab – Online Learning Platform"/>
             </div>
             <div className="deco_item shape_img_2" data-parallax='{"y" : -130, "smoothness": 6}'>
@@ -111,14 +156,19 @@ export default function Pricing() {
           </div>
         </section>
 
-				<CountBack fromDate={"2025.06.19. 19:00"}/>
+				<Reviews />		
 
-					<NewsletterSection page="soon" />	
+				{/* <CountBack fromDate={"2025.06.19. 19:00"}/> */}
+
+				<SzexplicitRecommendation />	
 
 				<FAQ/>
 
 				<NewsletterSection/>
+			
+			</div>
 
 		</main> 
+</>		
   );
 }

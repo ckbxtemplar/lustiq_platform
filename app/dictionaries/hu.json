@@ -25,6 +25,66 @@
 		"billingData": "Számlázási adatok"
   },
 	"components":{
+		"szexplicit":{
+			"pricing":{
+				"title":"Szexplicit Podcast",
+				"subtitle":"Merülj el a Szexplicit videós tartalmaiban, ahol a test, lélek és intimitás találkozik szakértői megközelítéssel!",
+				"sub":"A Szexplicit Podcast olyan tér, ahol őszinte és hiteles párbeszédek zajlanak a szexualitásról, intimitásról és emberi kapcsolódásokról. A beszélgetéseket Varga Gréta szexuálpszichológiai szakpszichológus és Bakonyi Gergő, a Lustiq társalapítója vezetik, szakértő vendégekkel kiegészülve.",
+				"btn":"Keresd fel a csatornát!",
+				"btn2":"Nézd meg a többi videót..."
+			}
+		},
+		"whatyouget":{
+			"pricing":{
+				"title":"Mi mindent kapsz meg a Lab tagjaként?",
+				"sub":"Minden tananyag mögött tapasztalt pszichológusok, szexuálterapeuták és önismereti trénerek állnak. Ez nem TikTok-tartalom vagy bulváros önsegítés – ez valódi, szakmailag megalapozott tudás, amiből lépésről lépésre fejlődhetsz. Gyakorlatok, amelyek működnek. Elmélet, ami nem elvont.",
+				"btn":"Csatlakozom a közösséghez",
+				
+				"o1t":"Biztonságos, ítélkezésmentes tér önmagad felfedezéséhez",
+				"o1d":"A Lab olyan közeg, ahol tabuk nélkül kapcsolódhatsz a testedhez, vágyaidhoz, identitásodhoz.",
+				"o1s":"Nem számít, honnan jössz – itt önazonosan lehetsz jelen.",
+
+				"o2t":"Hiteles, szakértők által vezetett kurzusok és gyakorlatok",
+				"o2d":"Minden tananyagot tapasztalt pszichológusok, szexuálterapeuták és önismereti szakemberek állítottak össze.",
+				"o2s":"Tartalom, amiben megbízhatsz, fejlődés, amit valóban érezhetsz.",
+
+				"o3t":"Valós, elfogadó közösség – valódi emberekkel",
+				"o3d":"Egy támogató közösség, ahol megoszthatod, meghallgathatod, tanulhatsz mások tapasztalataiból.",
+				"o3s":"Egyedül indulsz, de nem leszel egyedül.",
+
+				"o4t":"Saját tempóban haladható, rugalmas önismereti út",
+				"o4d":"Nincsenek kötelező időpontok. Minden anyag újranézhető, elérhető akkor is, ha csak este 11-kor van időd.",
+				"o4s":"Szabadság, fejlődés közben is."
+
+			}
+		},
+		"whyandhow":{
+			"pricing":{
+				"t1":"Lehet, hogy TE is észrevétlenül háttérbe szorítottad a vágyadat?",
+				"d11":"Sokan már fiatalként elveszítik a kapcsolatot a saját testükkel és igényeikkel. A megfelelési kényszer, a tabu és a félelem miatt évtizedekig sodródnak anélkül, hogy megtudnák, kik ők valójában és mire vágynak igazán.",
+				"d12":"Ha gyakran mondasz le az örömödről, ha nehezen beszélsz a szexről, vagy állandó vágykülönbséget élsz meg, jó eséllyel nálad is ez történt.",
+				"t2":"Szerencsére létezik visszaút",
+				"d21":"1. Ismerd meg a tested és a vágyad",
+				"d22":"2. Fogadd el szégyen nélkül, ami örömet okoz",
+				"d23":"3. Alkalmazd magabiztosan a mindennapokban",
+				"d24":"A Lustiq Lab ezeken a lépéseken kísér végig. Nehéz munka? Igen. Megmutatjuk, hogyan csináld. Indulhatunk?",
+				"btn":"Igen, vágjunk bele!"
+			}
+		},
+		"whatsabout":{
+			"pricing":{
+				"title":"Miről szól a Lustiq Lab?",
+				"sub":"A Lab egyrészt egy gyakorlatorientált, folyamatosan bővülő online tudástár a szexualitás testi, lelki és kapcsolati oldaláról. Bárhol tartasz – alapok, vágykülönbség, haladó technikák – mindig találsz következő lépést.",
+				"sub2":"Másrészt egy támogató közösség, ahol rájössz, hogy nem vagy egyedül. A zárt Facebook-csoportba és az online ­találkozókon erőt kaphatsz ahhoz, hogy felszabadult, örömteli szexuális életet alakíts ki.",
+				"btn":"Tovább a csatlakozáshoz",
+				"o11":"Exkluzív videós tartalmak",
+				"o12":"(olyan, mint egy privát szexuális tanácsadás)",
+				"o21":"Rendszeresen bővülő új kurzusok",
+				"o22":"- a folyamatos fejlődésért",
+				"o31":"Rendszeres mesterkurzusok a ",
+				"o32":"mobilbarát felületen"
+			}
+		},
 		"reviews":{
 			"title":"Első tesztelői vélemények"
 		},
@@ -359,6 +419,17 @@
 			}
 		},
 		"pricing": {	
+			"banner":{
+				"title":"LUSTIQ LAB Előfizetés",
+				"sub":"Egy olyan önfejlesztő utazásra hívunk, ahol megtalálod, megérted, majd magabiztosan használod mindazt, amit a testeddel, a vágyaddal és a párkapcsolati intimitással kapcsolatban eddig elnyomtál vagy soha nem tanultál meg: a felszabadult, örömteli szexualitást.",
+				"list":{
+					"1":"Hozzáférés az összes kurzushoz",
+					"2":"Hozzáférés az összes gyakorló kérdéshez",
+					"3":"Hozzáférés az összes AI chat funkcióhoz",
+					"4":"Prémium hírlevél",
+					"5":"100% garancia - 7 napon belül bármikor lemondhatod és visszautaljuk a teljes összeget"
+				}
+			},
 			"title":"Előfizetői csomagok",
 			"sub":"Válaszd ki a számodra legmegfelelőbb előfizetési csomagot.",
 			"popular":"legnépszerűbb",

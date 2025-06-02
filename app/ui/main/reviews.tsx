@@ -36,7 +36,7 @@ export default function Trusted() {
                 <div className="carousel_item">
                   <div className="testimonial_item">
                     <div className="testimonial_image">
-                      <img src="/assets/images/testimonial/w_1.jpg" alt="Collab – Online Learning Platform"/>
+                      <img src="/assets/images/trusted/p1.jpg" alt="Collab – Online Learning Platform"/>
                     </div>
                     <div className="testimonial_content">
                       <ul className="rating_star unordered_list">
