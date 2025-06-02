@@ -18,7 +18,7 @@ export default function Page() {
 			<HeroBanner/>
 			<CountBack fromDate={"2025.06.19. 19:00"}/>
 			<NewsletterSection page="soon" />
-			<Reviews />
+			{/* <Reviews /> */}
 			<IntroVideo />
 			<Trusted/>
 			<HowWorks/>			

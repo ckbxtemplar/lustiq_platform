@@ -52,7 +52,7 @@ export default function SzexplicitRecommendation({version = 'pricing'}) {
 						<div className="row">
 							<div className="col col-lg-6 p-2">
 								<div className="yt_channel_item">
-										<a href="#!">
+										<a href="https://www.youtube.com/watch?v=DL6wZxDEx0M">
 											<img src="/assets/images/youtube/yt_1.jpg" alt="Microsoft"/>
 											<p className='fw-normal mt-2 mb-0 text-start'>Az első élő eseményünk | Felmértük mit tanultatok a szexről</p>
 										</a>
@@ -60,7 +60,7 @@ export default function SzexplicitRecommendation({version = 'pricing'}) {
 							</div>
 							<div className="col col-lg-6 p-2">
 								<div className="yt_channel_item">
-										<a href="#!">
+										<a href="https://www.youtube.com/watch?v=3K002hvWH6M">
 											<img src="/assets/images/youtube/yt_2.jpg" alt="Microsoft"/>
 											<p className='fw-normal mt-2 mb-0 text-start'>"Imádkoztam azért, hogy hetero legyek" | Hodász András, egykori pap</p>
 										</a>
@@ -68,7 +68,7 @@ export default function SzexplicitRecommendation({version = 'pricing'}) {
 							</div>
 							<div className="col col-lg-6 p-2">
 								<div className="yt_channel_item">
-										<a href="#!">
+										<a href="https://www.youtube.com/watch?v=M1xgBk6dMjo">
 											<img src="/assets/images/youtube/yt_3.jpg" alt="Microsoft"/>
 											<p className='fw-normal mt-2 mb-0 text-start'>Élethű szexrobot személyiséggel és alakváltó segédeszköz | SexTech Konferencián jártunk</p>
 										</a>
@@ -77,7 +77,7 @@ export default function SzexplicitRecommendation({version = 'pricing'}) {
 							<div className="col col-lg-6 p-2">
 
 								<div className="yt_channel_item">
-										<a href="#!">
+										<a href="https://www.youtube.com/watch?v=PWjfMAuHGMo">
 											<img src="/assets/images/youtube/yt_4.jpg" alt="Microsoft"/>
 											<p className='fw-normal mt-2 mb-0 text-start'>Szorongás és pánikbetegség mellett lehet jó a szex? | Takács Dalma, művészetterapeuta</p>
 										</a>

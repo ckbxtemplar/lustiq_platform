@@ -44,7 +44,7 @@ export default function Pricing() {
 				</nav>
 			</nav>
 
-		<main className="page_content section_space_lg">
+		<main className="page_content section_space_lg mb-0 pb-0">
 
 			<div data-bs-spy="scroll" data-bs-target="#navbar-scrollspy" data-bs-offset="0">
 
@@ -156,7 +156,7 @@ export default function Pricing() {
           </div>
         </section>
 
-				<Reviews />		
+				{/* <Reviews />		 */}
 
 				{/* <CountBack fromDate={"2025.06.19. 19:00"}/> */}
 
@@ -164,10 +164,9 @@ export default function Pricing() {
 
 				<FAQ/>
 
-				<NewsletterSection/>
 			
 			</div>
-
+				<NewsletterSection/>
 		</main> 
 </>		
   );
