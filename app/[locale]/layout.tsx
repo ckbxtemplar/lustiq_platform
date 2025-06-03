@@ -61,7 +61,8 @@ export default async function RootLayout({
 					`}
 				</Script>				
       </head>
-    	<body className={`${roboto.className} antialiased`}>				
+    	<body className={`${roboto.className} antialiased`} >	
+
         <div
           dangerouslySetInnerHTML={{
             __html: `

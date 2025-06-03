@@ -11,6 +11,8 @@ import WhyAndHow from '@/app/ui/main/whyandhow';
 import WhatYouGet from '@/app/ui/main/whatyouget';
 import Banner from '@/app/ui/dashboard/banner';
 import SzexplicitRecommendation from '@/app/ui/main/szexplicitRecommendation';
+import ScrollspyPricing from '@/components/scrollspy-pricing';
+
 
 export const metadata: Metadata = {
   title: 'Pricing'
@@ -27,27 +29,18 @@ export default function Pricing() {
 		t('banner.list.5'),
 	];	
 
-
   return (
 		<>
-			<nav id="navbar-scrollspy" className="navbar navbar-light flex-column align-items-stretch p-3 fixed-top d-none">
-				<nav className="nav nav-pills flex-column">
-					<a className="nav-link" href="#section_banner">Kezdjük</a>
-					<a className="nav-link" href="#section_whatsabout">Miről szól</a>
-					<a className="nav-link" href="#section_whyandhow">Probléma + Megoldás</a>
-					<a className="nav-link" href="#section_whatyouget">Mit kapsz?</a>
-					<a className="nav-link" href="#section_trusted">Bízhatsz bennünk?</a>
-					<a className="nav-link" href="#section_pricing">Csomagok</a>
-					<a className="nav-link" href="#item-3">Első vélemények</a>
-					<a className="nav-link" href="#item-3">Megjelenéseink</a>
-					<a className="nav-link" href="#item-3">Kérdés-válasz</a>
-				</nav>
-			</nav>
 
-		<main className="page_content section_space_lg mb-0 pb-0">
+		<ScrollspyPricing />
 
-			<div data-bs-spy="scroll" data-bs-target="#navbar-scrollspy" data-bs-offset="0">
-
+		<main
+			className="page_content section_space_lg mb-0 pb-0 scrollspy-container"
+			data-bs-spy="scroll"
+			data-bs-target="#navbar-scrollspy"
+			data-bs-offset="200"
+			tabIndex={0}
+		>
 				<Banner 
 					title={t('banner.title')} 
 					description={t('banner.sub')} 
@@ -164,10 +157,8 @@ export default function Pricing() {
 
 				<FAQ/>
 
-			
-			</div>
 				<NewsletterSection/>
 		</main> 
-</>		
+	</>		
   );
 }

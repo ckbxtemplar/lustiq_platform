@@ -25,7 +25,7 @@ export default function SzexplicitRecommendation({version = 'pricing'}) {
 	}
 
 	return (
-		<section className="popular_event_section section_space_lg pb-0 bg_light decoration_wrap">
+		<section className="popular_event_section section_space_lg pb-0 bg_light decoration_wrap" id="section_szexplicit">
 			<div className="container">
 				<div className="row align-items-top">
 					<div className="col col-lg-6 section_heading">		

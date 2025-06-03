@@ -7,7 +7,7 @@ export default function FAQ() {
 	const t = useTranslations('pages.faq');
 
   return (
-	<section className="faq_section section_space_lg">
+	<section className="faq_section section_space_lg" id="section_faq">
 		<div className="container">
 			<div className="section_heading text-center mb-3">
 				<div className="row justify-content-center">

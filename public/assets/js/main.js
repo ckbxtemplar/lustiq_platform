@@ -10,6 +10,9 @@
 (function($) {
   "use strict";
 
+	var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+		target: '#navbar-scrollspy'
+	})	
   // Vanilla Calendar - Start
   // --------------------------------------------------
   document.addEventListener('DOMContentLoaded', () => {
