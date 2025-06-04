@@ -6,13 +6,166 @@ import * as CookieConsent from "vanilla-cookieconsent";
 import {useLocale} from 'next-intl';
 import { usePathname } from 'next/navigation';
 
+const GA_MEASUREMENT_ID = 'G-HB1VJFF3ED';
+
 const ScriptLoader: React.FC = () => {
 
 	const locale = useLocale();
   const pathname = usePathname();
   const [scriptKey, setScriptKey] = useState(0);
-
+  const [gtagLoaded, setGtagLoaded] = useState(false);
   const isFirstLoad = useRef(true);
+
+  // 1. Inicializáljuk a Google Consent Mode-ot alapból denegált állapotra
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'denied',
+    });
+
+    window.gtag = gtag;
+  }, []);
+
+  // 2. CookieConsent futtatása a popup konfigurációddal
+  useEffect(() => {
+    const CAT_NECESSARY = 'necessary';
+    const CAT_ANALYTICS = 'analytics';
+
+    CookieConsent.run({
+      categories: {
+        [CAT_NECESSARY]: { enabled: true, readOnly: true },
+        [CAT_ANALYTICS]: {
+          autoClear: {
+            cookies: [
+              { name: /^_ga/ },
+              { name: '_gid' }
+            ]
+          },
+          services: {
+            analytics_storage: {
+              label: 'Analytics cookie-k tárolása (pl. látogatottság)'
+            }
+          }
+        }
+      },
+			language: {
+					default: locale,
+					translations: {
+							en: {
+									consentModal: {
+											title: 'We use cookies',
+											description: 'Cookie modal description',
+											acceptAllBtn: 'Accept all',
+											acceptNecessaryBtn: 'Reject all',
+											showPreferencesBtn: 'Manage Individual preferences'
+									},
+									preferencesModal: {
+											title: 'Manage cookie preferences',
+											acceptAllBtn: 'Accept all',
+											acceptNecessaryBtn: 'Reject all',
+											savePreferencesBtn: 'Accept current selection',
+											closeIconLabel: 'Close modal',
+											sections: [
+													{
+															title: 'Somebody said ... cookies?',
+															description: 'I want one!'
+													},
+													{
+															title: 'Strictly Necessary cookies',
+															description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+															linkedCategory: 'necessary'
+													},
+													{
+															title: 'Performance and Analytics',
+															description: 'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
+															linkedCategory: 'analytics'
+													},
+													{
+															title: 'More information',
+															description: 'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
+													}
+											]
+									}
+							},
+							hu: {
+									consentModal: {
+											title: 'Maradjon a Lustiq Lab olyan, amilyennek megismerted – beleegyezéssel, természetesen!',
+											description: 'Sütiket és hasonló technológiákat használunk a felhasználói élmény javítása érdekében, de NÁLUNK A NEM AZ NEM – nemcsak a hálószobában, hanem a böngészőben is. A „Beleegyezek” gombra kattintva hozzájárulsz ahhoz, hogy ezeket analitikai, marketing és külső tartalom céljából használjuk. Ha inkább nem, válaszd a „Csak a legszükségesebbeket” opciót, és mi tiszteletben tartjuk a döntésed.',
+											acceptAllBtn: 'Mindenbe beleegyezek',
+											acceptNecessaryBtn: 'Csak a szükséges',
+											showPreferencesBtn: 'Egyéni beállítások kezelése'
+									},
+									preferencesModal: {
+											title: 'Sütibeállítások kezelése',
+											acceptAllBtn: 'Mindent elfogadok',
+											acceptNecessaryBtn: 'Csak a szükségeseket engedélyezem',
+											savePreferencesBtn: 'Aktuális beállítások elfogadása',
+											closeIconLabel: 'A beállítási ablak bezárása',
+											sections: [
+													{
+															title: 'Valaki sütit említett?',
+															description: 'Kérek egyet!'
+													},
+													{
+															title: 'Szigorúan szükséges sütik',
+															description: 'Ezek a sütik elengedhetetlenek a weboldal megfelelő működéséhez, és nem tilthatók le.',
+															linkedCategory: 'necessary'
+													},
+													{
+															title: 'Teljesítmény és analitika',
+															description: 'Ezek a sütik információkat gyűjtenek arról, hogyan használod a weboldalt. Az adatok anonim módon kerülnek rögzítésre, és nem alkalmasak azonosításra.',
+															linkedCategory: 'analytics'
+													},
+													{
+															title: 'További információ',
+															description: 'Ha kérdésed van a sütikkel kapcsolatos irányelveinkkel vagy választásaiddal kapcsolatban, kérlek <a href="#contact-page">lépj velünk kapcsolatba</a>.'
+													}
+											]
+									}
+							}
+					}
+			},
+      onFirstConsent: updateConsent,
+      onConsent: updateConsent,
+      onChange: updateConsent,
+    });
+
+    function updateConsent() {
+			console.log('Cookie consent updated');
+      window.gtag('consent', 'update', {
+        analytics_storage: CookieConsent.acceptedCategory(CAT_ANALYTICS) ? 'granted' : 'denied',
+        ad_storage: 'denied', // nincs inline reklám itt
+        functionality_storage: CookieConsent.acceptedCategory(CAT_NECESSARY) ? 'granted' : 'denied'
+      });
+      
+      if (CookieConsent.acceptedCategory(CAT_ANALYTICS) && !gtagLoaded) {
+        loadGtag();
+      }
+    }
+
+    function loadGtag() {
+			console.log('Loading Google Analytics script...');
+      const script = document.createElement('script');
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      script.async = true;
+      script.onload = () => {
+        window.gtag('js', new Date());
+        window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+        setGtagLoaded(true);
+      };
+      document.head.appendChild(script);
+    }
+  }, [locale, gtagLoaded]);
+
+
 
   useEffect(() => {
     if (isFirstLoad.current) {
@@ -40,6 +193,9 @@ const ScriptLoader: React.FC = () => {
     };
   }, [pathname]);
 
+
+	
+	
 	useEffect(() => {
 			CookieConsent.run({
 				categories: {
