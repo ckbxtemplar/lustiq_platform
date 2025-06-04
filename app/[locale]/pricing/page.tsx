@@ -32,7 +32,7 @@ export default function Pricing() {
   return (
 		<>
 
-		<ScrollspyPricing />
+		{/* <ScrollspyPricing /> */}
 
 		<main
 			className="page_content section_space_lg mb-0 pb-0 scrollspy-container"

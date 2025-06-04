@@ -3184,16 +3184,18 @@ blockquote p {
   left: 0;
   right: 0;
   z-index: 99;
-  padding: 44px 0;
   position: absolute;
   -webkit-transition: padding 0.3s;
   transition: padding 0.3s;
 }
+
 .site_header .container {
   max-width: 1430px;
+  padding: 20px 0px 44px 0px;	
+  -webkit-transition: background-color 0.3s ease-in, padding 0.3s;
+  transition: background-color 0.3s ease-in, padding 0.3s;	
 }
 .site_header.sticky {
-  padding: 10px 0;
   position: fixed;
   background-color: rgba(255, 255, 255, 0.96);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -3203,7 +3205,9 @@ blockquote p {
   -webkit-transition: background-color 0.3s ease-in, padding 0.3s;
   transition: background-color 0.3s ease-in, padding 0.3s;
 }
-
+.site_header.sticky .container {
+  padding: 10px 0;
+}
 .main_menu {
   padding: 0;
 }
@@ -4369,7 +4373,7 @@ Responsive For Mobile & Tablet Devices
             justify-content: center;
   }
   .hero_banner .banner_image_2 {
-		min-height:180px;
+		min-height:300px;
     margin: 20px auto auto;
   }
   .banner_image_2 .image_wrap_1 {
@@ -4618,20 +4622,20 @@ Responsive For Mobile & Tablet Devices
   .banner_image_2 .image_wrap_1 {
 		top: -70px;
 		left: 20%;
-		max-width: 340px;
+		max-width: 300px;
   }
   .banner_image_2 .image_wrap_2 {
-		max-width: 180px;		
+		max-width: 150px;		
 		top: 20px;
 		left: 0%;
   }
   .banner_image_2 .image_wrap_3 {
-		max-width: 180px;				
+		max-width: 150px;				
 		top: 100px;
 		left: 40%;
   }
   .banner_image_2 .image_wrap_4 {
-		max-width: 180px;				
+		max-width: 150px;				
 		top: 180px;
 		left: 10%;
   }
@@ -4872,20 +4876,20 @@ Responsive For Mobile & Tablet Devices
   .banner_image_2 .image_wrap_1 {
 		top: -70px;
 		left: 20%;
-		max-width: 340px;
+		max-width: 300px;
   }
   .banner_image_2 .image_wrap_2 {
-		max-width: 180px;		
+		max-width: 150px;		
 		top: 20px;
 		left: 0%;
   }
   .banner_image_2 .image_wrap_3 {
-		max-width: 180px;				
+		max-width: 150px;				
 		top: 100px;
 		left: 40%;
   }
   .banner_image_2 .image_wrap_4 {
-		max-width: 180px;				
+		max-width: 150px;				
 		top: 180px;
 		left: 10%;
   }

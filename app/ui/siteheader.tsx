@@ -6,6 +6,7 @@ import Image from 'next/image';
 import SiteHeaderUser from './siteheaderuser';
 import SiteHeaderMenu from './siteheadermenu';
 import SiteHeaderLanguageSelect from './siteheaderlanguageselect';
+import ScrollspyPricing from '@/components/scrollspy-pricing';
 
 
 export default function SiteHeader() {
@@ -13,11 +14,14 @@ export default function SiteHeader() {
 	const countPathParts = pathname.split("/").filter(Boolean);
 	const headerClass = countPathParts.length === 1 || countPathParts.includes("soon") ? "site_header_2" : "site_header_1";
 	const isDashboard = countPathParts.length > 0 && countPathParts[1] === 'dashboard';
+	const isPricing = countPathParts.length > 0 && countPathParts.includes("pricing") ? true : false;
 
   return (		
 		<header className={`site_header sticky ${headerClass}`}>
+		{ isPricing ? <ScrollspyPricing /> : '' }
 		<div className="container">
 			<div className="row align-items-center">
+				
 				<div className="col-auto">
 					<div className="site_logo">
 						<Link className="site_link align-middle me-4 py-4" href="/">

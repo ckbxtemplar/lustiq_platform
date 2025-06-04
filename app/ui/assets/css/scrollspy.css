@@ -1,58 +1,40 @@
 #navbar-scrollspy {
-  width: fit-content;
-  margin-left: 8px;
-  position: fixed;
-  top: 100px;
-  left: 0;
-  padding-left: 1rem;
+  width: 100%;
+	display: block;
+	background-color: #fa2243;
 }
 
 #navbar-scrollspy .nav {
-  position: relative;
-  padding-left: 15px; /* hely a csíknak */
-}
-
-#navbar-scrollspy .nav::before {
-  content: '';
-  position: absolute;
-  top: 8px; /* az első gömb középvonala */
-  bottom: 8px; /* az utolsó gömb középvonala */
-  left: 0;
-  width: 4px;
-  background-color: #fa2243;
-  z-index: 0;
+	align-content: center;
+	justify-content: space-around;
+	align-items: center;
 }
 
 #navbar-scrollspy .nav-link {
-  position: relative;
-  margin: 0;
-  color: black;
-  text-decoration: none;
-  line-height: 24px;
-  font-size: 12px;
-  padding-left: 8px; /* hogy a gömb ne fedje le a szöveget */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  color: #facdd3;
+	opacity: 1;
+  font-size: 13px;
   z-index: 1;
-	font-weight: 100;
+	font-weight: 400;
+	padding: 0px;
+	margin: 0px;
 }
 #navbar-scrollspy .nav-link i {
 	opacity: 1;
-	transition: opacity 0.5s ease, transform 0.5s ease;
-	/* display: inline-block; */
+	transition: opacity 0.4s ease, transform 0.4s ease;
 }
 #navbar-scrollspy .nav-link.active {
-  color: white;
-  background-color: #fa2243;
+	background-color: unset;
+	opacity: 1;
+	color:white;
+	font-weight: 600;
 }
-#navbar-scrollspy .nav-link.active ~ a i {
+#navbar-scrollspy .nav-link.active ~ a{
+	color:white;
+	opacity: 0.6;
+	font-weight: 300;
+}
+#navbar-scrollspy .nav-link.active ~ a i {	
   opacity: 0;
-}
-#navbar-scrollspy .nav::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 0;
-  width: 4px;
-  height: calc(100% - 16px); /* vonal csak a pöttyök között */
-  background-color: #fa2243;
-  z-index: 0;
 }
