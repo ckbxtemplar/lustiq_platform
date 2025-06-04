@@ -22,51 +22,44 @@ const SERVICE_FUNCTIONALITY_STORAGE = 'functionality_storage'
 const SERVICE_PERSONALIZATION_STORAGE = 'personalization_storage'
 const SERVICE_SECURITY_STORAGE = 'security_storage'
 
-declare global {
-  interface Window {
-    dataLayer: any[];
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 const ScriptLoader: React.FC = () => {
-
 
 	const locale = useLocale();
   const pathname = usePathname();
   const isFirstLoad = useRef(true);
 
 	function updateGtagConsent() {
-		console.log("Updating Google Consent Mode with CookieConsent settings");
+		console.log("Updating Google Consent Mode with CookieConsent...");
 
-		window.gtag('consent', 'update', {
-				[SERVICE_ANALYTICS_STORAGE]: CookieConsent.acceptedService(SERVICE_ANALYTICS_STORAGE, CAT_ANALYTICS) ? 'granted' : 'denied',
-				[SERVICE_AD_STORAGE]: CookieConsent.acceptedService(SERVICE_AD_STORAGE, CAT_ADVERTISEMENT) ? 'granted' : 'denied',
-				[SERVICE_AD_USER_DATA]: CookieConsent.acceptedService(SERVICE_AD_USER_DATA, CAT_ADVERTISEMENT) ? 'granted' : 'denied',
-				[SERVICE_AD_PERSONALIZATION]: CookieConsent.acceptedService(SERVICE_AD_PERSONALIZATION, CAT_ADVERTISEMENT) ? 'granted' : 'denied',
-				[SERVICE_FUNCTIONALITY_STORAGE]: CookieConsent.acceptedService(SERVICE_FUNCTIONALITY_STORAGE, CAT_FUNCTIONALITY) ? 'granted' : 'denied',
-				[SERVICE_PERSONALIZATION_STORAGE]: CookieConsent.acceptedService(SERVICE_PERSONALIZATION_STORAGE, CAT_FUNCTIONALITY) ? 'granted' : 'denied',
-				[SERVICE_SECURITY_STORAGE]: CookieConsent.acceptedService(SERVICE_SECURITY_STORAGE, CAT_SECURITY) ? 'granted' : 'denied',
-		});
+		const cc = CookieConsent.getUserPreferences();
+		if (!cc) {
+			console.warn("No CookieConsent preferences found.");
+			return;
+		}
+
+		const grantedCategories = cc.acceptedCategories;
+
+		const isGranted = (category: string) => grantedCategories.includes(category);
+
+		const consentObject: Record<string, string> = {
+			[SERVICE_AD_STORAGE]: isGranted(CAT_ADVERTISEMENT) ? "granted" : "denied",
+			[SERVICE_AD_USER_DATA]: isGranted(CAT_ADVERTISEMENT) ? "granted" : "denied",
+			[SERVICE_AD_PERSONALIZATION]: isGranted(CAT_ADVERTISEMENT) ? "granted" : "denied",
+			[SERVICE_ANALYTICS_STORAGE]: isGranted(CAT_ANALYTICS) ? "granted" : "denied",
+			[SERVICE_FUNCTIONALITY_STORAGE]: isGranted(CAT_FUNCTIONALITY) ? "granted" : "denied",
+			[SERVICE_PERSONALIZATION_STORAGE]: isGranted(CAT_FUNCTIONALITY) ? "granted" : "denied",
+			[SERVICE_SECURITY_STORAGE]: isGranted(CAT_SECURITY) ? "granted" : "denied"
+		};
+
+		console.log("Sending to gtag consent object:", consentObject);
+
+		if (window.gtag) {
+			window.gtag('consent', 'update', consentObject);
+		} else {
+			console.warn("gtag is not defined yet.");
+		}
 	}
 
-  // 1. Google Consent Mode: alap denegálás
-  useEffect(() => {
-		console.log("Initializing Google Consent Mode ");
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = (...args: any[]) => window.dataLayer.push(args);
-
-    window.gtag('consent', 'default', {
-			[SERVICE_AD_STORAGE]: 'denied',
-			[SERVICE_AD_USER_DATA]: 'denied',
-			[SERVICE_AD_PERSONALIZATION]: 'denied',
-			[SERVICE_ANALYTICS_STORAGE]: 'denied',
-			[SERVICE_FUNCTIONALITY_STORAGE]: 'denied',
-			[SERVICE_PERSONALIZATION_STORAGE]: 'denied',
-			[SERVICE_SECURITY_STORAGE]: 'denied',
-    });
-  }, []);
 
   // 2. CookieConsent futtatása a popup konfigurációddal
   useEffect(() => {
@@ -257,7 +250,7 @@ const ScriptLoader: React.FC = () => {
 	// 3. main.js reinitialization on route change
   useEffect(() => {
 		console.log("Route changed, reloading main.js script");
-		
+
     if (isFirstLoad.current) {
       // Ez az első betöltés, nem csinálunk semmit, mert Next.js már betöltötte a scriptet
       isFirstLoad.current = false;
@@ -283,111 +276,6 @@ const ScriptLoader: React.FC = () => {
     };
   }, [pathname]);
 
-
-	
-	
-	useEffect(() => {
-			CookieConsent.run({
-				categories: {
-						necessary: {
-								enabled: true,  // this category is enabled by default
-								readOnly: true  // this category cannot be disabled
-						},
-						analytics: {}
-				},
-				guiOptions: {
-						consentModal: {
-								layout: "box wide",
-								position: "bottom center",
-								equalWeightButtons: true,
-								flipButtons: false
-						},
-						preferencesModal: {
-								layout: "box",
-								position: "right",
-								equalWeightButtons: true,
-								flipButtons: false
-						}
-				},
-				language: {
-						default: locale,
-						translations: {
-								en: {
-										consentModal: {
-												title: 'We use cookies',
-												description: 'Cookie modal description',
-												acceptAllBtn: 'Accept all',
-												acceptNecessaryBtn: 'Reject all',
-												showPreferencesBtn: 'Manage Individual preferences'
-										},
-										preferencesModal: {
-												title: 'Manage cookie preferences',
-												acceptAllBtn: 'Accept all',
-												acceptNecessaryBtn: 'Reject all',
-												savePreferencesBtn: 'Accept current selection',
-												closeIconLabel: 'Close modal',
-												sections: [
-														{
-																title: 'Somebody said ... cookies?',
-																description: 'I want one!'
-														},
-														{
-																title: 'Strictly Necessary cookies',
-																description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
-																linkedCategory: 'necessary'
-														},
-														{
-																title: 'Performance and Analytics',
-																description: 'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
-																linkedCategory: 'analytics'
-														},
-														{
-																title: 'More information',
-																description: 'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
-														}
-												]
-										}
-								},
-								hu: {
-										consentModal: {
-												title: 'Maradjon a Lustiq Lab olyan, amilyennek megismerted – beleegyezéssel, természetesen!',
-												description: 'Sütiket és hasonló technológiákat használunk a felhasználói élmény javítása érdekében, de NÁLUNK A NEM AZ NEM – nemcsak a hálószobában, hanem a böngészőben is. A „Beleegyezek” gombra kattintva hozzájárulsz ahhoz, hogy ezeket analitikai, marketing és külső tartalom céljából használjuk. Ha inkább nem, válaszd a „Csak a legszükségesebbeket” opciót, és mi tiszteletben tartjuk a döntésed.',
-												acceptAllBtn: 'Mindenbe beleegyezek',
-												acceptNecessaryBtn: 'Csak a szükséges',
-												showPreferencesBtn: 'Egyéni beállítások kezelése'
-										},
-										preferencesModal: {
-												title: 'Sütibeállítások kezelése',
-												acceptAllBtn: 'Mindent elfogadok',
-												acceptNecessaryBtn: 'Csak a szükségeseket engedélyezem',
-												savePreferencesBtn: 'Aktuális beállítások elfogadása',
-												closeIconLabel: 'A beállítási ablak bezárása',
-												sections: [
-														{
-																title: 'Valaki sütit említett?',
-																description: 'Kérek egyet!'
-														},
-														{
-																title: 'Szigorúan szükséges sütik',
-																description: 'Ezek a sütik elengedhetetlenek a weboldal megfelelő működéséhez, és nem tilthatók le.',
-																linkedCategory: 'necessary'
-														},
-														{
-																title: 'Teljesítmény és analitika',
-																description: 'Ezek a sütik információkat gyűjtenek arról, hogyan használod a weboldalt. Az adatok anonim módon kerülnek rögzítésre, és nem alkalmasak azonosításra.',
-																linkedCategory: 'analytics'
-														},
-														{
-																title: 'További információ',
-																description: 'Ha kérdésed van a sütikkel kapcsolatos irányelveinkkel vagy választásaiddal kapcsolatban, kérlek <a href="#contact-page">lépj velünk kapcsolatba</a>.'
-														}
-												]
-										}
-								}
-						}
-				}				
-			});
-	}, []);	
 
   return (
 		<>

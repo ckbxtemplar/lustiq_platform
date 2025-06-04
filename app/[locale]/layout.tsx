@@ -8,6 +8,7 @@ import SiteHeader from '@/app/ui/siteheader';
 import Footer from '@/app/ui/footer';
 import { Providers } from '@/app/lib/providers';
 import GlobalMessageHandler from '@/app/ui/global-message-handler';
+import AnalyticsScripts from '@/app/ui/analytics-scripts';
 import Script from 'next/script'
 
  
@@ -35,22 +36,35 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-HB1VJFF3ED"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-HB1VJFF3ED');
-            `,
-          }}
-        />			
+
+				<Script id="gtag-init" strategy="beforeInteractive">
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('consent', 'default', {
+							'ad_storage': 'denied',
+							'ad_user_data': 'denied',
+							'ad_personalization': 'denied',
+							'analytics_storage': 'denied',
+							'functionality_storage': 'denied',
+							'personalization_storage': 'denied',
+							'security_storage': 'denied'
+						});
+					`}
+				</Script>
+
+				<Script
+					src="https://www.googletagmanager.com/gtag/js?id=G-HB1VJFF3ED"
+					strategy="beforeInteractive"
+				/>
+				<Script id="gtag-config" strategy="beforeInteractive">
+					{`
+						gtag('js', new Date());
+						gtag('config', 'G-HB1VJFF3ED');
+					`}
+				</Script>
+
+
 				<Script id="gtm-head" strategy="afterInteractive">
 					{`
 						(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
