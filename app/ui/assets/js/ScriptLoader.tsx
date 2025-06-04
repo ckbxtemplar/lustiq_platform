@@ -8,6 +8,13 @@ import { usePathname } from 'next/navigation';
 
 const GA_MEASUREMENT_ID = 'G-HB1VJFF3ED';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 const ScriptLoader: React.FC = () => {
 
 	const locale = useLocale();
@@ -16,45 +23,33 @@ const ScriptLoader: React.FC = () => {
   const [gtagLoaded, setGtagLoaded] = useState(false);
   const isFirstLoad = useRef(true);
 
-  // 1. Inicializáljuk a Google Consent Mode-ot alapból denegált állapotra
+  // 1. Google Consent Mode: alap denegálás
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(args);
-    }
+    window.gtag = (...args: any[]) => window.dataLayer.push(args);
 
-    gtag('consent', 'default', {
+    window.gtag('consent', 'default', {
       ad_storage: 'denied',
       analytics_storage: 'denied',
       functionality_storage: 'denied',
       personalization_storage: 'denied',
       security_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
     });
-
-    window.gtag = gtag;
   }, []);
 
   // 2. CookieConsent futtatása a popup konfigurációddal
   useEffect(() => {
     const CAT_NECESSARY = 'necessary';
     const CAT_ANALYTICS = 'analytics';
+    const CAT_ADS = 'ads';
 
     CookieConsent.run({
       categories: {
         [CAT_NECESSARY]: { enabled: true, readOnly: true },
-        [CAT_ANALYTICS]: {
-          autoClear: {
-            cookies: [
-              { name: /^_ga/ },
-              { name: '_gid' }
-            ]
-          },
-          services: {
-            analytics_storage: {
-              label: 'Analytics cookie-k tárolása (pl. látogatottság)'
-            }
-          }
-        }
+        [CAT_ANALYTICS]: { readOnly: false },
+        [CAT_ADS]: { readOnly: false }
       },
 			language: {
 					default: locale,
@@ -140,11 +135,21 @@ const ScriptLoader: React.FC = () => {
 
     function updateConsent() {
 			console.log('Cookie consent updated');
-      window.gtag('consent', 'update', {
-        analytics_storage: CookieConsent.acceptedCategory(CAT_ANALYTICS) ? 'granted' : 'denied',
-        ad_storage: 'denied', // nincs inline reklám itt
-        functionality_storage: CookieConsent.acceptedCategory(CAT_NECESSARY) ? 'granted' : 'denied'
-      });
+      const analytics = CookieConsent.acceptedCategory(CAT_ANALYTICS);
+      const ads = CookieConsent.acceptedCategory(CAT_ADS);			
+      window.gtag!(
+        'consent',
+        'update',
+        {
+          ad_storage: ads ? 'granted' : 'denied',
+          analytics_storage: analytics ? 'granted' : 'denied',
+          functionality_storage: CookieConsent.acceptedCategory(CAT_NECESSARY) ? 'granted' : 'denied',
+          personalization_storage: ads ? 'granted' : 'denied',
+          security_storage: CookieConsent.acceptedCategory(CAT_NECESSARY) ? 'granted' : 'denied',
+          ad_user_data: ads ? 'granted' : 'denied',
+          ad_personalization: ads ? 'granted' : 'denied'
+        }
+      );
       
       if (CookieConsent.acceptedCategory(CAT_ANALYTICS) && !gtagLoaded) {
         loadGtag();
