@@ -8,7 +8,6 @@ import SiteHeader from '@/app/ui/siteheader';
 import Footer from '@/app/ui/footer';
 import { Providers } from '@/app/lib/providers';
 import GlobalMessageHandler from '@/app/ui/global-message-handler';
-import AnalyticsScripts from '@/app/ui/analytics-scripts';
 import Script from 'next/script'
 
  
@@ -45,10 +44,7 @@ export default async function RootLayout({
 							'ad_storage': 'denied',
 							'ad_user_data': 'denied',
 							'ad_personalization': 'denied',
-							'analytics_storage': 'denied',
-							'functionality_storage': 'denied',
-							'personalization_storage': 'denied',
-							'security_storage': 'denied'
+							'analytics_storage': 'denied'
 						});
 					`}
 				</Script>
@@ -65,7 +61,7 @@ export default async function RootLayout({
 				</Script>
 
 
-				<Script id="gtm-head" strategy="afterInteractive">
+				{/* <Script id="gtm-head" strategy="afterInteractive">
 					{`
 						(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 						new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -73,18 +69,18 @@ export default async function RootLayout({
 						'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 						})(window,document,'script','dataLayer','GTM-5CVV86J9');
 					`}
-				</Script>				
+				</Script>				 */}
       </head>
     	<body className={`${roboto.className} antialiased`} >	
 
-        <div
+        {/* <div
           dangerouslySetInnerHTML={{
             __html: `
               <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CVV86J9"
               height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             `,
           }}
-        />
+        /> */}
 				<div className='page-wrapper'>
 						<BackToTop/>
 						<Providers locale={locale} dictionary={dictionary}>						

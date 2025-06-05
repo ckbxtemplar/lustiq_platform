@@ -11,16 +11,16 @@ const GA_MEASUREMENT_ID = 'G-HB1VJFF3ED';
 const CAT_NECESSARY = "necessary";
 const CAT_ANALYTICS = "analytics";
 const CAT_ADVERTISEMENT = "advertisement";
-const CAT_FUNCTIONALITY = "functionality";
-const CAT_SECURITY = "security";
+// const CAT_FUNCTIONALITY = "functionality";
+// const CAT_SECURITY = "security";
 
 const SERVICE_AD_STORAGE = 'ad_storage'
 const SERVICE_AD_USER_DATA = 'ad_user_data'
 const SERVICE_AD_PERSONALIZATION = 'ad_personalization'
 const SERVICE_ANALYTICS_STORAGE = 'analytics_storage'
-const SERVICE_FUNCTIONALITY_STORAGE = 'functionality_storage'
-const SERVICE_PERSONALIZATION_STORAGE = 'personalization_storage'
-const SERVICE_SECURITY_STORAGE = 'security_storage'
+// const SERVICE_FUNCTIONALITY_STORAGE = 'functionality_storage'
+// const SERVICE_PERSONALIZATION_STORAGE = 'personalization_storage'
+// const SERVICE_SECURITY_STORAGE = 'security_storage'
 
 const ScriptLoader: React.FC = () => {
 
@@ -45,10 +45,10 @@ const ScriptLoader: React.FC = () => {
 			[SERVICE_AD_STORAGE]: isGranted(CAT_ADVERTISEMENT) ? "granted" : "denied",
 			[SERVICE_AD_USER_DATA]: isGranted(CAT_ADVERTISEMENT) ? "granted" : "denied",
 			[SERVICE_AD_PERSONALIZATION]: isGranted(CAT_ADVERTISEMENT) ? "granted" : "denied",
-			[SERVICE_ANALYTICS_STORAGE]: isGranted(CAT_ANALYTICS) ? "granted" : "denied",
-			[SERVICE_FUNCTIONALITY_STORAGE]: isGranted(CAT_FUNCTIONALITY) ? "granted" : "denied",
-			[SERVICE_PERSONALIZATION_STORAGE]: isGranted(CAT_FUNCTIONALITY) ? "granted" : "denied",
-			[SERVICE_SECURITY_STORAGE]: isGranted(CAT_SECURITY) ? "granted" : "denied"
+			[SERVICE_ANALYTICS_STORAGE]: isGranted(CAT_ANALYTICS) ? "granted" : "denied"
+			// [SERVICE_FUNCTIONALITY_STORAGE]: isGranted(CAT_FUNCTIONALITY) ? "granted" : "denied",
+			// [SERVICE_PERSONALIZATION_STORAGE]: isGranted(CAT_FUNCTIONALITY) ? "granted" : "denied",
+			// [SERVICE_SECURITY_STORAGE]: isGranted(CAT_SECURITY) ? "granted" : "denied"
 		};
 
 		console.log("Sending to gtag consent object:", consentObject);
@@ -81,16 +81,16 @@ const ScriptLoader: React.FC = () => {
 							readOnly: true,  // this category cannot be disabled
 					},
 					[CAT_ANALYTICS]: {
-							autoClear: {
-									cookies: [
-											{
-													name: /^_ga/,   // regex: match all cookies starting with '_ga'
-											},
-											{
-													name: '_gid',   // string: exact cookie name
-											}
-									]
-							},
+							// autoClear: {
+							// 		cookies: [
+							// 				{
+							// 						name: /^_ga/,   // regex: match all cookies starting with '_ga'
+							// 				},
+							// 				{
+							// 						name: '_gid',   // string: exact cookie name
+							// 				}
+							// 		]
+							// },
 							services: {
 									[SERVICE_ANALYTICS_STORAGE]: {
 											label: 'Enables storage (such as cookies) related to analytics e.g. visit duration.',
@@ -110,23 +110,23 @@ const ScriptLoader: React.FC = () => {
 									},
 							}
 					},
-					[CAT_FUNCTIONALITY]: {
-							services: {
-									[SERVICE_FUNCTIONALITY_STORAGE]: {
-											label: 'Enables storage that supports the functionality of the website or app e.g. language settings.',
-									},
-									[SERVICE_PERSONALIZATION_STORAGE]: {
-											label: 'Enables storage related to personalization e.g. video recommendations.',
-									},
-							}
-					},
-					[CAT_SECURITY]: {
-							services: {
-									[SERVICE_SECURITY_STORAGE]: {
-											label: 'Enables storage related to security such as authentication functionality, fraud prevention, and other user protection.',
-									},
-							}
-					}
+					// [CAT_FUNCTIONALITY]: {
+					// 		services: {
+					// 				[SERVICE_FUNCTIONALITY_STORAGE]: {
+					// 						label: 'Enables storage that supports the functionality of the website or app e.g. language settings.',
+					// 				},
+					// 				[SERVICE_PERSONALIZATION_STORAGE]: {
+					// 						label: 'Enables storage related to personalization e.g. video recommendations.',
+					// 				},
+					// 		}
+					// },
+					// [CAT_SECURITY]: {
+					// 		services: {
+					// 				[SERVICE_SECURITY_STORAGE]: {
+					// 						label: 'Enables storage related to security such as authentication functionality, fraud prevention, and other user protection.',
+					// 				},
+					// 		}
+					// }
 			},			
 			language: {
 					default: locale,
@@ -223,16 +223,16 @@ const ScriptLoader: React.FC = () => {
 															description: 'Google uses cookies for advertising, including serving and rendering ads, personalizing ads (depending on your ad settings at <a href=\"https://g.co/adsettings\">g.co/adsettings</a>), limiting the number of times an ad is shown to a user, muting ads you have chosen to stop seeing, and measuring the effectiveness of ads.',
 															linkedCategory: CAT_ADVERTISEMENT,
 													},
-													{
-															title: 'Functionality',
-															description: 'Cookies used for functionality allow users to interact with a service or site to access features that are fundamental to that service. Things considered fundamental to the service include preferences like the user’s choice of language, product optimizations that help maintain and improve a service, and maintaining information relating to a user’s session, such as the content of a shopping cart.',
-															linkedCategory: CAT_FUNCTIONALITY,
-													},
-													{
-															title: 'Security',
-															description: 'Cookies used for security authenticate users, prevent fraud, and protect users as they interact with a service.',
-															linkedCategory: CAT_SECURITY,
-													},
+													// {
+													// 		title: 'Functionality',
+													// 		description: 'Cookies used for functionality allow users to interact with a service or site to access features that are fundamental to that service. Things considered fundamental to the service include preferences like the user’s choice of language, product optimizations that help maintain and improve a service, and maintaining information relating to a user’s session, such as the content of a shopping cart.',
+													// 		linkedCategory: CAT_FUNCTIONALITY,
+													// },
+													// {
+													// 		title: 'Security',
+													// 		description: 'Cookies used for security authenticate users, prevent fraud, and protect users as they interact with a service.',
+													// 		linkedCategory: CAT_SECURITY,
+													// },
 													{
 															title: 'More information',
 															description: 'For any queries in relation to the policy on cookies and your choices, please <a href="https://www.example.com/contacts">contact us</a>.'
