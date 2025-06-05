@@ -1804,11 +1804,15 @@ blockquote p {
   color: #D2D2D2;
 }
 .hero_banner .banner_big_title {
-  font-size: 65px;
+  font-size: 60px;
   font-weight: 800;
-  line-height: 68px;
-  color: #ffffff;
-  margin-bottom: 20px;
+  line-height: 62px;
+}
+.hero_banner .banner_big2_title {
+	color:#3d3738;
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 47px;
 }
 .hero_banner .banner_description {
   font-size: 16px;

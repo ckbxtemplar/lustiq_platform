@@ -27,9 +27,12 @@ export default function HeroBanner({page = 'home'}) {
 				
 				<div className="col col-lg-7">
 					<div className="my-5 text-start">
-						<h1 className="text-black banner_big_title m-0">						
+						<h1 className="banner_big_title m-0 mb-2">						
 							{t('title')}
-						</h1>																	
+						</h1>		
+						<h2 className="banner_big2_title m-0">						
+							{t('title2')}
+						</h2>																							
 						<a href='#newsletter' className='btn btn_dark btn_small mt-3'><span><small>{t('ctaButton')}</small><small>{t('ctaButton')}</small></span></a>
 					</div>
 					<div className="my-5 text-end text-md-start">

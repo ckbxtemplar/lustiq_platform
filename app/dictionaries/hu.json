@@ -42,18 +42,18 @@
 				
 				"o1t":"Biztonságos, ítélkezésmentes tér önmagad felfedezéséhez",
 				"o1d":"A Lab olyan közeg, ahol tabuk nélkül kapcsolódhatsz a testedhez, vágyaidhoz, identitásodhoz.",
-				"o1s":"Nem számít, honnan jössz – itt önazonosan lehetsz jelen.",
+				"o1s":"Nem számít, honnan jössz, itt önazonosan lehetsz jelen.",
 
 				"o2t":"Hiteles, szakértők által vezetett kurzusok és gyakorlatok",
 				"o2d":"Minden tananyagot tapasztalt pszichológusok, szexuálterapeuták és önismereti szakemberek állítottak össze.",
 				"o2s":"Tartalom, amiben megbízhatsz, fejlődés, amit valóban érezhetsz.",
 
-				"o3t":"Valós, elfogadó közösség – valódi emberekkel",
+				"o3t":"Valós, elfogadó közösség, valódi emberekkel",
 				"o3d":"Egy támogató közösség, ahol megoszthatod, meghallgathatod, tanulhatsz mások tapasztalataiból.",
 				"o3s":"Egyedül indulsz, de nem leszel egyedül.",
 
 				"o4t":"Saját tempóban haladható, rugalmas önismereti út",
-				"o4d":"Nincsenek kötelező időpontok. Minden anyag újranézhető, elérhető akkor is, ha csak este 11-kor van időd.",
+				"o4d":"A fejlődés időpontját rugalmasan a saját életritmusodhoz alakíthatod.",
 				"o4s":"Szabadság, fejlődés közben is."
 
 			}
@@ -74,7 +74,7 @@
 		"whatsabout":{
 			"pricing":{
 				"title":"Miről szól a Lustiq Lab?",
-				"sub":"A Lab egyrészt egy gyakorlatorientált, folyamatosan bővülő online tudástár a szexualitás testi, lelki és kapcsolati oldaláról. Bárhol tartasz – alapok, vágykülönbség, haladó technikák – mindig találsz következő lépést.",
+				"sub":"A Lustiq Lab egyrészt egy gyakorlatorientált, folyamatosan bővülő online tudástár a szexualitás testi, lelki és kapcsolati oldaláról. Bárhol tartasz, mindig találsz következő lépést a szexuális jóllét fejlesztésének az útján. Másrészt ez egy támogató közösség, ahol megláthatod, hogy nem vagy egyedül. A zárt Facebook-csoportba és az online ­találkozókon erőt kaphatsz ahhoz, hogy felszabadult, örömteli és természetes hozzáállást alakíts ki a szexualitáshoz.",
 				"sub2":"Másrészt egy támogató közösség, ahol rájössz, hogy nem vagy egyedül. A zárt Facebook-csoportba és az online ­találkozókon erőt kaphatsz ahhoz, hogy felszabadult, örömteli szexuális életet alakíts ki.",
 				"btn":"Tovább a csatlakozáshoz",
 				"o11":"Exkluzív videós tartalmak",
@@ -91,7 +91,7 @@
 		"trusted":{
 			"title":"Miért bízhatsz bennünk?",
 			"sub":" – 3 pillér",
-			"desc":"A Lustiq Lab nem csupán egy szexedukációs platform – hanem egy megbízható, hiteles és gyakorlati tudásra épülő társad az intimitás fejlesztésében.",
+			"desc":"A Lustiq Lab nem csupán egy szexedukációs platform, hanem egy megbízható, hiteles és gyakorlati tudásra épülő társad az intimitás fejlesztésében.",
 			"subdesc":"Az alábbi három pillérre épül minden tartalmunk és szolgáltatásunk:",
 			"o1t":"Tudományosan megalapozott",
 			"o1d":"Szexuálpszichológusok, orvosok, manuálterapeuták készítik",
@@ -188,11 +188,11 @@
 		},
 		"soonEventsSection": {
 			"title":"Miért van szükség egy új szemléletre?",
-			"sub":"A szexualitásról szóló tudás és beszélgetés sokszor hiányos, elavult vagy egyszerűen tabusított. Mi abban hiszünk, hogy a szexuális jólét alapja az őszinte kommunikáció, a hiteles tudás és a támogatás. Ezek a pontok megmutatják, miért nem működik a régi rendszer — és miért jött létre a platformunk.",
+			"sub":"A szexualitásról szóló tudás és beszélgetés sokszor hiányos, elavult vagy egyszerűen tabusított. Mi abban hiszünk, hogy a szexuális jólét alapja az őszinte kommunikáció, a hiteles tudás és a gyakorlati alkalmazhatóság. Ezek a pontok megmutatják, miért nem működik a régi rendszer, és miért jött létre a platformunk.",
 			"points": {
 				"1":"Ha nincs rendben a szexuális egészségünk, az könnyen okozhat szorongást, feszültséget, és elveheti a kedvet a kapcsolatainktól is.",
-				"2":"A szexről még mindig nehéz nyíltan beszélni – sok a tabu, a félreértés, és a nézőpontok többsége csak a heteró világot tükrözi.",
-				"3":"Gyakori a teljesítménykényszer, a vágy hiánya vagy az érzelmi eltávolodás – de sokan mégsem mernek segítséget kérni.",
+				"2":"A szexről még mindig nehéz nyíltan beszélni. Sok a tabu, a félreértés, és a nézőpontok többsége csak a heteroszexuális világot tükrözi.",
+				"3":"Sokan tapasztalják a teljesítménykényszert, a vágy hiányát vagy az érzelmi eltávolodást, mégsem mernek segítséget kérni.",
 				"4":"A hagyományos szexuális felvilágosítás vagy túl száraz, vagy túl régi, vagy egyszerűen nem jut el hozzánk.",
 				"5":"Nincs olyan modern, személyre szabott és átfogó megoldás, ami egyszerre épít a tudományra, a lélektani tudásra és a technológiára."
 			}
@@ -525,7 +525,8 @@
 				"signout": "Kijelentkezés"
 			},
 			"heroSection": {
-				"title": "A szexualitás tanulható – biztonságos, hiteles szexedukáció neked.",
+				"title": "A szexualitás tanulható!",
+				"title2": "Biztonságos, hiteles szexedukáció neked.",
 				"subtitle": "Rövid, lényegre törő videók, hangalapú AI-coach és vezetett érzelemnapló segít, hogy a kíváncsiságodból azonnal használható tudás legyen.",
 				"subtitle2": "",
 				"ctaButton": "Feliratkozom a kedvezményre",
