@@ -27,7 +27,7 @@ export default async function SubscribeSuccessPage() {
 							</p>
 							<div className="register_form signup_login_form">
 								<div className="form_item m-0">
-									<SubscriptionStatus/>
+									<SubscriptionStatus  retry={true}/>
 								</div>
 							</div>
 						</div>

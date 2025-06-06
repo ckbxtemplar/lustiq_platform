@@ -33,7 +33,7 @@ export default function SiteHeaderUser() {
 										className="rounded-circle me-0 me-lg-2"
 									/>
 								) : (
-									<i className="fas fa-user-circle fa-2x me-2"></i>
+									<i className="fas fa-user-circle fa-2x me-2 text-red"></i>
 								)}
 								</button>
 							</Link>

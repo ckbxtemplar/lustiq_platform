@@ -23,15 +23,17 @@ export async function POST(req: NextRequest) {
   try {
     event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret)
   } catch (err: any) {
-    console.error(`❌ Webhook error: ${err.message}`)
+    console.error(`X Webhook error: ${err.message}`)
     return new Response(`Webhook Error: ${err.message}`, { status: 400 })
   }
 
   const payload = event.data.object as any
   const eventType = event.type
-  let userId: string | null = null
+ 
+	let userId: string | null = null
   let shouldLogFullPayload = false
 	let customerId: string | null = null
+	let subscriptionId: string | null = null
 	let status: string | null = null
 
   try {
@@ -52,6 +54,7 @@ export async function POST(req: NextRequest) {
 			{
         const subscription = payload as Stripe.Subscription
         customerId = subscription.customer as string
+				subscriptionId = subscription.id as string
 				status = subscription.status as string
         const customer = await stripe.customers.retrieve(customerId)
 				console.log('>> CUSTOMER: ',customer)
@@ -77,7 +80,7 @@ export async function POST(req: NextRequest) {
       }
 
       default:
-        console.log(`ℹ️ Nem kezelt esemény logolva: ${eventType}`)
+        console.log(`Nem kezelt esemény logolva: ${eventType}`)
     }
 
     await logStripeWebhookEvent(event.id, customerId, status, eventType, userId, shouldLogFullPayload ? payload : {})
@@ -93,11 +96,14 @@ export async function POST(req: NextRequest) {
         subscriber = 3
       } else if (eventType === 'checkout.session.completed' && status === 'complete') {
         subscriber = 2
-      }
+      } else if (eventType === 'customer.subscription.deleted' && status === 'canceled') {
+        subscriber = 4
+      }			
 
       await updateUser(userId, {
         subscriber,
-        ...(customerId ? { customer: customerId } : {}) // csak ha van customerId
+        ...(customerId ? { customer: customerId } : {}), // csak ha van customerId
+				...(subscriptionId ? { id_subscription: subscriptionId } : {})  // csak ha van subscriptionId
       })
     }
 

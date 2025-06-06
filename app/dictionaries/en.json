@@ -376,6 +376,7 @@
         "dashboard": "Dashboard",
         "mycourses": "My Courses",
         "personalsettings": "Personal Settings",
+				"subscription": "Subscription",				
         "login": "Login",
         "signup": "Sign Up",
         "signout": "Sign Out"

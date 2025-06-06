@@ -333,8 +333,7 @@ export async function fetchCoursesTags(searchQuery = ''): Promise<string[]> {
 }
 
 export async function fetchCoursesTitles(searchQuery = ''): Promise<{ slug: string, title: string }[]> {
-  let populate = `populate[0]=Details`;
-  let strapi_url = `${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}/api/courses?${populate}`;
+  let strapi_url = `${process.env.NEXT_PUBLIC_CMS_PROTOCOL}://${process.env.NEXT_PUBLIC_CMS_URL}/api/courses`;
 
   try {
     const res = await fetch(strapi_url, {
@@ -352,7 +351,6 @@ export async function fetchCoursesTitles(searchQuery = ''): Promise<{ slug: stri
      const titles: { slug: string, title: string }[] = [];
 
     for (const course of data.data) {
-      const details = course?.Details;
       const slug = course?.slug || '';
       const title = course?.title || '';
 

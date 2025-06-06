@@ -25,6 +25,43 @@
 		"billingData": "Számlázási adatok"
   },
 	"components":{
+		"unsubscribebutton":{
+			"btn":"A tagságomat megszűntetem és leiratkozom az előfizetésről.",
+			"success":"Sikeresen leiratkoztál az előfizetésedről. Köszönjük, hogy eddig velünk tartottál!",
+			"error":"Hiba történt a leiratkozás során. Kérjük, próbáld újra később.",
+			"loading":"A leiratkozás folyamatban...",
+			"modal":{
+				"confirm_title": "Biztos vagy benne?",
+				"confirm_text": "Valóban le szeretnéd mondani az előfizetésed?",
+				"yes": "Igen, lemondom",
+				"no": "Mégsem"				
+			}
+		},
+		"subscriptionstatus":{
+			"onprogress":"Dolgozunk az előfizetésed frissítésén...",
+			"btncourses":"Kurzusok megtekintése",
+			"offers":"Előfizetői csomagjaink megtekintése",
+			"scancel":{
+				"head":"Lemondott és törölt előfizetés!",
+				"sub":"Az előfizetés sikeresen lemondásra került, és a hozzáférésed a Lustiq Lab tartalmaihoz megszűnt. Köszönjük, hogy eddig velünk tartottál! Ha bármikor úgy döntesz, hogy visszatérsz, örömmel látunk újra!"
+			},			
+			"spending":{
+				"head":"Függőben lévő előfizetés!",
+				"sub":"A fizetési folyamat még nem fejeződött be - vagy hiba történt a lezárás során. "
+			},
+			"sfailed":{
+				"head":"Sikertelen fizetés!",
+				"sub":"A fizetés sikertelen volt. Kérjük, ellenőrizd a bankkártya adataidat, és próbáld újra. Ha a probléma továbbra is fennáll, lépj kapcsolatba az ügyfélszolgálattal."
+			},
+			"sno":{
+				"head":"Nincs aktív fizetés!",
+				"sub":"Még nincs aktív előfizetésed. Kérjük, iratkozz fel az egyik csomagra, hogy hozzáférhess a Lustiq Lab tartalmaihoz."
+			},
+			"ssuccess":{
+				"head":"Aktív előfizetés!",
+				"sub":"Gratulálunk - elérhető a Lustiq Lab összes tartalma számodra! Köszönjük, hogy csatlakoztál a közösségünkhöz."
+			}											
+		},
 		"szexplicit":{
 			"pricing":{
 				"title":"Szexplicit Podcast",
@@ -333,6 +370,7 @@
 			"firststeps":{
 				"title":"Az Első Két lépés",
 				"sub":"Itt megtalálod az első lépéseket, amik segíthetnek a platform megismerésében.",
+				"close":"Bezárás",
 				"video":{
 					"title":"Üdvözlő videó",
 					"description":"Nézd meg ezt a rövid videót, hogy megtudd, hogyan használhatod ki a Lustiq Lab előnyeit."
@@ -519,7 +557,8 @@
 				"contact": "Kapcsolat",
 				"dashboard": "Irányítópult",
 				"mycourses": "Kurzusaim",
-				"personalsettings": "Személyes beállítások",
+				"personalsettings": "Személyes beállításaim",
+				"subscription": "Előfizetésem",
 				"login": "Bejelentkezés",
 				"signup": "Regisztráció",
 				"signout": "Kijelentkezés"

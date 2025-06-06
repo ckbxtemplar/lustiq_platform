@@ -5,6 +5,7 @@ export type User = {
   password: string;
 	language: string | null;
 	avatar: string | null;
+	id_subscription: string | null;
 };
 
 export type Customer = {

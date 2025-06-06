@@ -1,27 +1,29 @@
 import Link from 'next/link';
-import {useTranslations} from 'next-intl';
+import {useTranslations,useLocale} from 'next-intl';
 
 export default function SiteHeaderMenuMain({ pathname }: { pathname: string }) {
 	
 	const t = useTranslations('pages.home.header');
+	const locale = '/'+useLocale();
+	console.log('na:', pathname.slice(locale.length));
 
   return (
 		<div className="main_menu_inner collapse navbar-collapse justify-content-start" id="main_menu_dropdown">
 			<ul className="main_menu_list unordered_list_center">							
-				<li className={pathname === '/' ? 'active' : ''}>
+				<li className={pathname.slice(locale.length) === '' ? 'active' : ''}>
 					<Link className="nav-link" href="/" id="home_submenu" role="button">{t('home')}</Link>
 				</li>
-				<li className={pathname === '/courses' ? 'active' : ''}>
+				<li className={pathname.slice(locale.length) === '/courses' ? 'active' : ''}>
 					<Link className="nav-link" href="/courses" id="courses_submenu" role="button">
 						{t('courses')}
 					</Link>
 				</li>
-				<li className={pathname === '/pricing' ? 'active' : ''}>
+				<li className={pathname.slice(locale.length) === '/pricing' ? 'active' : ''}>
 					<Link className="nav-link" href="/pricing" id="pricing_submenu" role="button">
 					{t('pricing')}
 					</Link>
 				</li>
-				<li className={pathname === '/contact' ? 'active' : ''}>
+				<li className={pathname.slice(locale.length) === '/contact' ? 'active' : ''}>
 					<Link className="nav-link" href="/contact" id="contact_submenu" role="button">
 					{t('contact')}
 					</Link>

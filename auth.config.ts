@@ -26,7 +26,8 @@ export const authConfig = {
 					email: user.email,
 					image: user.avatar,
 					language: user.language,
-					subscriber: user.subscriber 
+					subscriber: user.subscriber,
+					id_subscription: user.id_subscription
 				};
 			}
 	

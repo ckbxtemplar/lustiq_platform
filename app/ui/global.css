@@ -18,10 +18,12 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .text-yellow{ color:#FA2243;}
+.text-red{ color:#FA2243;}
 .text-grey{ color:#e5e7eb;}
 .text-green{ color:#39c762;}
 
 .bg-yellow {background-color: #FA2243 !important;}
+.bg-red {background-color: #FA2243 !important;}
 .bg-grey {background-color: #f6f6f6 !important;}
 .bg-white{background-color: white !important; background-image:linear-gradient(180deg, #EEEEEE 20%, #ffffff 40%, #EEEEEE 100%);}
 
@@ -166,8 +168,11 @@ a.no-hover:hover {
 	padding: 14px 30px 12px 32px;
 }
 .main_menu_list .dropdown-menu > li:hover > button, 
-.main_menu_list .dropdown-menu > li.active >  button{
-	background-color: #ff8085;
+.main_menu_list .dropdown-menu > li:hover > a, 
+.main_menu_list .dropdown-menu > li.active > button,
+.main_menu_list .dropdown-menu > li.active > a{
+	background-color: #FA2243;
+	color:white;
 }
 @media screen and (width <= 991px) {
 	.main_menu_list.user_menu .dropdown-menu {
@@ -433,9 +438,8 @@ div.yt_channel_item a:hover{
 	background-size: auto !important;
 }
 
-.site_header .main_menu_list > li > a{
-	color:#fa2243 !important;
-}
+.site_header .main_menu_list > li > a{ color:#fa2243 !important; }
+.site_header .main_menu_list > li > a.text-white{ color:white !important; }
 
 .counter_item.borderless{border: none !important}
 
