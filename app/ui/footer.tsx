@@ -88,7 +88,19 @@ export default function Footer() {
 												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
 												<span className="item_text">{t('contact.faq')}</span>
 											</Link>
-										</li>										
+										</li>		
+										<li className='mt-4'>
+											<Link href="/docs/ASZF.pdf" target="_blank" rel="noopener noreferrer">
+												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
+												<span className="item_text">{t('contact.aszf')}</span>
+											</Link>
+										</li>		
+										<li>
+											<Link href="/docs/GDPR.pdf" target="_blank" rel="noopener noreferrer">
+												<span className="item_icon"><i className="fas fa-caret-right"></i></span>
+												<span className="item_text">{t('contact.gdpr')}</span>
+											</Link>
+										</li>																														
 									</ul>
 								</div>
 							</div>

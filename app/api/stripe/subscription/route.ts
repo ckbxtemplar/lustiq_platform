@@ -1,7 +1,8 @@
 import { NextRequest } from 'next/server'
 import { headers } from 'next/headers'
 import Stripe from 'stripe'
-import { logStripeWebhookEvent, updateUser } from '@/app/lib/data';
+import { logStripeWebhookEvent, updateUser, getUserById } from '@/app/lib/data';
+import { subscribeToKlaviyo } from '@/app/lib/klaviyo';
 
 export const config = {
   api: {
@@ -87,17 +88,22 @@ export async function POST(req: NextRequest) {
 
     if (userId) {
       let subscriber = 1 // alapértelmezett érték minden másra
+			const userData = await getUserById(userId);
+			if (!userData) return new Response(`getUserById error`, { status: 400 })
+			const userMail = userData?.email ?? null;
 
       if (
         (eventType === 'customer.subscription.updated' && status === 'active') ||
         (eventType === 'invoice.payment_succeeded' && status === 'paid') ||
         (eventType === 'customer.subscription.created' && status === 'active')
       ) {
-        subscriber = 3
+        subscriber = 3;
+				if (userMail) subscribeToKlaviyo(userMail,'subscriber');
       } else if (eventType === 'checkout.session.completed' && status === 'complete') {
-        subscriber = 2
+        subscriber = 2;
       } else if (eventType === 'customer.subscription.deleted' && status === 'canceled') {
-        subscriber = 4
+        subscriber = 4;
+				if (userMail) subscribeToKlaviyo(userMail,'unsubscriber');
       }			
 
       await updateUser(userId, {

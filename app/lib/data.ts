@@ -36,6 +36,19 @@ export async function getUser(email: string, fields?: string[]): Promise<User | 
 	}
 }
 
+export async function getUserById(userId: string, fields?: string[]): Promise<User | undefined> {
+	try {
+    const selectedFields = Array.isArray(fields) && fields.length > 0
+      ? fields.map(f => `\`${f}\``).join(', ')
+      : '*';		
+		const [user] = await pool.query<(User & RowDataPacket)[]>(`SELECT ${selectedFields} FROM users WHERE id = ? AND status = 1`,[userId]);
+		return user[0];
+	} catch (error) {
+		console.error('Failed to fetch user:', error);
+		throw new Error('Failed to fetch user.');
+	}
+}
+
 export async function updateUser(id: string, updates: Record<string, any>): Promise<boolean> {
 	try {
 		if (Object.keys(updates).length === 0) {

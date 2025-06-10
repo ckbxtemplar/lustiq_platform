@@ -5,8 +5,6 @@ export default function SiteHeaderMenuMain({ pathname }: { pathname: string }) {
 	
 	const t = useTranslations('pages.home.header');
 	const locale = '/'+useLocale();
-	console.log('na:', pathname.slice(locale.length));
-
   return (
 		<div className="main_menu_inner collapse navbar-collapse justify-content-start" id="main_menu_dropdown">
 			<ul className="main_menu_list unordered_list_center">							
