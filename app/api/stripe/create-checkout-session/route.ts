@@ -7,9 +7,9 @@ export async function POST(request: Request) {
   try {
     const { priceId, locale, userId } = await request.json();
 
-    const headers = request.headers;
-    const dynamicHost = headers.get('host');
-    const baseUrl = dynamicHost ?? process.env.BASE_URL!;
+		const fullUrl = new URL(request.url);
+		const hostFromRequest = fullUrl.hostname;
+		const baseUrl = hostFromRequest && hostFromRequest !== 'localhost' ? hostFromRequest : process.env.BASE_URL!;
 
 		const customer = await stripe.customers.create({
 			metadata: {
