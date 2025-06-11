@@ -91,6 +91,7 @@ export async function POST(req: NextRequest) {
 			const userData = await getUserById(userId);
 			if (!userData) return new Response(`getUserById error`, { status: 400 })
 			const userMail = userData?.email ?? null;
+			const userSubStatus = userData?.subscriber ?? null;
 
       if (
         (eventType === 'customer.subscription.updated' && status === 'active') ||
@@ -101,16 +102,20 @@ export async function POST(req: NextRequest) {
 				if (userMail) subscribeToKlaviyo(userMail,'subscriber');
       } else if (eventType === 'checkout.session.completed' && status === 'complete') {
         subscriber = 2;
+				if (userSubStatus == 3 && subscriber == 2) subscriber = 3; // no downgrade in this case
       } else if (eventType === 'customer.subscription.deleted' && status === 'canceled') {
         subscriber = 4;
 				if (userMail) subscribeToKlaviyo(userMail,'unsubscriber');
       }			
+			
 
-      await updateUser(userId, {
-        subscriber,
-        ...(customerId ? { customer: customerId } : {}), // csak ha van customerId
+			await updateUser(userId, {
+				subscriber,
+				...(customerId ? { customer: customerId } : {}), // csak ha van customerId
 				...(subscriptionId ? { id_subscription: subscriptionId } : {})  // csak ha van subscriptionId
-      })
+			})
+
+
     }
 
     return new Response('✅ Webhook processed', { status: 200 })

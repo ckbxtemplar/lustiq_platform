@@ -6,6 +6,7 @@ export type User = {
 	language: string | null;
 	avatar: string | null;
 	id_subscription: string | null;
+	subscriber: number | null;
 };
 
 export type Customer = {

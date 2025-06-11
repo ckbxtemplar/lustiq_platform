@@ -7,16 +7,18 @@ export async function POST(request: Request) {
   try {
     const { priceId, locale, userId } = await request.json();
 
-		const fullUrl = new URL(request.url);
-		const hostFromRequest = fullUrl.hostname;
-		const baseUrl = hostFromRequest && hostFromRequest !== 'localhost' ? hostFromRequest : process.env.BASE_URL!;
+    const nextReq = request as any; 
+    const domain = nextReq.nextUrl?.hostname;
+    const baseUrl = domain ? domain : process.env.BASE_URL!;
+
+		console.log('BASE URL:',baseUrl);
 
 		const customer = await stripe.customers.create({
 			metadata: {
 				userId: userId,
 			},
 		})
-
+		
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       payment_method_types: ['card'],
