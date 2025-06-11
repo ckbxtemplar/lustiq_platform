@@ -4,14 +4,12 @@ import FAQ from '@/app/ui/main/FAQ';
 import NewsletterSection from '@/app/ui/newsletter-section';
 import CheckoutForm from '@/app/ui/subscribebutton';
 import {useTranslations} from 'next-intl';
-import Reviews from '@/app/ui/main/reviews';
 import Trusted from '@/app/ui/main/trusted';
 import WhatsAbout from '@/app/ui/main/whatsabout';
 import WhyAndHow from '@/app/ui/main/whyandhow';
 import WhatYouGet from '@/app/ui/main/whatyouget';
 import Banner from '@/app/ui/dashboard/banner';
 import SzexplicitRecommendation from '@/app/ui/main/szexplicitRecommendation';
-import ScrollspyPricing from '@/components/scrollspy-pricing';
 
 
 export const metadata: Metadata = {
@@ -31,8 +29,6 @@ export default function Pricing() {
 
   return (
 		<>
-
-		{/* <ScrollspyPricing /> */}
 
 		<main
 			className="page_content section_space_lg mb-0 pb-0 scrollspy-container"
@@ -97,7 +93,7 @@ export default function Pricing() {
                     </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
-										<CheckoutForm priceId="price_1RRDG3KoWBLyki7ElaP1loZT" title={t('buttons.sub_monthly')}/>
+										<CheckoutForm priceId={process.env.STRIPE_PRICE_ID_M!} title={t('buttons.sub_monthly')}/>
                   </div>
                 </div>
               </div>
@@ -134,7 +130,7 @@ export default function Pricing() {
                     </li>										
                   </ul>
                   <div className="btn_wrap pb-0">
-										<CheckoutForm priceId="price_1RRDEbKoWBLyki7EfOf6jMhb" title={t('buttons.sub_annual')} btnClass="btn_warning"/>
+										<CheckoutForm priceId={process.env.STRIPE_PRICE_ID_Y!} title={t('buttons.sub_annual')} btnClass="btn_warning"/>
                   </div>
                 </div>
               </div>
