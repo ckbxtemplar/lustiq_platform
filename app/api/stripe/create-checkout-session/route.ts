@@ -7,6 +7,10 @@ export async function POST(request: Request) {
   try {
     const { priceId, locale, userId } = await request.json();
 
+    const headers = request.headers;
+    const dynamicHost = headers.get('host');
+    const baseUrl = dynamicHost ?? process.env.BASE_URL!;
+
 		const customer = await stripe.customers.create({
 			metadata: {
 				userId: userId,
@@ -22,8 +26,8 @@ export async function POST(request: Request) {
 					price: priceId
         },
       ],
-      success_url: `${process.env.BASE_PROTOCOL+'://'+process.env.BASE_URL+"/"+locale}/subscribe/success`, // Sikeres vásárlás után hova irányítsuk a felhasználót
-      cancel_url: `${process.env.BASE_PROTOCOL+'://'+process.env.BASE_URL+"/"+locale}/subscribe/cancel`, // Ha a felhasználó megszakítja a vásárlást
+      success_url: `${process.env.BASE_PROTOCOL+'://'+baseUrl+'/'+locale}/subscribe/success`, // Sikeres vásárlás után hova irányítsuk a felhasználót
+      cancel_url: `${process.env.BASE_PROTOCOL+'://'+baseUrl+'/'+locale}/subscribe/cancel`, // Ha a felhasználó megszakítja a vásárlást
 			customer: customer.id,
 			client_reference_id: userId, // A felhasználó azonosítója
 			metadata: {
