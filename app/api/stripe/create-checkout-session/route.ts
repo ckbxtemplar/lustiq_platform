@@ -7,9 +7,13 @@ export async function POST(request: Request) {
   try {
     const { priceId, locale, userId } = await request.json();
 
-    const nextReq = request as any; 
-    const domain = nextReq.nextUrl?.hostname;
-    const baseUrl = domain ? domain : process.env.BASE_URL!;
+    // const nextReq = request as any; 
+    // const domain = nextReq.nextUrl?.hostname;
+    // const baseUrl = domain ? domain : process.env.BASE_URL!;
+
+    const forwardedHost = request.headers.get('x-forwarded-host');
+    const host = forwardedHost ?? request.headers.get('host') ?? process.env.BASE_URL!;
+    const baseUrl = host.split(':')[0]; // Eltávolítjuk a portszámot, ha van
 
 		console.log('BASE URL:',baseUrl);
 
