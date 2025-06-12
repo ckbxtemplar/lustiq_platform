@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { userSignOut } from "@/app/lib/user-actions";
 import { useSession } from "next-auth/react";
 import {useTranslations} from 'next-intl';
-import { useModal } from '@/app/lib/DiaryModalProvider';
 import { useEffect, useRef } from 'react';
 
 export default function SiteHeaderUser() {
@@ -22,8 +21,6 @@ export default function SiteHeaderUser() {
     const success = await userSignOut();
     if (success) window.location.href = '/';
   };
-
-	const { openModal } = useModal();
 
 	const t = useTranslations('pages.home.header');	
 
@@ -61,13 +58,7 @@ export default function SiteHeaderUser() {
 										<span className="icon-container me-2 text-center"><i className="fas fa-chalkboard-teacher me-2"></i></span>
 										{t('dashboard')}
 									</Link>
-								</li>
-								<li>
-									<Link href="#" onClick={openModal}>
-										<span className="icon-container me-2 text-center"><i className="fas fa-pencil-alt me-2"></i></span>
-										{t('diary')}
-									</Link>
-								</li>								
+								</li>				
 								<li>
 									<button onClick={handleSignOut} className="dropdown-item">
 										<span className="icon-container me-2 text-center"><i className="fas fa-sign-out-alt me-2"></i></span>
