@@ -1,18 +1,29 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from "next/navigation";
 import { userSignOut } from "@/app/lib/user-actions";
 import { useSession } from "next-auth/react";
 import {useTranslations} from 'next-intl';
+import { useModal } from '@/app/lib/DiaryModalProvider';
+import { useEffect, useRef } from 'react';
 
 export default function SiteHeaderUser() {
 	const { data: session, status } = useSession();
-  const router = useRouter();	
+	const dropdownRef = useRef(null);
+
+	useEffect(() => {
+		if (session?.user && dropdownRef.current) {
+			import('bootstrap').then(({ Dropdown }) => {
+				new Dropdown(dropdownRef.current);
+			});
+		}
+	}, [session?.user]); 
   
 	const handleSignOut = async () => {
     const success = await userSignOut();
     if (success) window.location.href = '/';
   };
+
+	const { openModal } = useModal();
 
 	const t = useTranslations('pages.home.header');	
 
@@ -22,7 +33,14 @@ export default function SiteHeaderUser() {
 				<li>
 					<ul className="main_menu_list user_menu unordered_list_end p-1 p-lg-2">
 						<li className="dropdown">
-							<Link className="nav-link" href="#" id="pages_usermenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<Link 
+								ref={dropdownRef}
+								className="nav-link" 
+								href="#" 
+								id="usermenu" 
+								role="button" 
+								data-bs-toggle="dropdown" 
+								aria-expanded="false">
 								<button>
 								{session?.user?.image ? (
 									<Image
@@ -37,13 +55,19 @@ export default function SiteHeaderUser() {
 								)}
 								</button>
 							</Link>
-							<ul className="dropdown-menu" aria-labelledby="pages_usermenu">
+							<ul className="dropdown-menu" aria-labelledby="usermenu">
 								<li>
 									<Link href="/dashboard">
 										<span className="icon-container me-2 text-center"><i className="fas fa-chalkboard-teacher me-2"></i></span>
 										{t('dashboard')}
 									</Link>
 								</li>
+								<li>
+									<Link href="#" onClick={openModal}>
+										<span className="icon-container me-2 text-center"><i className="fas fa-pencil-alt me-2"></i></span>
+										{t('diary')}
+									</Link>
+								</li>								
 								<li>
 									<button onClick={handleSignOut} className="dropdown-item">
 										<span className="icon-container me-2 text-center"><i className="fas fa-sign-out-alt me-2"></i></span>

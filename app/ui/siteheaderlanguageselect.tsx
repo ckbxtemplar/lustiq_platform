@@ -37,7 +37,7 @@ export default function SiteHeaderLanguageSelect() {
             <Link
               className="nav-link"
               href="#"
-              id="pages_usermenu"
+              id="languagemenu"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -52,7 +52,7 @@ export default function SiteHeaderLanguageSelect() {
 								layout="intrinsic"
               />
             </Link>
-            <ul className="dropdown-menu" aria-labelledby="pages_usermenu">
+            <ul className="dropdown-menu" aria-labelledby="languagemenu">
               {otherLocales.map((lang) => (
                 <li key={lang}>
                   <Link href={withLocalePrefix(pathname, lang)} className="dropdown-item">

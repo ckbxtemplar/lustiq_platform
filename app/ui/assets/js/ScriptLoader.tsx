@@ -6,8 +6,6 @@ import * as CookieConsent from "vanilla-cookieconsent";
 import {useLocale} from 'next-intl';
 import { usePathname } from 'next/navigation';
 
-const GA_MEASUREMENT_ID = 'G-HB1VJFF3ED';
-
 const CAT_NECESSARY = "necessary";
 const CAT_ANALYTICS = "analytics";
 const CAT_ADVERTISEMENT = "advertisement";
@@ -63,7 +61,6 @@ const ScriptLoader: React.FC = () => {
 
   // 2. CookieConsent futtatása a popup konfigurációddal
   useEffect(() => {
-		console.log("CookieConsent initialized with locale:", locale);
 
     CookieConsent.run({
 			onFirstConsent: () => {
@@ -81,16 +78,6 @@ const ScriptLoader: React.FC = () => {
 							readOnly: true,  // this category cannot be disabled
 					},
 					[CAT_ANALYTICS]: {
-							// autoClear: {
-							// 		cookies: [
-							// 				{
-							// 						name: /^_ga/,   // regex: match all cookies starting with '_ga'
-							// 				},
-							// 				{
-							// 						name: '_gid',   // string: exact cookie name
-							// 				}
-							// 		]
-							// },
 							services: {
 									[SERVICE_ANALYTICS_STORAGE]: {
 											label: 'Enables storage (such as cookies) related to analytics e.g. visit duration.',
@@ -110,23 +97,6 @@ const ScriptLoader: React.FC = () => {
 									},
 							}
 					},
-					// [CAT_FUNCTIONALITY]: {
-					// 		services: {
-					// 				[SERVICE_FUNCTIONALITY_STORAGE]: {
-					// 						label: 'Enables storage that supports the functionality of the website or app e.g. language settings.',
-					// 				},
-					// 				[SERVICE_PERSONALIZATION_STORAGE]: {
-					// 						label: 'Enables storage related to personalization e.g. video recommendations.',
-					// 				},
-					// 		}
-					// },
-					// [CAT_SECURITY]: {
-					// 		services: {
-					// 				[SERVICE_SECURITY_STORAGE]: {
-					// 						label: 'Enables storage related to security such as authentication functionality, fraud prevention, and other user protection.',
-					// 				},
-					// 		}
-					// }
 			},			
 			language: {
 					default: locale,
@@ -221,18 +191,8 @@ const ScriptLoader: React.FC = () => {
 													{
 															title: 'Advertising',
 															description: 'Google uses cookies for advertising, including serving and rendering ads, personalizing ads (depending on your ad settings at <a href=\"https://g.co/adsettings\">g.co/adsettings</a>), limiting the number of times an ad is shown to a user, muting ads you have chosen to stop seeing, and measuring the effectiveness of ads.',
-															linkedCategory: CAT_ADVERTISEMENT,
+															linkedCategory: CAT_ADVERTISEMENT
 													},
-													// {
-													// 		title: 'Functionality',
-													// 		description: 'Cookies used for functionality allow users to interact with a service or site to access features that are fundamental to that service. Things considered fundamental to the service include preferences like the user’s choice of language, product optimizations that help maintain and improve a service, and maintaining information relating to a user’s session, such as the content of a shopping cart.',
-													// 		linkedCategory: CAT_FUNCTIONALITY,
-													// },
-													// {
-													// 		title: 'Security',
-													// 		description: 'Cookies used for security authenticate users, prevent fraud, and protect users as they interact with a service.',
-													// 		linkedCategory: CAT_SECURITY,
-													// },
 													{
 															title: 'More information',
 															description: 'For any queries in relation to the policy on cookies and your choices, please <a href="https://www.example.com/contacts">contact us</a>.'

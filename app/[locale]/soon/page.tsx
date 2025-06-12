@@ -20,7 +20,7 @@ export default function Page() {
     <main className={'page_content'}>
 			<HeroBanner page="soon"/>		
 			
-			<CountBack fromDate={"2025.06.19. 19:00"}/>
+			<CountBack fromDate={"2025.06.25. 19:00"}/>
 			
 			<NewsletterSection page="soon" />	
 

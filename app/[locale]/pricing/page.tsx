@@ -147,7 +147,7 @@ export default function Pricing() {
 
 				{/* <Reviews />		 */}
 
-				{/* <CountBack fromDate={"2025.06.19. 19:00"}/> */}
+				{/* <CountBack fromDate={"2025.06.25. 19:00"}/> */}
 
 				<SzexplicitRecommendation />	
 

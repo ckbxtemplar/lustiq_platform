@@ -77,14 +77,15 @@ export default function FirstSteps() {
 				<div className="container">
 					<div className="section_heading text-center">
 						<div className="row justify-content-center">
-							<div className="col col-lg-9">
-								<h2 className="heading_text mb-3">
-									{t('title')}
-								</h2>
-							</div>
+
 						</div>
 					</div>
 					<div className="row">
+						<div className="section_heading col col-lg-12">
+							<h2 className="heading_text mb-0 text-start">
+								{t('title')}
+							</h2>
+						</div>						
 						<div className="col col-lg-6 col-md-6 col-sm-12">
 							<div className="iconbox_item">
 								<div className="serial_number">01</div>
@@ -99,7 +100,7 @@ export default function FirstSteps() {
 								</h5>
 								<div className="intro_video">
 									<div className="video_wrap tilt">
-										<Image src="/assets/images/video/video_poster_1.jpg" width={2338} height={880} alt="Collab – Online Learning Platform"/>
+										<Image src="/assets/images/video/video_poster_2.jpg" width={2338} height={880} alt="Collab – Online Learning Platform"/>
 										<Link className="video_play_btn popup_video" href="https://www.youtube.com/watch?v=zYV8T8Vn9TM">
 											<span className="icon"><i className="fas fa-play"></i></span>
 										</Link>

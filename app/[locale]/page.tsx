@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <main className={'page_content'}>
 			<HeroBanner/>
-			<CountBack fromDate={"2025.06.19. 19:00"}/>
+			<CountBack fromDate={"2025.06.25. 19:00"}/>
 			<NewsletterSection page="soon" />
 			{/* <Reviews /> */}
 			<IntroVideo />
@@ -29,7 +29,7 @@ export default function Page() {
 			<CallToAction />
 			<Brands />
 			{/* <Blog /> */}
-			<div className="section_space_lg"></div>						
+			<div className="section_space_lg"></div>
     </main>
   );
 }

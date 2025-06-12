@@ -11,7 +11,21 @@ const handleI18nRouting = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
 
-  const { pathname } = request.nextUrl;
+  const { pathname, searchParams } = request.nextUrl;
+
+  // 0. callbackUrl host levágás minden esetben
+  const callbackUrlParam = searchParams.get('callbackUrl');
+  if (callbackUrlParam) {
+    try {
+      const parsed = new URL(callbackUrlParam);
+      const newCallback = parsed.pathname + parsed.search;
+      const cleanUrl = request.nextUrl.clone();
+      cleanUrl.searchParams.set('callbackUrl', newCallback);
+      return NextResponse.redirect(cleanUrl);
+    } catch (err) {
+      // Ha nem teljes URL (pl. már relatív), nincs teendő
+    }
+  }
 
   // 1. Ellenőrizzük, hogy van-e locale az URL-ben
   const hasLocale = routing.locales.some((locale) => pathname.startsWith(`/${locale}`));
